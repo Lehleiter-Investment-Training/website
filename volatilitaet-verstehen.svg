@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#2d5a87"/>
+    </linearGradient>
+    <linearGradient id="key" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#ffb800"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg5)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="700" cy="100" r="150" fill="rgba(255,215,0,0.05)"/>
+  <circle cx="100" cy="380" r="100" fill="rgba(102,204,153,0.05)"/>
+
+  <!-- Key icon -->
+  <g transform="translate(550, 120)">
+    <ellipse cx="50" cy="50" rx="40" ry="40" fill="none" stroke="url(#key)" stroke-width="8"/>
+    <rect x="45" y="80" width="10" height="80" fill="url(#key)"/>
+    <rect x="55" y="120" width="25" height="8" fill="url(#key)"/>
+    <rect x="55" y="140" width="20" height="8" fill="url(#key)"/>
+  </g>
+
+  <!-- Lock icon -->
+  <g transform="translate(680, 250)">
+    <rect x="0" y="30" width="60" height="50" rx="5" fill="rgba(102,204,153,0.3)" stroke="#66cc99" stroke-width="2"/>
+    <path d="M 10 30 L 10 15 A 20 20 0 0 1 50 15 L 50 30" fill="none" stroke="#66cc99" stroke-width="4"/>
+  </g>
+
+  <!-- Volatility chart -->
+  <g transform="translate(40, 280)">
+    <rect x="0" y="0" width="350" height="120" rx="8" fill="rgba(255,255,255,0.08)"/>
+    <text x="175" y="25" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" text-anchor="middle">VOLATILITÄTSMUSTER</text>
+    <polyline points="20,90 60,50 100,70 140,30 180,55 220,45 260,65 300,40 330,50"
+              fill="none" stroke="#66cc99" stroke-width="2"/>
+    <line x1="20" y1="100" x2="330" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  </g>
+
+  <!-- Title -->
+  <text x="40" y="100" font-family="Arial, sans-serif" font-size="32" fill="white" font-weight="bold">Volatilität verstehen:</text>
+  <text x="40" y="150" font-family="Arial, sans-serif" font-size="28" fill="#ffd700">Der Schlüssel zum</text>
+  <text x="40" y="195" font-family="Arial, sans-serif" font-size="28" fill="#ffd700">Optionserfolg</text>
+
+  <!-- Decorative bar -->
+  <rect x="40" y="215" width="150" height="4" fill="url(#key)" rx="2"/>
+
+  <!-- Bottom tag -->
+  <rect x="40" y="390" width="160" height="35" rx="17" fill="url(#key)"/>
+  <text x="120" y="413" font-family="Arial, sans-serif" font-size="14" fill="#003366" text-anchor="middle" font-weight="bold">GRUNDLAGEN</text>
+</svg>

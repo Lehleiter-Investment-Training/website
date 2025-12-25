@@ -1,0 +1,23 @@
+# robots.txt for https://www.just-options.de
+# Website: Optionen strategisch nutzen - Markus Lehleiter
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private directories (none currently)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.just-options.de/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
