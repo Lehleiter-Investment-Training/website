@@ -812,6 +812,7 @@
         <div class="password-box">
             <h2>Bonusmaterial</h2>
             <p>Exklusiv für Workbook-Leser</p>
+            <p style="font-size: 0.8rem; color: #7e97c3; margin-bottom: 1rem;">Hinweis: Das Passwort ist die Überschrift auf S. 200 im Workbook.</p>
             <form id="passwordForm">
                 <input type="password" id="passwordInput" placeholder="Passwort" autocomplete="off" autofocus>
                 <button type="submit">Zugang</button>
@@ -838,6 +839,162 @@
 
         <div class="container">
             <div class="grid">
+
+                <!-- Answersheet Download -->
+                <div class="card full-width">
+                    <div class="card-body" style="padding: 1rem;">
+                        <a href="workbook/answersheet.pdf" class="download-btn" style="background: var(--accent); color: var(--primary); font-size: 1rem;" download>
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Answersheet herunterladen – Lösungen zu allen Übungen (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Greeks Schnellreferenz -->
+                <div class="card full-width">
+                    <div class="card-header">
+                        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                        Greeks Schnellreferenz
+                    </div>
+                    <div class="card-body">
+                        <table class="greek-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 140px;">Greek</th>
+                                    <th style="width: 200px;">Misst</th>
+                                    <th>Praktische Bedeutung</th>
+                                    <th style="width: 160px;">Typischer Wertebereich</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="greek-symbol">Δ</span><span class="greek-name">Delta</span></td>
+                                    <td>Preisänderung pro 1€ Bewegung des Basiswerts</td>
+                                    <td>Ein Delta von 0,50 bedeutet: Steigt die Aktie um 1€, steigt der Call um ca. 0,50€. Auch interpretierbar als ungefähre Wahrscheinlichkeit, im Geld zu verfallen.</td>
+                                    <td>Call: 0 bis +1<br>Put: −1 bis 0</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="greek-symbol">Γ</span><span class="greek-name">Gamma</span></td>
+                                    <td>Änderungsrate des Delta</td>
+                                    <td>Zeigt, wie schnell sich Delta ändert. Höchstes Gamma bei ATM-Optionen kurz vor Verfall. Wichtig für das Hedging.</td>
+                                    <td>0 bis ~0,10 (am Geld)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="greek-symbol">Θ</span><span class="greek-name">Theta</span></td>
+                                    <td>Zeitwertverlust pro Tag</td>
+                                    <td>Ein Theta von −0,05 bedeutet: Die Option verliert ca. 5 Cent pro Tag (bei sonst gleichen Bedingungen). Beschleunigt sich zum Verfall hin.</td>
+                                    <td>Käufer: negativ<br>Verkäufer: positiv</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="greek-symbol">V</span><span class="greek-name">Vega</span></td>
+                                    <td>Preisänderung pro 1% IV-Änderung</td>
+                                    <td>Ein Vega von 0,15 bedeutet: Steigt die implizite Volatilität um 1 Prozentpunkt, steigt die Option um 0,15€. Besonders wichtig vor Earnings.</td>
+                                    <td>0,01 bis 0,30+</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="greek-symbol">ρ</span><span class="greek-name">Rho</span></td>
+                                    <td>Preisänderung pro 1% Zinsänderung</td>
+                                    <td>In der Praxis oft vernachlässigbar, außer bei sehr langen Laufzeiten (LEAPS) oder in Hochzinsphasen.</td>
+                                    <td>Call: positiv<br>Put: negativ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Trade-Checkliste Download -->
+                <div class="card">
+                    <div class="card-header">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Trade-Checkliste
+                    </div>
+                    <div class="card-body">
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="#003366"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <div class="download-info">
+                                <h4>Trade-Checkliste (PDF)</h4>
+                                <p>Systematische Checkliste für jeden Trade: Vor dem Trade, Risikomanagement und Ausführung. Zum Ausdrucken und Abhaken.</p>
+                                <ul class="download-features">
+                                    <li>✓ 12 Prüfpunkte in 3 Kategorien</li>
+                                    <li>✓ Platz für Notizen</li>
+                                    <li>✓ A4-Format zum Ausdrucken</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="workbook/trade-checkliste.pdf" class="download-btn" download>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Trade-Checkliste herunterladen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Handelsplan Download -->
+                <div class="card">
+                    <div class="card-header">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        Handelsplan-Vorlage
+                    </div>
+                    <div class="card-body">
+                        <div class="download-card">
+                            <div class="download-icon">
+                                <svg viewBox="0 0 24 24" width="48" height="48" fill="#003366"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            </div>
+                            <div class="download-info">
+                                <h4>Persönlicher Handelsplan (PDF)</h4>
+                                <p>Strukturierte Vorlage zur Entwicklung Ihrer individuellen Trading-Regeln. Definieren Sie Ziele, Risikomanagement und Exit-Strategien.</p>
+                                <ul class="download-features">
+                                    <li>✓ 4 Abschnitte mit Ausfüllfeldern</li>
+                                    <li>✓ Ziele & Rahmenbedingungen</li>
+                                    <li>✓ Risiko- und Exit-Regeln</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="workbook/handelsplan-vorlage.pdf" class="download-btn" download>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Handelsplan herunterladen
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Downloads Übersicht -->
+                <div class="card full-width">
+                    <div class="card-header">
+                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Weitere Downloads
+                    </div>
+                    <div class="card-body">
+                        <div class="downloads-grid">
+                            <div class="download-item">
+                                <div class="download-item-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#003366"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                                </div>
+                                <div class="download-item-info">
+                                    <h4>Greeks Schnellreferenz</h4>
+                                    <p>Delta, Gamma, Theta, Vega & Rho auf einen Blick</p>
+                                </div>
+                                <a href="workbook/greeks-referenz.pdf" class="download-btn-small" download>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                    PDF
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <div class="download-item-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#003366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                                </div>
+                                <div class="download-item-info">
+                                    <h4>Die 7 Anfängerfehler</h4>
+                                    <p>Häufige Fehler erkennen und vermeiden</p>
+                                </div>
+                                <a href="workbook/anfaengerfehler.pdf" class="download-btn-small" download>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                    PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Break-Even Rechner -->
                 <div class="card">
@@ -998,156 +1155,6 @@
                         </div>
                         <div class="info-box">
                             <strong>Faustregel:</strong> Riskieren Sie nie mehr als 1-2% Ihres Depots pro einzelnem Trade. Bei Optionen ist das eingesetzte Kapital Ihr maximales Risiko (bei Long-Positionen).
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Greeks Schnellreferenz -->
-                <div class="card full-width">
-                    <div class="card-header">
-                        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-                        Greeks Schnellreferenz
-                        <button class="print-btn" onclick="window.print()" style="margin-left: auto;">
-                            <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-                            Drucken
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <table class="greek-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 140px;">Greek</th>
-                                    <th style="width: 200px;">Misst</th>
-                                    <th>Praktische Bedeutung</th>
-                                    <th style="width: 160px;">Typischer Wertebereich</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><span class="greek-symbol">Δ</span><span class="greek-name">Delta</span></td>
-                                    <td>Preisänderung pro 1€ Bewegung des Basiswerts</td>
-                                    <td>Ein Delta von 0,50 bedeutet: Steigt die Aktie um 1€, steigt der Call um ca. 0,50€. Auch interpretierbar als ungefähre Wahrscheinlichkeit, im Geld zu verfallen.</td>
-                                    <td>Call: 0 bis +1<br>Put: −1 bis 0</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="greek-symbol">Γ</span><span class="greek-name">Gamma</span></td>
-                                    <td>Änderungsrate des Delta</td>
-                                    <td>Zeigt, wie schnell sich Delta ändert. Höchstes Gamma bei ATM-Optionen kurz vor Verfall. Wichtig für das Hedging.</td>
-                                    <td>0 bis ~0,10 (am Geld)</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="greek-symbol">Θ</span><span class="greek-name">Theta</span></td>
-                                    <td>Zeitwertverlust pro Tag</td>
-                                    <td>Ein Theta von −0,05 bedeutet: Die Option verliert ca. 5 Cent pro Tag (bei sonst gleichen Bedingungen). Beschleunigt sich zum Verfall hin.</td>
-                                    <td>Käufer: negativ<br>Verkäufer: positiv</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="greek-symbol">V</span><span class="greek-name">Vega</span></td>
-                                    <td>Preisänderung pro 1% IV-Änderung</td>
-                                    <td>Ein Vega von 0,15 bedeutet: Steigt die implizite Volatilität um 1 Prozentpunkt, steigt die Option um 0,15€. Besonders wichtig vor Earnings.</td>
-                                    <td>0,01 bis 0,30+</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="greek-symbol">ρ</span><span class="greek-name">Rho</span></td>
-                                    <td>Preisänderung pro 1% Zinsänderung</td>
-                                    <td>In der Praxis oft vernachlässigbar, außer bei sehr langen Laufzeiten (LEAPS) oder in Hochzinsphasen.</td>
-                                    <td>Call: positiv<br>Put: negativ</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Trade-Checkliste Download -->
-                <div class="card">
-                    <div class="card-header">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        Trade-Checkliste
-                    </div>
-                    <div class="card-body">
-                        <div class="download-card">
-                            <div class="download-icon">
-                                <svg viewBox="0 0 24 24" width="48" height="48" fill="#003366"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                            </div>
-                            <div class="download-info">
-                                <h4>Trade-Checkliste (PDF)</h4>
-                                <p>Systematische Checkliste für jeden Trade: Vor dem Trade, Risikomanagement und Ausführung. Zum Ausdrucken und Abhaken.</p>
-                                <ul class="download-features">
-                                    <li>✓ 12 Prüfpunkte in 3 Kategorien</li>
-                                    <li>✓ Platz für Notizen</li>
-                                    <li>✓ A4-Format zum Ausdrucken</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="workbook/trade-checkliste.pdf" class="download-btn" download>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            Trade-Checkliste herunterladen
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Handelsplan Download -->
-                <div class="card">
-                    <div class="card-header">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                        Handelsplan-Vorlage
-                    </div>
-                    <div class="card-body">
-                        <div class="download-card">
-                            <div class="download-icon">
-                                <svg viewBox="0 0 24 24" width="48" height="48" fill="#003366"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                            </div>
-                            <div class="download-info">
-                                <h4>Persönlicher Handelsplan (PDF)</h4>
-                                <p>Strukturierte Vorlage zur Entwicklung Ihrer individuellen Trading-Regeln. Definieren Sie Ziele, Risikomanagement und Exit-Strategien.</p>
-                                <ul class="download-features">
-                                    <li>✓ 4 Abschnitte mit Ausfüllfeldern</li>
-                                    <li>✓ Ziele & Rahmenbedingungen</li>
-                                    <li>✓ Risiko- und Exit-Regeln</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="workbook/handelsplan-vorlage.pdf" class="download-btn" download>
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            Handelsplan herunterladen
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Downloads Übersicht -->
-                <div class="card full-width">
-                    <div class="card-header">
-                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        Weitere Downloads
-                    </div>
-                    <div class="card-body">
-                        <div class="downloads-grid">
-                            <div class="download-item">
-                                <div class="download-item-icon">
-                                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#003366"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-                                </div>
-                                <div class="download-item-info">
-                                    <h4>Greeks Schnellreferenz</h4>
-                                    <p>Delta, Gamma, Theta, Vega & Rho auf einen Blick</p>
-                                </div>
-                                <a href="workbook/greeks-referenz.pdf" class="download-btn-small" download>
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                                    PDF
-                                </a>
-                            </div>
-                            <div class="download-item">
-                                <div class="download-item-icon">
-                                    <svg viewBox="0 0 24 24" width="32" height="32" fill="#003366"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                                </div>
-                                <div class="download-item-info">
-                                    <h4>Die 7 Anfängerfehler</h4>
-                                    <p>Häufige Fehler erkennen und vermeiden</p>
-                                </div>
-                                <a href="workbook/anfaengerfehler.pdf" class="download-btn-small" download>
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                                    PDF
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
