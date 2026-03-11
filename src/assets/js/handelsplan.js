@@ -85,55 +85,55 @@
                     analysisMethods: Array.from(document.querySelectorAll('input[name="analysis"]:checked')).map(cb => cb.value)
                 };
                 
-                // Generate the plan HTML
+                // Generate the plan HTML (all user input is escaped)
                 const planHTML = `
                     <div class="plan-section">
-                        <h3>👤 Händlerprofil</h3>
-                        <p><strong>Name:</strong> ${formValues.traderName}</p>
+                        <h3><i class="fas fa-user"></i> Händlerprofil</h3>
+                        <p><strong>Name:</strong> ${escapeHTML(formValues.traderName)}</p>
                         <p><strong>Kontogröße:</strong> €${Number(formValues.accountSize).toLocaleString('de-DE')}</p>
                         <p><strong>Erfahrungslevel:</strong> ${getExperienceText(formValues.experience)}</p>
                         <p><strong>Risikotoleranz:</strong> ${getRiskText(formValues.riskTolerance)}</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>🎯 Handelsziele</h3>
-                        <p><strong>Monatliches Renditeziel:</strong> ${formValues.monthlyGoal}%</p>
-                        <p><strong>Jährliches Renditeziel:</strong> ${formValues.yearlyGoal}%</p>
-                        <p><strong>Maximaler Drawdown:</strong> ${formValues.maxDrawdown}%</p>
-                        <p><strong>Primäres Ziel:</strong> ${formValues.tradingObjective}</p>
+                        <h3><i class="fas fa-bullseye"></i> Handelsziele</h3>
+                        <p><strong>Monatliches Renditeziel:</strong> ${escapeHTML(formValues.monthlyGoal)}%</p>
+                        <p><strong>Jährliches Renditeziel:</strong> ${escapeHTML(formValues.yearlyGoal)}%</p>
+                        <p><strong>Maximaler Drawdown:</strong> ${escapeHTML(formValues.maxDrawdown)}%</p>
+                        <p><strong>Primäres Ziel:</strong> ${escapeHTML(formValues.tradingObjective)}</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>⚠️ Risikomanagement</h3>
-                        <p><strong>Risiko pro Trade:</strong> ${formValues.riskPerTrade}% des Kontos (€${(formValues.accountSize * formValues.riskPerTrade / 100).toFixed(2)})</p>
-                        <p><strong>Maximale gleichzeitige Positionen:</strong> ${formValues.maxPositions}</p>
+                        <h3><i class="fas fa-shield-alt"></i> Risikomanagement</h3>
+                        <p><strong>Risiko pro Trade:</strong> ${escapeHTML(formValues.riskPerTrade)}% des Kontos (€${(formValues.accountSize * formValues.riskPerTrade / 100).toFixed(2)})</p>
+                        <p><strong>Maximale gleichzeitige Positionen:</strong> ${escapeHTML(formValues.maxPositions)}</p>
                         <p><strong>Stop-Loss Strategie:</strong> ${getStopLossText(formValues.stopLoss)}</p>
                         <p><strong>Maximales Gesamtrisiko:</strong> ${(formValues.riskPerTrade * formValues.maxPositions).toFixed(1)}% des Kontos</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>📈 Handelsstrategien</h3>
+                        <h3><i class="fas fa-chart-line"></i> Handelsstrategien</h3>
                         <p><strong>Bevorzugte Strategien:</strong> ${formValues.strategies.join(', ') || 'Keine ausgewählt'}</p>
                         <p><strong>Zeithorizont:</strong> ${getTimeframeText(formValues.timeframe)}</p>
-                        <p><strong>Bevorzugte Basiswerte:</strong> ${formValues.underlyings}</p>
+                        <p><strong>Bevorzugte Basiswerte:</strong> ${escapeHTML(formValues.underlyings)}</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>📊 Marktanalyse</h3>
+                        <h3><i class="fas fa-chart-bar"></i> Marktanalyse</h3>
                         <p><strong>Analysemethoden:</strong> ${formValues.analysisMethods.join(', ') || 'Keine ausgewählt'}</p>
-                        <p><strong>Hauptindikatoren:</strong> ${formValues.indicators}</p>
-                        <p><strong>Handelszeiten:</strong> ${formValues.tradingHours}</p>
+                        <p><strong>Hauptindikatoren:</strong> ${escapeHTML(formValues.indicators)}</p>
+                        <p><strong>Handelszeiten:</strong> ${escapeHTML(formValues.tradingHours)}</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>📋 Handelsregeln</h3>
-                        <p><strong>Einstiegsregeln:</strong></p><p>${formValues.entryRules.replace(/\n/g, '<br>')}</p>
-                        <p><strong>Ausstiegsregeln:</strong></p><p>${formValues.exitRules.replace(/\n/g, '<br>')}</p>
-                        <p><strong>Anpassungsregeln:</strong></p><p>${formValues.adjustmentRules.replace(/\n/g, '<br>')}</p>
+                        <h3><i class="fas fa-clipboard-list"></i> Handelsregeln</h3>
+                        <p><strong>Einstiegsregeln:</strong></p><p>${escapeAndBreak(formValues.entryRules)}</p>
+                        <p><strong>Ausstiegsregeln:</strong></p><p>${escapeAndBreak(formValues.exitRules)}</p>
+                        <p><strong>Anpassungsregeln:</strong></p><p>${escapeAndBreak(formValues.adjustmentRules)}</p>
                     </div>
 
                     <div class="plan-section">
-                        <h3>📅 Handelsroutine</h3>
+                        <h3><i class="fas fa-calendar-check"></i> Handelsroutine</h3>
                         <p><strong>Tägliche Aufgaben:</strong></p>
                         <ul>
                             <li>Marktanalyse vor Handelsbeginn durchführen</li>
@@ -150,8 +150,8 @@
                     </div>
 
                     <div class="plan-section">
-                        <h3>🚨 Notfallplan</h3>
-                        <p>Bei Erreichen des maximalen Drawdowns von ${formValues.maxDrawdown}%:</p>
+                        <h3><i class="fas fa-exclamation-triangle"></i> Notfallplan</h3>
+                        <p>Bei Erreichen des maximalen Drawdowns von ${escapeHTML(formValues.maxDrawdown)}%:</p>
                         <ul>
                             <li>Sofortiger Handelsstopp</li>
                             <li>Analyse aller verlustbringenden Trades</li>
@@ -165,9 +165,9 @@
                         <p><strong>Nächste Überprüfung:</strong> ${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     </div>
 
-                    <div class="plan-section" data-print-warning="true" style="background: #fff3cd; border: 2px solid #ffc107; padding: 20px; border-radius: 10px;">
-                        <h3 style="color: #856404;">⚠️ Wichtiger Hinweis</h3>
-                        <p style="color: #856404; margin: 0;">
+                    <div class="plan-section plan-warning" data-print-warning="true">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Wichtiger Hinweis</h3>
+                        <p>
                             <strong>Dieser Handelsplan stellt keine Anlageberatung dar.</strong>
                             Er dient ausschließlich zu Bildungs- und Organisationszwecken.
                             Alle Handelsentscheidungen treffen Sie auf eigenes Risiko.
@@ -179,6 +179,17 @@
                 planContent.innerHTML = planHTML;
                 outputSection.classList.remove('hidden');
                 outputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // --- Utility Functions ---
+            function escapeHTML(str) {
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(str));
+                return div.innerHTML;
+            }
+
+            function escapeAndBreak(str) {
+                return escapeHTML(str).replace(/\n/g, '<br>');
             }
 
             // --- Helper Functions & Action Buttons ---
