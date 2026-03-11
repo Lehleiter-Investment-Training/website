@@ -31,11 +31,12 @@ nav {
     font-weight: bold;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .logo img {
     height: 50px;
-    max-width: 100%;
+    width: auto;
 }
 
 .nav-links {
