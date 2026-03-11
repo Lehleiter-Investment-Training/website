@@ -2,11 +2,11 @@
     <div class="container">
         <div class="footer-content">
             <div class="logo-container">
-                <img src="/assets/images/logo.jpg" alt="Just Options Logo - Optionen strategisch nutzen" class="footer-logo">
+                <img src="/assets/images/logo.jpg" alt="Just Options Logo" class="footer-logo" width="500" height="250" loading="lazy">
             </div>
             <ul class="footer-links">
                 {% for item in navigation.footer %}
-                <li><a href="{{ item.url }}"{% if item.label == "Impressum" or item.label == "Datenschutz" %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
+                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
                 {% endfor %}
             </ul>
         </div>

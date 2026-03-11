@@ -29,6 +29,7 @@ extraCss:
     "@type": "BlogPosting",
     "headline": "{{ pageTitle }}",
     "description": "{{ description }}",
+    "inLanguage": "de",
     "author": {
         "@type": "Person",
         "name": "Markus Lehleiter",
@@ -36,11 +37,17 @@ extraCss:
         "url": "https://www.just-options.de"
     },
     {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}
+    {% if lastModified %}"dateModified": "{{ lastModified | isoDate }}",{% elif date %}"dateModified": "{{ date | isoDate }}",{% endif %}
     {% if image %}"image": "https://www.just-options.de{{ image }}",{% endif %}
+    {% if tags %}"keywords": "{{ tags | join(', ') }}",{% endif %}
     "publisher": {
         "@type": "Organization",
         "name": "just OPTIONS",
-        "url": "https://www.just-options.de"
+        "url": "https://www.just-options.de",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.just-options.de/assets/images/logo.jpg"
+        }
     },
     "mainEntityOfPage": {
         "@type": "WebPage",

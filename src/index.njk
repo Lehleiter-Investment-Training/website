@@ -8,7 +8,6 @@ ogDescription: "Lernen Sie Optionen strategisch einzusetzen - für zusätzliche 
 ogImage: "https://www.just-options.de/assets/images/buchcover.png"
 ogImageAlt: "Buchcover: Optionen strategisch nutzen von Markus Lehleiter"
 canonical: "https://www.just-options.de/"
-schemaType: "Product"
 permalink: /index.html
 ---
 
@@ -31,14 +30,19 @@ permalink: /index.html
         </div>
         <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
             <meta itemprop="ratingValue" content="4.9">
+            <meta itemprop="bestRating" content="5">
+            <meta itemprop="worstRating" content="1">
             <meta itemprop="reviewCount" content="17">
         </div>
         <div class="book-preview" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            <meta itemprop="availability" content="https://schema.org/InStock">
+            <meta itemprop="url" content="{{ site.amazonBookUrl }}">
             <div class="book-image">
-                <img src="/assets/images/buchcover.png" alt="Buchcover: Optionen strategisch nutzen - Markus Lehleiter Finanzbuch">
+                <img src="/assets/images/buchcover.png" alt="Buchcover: Optionen strategisch nutzen - Markus Lehleiter Finanzbuch" width="1500" height="2250">
             </div>
             <div class="book-details">
                 <h3 itemprop="name">Erfolgreich investieren, Risiken absichern und Zusatzeinnahmen generieren – mit einem klaren, bewährten System</h3>
+                <meta itemprop="description" content="Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel. Bewährte Strategien, Risikomanagement und ein klares System für Zusatzerträge.">
                 <p>In diesem praktischen Handbuch erfahren Sie, wie Sie mit Optionen nicht nur Ihr Depot schützen, sondern auch eine zusätzliche Einnahmequelle generieren können. Basierend auf bewährten Strategien, erhalten Sie einen klaren Einstieg, der Ihnen hilft, typische Fehler zu vermeiden und sich von Beginn an auf Erfolgskurs zu bringen.</p>
                 <div class="price-tag" itemprop="price" content="24.00">24,00 €</div>
                 <meta itemprop="priceCurrency" content="EUR">
@@ -52,7 +56,7 @@ permalink: /index.html
 
         <div class="book-preview" itemscope itemtype="http://schema.org/Offer">
             <div class="book-image">
-                <img src="/assets/images/workbook.png" alt="Workbook: Optionen strategisch nutzen - Markus Lehleiter">
+                <img src="/assets/images/workbook.png" alt="Workbook: Optionen strategisch nutzen - Markus Lehleiter" width="1500" height="2250" loading="lazy">
             </div>
             <div class="book-details">
                 <h3 itemprop="name">Das Workbook zum Buch – Wissen vertiefen und in die Praxis umsetzen</h3>
@@ -184,7 +188,7 @@ permalink: /index.html
     <div class="container">
         <h2>Über den Autor</h2>
         <div class="author-info">
-            <img src="/assets/images/autor.jpg" alt="Markus Lehleiter - Autor und Experte für Optionshandel" class="author-image">
+            <img src="/assets/images/autor.jpg" alt="Markus Lehleiter - Autor und Experte für Optionshandel" class="author-image" width="1080" height="1350" loading="lazy">
             <h3>Markus Lehleiter</h3>
             <p>Markus Lehleiter ist ein Investmentexperte mit über zwanzig Jahren Erfahrung in der Finanzbranche. Im Laufe seiner Karriere war er maßgeblich an der Entwicklung innovativer Fonds und Finanzprodukte beteiligt und leitete mehrere Projekte in den Bereichen Digitalisierung und Produktstrategie bei großen Fondsgesellschaften.</p>
             <p>Als Wirtschaftsmathematiker, Chartered Financial Analyst und Financial Risk Manager verfügt er über tiefgehende Kenntnisse in der Analyse und Gestaltung komplexer Anlageprodukte. Zudem ist er seit vielen Jahren aktiv im Optionshandel tätig.</p>
@@ -332,6 +336,75 @@ permalink: /index.html
 </section>
 <!-- Slider Script -->
 <script src="/assets/js/slider.js"></script>
+
+<!-- Product Structured Data -->
+<script type="application/ld+json">
+[
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Optionen strategisch nutzen",
+        "description": "Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel. Bewährte Strategien, Risikomanagement und ein klares System für Zusatzerträge.",
+        "author": {
+            "@type": "Person",
+            "name": "Markus Lehleiter"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "just OPTIONS"
+        },
+        "isbn": "978-3-9826869-0-0",
+        "numberOfPages": 218,
+        "bookFormat": "https://schema.org/Paperback",
+        "inLanguage": "de",
+        "datePublished": "2024-11-20",
+        "image": "https://www.just-options.de/assets/images/buchcover.png",
+        "url": "{{ site.amazonBookUrl }}",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "reviewCount": "17"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "24.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "{{ site.amazonBookUrl }}"
+        }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Optionen strategisch nutzen - Das Workbook",
+        "description": "Das Workbook zum Buch: Praktische Übungen, Checklisten und Praxisbeispiele zum Vertiefen und Umsetzen der Optionsstrategien.",
+        "author": {
+            "@type": "Person",
+            "name": "Markus Lehleiter"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "just OPTIONS"
+        },
+        "isbn": "978-3-9826869-1-7",
+        "numberOfPages": 200,
+        "bookFormat": "https://schema.org/Paperback",
+        "inLanguage": "de",
+        "datePublished": "2026-01-12",
+        "image": "https://www.just-options.de/assets/images/workbook.png",
+        "url": "{{ site.amazonWorkbookUrl }}",
+        "offers": {
+            "@type": "Offer",
+            "price": "20.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "{{ site.amazonWorkbookUrl }}"
+        }
+    }
+]
+</script>
 
 <!-- FAQ Structured Data -->
 <script type="application/ld+json">
