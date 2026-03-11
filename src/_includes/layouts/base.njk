@@ -65,6 +65,7 @@
             trigger.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     var dropdown = this.nextElementSibling;
+                    if (!dropdown) return;
                     var isOpen = this.getAttribute('aria-expanded') === 'true';
                     this.setAttribute('aria-expanded', !isOpen);
                     if (!isOpen) {
@@ -83,6 +84,7 @@
             menu.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     var trigger = this.parentElement.querySelector('a');
+                    if (!trigger) return;
                     this.style.display = '';
                     trigger.setAttribute('aria-expanded', 'false');
                     trigger.focus();
