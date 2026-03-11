@@ -17,7 +17,6 @@
   "footer": [
     { "label": "Das Buch", "url": "/#book" },
     { "label": "Blog", "url": "/blog.html" },
-    { "label": "Bonus", "url": "/Bonus.html" },
     { "label": "Autor", "url": "/#author" },
     { "label": "Rezensionen", "url": "/#reviews" },
     { "label": "FAQ", "url": "/#faq" },

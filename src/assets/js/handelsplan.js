@@ -3,12 +3,6 @@
             const disclaimerOverlay = document.getElementById('disclaimerOverlay');
             const acceptBtn = document.getElementById('acceptBtn');
             const declineBtn = document.getElementById('declineBtn');
-            
-            const passwordSection = document.getElementById('passwordSection');
-            const passwordInput = document.getElementById('passwordInput');
-            const checkPasswordBtn = document.getElementById('checkPasswordBtn');
-            const passwordError = document.getElementById('passwordError');
-            const mainContent = document.getElementById('mainContent');
 
             const riskLevels = document.querySelectorAll('.risk-level');
             const riskToleranceInput = document.getElementById('riskTolerance');
@@ -25,40 +19,16 @@
             // --- Disclaimer Logic ---
             if (sessionStorage.getItem('disclaimerAccepted') === 'true') {
                 disclaimerOverlay.classList.add('hidden');
-                setTimeout(() => passwordInput.focus(), 100);
             }
 
             acceptBtn.addEventListener('click', function() {
                 sessionStorage.setItem('disclaimerAccepted', 'true');
                 disclaimerOverlay.classList.add('hidden');
-                setTimeout(() => passwordInput.focus(), 100);
             });
 
             declineBtn.addEventListener('click', function() {
                 alert('Sie müssen den Haftungsausschluss akzeptieren, um dieses Tool nutzen zu können.');
                 window.location.href = '/';
-            });
-            
-            // --- Password Logic ---
-            function checkPassword() {
-                // SECURITY NOTE: This is not secure. The password is plain text in the source code.
-                const correctPassword = 'Lehleiter'; 
-                if (passwordInput.value === correctPassword) {
-                    passwordSection.classList.add('hidden');
-                    mainContent.classList.remove('hidden');
-                    passwordError.classList.add('hidden');
-                } else {
-                    passwordError.classList.remove('hidden');
-                    passwordInput.value = '';
-                    passwordInput.focus();
-                }
-            }
-
-            checkPasswordBtn.addEventListener('click', checkPassword);
-            passwordInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    checkPassword();
-                }
             });
 
             // --- Risk Level Selection Logic ---

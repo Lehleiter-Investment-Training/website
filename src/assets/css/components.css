@@ -101,6 +101,17 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* White/light background variant */
+section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary {
+    color: var(--gray-700);
+    border-color: var(--gray-500);
+}
+
+section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary:hover {
+    background-color: var(--gray-700);
+    color: var(--light);
+}
+
 /* ==========================================================================
    Sections
    ========================================================================== */
@@ -852,5 +863,70 @@ section h2 {
 
     .book-buttons .btn {
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Telegram Banner
+   ========================================================================== */
+
+.telegram-banner {
+    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.telegram-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.telegram-banner-text {
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.telegram-banner-text i {
+    font-size: 2rem;
+}
+
+.telegram-banner-text h3 {
+    color: var(--light);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.telegram-banner-text p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0.25rem 0 0;
+    font-size: 0.95rem;
+}
+
+.telegram-banner .btn {
+    background: var(--light);
+    color: #0088cc;
+    border: none;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.telegram-banner .btn:hover {
+    background: var(--gray-100);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 600px) {
+    .telegram-banner .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .telegram-banner-text {
+        flex-direction: column;
     }
 }

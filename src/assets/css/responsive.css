@@ -71,7 +71,7 @@
     }
 
     .nav-links {
-        display: none;
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
@@ -83,19 +83,26 @@
         justify-content: center;
         z-index: 100;
         padding: var(--spacing-lg);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .nav-links.show {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links li {
-        margin: var(--spacing-md) 0;
+        margin: var(--spacing-xs) 0;
     }
 
     .nav-links a {
         font-size: 1.2rem;
-        padding: var(--spacing-sm) 0;
+        padding: 0.75rem 1.5rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
     .dropdown-icon {
@@ -119,7 +126,8 @@
     .dropdown-menu a {
         font-size: 1rem;
         opacity: 0.8;
-        padding: var(--spacing-xs) 0;
+        padding: 0.5rem 1.5rem;
+        min-height: 40px;
     }
 
     .nav-cta {

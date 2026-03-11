@@ -81,9 +81,10 @@ permalink: /boersenquiz.html
             background: linear-gradient(135deg, rgba(0,51,102,0.05) 0%, rgba(126,151,195,0.05) 100%);
         }
 
-        .emoji-header {
-            font-size: 4rem;
+        .quiz-icon-header {
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
+            color: var(--primary-quiz);
             animation: bounce 2s infinite;
         }
 
@@ -161,6 +162,7 @@ permalink: /boersenquiz.html
 
         .streak-fire {
             font-size: 1.5rem;
+            color: var(--accent-red);
         }
 
         /* Progress */
@@ -602,16 +604,16 @@ permalink: /boersenquiz.html
     
     <div id="quiz-container">
         <div id="start-screen">
-            <div class="emoji-header">📈💰🚀</div>
+            <div class="quiz-icon-header"><i class="fas fa-chart-line"></i></div>
             <h1>Das große Börsen-Quiz</h1>
             <p class="subtitle">Testen Sie Ihr Finanzwissen!<br />100 Fragen zu Aktien, ETFs, Optionen und mehr</p>
-            <button class="start-btn" onclick="startQuiz()">Quiz starten! 🎯</button>
+            <button class="start-btn" onclick="startQuiz()"><i class="fas fa-play"></i> Quiz starten</button>
         </div>
 
         <div id="quiz-header">
             <div class="header-content">
                 <div class="level-badge" id="level-badge">Level: Börsen-Rookie</div>
-                <div class="streak-counter"><span class="streak-fire">🔥</span><span id="streak-count">0</span></div>
+                <div class="streak-counter"><span class="streak-fire"><i class="fas fa-fire"></i></span><span id="streak-count">0</span></div>
             </div>
             <div id="progress-container">
                 <div id="question-counter"></div>
@@ -658,7 +660,7 @@ permalink: /boersenquiz.html
             
             <div class="action-buttons">
                 <button class="btn-secondary" onclick="startQuiz()">Nochmal versuchen</button>
-                <button class="start-btn" onclick="shareResults()">Ergebnis teilen 📱</button>
+                <button class="start-btn" onclick="shareResults()"><i class="fas fa-share-alt"></i> Ergebnis teilen</button>
             </div>
         </div>
     </div>
