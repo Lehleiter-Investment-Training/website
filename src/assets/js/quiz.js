@@ -37,7 +37,7 @@
         answers: [
           { text: "Der innere Wert einer Option.", correct: false },
           { text: "Der Wert der Option bei Fälligkeit.", correct: false },
-          { text: "Der Wert der Option aufgrund von Zinsen.", correct: false },
+          { text: "Die Differenz zwischen Ausübungspreis und aktuellem Marktpreis.", correct: false },
           { text: "Der Wert der Option aufgrund der verbleibenden Zeit bis zur Fälligkeit.", correct: true }
         ],
         explanation: "Der Zeitwert einer Option ist der Teil des Optionspreises, der auf der verbleibenden Zeit bis zur Fälligkeit basiert. Er spiegelt die Chance wider, dass sich der Kurs des Basiswerts noch günstig entwickeln könnte. Wie Sie diesen Zeitwert strategisch für sich nutzen können, wird im Buch ausführlich behandelt.",
@@ -46,8 +46,8 @@
       {
         question: "Was ist ein 'Covered Call'?",
         answers: [
-          { text: "Eine Strategie, bei der man eine Call-Option kauft.", correct: false },
-          { text: "Eine Strategie, bei der man eine Put-Option kauft.", correct: false },
+          { text: "Eine Strategie, bei der man eine Call-Option kauft und auf steigende Kurse setzt.", correct: false },
+          { text: "Eine Strategie, bei der man eine Put-Option kauft und den Basiswert leerverkauft.", correct: false },
           { text: "Eine Strategie, bei der man eine Call-Option verkauft und die entsprechenden Aktien besitzt.", correct: true },
           { text: "Eine Strategie, bei der man eine Put-Option verkauft und die entsprechenden Aktien besitzt.", correct: false }
         ],
@@ -79,10 +79,10 @@
       {
         question: "Was ist ein 'Spread' im Optionshandel?",
         answers: [
-          { text: "Der Unterschied zwischen dem höchsten und niedrigsten Kurs einer Aktie.", correct: false },
-          { text: "Eine Optionsstrategie, bei der gleichzeitig Optionen gleicher Art, aber mit unterschiedlichen Basispreisen oder Laufzeiten gekauft und verkauft werden.", correct: true },
-          { text: "Eine Kennzahl für die Liquidität einer Option.", correct: false },
-          { text: "Eine Methode zur Risikoberechnung.", correct: false }
+          { text: "Die Differenz zwischen Geld- und Briefkurs, die beim Handel als Kosten anfällt.", correct: false },
+          { text: "Eine Strategie, bei der Optionen mit unterschiedlichen Basispreisen oder Laufzeiten kombiniert werden.", correct: true },
+          { text: "Eine Kennzahl, die das Verhältnis von impliziter zu historischer Volatilität beschreibt.", correct: false },
+          { text: "Die Differenz zwischen dem inneren Wert und dem Zeitwert einer Option.", correct: false }
         ],
         explanation: "Ein Spread im Optionshandel ist eine Kombination aus dem Kauf und Verkauf von Optionen gleicher Art, aber mit unterschiedlichen Basispreisen oder Laufzeiten. Diese Strategie ermöglicht eine präzisere Positionierung und oft eine Begrenzung des Risikos. Im Buch werden verschiedene Spread-Strategien vorgestellt und ihre Anwendungsfälle erklärt.",
         bookReference: "Kapitel 2: Weiterführende Strategien"
@@ -101,10 +101,10 @@
       {
         question: "Was ist ein 'Margin-Konto'?",
         answers: [
-          { text: "Ein Konto, auf dem nur Aktien gehandelt werden können.", correct: false },
-          { text: "Ein Konto, auf dem nur Optionen gehandelt werden können.", correct: false },
-          { text: "Ein Konto, das den Handel mit geliehenem Geld ermöglicht.", correct: true },
-          { text: "Ein Konto, auf dem nur langfristige Anlagen gehalten werden.", correct: false }
+          { text: "Ein reguläres Handelskonto mit erhöhter Einlagensicherung für Großanleger.", correct: false },
+          { text: "Ein spezielles Konto für den steuerfreien Handel mit Derivaten.", correct: false },
+          { text: "Ein Konto, das den Handel mit geliehenem Geld und erhöhter Kaufkraft ermöglicht.", correct: true },
+          { text: "Ein Verrechnungskonto, auf dem Prämieneinnahmen aus Optionsgeschäften gesammelt werden.", correct: false }
         ],
         explanation: "Ein Margin-Konto ermöglicht den Handel mit geliehenem Geld und ist für bestimmte Optionsstrategien notwendig. Es unterliegt besonderen Anforderungen und Risiken, die im Buch ausführlich behandelt werden. Ein gutes Verständnis des Marginhandels ist entscheidend für ein erfolgreiches Risikomanagement im Optionshandel.",
         bookReference: "Kapitel 4: Risiken professionell managen - Marginhandel verstehen"
@@ -123,10 +123,10 @@
       {
         question: "Was bedeutet 'Long' im Optionshandel?",
         answers: [
-          { text: "Verkaufen einer Option.", correct: false },
-          { text: "Halten einer Aktie.", correct: false },
-          { text: "Kaufen einer Option.", correct: true },
-          { text: "Eine Position mit geringem Risiko.", correct: false }
+          { text: "Verkaufen einer Option an der Börse.", correct: false },
+          { text: "Halten einer bestehenden Aktienposition.", correct: false },
+          { text: "Kaufen einer Option an der Börse.", correct: true },
+          { text: "Ausüben einer bestehenden Optionsposition.", correct: false }
         ],
         explanation: "Long bedeutet im Optionshandel, dass Sie eine Option kaufen - unabhängig davon, ob es sich um eine Call- oder Put-Option handelt. Als Long-Käufer haben Sie Rechte, aber keine Pflichten, und Ihr maximales Risiko ist auf den gezahlten Optionspreis begrenzt.",
         bookReference: "Kapitel 1: Grundlagen des Optionshandels"
@@ -156,10 +156,10 @@
       {
         question: "Was bedeutet 'At-the-Money' (ATM)?",
         answers: [
-          { text: "Die Option hat einen hohen inneren Wert.", correct: false },
-          { text: "Der Basiswertkurs ist viel höher als der Strike-Preis.", correct: false },
+          { text: "Die Option hat einen hohen inneren Wert und sollte sofort ausgeübt werden.", correct: false },
+          { text: "Der Basiswertkurs liegt deutlich über dem Strike-Preis bei Call-Optionen.", correct: false },
           { text: "Der Basiswertkurs ist gleich oder nahe dem Strike-Preis.", correct: true },
-          { text: "Die Option hat keinen inneren Wert.", correct: false }
+          { text: "Die Option ist wertlos verfallen und kann nicht mehr gehandelt werden.", correct: false }
         ],
         explanation: "At-the-Money bedeutet, dass der Kurs des Basiswerts gleich oder sehr nahe dem Ausübungspreis (Strike) der Option ist. ATM-Optionen haben einen geringen oder keinen inneren Wert, aber einen hohen Zeitwert. Sie werden oft für Strategien verwendet, die von einer hohen Volatilität profitieren.",
         bookReference: "Kapitel 1: Grundlagen des Optionshandels"
@@ -167,10 +167,10 @@
       {
         question: "Was ist das 'Open Interest'?",
         answers: [
-          { text: "Die Anzahl der gehandelten Optionen an einem Tag.", correct: false },
-          { text: "Der maximale Gewinn einer Option.", correct: false },
-          { text: "Die Anzahl der offenen Optionskontrakte, die noch nicht ausgeübt wurden.", correct: true },
-          { text: "Der Zinssatz für Optionen.", correct: false }
+          { text: "Die Anzahl der an einem Tag gehandelten Optionskontrakte (Tagesvolumen).", correct: false },
+          { text: "Die Gesamtzahl aller jemals gehandelten Kontrakte einer Optionsserie.", correct: false },
+          { text: "Die Anzahl der offenen Optionskontrakte, die noch nicht geschlossen wurden.", correct: true },
+          { text: "Die Anzahl der Marktteilnehmer, die eine bestimmte Option aktiv handeln.", correct: false }
         ],
         explanation: "Das Open Interest gibt die Anzahl der offenen Optionskontrakte an, die noch nicht geschlossen, ausgeübt oder verfallen sind. Ein hohes Open Interest deutet auf eine hohe Liquidität hin, was für die Auswahl geeigneter Optionen wichtig ist, wie im Kapitel über die systematische Steigerung der Erfolgschancen erläutert wird.",
         bookReference: "Kapitel 3: Systematisch Erfolgschancen steigern"
@@ -189,10 +189,10 @@
       {
         question: "Was ist 'Short' im Optionshandel?",
         answers: [
-          { text: "Kaufen einer Option.", correct: false },
+          { text: "Kaufen einer Option mit begrenztem Risiko.", correct: false },
           { text: "Verkaufen einer Option.", correct: true },
-          { text: "Halten einer Aktie.", correct: false },
-          { text: "Eine Position mit geringem Risiko.", correct: false }
+          { text: "Schließen einer bestehenden Optionsposition.", correct: false },
+          { text: "Ausüben einer Option vor dem Verfallsdatum.", correct: false }
         ],
         explanation: "Short bedeutet im Optionshandel, dass Sie eine Option verkaufen - unabhängig davon, ob es sich um eine Call- oder Put-Option handelt. Als Short-Verkäufer haben Sie Pflichten, aber keine Rechte, und Ihr Risiko kann potenziell unbegrenzt sein. Das professionelle Management dieser Risiken wird im Buch ausführlich behandelt.",
         bookReference: "Kapitel 4: Risiken professionell managen"
@@ -200,10 +200,10 @@
       {
         question: "Was bedeutet 'Out-of-the-Money' (OTM)?",
         answers: [
-          { text: "Die Option hat einen hohen inneren Wert.", correct: false },
-          { text: "Der Basiswertkurs ist gleich dem Strike-Preis.", correct: false },
-          { text: "Der Basiswertkurs ist niedriger als der Strike-Preis bei einer Call-Option oder höher bei einer Put-Option.", correct: true },
-          { text: "Die Option ist sehr liquide.", correct: false }
+          { text: "Die Option hat einen hohen inneren Wert und ist tief im Geld.", correct: false },
+          { text: "Der Basiswertkurs liegt genau am Strike-Preis mit maximalem Zeitwert.", correct: false },
+          { text: "Der Basiswertkurs liegt unter dem Strike bei Calls bzw. über dem Strike bei Puts.", correct: true },
+          { text: "Die Option hat ihr Verfallsdatum überschritten und ist nicht mehr handelbar.", correct: false }
         ],
         explanation: "Out-of-the-Money bedeutet, dass die Option keinen inneren Wert hat. Bei einer Call-Option liegt der Kurs des Basiswerts unter dem Ausübungspreis, bei einer Put-Option liegt er darüber. OTM-Optionen sind günstiger, haben aber ein höheres Risiko, wertlos zu verfallen.",
         bookReference: "Kapitel 1: Grundlagen des Optionshandels"

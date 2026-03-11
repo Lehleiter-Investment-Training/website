@@ -115,9 +115,9 @@
                 q: "Was bedeutet 'Liquidität' einer Aktie?",
                 a: [
                     { text: "Wie schnell und einfach du sie handeln kannst", correct: true, explain: "Genau! Apple-Aktien sind sehr liquide - immer Käufer da. Bei kleinen Aktien kann's schwierig werden." },
-                    { text: "Ob die Firma viel Wasser verbraucht", correct: false, explain: "Haha, nein! Hat nichts mit Flüssigkeit zu tun." },
-                    { text: "Wie viel Bargeld die Firma hat", correct: false, explain: "Das ist die Liquidität der Firma, nicht der Aktie." },
-                    { text: "Ob man die Aktie trinken kann", correct: false, explain: "😄 Nein, Aktien sind nicht trinkbar!" }
+                    { text: "Wie viel die Aktie pro Stück kostet", correct: false, explain: "Nein, der Preis sagt nichts über die Liquidität. Auch teure Aktien können illiquide sein." },
+                    { text: "Wie viel Bargeld die Firma auf dem Konto hat", correct: false, explain: "Das ist die Liquidität der Firma, nicht der Aktie. Zwei verschiedene Dinge!" },
+                    { text: "Wie hoch die jährliche Dividende der Aktie ist", correct: false, explain: "Nein, Dividende und Liquidität sind unterschiedliche Konzepte." }
                 ],
                 topic: "Basics 🎯",
                 difficulty: 2
@@ -126,9 +126,9 @@
                 q: "Was ist ein 'Börsengang' (IPO)?",
                 a: [
                     { text: "Wenn eine Firma zum ersten Mal Aktien verkauft", correct: true, explain: "Richtig! IPO = Initial Public Offering. Die Firma wird 'öffentlich' und jeder kann Anteile kaufen." },
-                    { text: "Wenn du persönlich zur Börse gehst", correct: false, explain: "Nein, das wäre ein Börsenbesuch 😄" },
-                    { text: "Wenn die Börse morgens aufmacht", correct: false, explain: "Das ist die Börseneröffnung, kein Börsengang." },
-                    { text: "Ein spezieller Gang im Börsengebäude", correct: false, explain: "Kreativ, aber falsch!" }
+                    { text: "Wenn eine Firma ihre Aktien von der Börse zurückkauft", correct: false, explain: "Das Gegenteil! Das wäre ein Delisting. Beim IPO geht die Firma an die Börse." },
+                    { text: "Wenn eine Firma zum ersten Mal Dividende zahlt", correct: false, explain: "Nein, Dividenden und Börsengang sind verschiedene Dinge." },
+                    { text: "Wenn die Börse morgens aufmacht", correct: false, explain: "Nein, das ist die Börseneröffnung, kein Börsengang." }
                 ],
                 topic: "Basics 🎯",
                 difficulty: 2
@@ -405,9 +405,9 @@
                 q: "Was ist Volatilität?",
                 a: [
                     { text: "Wie stark eine Aktie rauf und runter schwankt", correct: true, explain: "Genau! Hohe Volatilität = wilde Achterbahnfahrt. Niedrige = ruhige Fahrt." },
-                    { text: "Ein italienisches Getränk für Trader", correct: false, explain: "Das wäre Vitality oder so 😄" },
-                    { text: "Wie viel Strom eine Aktie verbraucht", correct: false, explain: "Aktien verbrauchen keinen Strom (nur der Handel)." },
-                    { text: "Die Lautstärke an der Börse", correct: false, explain: "Nein, hat nichts mit Lärm zu tun." }
+                    { text: "Die Geschwindigkeit, mit der sich der Kurs in eine Richtung bewegt", correct: false, explain: "Fast! Aber Volatilität misst die Schwankung in beide Richtungen, nicht die Geschwindigkeit." },
+                    { text: "Das durchschnittliche Handelsvolumen einer Aktie pro Tag", correct: false, explain: "Nein, Handelsvolumen und Volatilität sind verschiedene Dinge." },
+                    { text: "Die Gebühren, die der Broker für den Handel berechnet", correct: false, explain: "Nein, Gebühren haben nichts mit Volatilität zu tun." }
                 ],
                 topic: "Markt & Wirtschaft 💹",
                 difficulty: 2
@@ -560,10 +560,10 @@
             {
                 q: "Was ist 'HODL' in der Krypto/Aktien-Community?",
                 a: [
-                    { text: "Ein Tippfehler für 'Hold' = Halten, nicht verkaufen", correct: true, explain: "Genau! HODL = durchhalten, auch wenn's mal rumpelt. Wurde zur Philosophie!" },
+                    { text: "Ein Tippfehler für 'Hold' = Halten, nicht verkaufen", correct: true, explain: "Genau! HODL entstand 2013 als Tippfehler in einem Bitcoin-Forum und wurde zur Philosophie. Manche deuten es auch als 'Hold On for Dear Life'!" },
                     { text: "Eine neue Kryptowährung", correct: false, explain: "Nein, es ist eine Strategie, keine Währung." },
                     { text: "Ein Broker aus Holland", correct: false, explain: "Nein, es bedeutet 'halten'." },
-                    { text: "Hold On for Dear Life", correct: false, explain: "Nette Interpretation, aber ursprünglich war's ein Tippfehler!" }
+                    { text: "Ein spezieller Ordertyp bei Online-Brokern", correct: false, explain: "Nein, HODL ist kein technischer Ordertyp. Es bedeutet einfach: Halten und nicht verkaufen!" }
                 ],
                 topic: "Strategie 🎯",
                 difficulty: 2
@@ -646,12 +646,12 @@
                 difficulty: 3
             },
             {
-                q: "Solltest du versuchen, den Markt zu 'timen' (perfekten Zeitpunkt erwischen)?",
+                q: "Wie viel Gewinn aus Aktien darfst du pro Jahr steuerfrei behalten (Sparerpauschbetrag)?",
                 a: [
-                    { text: "Nein, das schaffen selbst Profis kaum", correct: true, explain: "Genau! Studien zeigen: Time in the market > Timing the market. Einfach anfangen!" },
-                    { text: "Ja, immer auf den Crash warten", correct: false, explain: "Dann wartest du ewig und verpasst Jahre von Gewinnen." },
-                    { text: "Nur montags kaufen", correct: false, explain: "Wochentage sind egal für langfristige Anleger." },
-                    { text: "Nur wenn der Mond voll ist", correct: false, explain: "Astrologie hilft nicht beim Investieren! 🌙" }
+                    { text: "1.000€ pro Person (Stand 2024)", correct: true, explain: "Richtig! Bis 1.000€ Kapitalerträge zahlst du keine Steuern. Freistellungsauftrag beim Broker nicht vergessen!" },
+                    { text: "Es gibt keinen Freibetrag - alles wird besteuert", correct: false, explain: "Doch! Der Sparerpauschbetrag liegt bei 1.000€ pro Person." },
+                    { text: "Unbegrenzt, Aktiengewinne sind generell steuerfrei", correct: false, explain: "Schön wär's! Nur die ersten 1.000€ sind frei, darüber zahlt man Abgeltungssteuer." },
+                    { text: "10.000€ pro Person und Jahr", correct: false, explain: "Leider nicht so viel! Es sind 1.000€ pro Person." }
                 ],
                 topic: "Strategie 🎯",
                 difficulty: 2
@@ -660,9 +660,9 @@
                 q: "Was ist 'Rebalancing' und warum ist es wichtig?",
                 a: [
                     { text: "Portfolio wieder auf ursprüngliche Gewichtung bringen", correct: true, explain: "Richtig! Wenn Tech von 20% auf 40% steigt, verkaufst du etwas und kaufst andere Sektoren. Risiko-Management!" },
-                    { text: "Auf einem Bein balancieren beim Traden", correct: false, explain: "Haha, nein! Obwohl Gleichgewicht wichtig ist 😄" },
-                    { text: "Täglich alle Positionen wechseln", correct: false, explain: "Viel zu oft! Jährlich reicht meist." },
-                    { text: "Das Handy neu starten", correct: false, explain: "Hat mit IT nichts zu tun!" }
+                    { text: "Verlustpositionen verkaufen und nur Gewinner behalten", correct: false, explain: "Nein! Beim Rebalancing geht es um Gewichtung, nicht um Gewinner/Verlierer aussortieren." },
+                    { text: "Täglich alle Positionen wechseln", correct: false, explain: "Viel zu oft! Rebalancing macht man ein- bis zweimal im Jahr." },
+                    { text: "Sein ganzes Portfolio verkaufen und komplett neu zusammenstellen", correct: false, explain: "Nein, man passt nur die Gewichtung an, nicht das ganze Portfolio." }
                 ],
                 topic: "Strategie 🎯",
                 difficulty: 3
@@ -1059,15 +1059,15 @@
                 difficulty: 1
             },
             {
-                q: "Was ist 'Diversifikation' und warum schützt sie dich?",
+                q: "Was passiert mit deinen Aktien, wenn dein Broker pleite geht?",
                 a: [
-                    { text: "Geld auf viele Anlagen verteilen - wenn eine crasht, hast du andere", correct: true, explain: "Perfekt! Wie bei einem Fußballteam - wenn ein Spieler verletzt ist, spielen noch 10 andere." },
-                    { text: "Alles in die beste Aktie stecken", correct: false, explain: "Zu riskant! Was wenn deine 'beste' Aktie abstürzt?" },
-                    { text: "Nur ausländische Aktien kaufen", correct: false, explain: "Das ist nur eine Art der Diversifikation." },
-                    { text: "Macht keinen Unterschied fürs Risiko", correct: false, explain: "Macht einen riesigen Unterschied für dein Risiko!" }
+                    { text: "Deine Aktien gehören dir und werden zu einem anderen Broker übertragen", correct: true, explain: "Genau! Aktien sind Sondervermögen und gehören dir, nicht dem Broker. Sie sind sicher!" },
+                    { text: "Alles ist weg - Pech gehabt", correct: false, explain: "Zum Glück nicht! Aktien gehören dir und sind vom Broker-Vermögen getrennt." },
+                    { text: "Der Staat zahlt dir alles zurück", correct: false, explain: "Nicht nötig, denn deine Aktien gehören sowieso dir. Der Staat hilft nur bei Bargeld (Einlagensicherung)." },
+                    { text: "Du bekommst maximal 100€ zurück", correct: false, explain: "Verwechselst du mit der Einlagensicherung für Bargeld. Deine Aktien gehören komplett dir!" }
                 ],
                 topic: "Risiko ⚠️",
-                difficulty: 1
+                difficulty: 2
             },
             {
                 q: "Dein Kumpel will dir seine 'Geheimstrategie' für 500€ verkaufen. Was sagst du?",
@@ -1103,15 +1103,15 @@
                 difficulty: 2
             },
             {
-                q: "Was machst du, wenn deine Aktie 50% im Minus ist?",
+                q: "Was ist die 'Abgeltungssteuer' und wie hoch ist sie?",
                 a: [
-                    { text: "Analysieren: Warum gefallen? Fundamentals noch okay?", correct: true, explain: "Richtig! Erst denken, dann handeln. Manchmal ist Halten richtig, manchmal Verkaufen." },
-                    { text: "Sofort verkaufen, bevor es schlimmer wird", correct: false, explain: "Panikverkäufe sind meist falsch. Erst analysieren!" },
-                    { text: "Verdoppeln! Jetzt ist sie ja billig", correct: false, explain: "Vorsicht! Billig kann billiger werden." },
-                    { text: "Nie wieder ins Depot schauen", correct: false, explain: "Vogel-Strauß-Taktik löst keine Probleme." }
+                    { text: "25% Steuer auf Gewinne aus Aktien, ETFs und Zinsen", correct: true, explain: "Richtig! Plus Soli und ggf. Kirchensteuer. Wird automatisch von deinem Broker abgeführt." },
+                    { text: "10% Steuer, die nur beim Verkauf von ETFs anfällt", correct: false, explain: "Falsch! Es sind 25% und sie gilt für alle Kapitalerträge, nicht nur ETFs." },
+                    { text: "Eine freiwillige Steuer, die man nicht zahlen muss", correct: false, explain: "Leider nicht freiwillig! Der Broker zieht sie automatisch ab." },
+                    { text: "50% vom Gewinn, aber erst ab 10.000€ Ertrag", correct: false, explain: "Nein! Es sind 25% und sie gilt ab dem ersten Euro über dem Freibetrag." }
                 ],
                 topic: "Risiko ⚠️",
-                difficulty: 3
+                difficulty: 2
             }
         ];
 
