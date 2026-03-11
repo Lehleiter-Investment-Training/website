@@ -10,8 +10,8 @@
                 {% for item in navigation.main %}
                 {% if item.children %}
                 <li class="has-dropdown">
-                    <a href="{{ item.url }}">{{ item.label }} <i class="fas fa-chevron-down dropdown-icon"></i></a>
-                    <ul class="dropdown-menu">
+                    <a href="{{ item.url }}" aria-haspopup="true" aria-expanded="false">{{ item.label }} <i class="fas fa-chevron-down dropdown-icon" aria-hidden="true"></i></a>
+                    <ul class="dropdown-menu" role="menu">
                         {% for child in item.children %}
                         <li><a href="{{ child.url }}">{{ child.label }}</a></li>
                         {% endfor %}

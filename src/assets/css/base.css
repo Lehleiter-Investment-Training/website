@@ -40,6 +40,34 @@ a {
     text-decoration: none;
 }
 
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Skip-to-content link */
+.skip-link:focus {
+    position: fixed;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    width: auto;
+    height: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    clip: auto;
+    white-space: normal;
+    overflow: visible;
+    background: var(--primary);
+    color: var(--light);
+    font-weight: bold;
+    z-index: 9999;
+    border-radius: var(--radius-sm);
+}
+
 ul, ol {
     list-style: none;
 }

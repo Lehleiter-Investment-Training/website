@@ -103,12 +103,12 @@
 
 /* White/light background variant */
 section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary {
-    color: var(--gray-700);
-    border-color: var(--gray-500);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary:hover {
-    background-color: var(--gray-700);
+    background-color: var(--primary);
     color: var(--light);
 }
 
