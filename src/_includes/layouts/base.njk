@@ -128,33 +128,21 @@
     });
     </script>
 
-    <!-- Brevo Form AJAX Submission -->
+    <!-- Brevo Form: submit via hidden iframe, then redirect -->
+    <iframe name="brevo-iframe" style="display:none" aria-hidden="true"></iframe>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('form[data-type="subscription"]').forEach(function(form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+            form.setAttribute('target', 'brevo-iframe');
+            form.addEventListener('submit', function() {
                 var btn = form.querySelector('button[type="submit"]');
-                var originalText = btn.textContent;
-                btn.disabled = true;
-                btn.textContent = 'Wird gesendet...';
-
-                var formData = new FormData(form);
-
-                // Honeypot check — bot filled the hidden field
-                if (formData.get('email_address_check')) return;
-
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors'
-                }).then(function() {
+                if (btn) {
+                    btn.disabled = true;
+                    btn.textContent = 'Wird gesendet...';
+                }
+                setTimeout(function() {
                     window.location.href = '/Danke.html';
-                }).catch(function() {
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                    alert('Es gab ein Problem. Bitte versuchen Sie es erneut.');
-                });
+                }, 1500);
             });
         });
     });
