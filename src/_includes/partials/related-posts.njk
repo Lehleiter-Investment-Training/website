@@ -1,0 +1,34 @@
+{% if collections.blog %}
+{% set relatedPosts = [] %}
+{% for post in collections.blog %}
+  {% if post.url !== page.url %}
+    {% set shared = false %}
+    {% if tags and post.data.tags %}
+      {% for tag in tags %}
+        {% if tag in post.data.tags %}
+          {% set shared = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if shared and relatedPosts.length < 3 %}
+      {% set relatedPosts = (relatedPosts.push(post), relatedPosts) %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if relatedPosts.length > 0 %}
+<div class="related-posts">
+    <h3>Das könnte dich auch interessieren</h3>
+    <div class="related-posts-grid">
+        {% for post in relatedPosts %}
+        <a href="{{ post.url }}" class="related-post-card">
+            {% if post.data.image %}
+            <img src="{{ post.data.image }}" alt="{{ post.data.pageTitle }}">
+            {% endif %}
+            <h4>{{ post.data.pageTitle }}</h4>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endif %}

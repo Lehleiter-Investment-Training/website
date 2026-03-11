@@ -1,0 +1,856 @@
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.hero h1 {
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    padding: 0 10px;
+}
+
+/* Page Title (for subpages) */
+.page-title {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.page-title h1 {
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-title p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--black);
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background-color: var(--black);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--light);
+    border: 2px solid var(--light);
+    margin-left: var(--spacing-md);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light);
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+section {
+    padding: var(--spacing-xxl) 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+section:nth-child(odd) {
+    background-color: var(--light);
+}
+
+section:nth-child(even) {
+    background-color: var(--bg-gray);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Explicit section background overrides */
+#book {
+    background-color: var(--bg-gray);
+}
+
+#toc {
+    background-color: var(--bg-gray);
+}
+
+#author {
+    background-color: var(--light);
+}
+
+#faq {
+    background-color: var(--bg-gray);
+}
+
+/* ==========================================================================
+   Amazon Rating Badge
+   ========================================================================== */
+
+.amazon-rating-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-lg);
+    padding: 0.75rem 1.5rem;
+    background-color: var(--light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rating-stars {
+    color: #FF9900;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.rating-text {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+}
+
+.rating-count {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+@media screen and (max-width: 480px) {
+    .amazon-rating-badge {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* ==========================================================================
+   Book Preview
+   ========================================================================== */
+
+.book-preview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.book-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.book-image img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+}
+
+.book-details {
+    flex: 2;
+    min-width: 300px;
+}
+
+.book-details h3 {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.price-tag {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--black);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    font-weight: bold;
+    margin: var(--spacing-md) 0;
+}
+
+/* ==========================================================================
+   Features Grid
+   ========================================================================== */
+
+.features {
+    background-color: var(--bg-gray);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.feature-card {
+    background-color: var(--light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.feature-card h3 span {
+    background-color: var(--primary);
+    color: var(--light);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Author Section
+   ========================================================================== */
+
+.author {
+    text-align: center;
+}
+
+.author-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.author-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ==========================================================================
+   Reviews Slider
+   ========================================================================== */
+
+.reviews {
+    background-color: var(--light);
+    color: var(--dark);
+    position: relative;
+    z-index: 1;
+}
+
+.reviews h2 {
+    color: var(--primary);
+}
+
+.reviews-slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.reviews-slider-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews-slider {
+    display: flex;
+    transition: transform var(--transition-medium);
+    margin: 0;
+    padding: var(--spacing-md) 0;
+}
+
+.review-card {
+    flex: 0 0 300px;
+    background-color: var(--light);
+    color: var(--dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-right: 20px;
+    box-shadow: var(--shadow-md);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-stars {
+    color: var(--accent);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.review-content {
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.review-author {
+    font-weight: bold;
+    text-align: right;
+    margin-top: auto;
+}
+
+/* Slider Navigation */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 51, 102, 0.3);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.dot.active {
+    background-color: var(--primary);
+}
+
+/* ==========================================================================
+   FAQ Accordion
+   ========================================================================== */
+
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+}
+
+.faq-question {
+    background-color: var(--light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: bold;
+    border-left: 4px solid var(--primary);
+    position: relative;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform var(--transition-fast);
+}
+
+.faq-question.active::after {
+    content: '-';
+}
+
+.faq-answer {
+    padding: var(--spacing-md);
+    background-color: var(--light);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    margin-top: var(--spacing-sm);
+    display: none;
+}
+
+.faq-answer.show {
+    display: block;
+}
+
+/* ==========================================================================
+   Newsletter
+   ========================================================================== */
+
+.newsletter {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-color: var(--dark);
+    color: var(--light);
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+    border-top: none;
+    border-bottom: none;
+}
+
+.newsletter h3 {
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.newsletter-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-form input[type="email"],
+.newsletter-form input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    background-color: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    cursor: pointer;
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+    min-height: 44px;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+
+.cta {
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light);
+}
+
+.cta h2 {
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cta p {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.cta .btn-primary {
+    background-color: var(--accent);
+    color: var(--black);
+    border-color: var(--black);
+}
+
+.cta .btn-primary:hover {
+    background-color: var(--black);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ==========================================================================
+   Newsletter Stacked Form (Homepage)
+   ========================================================================== */
+
+.newsletter-form-stacked {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.newsletter-form-stacked .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-form-stacked label {
+    color: var(--light);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.newsletter-form-stacked input[type="email"],
+.newsletter-form-stacked input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #6b7280;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    color: var(--dark);
+}
+
+.newsletter-form-stacked .input--hidden {
+    display: none;
+}
+
+.newsletter-form-stacked .form-actions {
+    margin-top: 10px;
+}
+
+.newsletter-form-stacked .btn {
+    min-height: 44px;
+}
+
+/* ==========================================================================
+   Book Preview Spacing
+   ========================================================================== */
+
+.book-preview + .book-preview {
+    margin-top: 3rem;
+}
+
+/* ==========================================================================
+   404 Error Page
+   ========================================================================== */
+
+.error-content {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   Outline Button (for light backgrounds)
+   ========================================================================== */
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: var(--light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline i {
+    margin-right: 6px;
+}
+
+/* ==========================================================================
+   Book Buttons Row
+   ========================================================================== */
+
+.book-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: var(--spacing-md);
+}
+
+/* ==========================================================================
+   Starterkit Section (Lead-Gen)
+   ========================================================================== */
+
+.starterkit {
+    background: linear-gradient(135deg, var(--primary) 0%, #004a7c 100%);
+    color: var(--light);
+    padding: var(--spacing-xxl) 0;
+    border-top: none;
+    border-bottom: none;
+}
+
+.starterkit h2 {
+    color: var(--light);
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+}
+
+.starterkit-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.starterkit-badge {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--black);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-lg);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-md);
+}
+
+.starterkit-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+}
+
+.starterkit-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.starterkit-benefits li {
+    padding: var(--spacing-sm) 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.starterkit-benefits i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.starterkit-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+    backdrop-filter: blur(10px);
+}
+
+.starterkit-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-md);
+}
+
+.starterkit-form label {
+    color: var(--light);
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.starterkit-form input[type="email"],
+.starterkit-form input[type="text"] {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--dark);
+    transition: border-color var(--transition-fast);
+}
+
+.starterkit-form input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.3);
+}
+
+.starterkit-form .input--hidden {
+    display: none;
+}
+
+.starterkit-form .btn {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+}
+
+.starterkit-privacy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+}
+
+.starterkit-privacy a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .starterkit-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .starterkit h2 {
+        text-align: center;
+    }
+
+    .starterkit-text {
+        text-align: center;
+    }
+
+    .starterkit-benefits li {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .starterkit-form-wrapper {
+        padding: var(--spacing-lg);
+    }
+
+    .book-buttons {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .book-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .book-buttons .btn {
+        text-align: center;
+    }
+}

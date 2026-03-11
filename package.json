@@ -1,0 +1,15 @@
+{
+  "name": "jo_website_new",
+  "version": "1.0.0",
+  "description": "Offizielle Website zum Buch **\"Just Options: Optionen strategisch nutzen\"** von Markus Lehleiter.",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "author": "Markus Lehleiter",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

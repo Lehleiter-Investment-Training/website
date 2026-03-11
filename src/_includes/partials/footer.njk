@@ -1,0 +1,22 @@
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="logo-container">
+                <img src="/assets/images/logo.jpg" alt="Just Options Logo - Optionen strategisch nutzen" class="footer-logo">
+            </div>
+            <ul class="footer-links">
+                {% for item in navigation.footer %}
+                <li><a href="{{ item.url }}"{% if item.label == "Impressum" or item.label == "Datenschutz" %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="social-icons">
+            <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="{{ site.social.telegram }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Lehleiter Investment Training. Alle Rechte vorbehalten.
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,126 @@
+---
+layout: layouts/base.njk
+pageTitle: "Optionswissen Quiz"
+description: "Testen Sie Ihr Wissen im Optionshandel mit unserem interaktiven Quiz. Basierend auf dem Buch 'Optionen strategisch nutzen' von Markus Lehleiter."
+keywords: "Optionshandel, Optionen Quiz, Markus Lehleiter, Trading Quiz, Optionswissen, Optionen strategisch nutzen"
+ogTitle: "Testen Sie Ihr Optionswissen"
+ogDescription: "Finden Sie mit unserem interaktiven Quiz heraus, wie fit Sie im Optionshandel sind. Erhalten Sie persönliche Empfehlungen und verbessern Sie Ihr Wissen."
+ogImage: "https://www.just-options.de/assets/images/quiz-preview.png"
+canonical: "https://www.just-options.de/quiz.html"
+schemaType: "Product"
+permalink: /quiz.html
+extraCss: ["/assets/css/quiz.css"]
+---
+
+  <section id="options-quiz">
+    <div class="container">
+      <h2>Testen Sie Ihr Optionswissen</h2>
+      <p>Finden Sie mit unserem Quiz heraus, wie fit Ihr Grundwissen im Optionshandel ist.</p>
+
+      <!-- Rechtlicher Disclaimer -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-title">
+          <i class="fas fa-exclamation-circle"></i> Wichtiger Hinweis
+        </div>
+        <p>Dieses Quiz dient ausschließlich Bildungs- und Unterhaltungszwecken. Die Inhalte stellen keine Anlageberatung, Empfehlung oder Aufforderung zum Kauf oder Verkauf von Finanzinstrumenten dar. Der Handel mit Optionen ist mit erheblichen Risiken verbunden und kann zum Totalverlust des eingesetzten Kapitals führen. Informieren Sie sich vor jeder Anlageentscheidung umfassend und ziehen Sie bei Bedarf qualifizierte Berater hinzu.</p>
+      </div>
+
+      <div id="quiz-container">
+        <div id="quiz-start" class="quiz-section card fade-in">
+          <div class="quiz-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Wie gut kennen Sie sich mit Optionen aus?</h3>
+          <p>Dieses Quiz testet Ihr Wissen zu Optionen und zeigt Ihnen, welche Bereiche Sie mit dem Buch "Optionen strategisch nutzen" vertiefen können.</p>
+          <ul style="text-align: left; margin: 1.5rem auto; max-width: 500px; list-style-type: none;">
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i> 20 praxisnahe Fragen zum Optionshandel</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i> Sofortiges Feedback zu Ihren Antworten</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i> Persönliche Empfehlungen für Ihr Wissensniveau</li>
+            <li><i class="fas fa-check" style="color: var(--success); margin-right: 10px;"></i> Gezielte Hinweise zu passenden Buchkapiteln</li>
+          </ul>
+          <p>Bereit? Starten Sie den Test und entdecken Sie, wo Sie stehen!</p>
+          <button id="start-quiz-btn" class="btn btn-primary">Quiz starten</button>
+        </div>
+
+        <div id="quiz-questions" class="quiz-section card">
+          <div class="quiz-header">
+            <div class="quiz-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <div id="question-number">
+              <span class="question-counter">1</span> von 20 Fragen
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar" id="quiz-progress"></div>
+          </div>
+          <div id="question-text"></div>
+          <div id="answer-buttons"></div>
+          <div id="explanation-container" class="explanation-box">
+            <div class="explanation-title">
+              <i class="fas fa-info-circle"></i> Erklärung:
+            </div>
+            <div id="explanation-text"></div>
+          </div>
+          <button id="next-question-btn" class="btn btn-secondary">Nächste Frage</button>
+        </div>
+
+        <div id="quiz-results" class="quiz-section" style="display:none;">
+          <div class="result-card fade-in">
+            <div class="result-title">Quiz Auswertung</div>
+            <div class="result-score" id="score-display">0/20</div>
+            <div id="result-level" class="result-level"></div>
+            <p id="results-message"></p>
+            <div class="recommendation-list" id="recommendations"></div>
+            <div class="book-recommendation">
+              <h3>Buchempfehlung: "Optionen strategisch nutzen"</h3>
+              <p id="book-recommendation-text"></p>
+              <button id="buy-book-btn" class="btn btn-primary" onclick="window.open('{{ site.amazonBookUrl }}', '_blank')">Jetzt auf Amazon kaufen</button>
+            </div>
+          </div>
+
+          <!-- Workbook Cross-Sell -->
+          <div class="workbook-crosssell">
+            <h3>Schon das Buch gelesen?</h3>
+            <p>Vertiefen Sie Ihr Wissen mit dem Workbook — praktische Übungen, Checklisten und Praxisbeispiele für den nächsten Schritt.</p>
+            <a href="{{ site.amazonWorkbookUrl }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Workbook auf Amazon ansehen</a>
+          </div>
+
+          <!-- Newsletter (Brevo) -->
+          <div class="newsletter">
+            <h3>Kostenloses Starterkit für Optionshändler</h3>
+            <p class="newsletter-subtitle">Sichern Sie sich den PDF-Leitfaden, exklusive Strategietipps und regelmäßige Marktanalysen direkt in Ihr Postfach.</p>
+            <form action="{{ site.brevoFormAction }}" method="POST" class="newsletter-form" data-type="subscription">
+              <div class="form-group">
+                <label for="quiz_email">E-Mail</label>
+                <input type="email" name="EMAIL" id="quiz_email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="quiz_vorname">Vorname</label>
+                <input type="text" name="VORNAME" id="quiz_vorname">
+              </div>
+
+              <input type="text" name="email_address_check" value="" style="display:none">
+              <input type="hidden" name="locale" value="de">
+
+              <button type="submit">Starterkit sichern</button>
+            </form>
+          </div>
+          
+          <button id="restart-quiz-btn" class="btn btn-secondary">Quiz neustarten</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <div class="container">
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p>Vertiefen Sie Ihr Wissen mit dem Buch "Optionen strategisch nutzen" und meistern Sie den Optionshandel.</p>
+      <a href="{{ site.amazonBookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Kaufen Sie das Buch Optionen strategisch nutzen auf Amazon">Jetzt auf Amazon bestellen</a>
+      <a href="index.html" class="btn btn-secondary">Zurück zur Startseite</a>
+    </div>
+  </section>
+
+<script src="/assets/js/quiz.js"></script>

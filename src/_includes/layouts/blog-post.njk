@@ -1,0 +1,50 @@
+---
+layout: layouts/base.njk
+extraCss:
+  - /assets/css/blog.css
+---
+<section class="page-title">
+    <div class="container">
+        <h1>{{ pageTitle }}</h1>
+        {% if subtitle %}
+        <p>{{ subtitle }}</p>
+        {% endif %}
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="blog-content">
+            {{ content | safe }}
+        </div>
+
+        {% include "partials/related-posts.njk" %}
+        {% include "partials/blog-cta.njk" %}
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ pageTitle }}",
+    "description": "{{ description }}",
+    "author": {
+        "@type": "Person",
+        "name": "Markus Lehleiter",
+        "jobTitle": "CFA, FRM",
+        "url": "https://www.just-options.de"
+    },
+    {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}
+    {% if image %}"image": "https://www.just-options.de{{ image }}",{% endif %}
+    "publisher": {
+        "@type": "Organization",
+        "name": "just OPTIONS",
+        "url": "https://www.just-options.de"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.just-options.de{{ page.url }}"
+    }
+}
+</script>

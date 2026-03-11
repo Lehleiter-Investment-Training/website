@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-title">
+    <div class="container">
+        <h1>{{ pageTitle }}</h1>
+        {% if subtitle %}
+        <p>{{ subtitle }}</p>
+        {% endif %}
+    </div>
+</section>
+
+{{ content | safe }}

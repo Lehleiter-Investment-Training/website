@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-size: calc(14px + 0.25vw);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: var(--light);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+h1 {
+    font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3vw + 0.5rem, 2.8rem);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 2vw + 0.3rem, 1.8rem);
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+p {
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+}
+
+/* ==========================================================================
+   Layout & Container
+   ========================================================================== */
+
+.container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chapter List */
+.chapter-list {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto;
+}
+
+.chapter-item {
+    background-color: var(--light);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.chapter-title {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Bonus Banner */
+.bonus-banner {
+    background-color: var(--accent);
+    color: var(--black);
+    padding: 1.5rem var(--spacing-md);
+    border-radius: var(--radius-sm);
+    margin: var(--spacing-lg) auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.bonus-banner h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.bonus-banner .btn-primary {
+    background-color: var(--primary);
+    color: var(--light);
+    border-color: var(--light);
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.bonus-banner .btn-primary:hover {
+    background-color: var(--light);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* ==========================================================================
+   Legal Pages (Impressum, Datenschutz)
+   ========================================================================== */
+
+.legal-page {
+    padding: 20px;
+}
+
+.legal-page .container {
+    max-width: 900px;
+    padding: var(--spacing-lg);
+    background-color: var(--light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.legal-page h1 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.legal-page h2 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: var(--spacing-sm);
+    text-align: left;
+}
+
+.legal-page h3 {
+    color: var(--secondary);
+    margin: 1.5rem 0 var(--spacing-sm) 0;
+}
+
+.legal-page p {
+    margin-bottom: var(--spacing-md);
+}
+
+.legal-page a {
+    color: var(--primary);
+    transition: color var(--transition-fast);
+}
+
+.legal-page a:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.legal-section {
+    margin-bottom: 2.5rem;
+}
+
+.contact-info {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--primary);
+}
+
+.contact-info p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.back-to-home {
+    display: inline-block;
+    margin: var(--spacing-lg) 0 0 0;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--primary);
+    color: var(--light);
+    border-radius: var(--radius-sm);
+    font-weight: bold;
+    transition: all var(--transition-fast);
+}
+
+.back-to-home:hover {
+    background-color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}

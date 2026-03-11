@@ -1,0 +1,32 @@
+<header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/assets/images/logo.jpg" alt="Just Options Logo - Optionen strategisch nutzen">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                {% for item in navigation.main %}
+                {% if item.children %}
+                <li class="has-dropdown">
+                    <a href="{{ item.url }}">{{ item.label }} <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="dropdown-menu">
+                        {% for child in item.children %}
+                        <li><a href="{{ child.url }}">{{ child.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% elif item.isCta %}
+                <li><a href="{{ item.url }}" class="nav-cta">{{ item.label }}</a></li>
+                {% else %}
+                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü öffnen">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+</header>

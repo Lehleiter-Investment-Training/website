@@ -1,0 +1,346 @@
+---
+layout: layouts/base.njk
+pageTitle: "Workbook Bonusmaterial"
+description: "Exklusives Bonusmaterial zum Workbook \"Optionen strategisch nutzen\" – Rechner, Checklisten und Referenzmaterial."
+keywords: "Optionen strategisch nutzen, Workbook, Bonusmaterial, Rechner, Greeks, Checkliste"
+ogTitle: "Workbook Bonusmaterial"
+ogDescription: "Geschützter Zugang zum Workbook-Bonusmaterial von Markus Lehleiter."
+ogImage: "https://www.just-options.de/assets/images/buchcover.png"
+ogImageAlt: "Buchcover: Optionen strategisch nutzen von Markus Lehleiter"
+permalink: /workbook.html
+robots: "noindex, nofollow"
+extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
+---
+
+
+<div id="password-overlay" role="dialog" aria-modal="true" aria-labelledby="password-title">
+    <div class="password-dialog">
+        <h2 id="password-title">Geschützter Bereich</h2>
+        <p>Bitte geben Sie das Passwort ein, das Sie im Workbook finden.</p>
+        <label for="passwordInput">Passwort</label>
+        <input type="password" id="passwordInput" autocomplete="off" aria-describedby="password-hint">
+        <div id="password-error" class="password-error" role="alert" aria-live="polite"></div>
+        <button id="passwordSubmit" type="button">Zugang öffnen</button>
+        <p id="password-hint" class="password-hint">Hinweis: Überschrift auf S. 200 im Workbook.</p>
+    </div>
+</div>
+
+<div id="page-content" tabindex="-1">
+    <section class="hero">
+        <div class="container">
+            <h1>Workbook Bonusmaterial</h1>
+            <p>Interaktive Rechner, Checklisten und Referenzmaterial zum Workbook <em>Optionen strategisch nutzen</em>.</p>
+            <a class="btn btn-primary" href="#downloads">Zu den Inhalten</a>
+            <a class="btn btn-secondary" href="/">Zurück zur Startseite</a>
+        </div>
+    </section>
+
+    <main>
+        <div class="container intro">
+            <h2>Werkzeuge für Ihren Handelserfolg</h2>
+            <p>Alle Rechner, Vorlagen und Downloads sind übersichtlich organisiert. Nutzen Sie die interaktiven Tools direkt oder laden Sie Dokumente herunter.</p>
+        </div>
+
+        <section id="downloads" class="container">
+            <!-- Lösungen -->
+            <div class="category-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Lösungen</h3>
+            </div>
+            <div class="download-grid" role="list">
+                <article class="download-card" role="listitem">
+                    <div class="card-icon icon-pdf">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Answersheet</h3>
+                    <p>Lösungen zu allen Übungen im Workbook als PDF zum Download.</p>
+                    <span class="file-badge pdf">PDF</span>
+                    <br><br>
+                    <a class="download-link" href="/workbook/downloads/answersheet.pdf" download>
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download
+                    </a>
+                </article>
+            </div>
+
+            <!-- Interaktive Rechner -->
+            <div class="category-header">
+                <i class="fas fa-calculator"></i>
+                <h3>Interaktive Rechner</h3>
+            </div>
+
+            <div class="wb-tool-card">
+                <h3 class="wb-tool-title"><i class="fas fa-chart-line"></i> Break-Even Rechner</h3>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="call">Long Call</button>
+                    <button class="tab-btn" data-tab="put">Long Put</button>
+                    <button class="tab-btn" data-tab="spread">Vertical Spread</button>
+                </div>
+
+                <div class="tab-content active" id="tab-call">
+                    <div class="calc-grid">
+                        <div class="calc-field">
+                            <label>Strike-Preis (€)</label>
+                            <input type="number" id="callStrike" value="100" step="0.5">
+                        </div>
+                        <div class="calc-field">
+                            <label>Prämie bezahlt (€)</label>
+                            <input type="number" id="callPremium" value="3.50" step="0.1">
+                        </div>
+                    </div>
+                    <div class="formula-box">
+                        <div>Break-Even = Strike + Prämie</div>
+                        <div class="formula" id="callFormula">100 + 3.50 = 103.50 €</div>
+                    </div>
+                    <div class="calc-field">
+                        <label>Aktueller Kurs zur Berechnung (€)</label>
+                        <input type="number" id="callCurrent" value="105" step="0.5">
+                    </div>
+                    <div class="calc-result">
+                        <div class="result-row">
+                            <span class="label">Break-Even Punkt:</span>
+                            <span class="value" id="callBE">103.50 €</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Gewinn/Verlust bei Kurs:</span>
+                            <span class="value profit" id="callPL">+1.50 € pro Aktie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-put">
+                    <div class="calc-grid">
+                        <div class="calc-field">
+                            <label>Strike-Preis (€)</label>
+                            <input type="number" id="putStrike" value="100" step="0.5">
+                        </div>
+                        <div class="calc-field">
+                            <label>Prämie bezahlt (€)</label>
+                            <input type="number" id="putPremium" value="2.80" step="0.1">
+                        </div>
+                    </div>
+                    <div class="formula-box">
+                        <div>Break-Even = Strike − Prämie</div>
+                        <div class="formula" id="putFormula">100 − 2.80 = 97.20 €</div>
+                    </div>
+                    <div class="calc-field">
+                        <label>Aktueller Kurs zur Berechnung (€)</label>
+                        <input type="number" id="putCurrent" value="95" step="0.5">
+                    </div>
+                    <div class="calc-result">
+                        <div class="result-row">
+                            <span class="label">Break-Even Punkt:</span>
+                            <span class="value" id="putBE">97.20 €</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Gewinn/Verlust bei Kurs:</span>
+                            <span class="value profit" id="putPL">+2.20 € pro Aktie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-spread">
+                    <div class="calc-grid">
+                        <div class="calc-field">
+                            <label>Long Strike (€)</label>
+                            <input type="number" id="spreadLongStrike" value="100" step="0.5">
+                        </div>
+                        <div class="calc-field">
+                            <label>Short Strike (€)</label>
+                            <input type="number" id="spreadShortStrike" value="105" step="0.5">
+                        </div>
+                        <div class="calc-field">
+                            <label>Netto-Prämie (€)</label>
+                            <input type="number" id="spreadPremium" value="2.00" step="0.1">
+                        </div>
+                        <div class="calc-field">
+                            <label>Typ</label>
+                            <select id="spreadType">
+                                <option value="bullcall">Bull Call Spread</option>
+                                <option value="bearput">Bear Put Spread</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="result-row">
+                            <span class="label">Break-Even:</span>
+                            <span class="value" id="spreadBE">102.00 €</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Max. Gewinn:</span>
+                            <span class="value profit" id="spreadMaxProfit">+3.00 €</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="label">Max. Verlust:</span>
+                            <span class="value loss" id="spreadMaxLoss">−2.00 €</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wb-tool-card">
+                <h3 class="wb-tool-title"><i class="fas fa-balance-scale"></i> Positionsgrößen-Rechner</h3>
+                <div class="calc-grid">
+                    <div class="calc-field">
+                        <label>Depotgröße (€)</label>
+                        <input type="number" id="portfolioSize" value="50000" step="1000">
+                    </div>
+                    <div class="calc-field">
+                        <label>Max. Risiko pro Trade (%)</label>
+                        <input type="number" id="riskPercent" value="2" step="0.5" min="0.5" max="10">
+                    </div>
+                    <div class="calc-field">
+                        <label>Optionspreis (€)</label>
+                        <input type="number" id="optionPrice" value="3.50" step="0.1">
+                    </div>
+                    <div class="calc-field">
+                        <label>Kontraktgröße</label>
+                        <input type="number" id="contractSize" value="100" step="1">
+                    </div>
+                </div>
+                <button class="calc-btn" onclick="calculatePosition()">Berechnen</button>
+                <div class="calc-result">
+                    <div class="result-row">
+                        <span class="label">Max. Risikobetrag:</span>
+                        <span class="value" id="maxRisk">1.000 €</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="label">Kosten pro Kontrakt:</span>
+                        <span class="value" id="costPerContract">350 €</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="label">Empfohlene Kontraktanzahl:</span>
+                        <span class="value" id="recommendedContracts">2 Kontrakte</span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>Faustregel:</strong> Riskieren Sie nie mehr als 1-2% Ihres Depots pro einzelnem Trade. Bei Optionen ist das eingesetzte Kapital Ihr maximales Risiko (bei Long-Positionen).
+                </div>
+            </div>
+
+            <!-- Referenzmaterial -->
+            <div class="category-header">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Referenzmaterial</h3>
+            </div>
+
+            <div class="wb-tool-card">
+                <h3 class="wb-tool-title"><i class="fas fa-table"></i> Greeks Schnellreferenz</h3>
+                <div class="wb-table-wrapper">
+                    <table class="greek-table">
+                        <thead>
+                            <tr>
+                                <th>Greek</th>
+                                <th>Misst</th>
+                                <th>Praktische Bedeutung</th>
+                                <th>Typischer Wertebereich</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="greek-symbol">Δ</span><span class="greek-name">Delta</span></td>
+                                <td>Preisänderung pro 1€ Bewegung des Basiswerts</td>
+                                <td>Ein Delta von 0,50 bedeutet: Steigt die Aktie um 1€, steigt der Call um ca. 0,50€. Auch interpretierbar als ungefähre Wahrscheinlichkeit, im Geld zu verfallen.</td>
+                                <td>Call: 0 bis +1<br>Put: −1 bis 0</td>
+                            </tr>
+                            <tr>
+                                <td><span class="greek-symbol">Γ</span><span class="greek-name">Gamma</span></td>
+                                <td>Änderungsrate des Delta</td>
+                                <td>Zeigt, wie schnell sich Delta ändert. Höchstes Gamma bei ATM-Optionen kurz vor Verfall. Wichtig für das Hedging.</td>
+                                <td>0 bis ~0,10 (am Geld)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="greek-symbol">Θ</span><span class="greek-name">Theta</span></td>
+                                <td>Zeitwertverlust pro Tag</td>
+                                <td>Ein Theta von −0,05 bedeutet: Die Option verliert ca. 5 Cent pro Tag (bei sonst gleichen Bedingungen). Beschleunigt sich zum Verfall hin.</td>
+                                <td>Käufer: negativ<br>Verkäufer: positiv</td>
+                            </tr>
+                            <tr>
+                                <td><span class="greek-symbol">V</span><span class="greek-name">Vega</span></td>
+                                <td>Preisänderung pro 1% IV-Änderung</td>
+                                <td>Ein Vega von 0,15 bedeutet: Steigt die implizite Volatilität um 1 Prozentpunkt, steigt die Option um 0,15€. Besonders wichtig vor Earnings.</td>
+                                <td>0,01 bis 0,30+</td>
+                            </tr>
+                            <tr>
+                                <td><span class="greek-symbol">ρ</span><span class="greek-name">Rho</span></td>
+                                <td>Preisänderung pro 1% Zinsänderung</td>
+                                <td>In der Praxis oft vernachlässigbar, außer bei sehr langen Laufzeiten (LEAPS) oder in Hochzinsphasen.</td>
+                                <td>Call: positiv<br>Put: negativ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Vorlagen & Checklisten -->
+            <div class="category-header">
+                <i class="fas fa-clipboard-list"></i>
+                <h3>Vorlagen & Checklisten</h3>
+            </div>
+            <div class="download-grid" role="list">
+                <article class="download-card" role="listitem">
+                    <div class="card-icon icon-pdf">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Trade-Checkliste</h3>
+                    <p>Systematische Checkliste für jeden Trade: Vor dem Trade, Risikomanagement und Ausführung.</p>
+                    <span class="file-badge pdf">PDF</span>
+                    <br><br>
+                    <a class="download-link" href="/workbook/downloads/trade-checkliste.pdf" download>
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download
+                    </a>
+                </article>
+                <article class="download-card" role="listitem">
+                    <div class="card-icon icon-pdf">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Handelsplan-Vorlage</h3>
+                    <p>Strukturierte Vorlage zur Entwicklung Ihrer individuellen Trading-Regeln.</p>
+                    <span class="file-badge pdf">PDF</span>
+                    <br><br>
+                    <a class="download-link" href="/workbook/downloads/handelsplan-vorlage.pdf" download>
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download
+                    </a>
+                </article>
+            </div>
+
+            <!-- Weitere Downloads -->
+            <div class="category-header">
+                <i class="fas fa-download"></i>
+                <h3>Weitere Downloads</h3>
+            </div>
+            <div class="download-grid" role="list">
+                <article class="download-card" role="listitem">
+                    <div class="card-icon icon-pdf">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Greeks Schnellreferenz</h3>
+                    <p>Delta, Gamma, Theta, Vega & Rho auf einen Blick als PDF-Referenzkarte.</p>
+                    <span class="file-badge pdf">PDF</span>
+                    <br><br>
+                    <a class="download-link" href="/workbook/downloads/greeks-referenz.pdf" download>
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download
+                    </a>
+                </article>
+                <article class="download-card" role="listitem">
+                    <div class="card-icon icon-pdf">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Die 7 Anfängerfehler</h3>
+                    <p>Häufige Fehler beim Optionshandel erkennen und vermeiden.</p>
+                    <span class="file-badge pdf">PDF</span>
+                    <br><br>
+                    <a class="download-link" href="/workbook/downloads/anfaengerfehler.pdf" download>
+                        <i class="fas fa-download" aria-hidden="true"></i>
+                        Download
+                    </a>
+                </article>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="/assets/js/workbook.js"></script>

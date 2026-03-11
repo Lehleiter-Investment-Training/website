@@ -1,0 +1,34 @@
+---
+layout: layouts/page.njk
+pageTitle: "Blog"
+subtitle: "Wertvolle Tipps und Strategien für den erfolgreichen Optionshandel"
+description: "Blog zum Buch 'Optionen strategisch nutzen' - Wertvolle Tipps und Strategien für den Optionshandel"
+permalink: /blog.html
+extraCss:
+  - /assets/css/blog.css
+---
+
+<section>
+    <div class="container">
+        <h2>Aktuelle Beiträge</h2>
+        <div class="blog-grid">
+            {% for post in collections.blog %}
+            <div class="blog-card">
+                {% if post.data.image %}
+                <div class="blog-image">
+                    <img src="{{ post.data.image }}" alt="{{ post.data.pageTitle }}">
+                </div>
+                {% endif %}
+                <div class="blog-content">
+                    {% if post.data.date %}
+                    <div class="blog-date">{{ post.data.date | dateFormat }}</div>
+                    {% endif %}
+                    <h3 class="blog-title">{{ post.data.pageTitle }}</h3>
+                    <p class="blog-excerpt">{{ post.data.description }}</p>
+                    <a href="{{ post.url }}" class="btn btn-primary">Weiterlesen</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

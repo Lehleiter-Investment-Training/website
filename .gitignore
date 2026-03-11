@@ -1,0 +1,23 @@
+node_modules/
+_site/
+
+# Legacy root-level files (pre-Eleventy, not part of build)
+/*.html
+/*.css
+/*.js
+!/.eleventy.js
+/*.svg
+/*.jpg
+/*.png
+/*.pdf
+/robots.txt
+/sitemap.xml
+
+# Internal directories (not deployed)
+/Branding/
+/Bonus/
+/workbook/
+
+# OS files
+.DS_Store
+Thumbs.db

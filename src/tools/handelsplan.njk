@@ -1,0 +1,237 @@
+---
+layout: layouts/base.njk
+pageTitle: "Handelsplangenerator für Optionshändler"
+description: "Erstellen Sie Ihren persönlichen Handelsplan für den Optionshandel. Strukturiert, durchdacht und auf Ihre Bedürfnisse zugeschnitten."
+permalink: /handelsplan.html
+extraCss: ["/assets/css/handelsplan.css"]
+---
+
+
+    <div id="disclaimerOverlay" class="disclaimer-overlay">
+        <div class="disclaimer-modal">
+            <h2 class="disclaimer-title">⚠️ WICHTIGER HINWEIS & HAFTUNGSAUSSCHLUSS</h2>
+            <div class="disclaimer-content">
+                <h3>Keine Anlageberatung</h3>
+                <p>Dieser Handelsplangenerator ist ausschließlich ein <strong>Bildungs- und Organisationstool</strong>. Die bereitgestellten Funktionen und generierten Handelspläne stellen <strong>KEINE Anlageberatung, Empfehlung oder Aufforderung</strong> zum Kauf oder Verkauf von Finanzinstrumenten dar.</p>
+                <h3>Risikohinweis</h3>
+                <p>Der Handel mit Optionen ist <strong>hochspekulativ und mit erheblichen Risiken verbunden</strong>:</p>
+                <ul>
+                    <li>Sie können Ihr gesamtes eingesetztes Kapital verlieren</li>
+                    <li>Bei bestimmten Optionsstrategien sind die Verluste theoretisch unbegrenzt</li>
+                    <li>Optionen sind komplexe Finanzinstrumente und nicht für alle Anleger geeignet</li>
+                    <li>Die Wertentwicklung in der Vergangenheit ist kein Indikator für zukünftige Ergebnisse</li>
+                </ul>
+                <h3>Eigenverantwortung</h3>
+                <p><strong>Sie handeln auf eigenes Risiko und eigene Verantwortung.</strong> Jede Handelsentscheidung, die Sie treffen, liegt ausschließlich in Ihrer Verantwortung. Informieren Sie sich umfassend über die Risiken und konsultieren Sie bei Bedarf einen qualifizierten Finanzberater.</p>
+                <h3>Haftungsausschluss</h3>
+                <p>Der Betreiber dieser Webseite übernimmt keinerlei Haftung für:</p>
+                <ul>
+                    <li>Verluste oder Schäden, die durch die Nutzung dieses Tools entstehen</li>
+                    <li>Die Richtigkeit, Vollständigkeit oder Aktualität der bereitgestellten Informationen</li>
+                    <li>Handelsentscheidungen, die auf Basis der generierten Handelspläne getroffen werden</li>
+                    <li>Technische Fehler oder Ausfälle des Tools</li>
+                </ul>
+                <h3>Keine Garantie</h3>
+                <p>Es wird keine Garantie für die Eignung dieses Tools für einen bestimmten Zweck übernommen. Die Nutzung erfolgt ohne jegliche Gewährleistung.</p>
+                <h3>Rechtlicher Hinweis</h3>
+                <p>Dieses Tool ersetzt keine professionelle Finanzberatung. Für eine auf Ihre persönlichen Verhältnisse zugeschnittene Beratung wenden Sie sich bitte an einen zugelassenen Anlageberater oder Ihre Bank.</p>
+            </div>
+            <div class="disclaimer-buttons">
+                <button class="decline-btn" id="declineBtn">Ablehnen und Seite verlassen</button>
+                <button class="accept-btn" id="acceptBtn">Ich verstehe und akzeptiere</button>
+            </div>
+            <div class="disclaimer-footer">
+                Durch Klicken auf "Ich verstehe und akzeptiere" bestätigen Sie, dass Sie diesen Haftungsausschluss gelesen und verstanden haben.
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Handelsplangenerator für Optionshändler</h1>
+            <p>Erstellen Sie Ihren persönlichen, strukturierten Handelsplan für erfolgreichen Optionshandel</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div id="passwordSection">
+                <h2>🔒 Passwortgeschützter Bereich</h2>
+                <p style="color: #666; margin-bottom: 30px;">Bitte geben Sie das Passwort ein, um auf den Handelsplangenerator zuzugreifen.</p>
+                <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+                <button id="checkPasswordBtn" class="btn btn-primary full-width">Zugang freischalten</button>
+                <p id="passwordError" class="hidden">Falsches Passwort. Bitte versuchen Sie es erneut.</p>
+            </div>
+
+            <div id="mainContent" class="hidden">
+                <p class="required-note"><span class="required-asterisk">*</span> Pflichtfelder</p>
+                <form id="tradingPlanForm">
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">👤</span>Persönliche Informationen</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="traderName">Name des Händlers <span class="required-asterisk">*</span></label>
+                                <input type="text" id="traderName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="accountSize">Kontogröße (€) <span class="required-asterisk">*</span></label>
+                                <input type="number" id="accountSize" min="1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Erfahrungslevel <span class="required-asterisk">*</span></label>
+                                <select id="experience" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="beginner">Anfänger (&lt; 1 Jahr)</option>
+                                    <option value="intermediate">Fortgeschritten (1-3 Jahre)</option>
+                                    <option value="advanced">Erfahren (3-5 Jahre)</option>
+                                    <option value="expert">Experte (&gt; 5 Jahre)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">🎯</span>Handelsziele</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="monthlyGoal">Monatliches Renditeziel (%) <span class="required-asterisk">*</span></label>
+                                <input type="number" id="monthlyGoal" step="0.1" min="0" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="yearlyGoal">Jährliches Renditeziel (%) <span class="required-asterisk">*</span></label>
+                                <input type="number" id="yearlyGoal" step="0.1" min="0" max="500" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="maxDrawdown">Maximaler Drawdown (%) <span class="required-asterisk">*</span></label>
+                                <input type="number" id="maxDrawdown" step="0.1" min="1" max="100" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tradingObjective">Primäres Handelsziel</label>
+                            <textarea id="tradingObjective" placeholder="z.B. Zusätzliches Einkommen generieren, Vermögensaufbau, Hedging..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">⚠️</span>Risikomanagement</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="riskPerTrade">Risiko pro Trade (% des Kontos) <span class="required-asterisk">*</span></label>
+                                <input type="number" id="riskPerTrade" step="0.1" min="0.1" max="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="maxPositions">Maximale gleichzeitige Positionen <span class="required-asterisk">*</span></label>
+                                <input type="number" id="maxPositions" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stopLoss">Stop-Loss Strategie <span class="required-asterisk">*</span></label>
+                                <select id="stopLoss" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="percentage">Prozentual</option>
+                                    <option value="technical">Technische Level</option>
+                                    <option value="time">Zeitbasiert</option>
+                                    <option value="mixed">Kombiniert</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Risikotoleranz <span class="required-asterisk">*</span></label>
+                            <div class="risk-indicator">
+                                <div class="risk-level risk-low" data-risk="low">Niedrig</div>
+                                <div class="risk-level risk-medium" data-risk="medium">Mittel</div>
+                                <div class="risk-level risk-high" data-risk="high">Hoch</div>
+                            </div>
+                            <input type="hidden" id="riskTolerance" name="riskTolerance" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">📈</span>Handelsstrategien</h2>
+                        <div class="form-group">
+                            <label>Bevorzugte Optionsstrategien <span class="required-asterisk">*</span></label>
+                            <div class="checkbox-group"><input type="checkbox" id="coveredCall" name="strategies" value="Covered Call"><label for="coveredCall">Covered Call</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="cashSecuredPut" name="strategies" value="Cash Secured Put"><label for="cashSecuredPut">Cash Secured Put</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="verticalSpread" name="strategies" value="Vertical Spread"><label for="verticalSpread">Vertical Spread</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="ironCondor" name="strategies" value="Iron Condor"><label for="ironCondor">Iron Condor</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="butterfly" name="strategies" value="Butterfly"><label for="butterfly">Butterfly</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="straddle" name="strategies" value="Straddle/Strangle"><label for="straddle">Straddle/Strangle</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="calendar" name="strategies" value="Calendar Spread"><label for="calendar">Calendar Spread</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="diagonal" name="strategies" value="Diagonal Spread"><label for="diagonal">Diagonal Spread</label></div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="timeframe">Bevorzugter Zeithorizont <span class="required-asterisk">*</span></label>
+                                <select id="timeframe" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="weekly">Wöchentlich (0-7 DTE)</option>
+                                    <option value="biweekly">Zweiwöchentlich (7-14 DTE)</option>
+                                    <option value="monthly">Monatlich (30-45 DTE)</option>
+                                    <option value="quarterly">Quartalsweise (60-90 DTE)</option>
+                                    <option value="leaps">LEAPS (&gt; 365 DTE)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="underlyings">Bevorzugte Basiswerte</label>
+                                <input type="text" id="underlyings" placeholder="z.B. SPY, QQQ, AAPL, EUR/USD">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">📊</span>Marktanalyse</h2>
+                        <div class="form-group">
+                            <label>Verwendete Analysemethoden</label>
+                            <div class="checkbox-group"><input type="checkbox" id="technical" name="analysis" value="Technische Analyse"><label for="technical">Technische Analyse</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="fundamental" name="analysis" value="Fundamentalanalyse"><label for="fundamental">Fundamentalanalyse</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="sentiment" name="analysis" value="Sentiment Analyse"><label for="sentiment">Sentiment Analyse</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="volatility" name="analysis" value="Volatilitätsanalyse"><label for="volatility">Volatilitätsanalyse</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="greeks" name="analysis" value="Greeks Analyse"><label for="greeks">Greeks Analyse</label></div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="indicators">Hauptindikatoren</label>
+                                <input type="text" id="indicators" placeholder="z.B. RSI, MACD, Bollinger Bands, IV Rank">
+                            </div>
+                            <div class="form-group">
+                                <label for="tradingHours">Handelszeiten</label>
+                                <input type="text" id="tradingHours" placeholder="z.B. 15:30-22:00 Uhr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2 class="section-title"><span class="section-icon">📋</span>Handelsregeln</h2>
+                        <div class="form-group">
+                            <label for="entryRules">Einstiegsregeln</label>
+                            <textarea id="entryRules" placeholder="Definieren Sie Ihre Kriterien für den Einstieg in einen Trade"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exitRules">Ausstiegsregeln</label>
+                            <textarea id="exitRules" placeholder="Definieren Sie Ihre Kriterien für den Ausstieg aus einem Trade"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="adjustmentRules">Anpassungsregeln</label>
+                            <textarea id="adjustmentRules" placeholder="Wann und wie passen Sie Ihre Positionen an?"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit" class="btn btn-primary">Handelsplan Generieren</button>
+                        <button type="button" id="resetFormBtn" class="btn btn-danger">Formular Zurücksetzen</button>
+                    </div>
+                </form>
+
+                <div id="outputSection" class="output-section hidden">
+                    <h2 class="output-title">Ihr Persönlicher Handelsplan</h2>
+                    <div id="planContent" class="plan-content"></div>
+                    <div class="action-buttons">
+                        <button id="printPlanBtn" class="action-btn">Plan Drucken</button>
+                        <button id="downloadPlanBtn" class="action-btn">Als PDF Speichern</button>
+                        <button id="copyPlanBtn" class="action-btn">Plan Kopieren</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="/assets/js/handelsplan.js"></script>

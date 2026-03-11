@@ -1,0 +1,27 @@
+{
+  "main": [
+    { "label": "Das Buch", "url": "/#book", "isAnchor": true },
+    { "label": "Inhalte", "url": "/#features", "isAnchor": true },
+    { "label": "Blog", "url": "/blog.html", "isAnchor": false },
+    { "label": "Tools", "url": "/quiz.html", "isAnchor": false, "children": [
+      { "label": "Optionswissen Quiz", "url": "/quiz.html" },
+      { "label": "Börsen-Quiz", "url": "/boersenquiz.html" },
+      { "label": "Handelsplan Generator", "url": "/handelsplan.html" },
+      { "label": "Glossar", "url": "/Bonus/Glossar.html" }
+    ]},
+    { "label": "Autor", "url": "/#author", "isAnchor": true },
+    { "label": "Rezensionen", "url": "/#reviews", "isAnchor": true },
+    { "label": "FAQ", "url": "/#faq", "isAnchor": true },
+    { "label": "Starterkit sichern", "url": "/#starterkit", "isAnchor": true, "isCta": true }
+  ],
+  "footer": [
+    { "label": "Das Buch", "url": "/#book" },
+    { "label": "Blog", "url": "/blog.html" },
+    { "label": "Bonus", "url": "/Bonus.html" },
+    { "label": "Autor", "url": "/#author" },
+    { "label": "Rezensionen", "url": "/#reviews" },
+    { "label": "FAQ", "url": "/#faq" },
+    { "label": "Impressum", "url": "/impressum.html" },
+    { "label": "Datenschutz", "url": "/datenschutz.html" }
+  ]
+}

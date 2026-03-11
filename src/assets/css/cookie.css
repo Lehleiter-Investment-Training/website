@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Cookie Consent
+   ========================================================================== */
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--light);
+    padding: 20px;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-consent.show {
+    display: block;
+}
+
+.cookie-consent-content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.cookie-consent h3 {
+    margin-top: 0;
+    color: var(--light);
+    font-size: 1.3rem;
+}
+
+.cookie-category {
+    margin: 15px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cookie-category:last-child {
+    border-bottom: none;
+}
+
+.cookie-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cookie-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--light);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: var(--accent);
+}
+
+input:disabled + .toggle-slider {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.essential-note {
+    font-size: 0.8rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.cookie-description {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.cookie-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cookie-policy-link {
+    color: var(--accent);
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    transition: all var(--transition-fast);
+}
+
+.btn-accept-all {
+    background-color: var(--accent);
+    color: var(--black);
+}
+
+.btn-accept-all:hover {
+    background-color: var(--light);
+    color: var(--black);
+}
+
+.btn-accept-necessary {
+    background-color: transparent;
+    color: var(--light);
+    border: 1px solid var(--light);
+}
+
+.btn-accept-necessary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-save-preferences {
+    background-color: #555;
+    color: var(--light);
+}
+
+.btn-save-preferences:hover {
+    background-color: #777;
+}

@@ -1,0 +1,671 @@
+---
+layout: layouts/base.njk
+pageTitle: "Börsen-Quiz"
+description: "Testen Sie Ihr Finanzwissen mit unserem interaktiven Börsen-Quiz. 100 Fragen zu Aktien, ETFs, Optionen und mehr. Von Markus Lehleiter, Autor von 'Optionen strategisch nutzen'."
+permalink: /boersenquiz.html
+---
+
+<style>
+        /* Quiz-Specific Styles Only - Base styles loaded from styles.css */
+
+        /* Quiz-specific CSS variables */
+        :root {
+            --bg-dark: #f8f9fa;
+            --bg-card: #ffffff;
+            --primary-quiz: #003366;
+            --primary-hover: #002244;
+            --accent-green: #66cc99;
+            --accent-red: #ef4444;
+            --text-primary: #333333;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --gold: #ffd700;
+        }
+
+        body {
+            background: var(--bg-dark);
+            min-height: 100vh;
+        }
+
+        /* Disclaimer Banner */
+        .disclaimer-banner {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .disclaimer-banner h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .disclaimer-banner h3 i {
+            margin-right: 0.5rem;
+            color: #ffc107;
+        }
+
+        .disclaimer-banner p {
+            color: #856404;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Quiz Container */
+        #quiz-container {
+            background: var(--bg-card);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        /* Start Screen */
+        #start-screen {
+            padding: 3rem;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0,51,102,0.05) 0%, rgba(126,151,195,0.05) 100%);
+        }
+
+        .emoji-header {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0) }
+            50% { transform: translateY(-10px) }
+        }
+
+        #start-screen h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-quiz) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, var(--primary-quiz) 0%, var(--primary-hover) 100%);
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,.1);
+            margin: 2rem auto 0;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0,0,0,.15);
+        }
+
+        /* Quiz Header */
+        #quiz-header {
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: none;
+            background: linear-gradient(135deg, rgba(0,51,102,0.03) 0%, rgba(126,151,195,0.03) 100%);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .level-badge {
+            background: rgba(0,51,102,.1);
+            color: var(--primary-quiz);
+            padding: .5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: .875rem;
+        }
+
+        .streak-counter {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-weight: 600;
+        }
+
+        .streak-fire {
+            font-size: 1.5rem;
+        }
+
+        /* Progress */
+        #progress-container {
+            margin-bottom: 1.5rem;
+        }
+
+        #question-counter {
+            font-size: .875rem;
+            color: var(--text-secondary);
+            margin-bottom: .5rem;
+        }
+
+        #progress-bar-container {
+            background: var(--border);
+            height: 8px;
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #progress-bar {
+            background: linear-gradient(90deg, var(--primary-quiz) 0%, var(--accent-green) 100%);
+            height: 100%;
+            transition: width .5s ease;
+            box-shadow: 0 0 10px rgba(0,51,102,.3);
+        }
+
+        /* Question Area */
+        #question-area {
+            padding: 2rem;
+            display: none;
+            background: white;
+        }
+
+        #question-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+            min-height: 3em;
+            color: var(--primary-quiz);
+        }
+
+        .difficulty-indicator {
+            display: inline-flex;
+            gap: .25rem;
+            margin-bottom: 1rem;
+        }
+
+        .difficulty-star {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background: #f8f9fa;
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+            padding: 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .2s ease;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 80px;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--primary-quiz);
+            background: rgba(0,51,102,.05);
+            transform: translateX(4px);
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: .8;
+        }
+
+        .option-btn.correct {
+            border-color: var(--accent-green);
+            background: rgba(102,204,153,.15);
+            animation: correctPulse .6s ease;
+        }
+
+        .option-btn.incorrect {
+            border-color: var(--accent-red);
+            background: rgba(239,68,68,.1);
+            animation: shake .5s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1) }
+            50% { transform: scale(1.05) }
+            100% { transform: scale(1) }
+        }
+
+        @keyframes shake {
+            0%,100% { transform: translateX(0) }
+            25% { transform: translateX(-5px) }
+            75% { transform: translateX(5px) }
+        }
+
+        /* Feedback */
+        #feedback-text {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: none;
+            font-size: 1rem;
+            line-height: 1.6;
+            animation: slideIn .3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #feedback-text.correct {
+            background: rgba(102,204,153,.1);
+            border: 1px solid var(--accent-green);
+            color: var(--text-primary);
+        }
+
+        #feedback-text.incorrect {
+            background: rgba(239,68,68,.1);
+            border: 1px solid var(--accent-red);
+            color: var(--text-primary);
+        }
+
+        .feedback-emoji {
+            font-size: 1.5rem;
+            margin-right: .5rem;
+        }
+
+        /* Navigation */
+        #navigation {
+            padding: 1.5rem 2rem;
+            text-align: right;
+            display: none;
+            min-height: 80px;
+            background: linear-gradient(135deg, rgba(0,51,102,0.03) 0%, rgba(126,151,195,0.03) 100%);
+        }
+
+        #next-btn {
+            background: linear-gradient(135deg, var(--primary-quiz) 0%, var(--primary-hover) 100%);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: .75rem 2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .3s ease;
+            display: none;
+        }
+
+        #next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0,0,0,.15);
+        }
+
+        /* Results */
+        #results-screen {
+            padding: 3rem;
+            text-align: center;
+            display: none;
+            background: linear-gradient(135deg, rgba(0,51,102,0.05) 0%, rgba(126,151,195,0.05) 100%);
+        }
+
+        .results-emoji {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #results-screen h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-quiz);
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .score-circle svg {
+            transform: rotate(-90deg);
+        }
+
+        .score-circle-bg {
+            stroke: var(--border);
+            stroke-width: 8;
+            fill: none;
+        }
+
+        .score-circle-progress {
+            stroke: url(#gradient);
+            stroke-width: 8;
+            fill: none;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        #score-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-quiz);
+        }
+
+        .verdict-box {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .verdict-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-quiz);
+        }
+
+        .verdict-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Topic Results */
+        .topic-results {
+            text-align: left;
+            margin-top: 3rem;
+        }
+
+        .topic-results h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--primary-quiz);
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .topic-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all .2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-quiz);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .75rem;
+        }
+
+        .topic-name {
+            font-weight: 600;
+            font-size: .95rem;
+            color: var(--primary-quiz);
+        }
+
+        .topic-score {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: .875rem;
+        }
+
+        .topic-progress-bar-container {
+            background: var(--border);
+            height: 6px;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .topic-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-quiz) 0%, var(--accent-green) 100%);
+            transition: width .8s ease;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-quiz);
+            color: var(--primary-quiz);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: .75rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-quiz);
+            color: #fff;
+        }
+
+        /* Achievement */
+        .achievement-popup {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: white;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: none;
+            align-items: center;
+            animation: achievementSlide .5s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        }
+
+        @keyframes achievementSlide {
+            from { transform: translateX(400px); }
+            to { transform: translateX(0); }
+        }
+
+        .achievement-popup .emoji {
+            font-size: 2rem;
+            margin-right: .5rem;
+        }
+
+        .achievement-text {
+            font-weight: 600;
+            color: var(--primary-quiz);
+        }
+
+        /* Loading dots */
+        .loading-dots {
+            display: inline-flex;
+            gap: .25rem;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-quiz);
+            border-radius: 50%;
+            animation: loadingDot 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes loadingDot {
+            0%,80%,100% { transform: scale(0); opacity: .5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Responsive - Quiz-specific overrides */
+        @media screen and (max-width: 768px) {
+            #quiz-container {
+                margin: 1rem;
+                border-radius: 16px;
+            }
+
+            #start-screen h1 {
+                font-size: 2rem;
+            }
+
+            #question-text {
+                font-size: 1.25rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-circle {
+                width: 150px;
+                height: 150px;
+            }
+
+            #score-percentage {
+                font-size: 2.5rem;
+            }
+
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</style>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <h3><i class="fas fa-exclamation-triangle"></i> Wichtiger Hinweis</h3>
+        <p>Dieses Quiz dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Die hier vermittelten Informationen stellen keine Anlageberatung, Empfehlung oder Aufforderung zum Kauf oder Verkauf von Finanzinstrumenten dar. Investitionsentscheidungen sollten nur nach eigener Recherche und gegebenenfalls nach Rücksprache mit einem qualifizierten Finanzberater getroffen werden. Wertpapiergeschäfte bergen Risiken, die zum Totalverlust des eingesetzten Kapitals führen können.</p>
+    </div>
+    
+    <div id="quiz-container">
+        <div id="start-screen">
+            <div class="emoji-header">📈💰🚀</div>
+            <h1>Das große Börsen-Quiz</h1>
+            <p class="subtitle">Testen Sie Ihr Finanzwissen!<br />100 Fragen zu Aktien, ETFs, Optionen und mehr</p>
+            <button class="start-btn" onclick="startQuiz()">Quiz starten! 🎯</button>
+        </div>
+
+        <div id="quiz-header">
+            <div class="header-content">
+                <div class="level-badge" id="level-badge">Level: Börsen-Rookie</div>
+                <div class="streak-counter"><span class="streak-fire">🔥</span><span id="streak-count">0</span></div>
+            </div>
+            <div id="progress-container">
+                <div id="question-counter"></div>
+                <div id="progress-bar-container"><div id="progress-bar"></div></div>
+            </div>
+        </div>
+
+        <div id="question-area">
+            <div class="difficulty-indicator" id="difficulty-stars"></div>
+            <div id="question-text">
+                <div class="loading-dots"><span></span><span></span><span></span></div>
+            </div>
+            <div class="options-grid" id="options-container"></div>
+            <div id="feedback-text"></div>
+        </div>
+
+        <div id="navigation"><button id="next-btn" onclick="nextQuestion()">Weiter →</button></div>
+
+        <div id="results-screen">
+            <div class="results-emoji" id="results-emoji"></div>
+            <h2>Quiz abgeschlossen!</h2>
+            <div class="score-circle">
+                <svg width="200" height="200" viewbox="0 0 200 200">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#003366;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#66cc99;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" class="score-circle-bg"></circle>
+                    <circle cx="100" cy="100" r="90" class="score-circle-progress" id="score-circle-progress"></circle>
+                </svg>
+                <div id="score-percentage">0%</div>
+            </div>
+            <div class="verdict-box">
+                <div class="verdict-title" id="verdict-title"></div>
+                <div class="verdict-text" id="verdict-text"></div>
+            </div>
+            
+            <div class="topic-results">
+                <h3>Ihre Stärken und Schwächen</h3>
+                <div class="topic-grid" id="topic-results-container"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn-secondary" onclick="startQuiz()">Nochmal versuchen</button>
+                <button class="start-btn" onclick="shareResults()">Ergebnis teilen 📱</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="achievement-popup" id="achievement-popup">
+        <span class="emoji" id="achievement-emoji"></span>
+        <span class="achievement-text" id="achievement-text"></span>
+    </div>
+
+<script src="/assets/js/boersenquiz.js"></script>

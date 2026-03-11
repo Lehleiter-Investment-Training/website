@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c1810"/>
+      <stop offset="100%" style="stop-color:#4a2c1a"/>
+    </linearGradient>
+    <linearGradient id="fear" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="calm" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66cc99"/>
+      <stop offset="100%" style="stop-color:#4db380"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg6)"/>
+
+  <!-- VIX Gauge -->
+  <g transform="translate(520, 100)">
+    <!-- Gauge background -->
+    <path d="M 30 150 A 100 100 0 0 1 230 150" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="20"/>
+    <!-- Green zone -->
+    <path d="M 30 150 A 100 100 0 0 1 80 70" fill="none" stroke="#66cc99" stroke-width="20"/>
+    <!-- Yellow zone -->
+    <path d="M 80 70 A 100 100 0 0 1 180 70" fill="none" stroke="#ffd700" stroke-width="20"/>
+    <!-- Red zone -->
+    <path d="M 180 70 A 100 100 0 0 1 230 150" fill="none" stroke="#ef4444" stroke-width="20"/>
+
+    <!-- Needle -->
+    <line x1="130" y1="150" x2="170" y2="80" stroke="white" stroke-width="4"/>
+    <circle cx="130" cy="150" r="10" fill="white"/>
+
+    <!-- VIX Label -->
+    <text x="130" y="200" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" font-weight="bold">VIX</text>
+    <text x="130" y="225" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.7)" text-anchor="middle">Angstindex</text>
+  </g>
+
+  <!-- Fear/Greed indicators -->
+  <g transform="translate(520, 320)">
+    <rect x="0" y="0" width="80" height="30" rx="5" fill="url(#calm)"/>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">RUHE</text>
+
+    <rect x="90" y="0" width="80" height="30" rx="5" fill="#ffd700"/>
+    <text x="130" y="20" font-family="Arial, sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="bold">VORSICHT</text>
+
+    <rect x="180" y="0" width="80" height="30" rx="5" fill="url(#fear)"/>
+    <text x="220" y="20" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">ANGST</text>
+  </g>
+
+  <!-- Title -->
+  <text x="40" y="120" font-family="Arial, sans-serif" font-size="34" fill="white" font-weight="bold">Der VIX erklärt:</text>
+  <text x="40" y="170" font-family="Arial, sans-serif" font-size="28" fill="#ef4444">So nutzen Sie den</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" fill="#ef4444">Angstindex</text>
+
+  <!-- Info bullets -->
+  <g fill="white" font-family="Arial, sans-serif" font-size="15">
+    <circle cx="50" cy="280" r="4" fill="#ffd700"/>
+    <text x="65" y="285">Marktsentiment verstehen</text>
+    <circle cx="50" cy="315" r="4" fill="#ffd700"/>
+    <text x="65" y="320">Timing-Signale nutzen</text>
+    <circle cx="50" cy="350" r="4" fill="#ffd700"/>
+    <text x="65" y="355">Risiken früh erkennen</text>
+  </g>
+
+  <!-- Bottom tag -->
+  <rect x="40" y="390" width="140" height="35" rx="17" fill="url(#fear)"/>
+  <text x="110" y="413" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">INDIKATOREN</text>
+</svg>
