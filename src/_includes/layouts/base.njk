@@ -128,6 +128,38 @@
     });
     </script>
 
+    <!-- Brevo Form AJAX Submission -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('form[data-type="subscription"]').forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var btn = form.querySelector('button[type="submit"]');
+                var originalText = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = 'Wird gesendet...';
+
+                var formData = new FormData(form);
+
+                // Honeypot check — bot filled the hidden field
+                if (formData.get('email_address_check')) return;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                }).then(function() {
+                    window.location.href = '/Danke.html';
+                }).catch(function() {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                    alert('Es gab ein Problem. Bitte versuchen Sie es erneut.');
+                });
+            });
+        });
+    });
+    </script>
+
     {% include "partials/cookie-consent.njk" %}
 </body>
 </html>
