@@ -6,6 +6,7 @@ _site/
 /*.css
 /*.js
 !/.eleventy.js
+!/jest.config.js
 /*.svg
 /*.jpg
 /*.png

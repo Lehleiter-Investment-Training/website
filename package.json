@@ -5,11 +5,14 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "test": "jest --verbose"
   },
   "author": "Markus Lehleiter",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0"
   }
 }
