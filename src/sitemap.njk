@@ -11,6 +11,24 @@ eleventyExcludeFromCollections: true
         {% if page.data.date %}
         <lastmod>{{ page.data.date | isoDate }}</lastmod>
         {% endif %}
+        {% if page.url == "/" %}
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        {% elif page.url == "/blog.html" %}
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        {% elif page.url == "/quiz.html" or page.url == "/boersenquiz.html" or page.url == "/handelsplan.html" %}
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        {% elif "/blog/" in page.url %}
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        {% elif page.url == "/Bonus/Glossar.html" %}
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        {% else %}
+        <priority>0.5</priority>
+        {% endif %}
     </url>
     {% endif %}
     {% endfor %}

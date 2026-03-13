@@ -6,6 +6,9 @@
 <meta name="keywords" content="{{ keywords }}">
 {% endif %}
 <meta name="author" content="{{ site.author }}">
+{% if robots %}
+<meta name="robots" content="{{ robots }}">
+{% endif %}
 
 {% if ogTitle %}
 <!-- Open Graph Tags -->
@@ -31,6 +34,39 @@
 {% else %}
 <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 {% endif %}
+
+<!-- Structured Data: WebSite + Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Just Options",
+      "alternateName": "Optionen strategisch nutzen",
+      "url": "{{ site.url }}",
+      "description": "{{ site.description }}",
+      "inLanguage": "de",
+      "publisher": {
+        "@id": "{{ site.url }}/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}",
+      "image": "{{ site.url }}/assets/images/author.jpg",
+      "jobTitle": "Autor & Optionshändler",
+      "sameAs": [
+        "{{ site.social.linkedin }}",
+        "{{ site.social.instagram }}",
+        "{{ site.social.telegram }}"
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- Security Headers -->
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
