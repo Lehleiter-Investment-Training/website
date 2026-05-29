@@ -8,6 +8,7 @@ const Image = require("@11ty/eleventy-img");
 
 // Globale CSS-Dateien, die auf jeder Seite benötigt werden -> ein gebündeltes File
 const GLOBAL_CSS = [
+  "fonts.css",
   "variables.css",
   "base.css",
   "nav.css",
@@ -142,6 +143,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/assets/css");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/blog/images");
   eleventyConfig.addPassthroughCopy("src/bonus/downloads");
   eleventyConfig.addPassthroughCopy("src/workbook/downloads");

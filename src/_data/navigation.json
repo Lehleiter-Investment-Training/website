@@ -1,7 +1,7 @@
 {
   "main": [
     { "label": "Das Buch", "url": "/#book", "isAnchor": true },
-    { "label": "Inhalte", "url": "/#features", "isAnchor": true },
+    { "label": "KI-Kurs", "url": "/#kurs", "isAnchor": true },
     { "label": "Blog", "url": "/blog.html", "isAnchor": false },
     { "label": "Tools", "url": "/quiz.html", "isAnchor": false, "children": [
       { "label": "Optionswissen Quiz", "url": "/quiz.html" },
@@ -16,6 +16,7 @@
   ],
   "footer": [
     { "label": "Das Buch", "url": "/#book" },
+    { "label": "KI-Kurs", "url": "/#kurs" },
     { "label": "Blog", "url": "/blog.html" },
     { "label": "Autor", "url": "/#author" },
     { "label": "Rezensionen", "url": "/#reviews" },
