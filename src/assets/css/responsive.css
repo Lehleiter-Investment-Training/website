@@ -232,24 +232,6 @@
     .blog-grid {
         grid-template-columns: 1fr;
     }
-
-    .cookie-actions {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cookie-buttons {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .cookie-btn {
-        flex: 1;
-        text-align: center;
-        font-size: 0.9rem;
-        padding: 10px 8px;
-    }
 }
 
 /* Small Mobile Devices */
@@ -389,8 +371,7 @@
 @media print {
     header,
     footer,
-    .mobile-menu-toggle,
-    .cookie-consent {
+    .mobile-menu-toggle {
         display: none !important;
     }
 

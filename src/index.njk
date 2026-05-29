@@ -5,8 +5,6 @@ description: "Lernen Sie Optionen strategisch einzusetzen - für zusätzliche Er
 keywords: "Optionshandel, Optionen strategisch nutzen, Markus Lehleiter, Zusatzerträge, Investieren, Aktien, Börsenhandel, Options Trading, Geldanlage"
 ogTitle: "Optionen strategisch nutzen"
 ogDescription: "Lernen Sie Optionen strategisch einzusetzen - für zusätzliche Erträge, optimierte Einstiege und effektive Absicherung. Das Praxishandbuch von Markus Lehleiter."
-ogImage: "https://www.just-options.de/assets/images/buchcover.png"
-ogImageAlt: "Buchcover: Optionen strategisch nutzen von Markus Lehleiter"
 canonical: "https://www.just-options.de/"
 permalink: /index.html
 ---
@@ -28,24 +26,14 @@ permalink: /index.html
             <span class="rating-text">4,9 von 5 Sternen</span>
             <span class="rating-count">17 Rezensionen auf Amazon</span>
         </div>
-        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-            <meta itemprop="ratingValue" content="4.9">
-            <meta itemprop="bestRating" content="5">
-            <meta itemprop="worstRating" content="1">
-            <meta itemprop="reviewCount" content="17">
-        </div>
-        <div class="book-preview" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <meta itemprop="availability" content="https://schema.org/InStock">
-            <meta itemprop="url" content="{{ site.amazonBookUrl }}">
+        <div class="book-preview">
             <div class="book-image">
-                <img src="/assets/images/buchcover.png" alt="Buchcover: Optionen strategisch nutzen - Markus Lehleiter Finanzbuch" width="1500" height="2250">
+                {% image "assets/images/buchcover.png", "Buchcover: Optionen strategisch nutzen - Markus Lehleiter Finanzbuch", "(max-width: 768px) 80vw, 400px", "eager" %}
             </div>
             <div class="book-details">
-                <h3 itemprop="name">Erfolgreich investieren, Risiken absichern und Zusatzeinnahmen generieren – mit einem klaren, bewährten System</h3>
-                <meta itemprop="description" content="Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel. Bewährte Strategien, Risikomanagement und ein klares System für Zusatzerträge.">
+                <h3>Erfolgreich investieren, Risiken absichern und Zusatzeinnahmen generieren – mit einem klaren, bewährten System</h3>
                 <p>In diesem praktischen Handbuch erfahren Sie, wie Sie mit Optionen nicht nur Ihr Depot schützen, sondern auch eine zusätzliche Einnahmequelle generieren können. Basierend auf bewährten Strategien, erhalten Sie einen klaren Einstieg, der Ihnen hilft, typische Fehler zu vermeiden und sich von Beginn an auf Erfolgskurs zu bringen.</p>
-                <div class="price-tag" itemprop="price" content="24.00">24,00 €</div>
-                <meta itemprop="priceCurrency" content="EUR">
+                <div class="price-tag">24,00 €</div>
                 <p>Veröffentlicht am 20. November 2024 | 218 Seiten | Taschenbuch</p>
                 <div class="book-buttons">
                     <a href="{{ site.amazonBookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Kaufen Sie das Buch Optionen strategisch nutzen auf Amazon">Jetzt kaufen</a>
@@ -54,15 +42,14 @@ permalink: /index.html
             </div>
         </div>
 
-        <div class="book-preview" itemscope itemtype="http://schema.org/Offer">
+        <div class="book-preview">
             <div class="book-image">
-                <img src="/assets/images/workbook.png" alt="Workbook: Optionen strategisch nutzen - Markus Lehleiter" width="1500" height="2250" loading="lazy">
+                {% image "assets/images/workbook.png", "Workbook: Optionen strategisch nutzen - Markus Lehleiter", "(max-width: 768px) 80vw, 400px", "lazy" %}
             </div>
             <div class="book-details">
-                <h3 itemprop="name">Das Workbook zum Buch – Wissen vertiefen und in die Praxis umsetzen</h3>
+                <h3>Das Workbook zum Buch – Wissen vertiefen und in die Praxis umsetzen</h3>
                 <p>Dieses Workbook ist die perfekte Ergänzung zum Hauptwerk. Mit praktischen Übungen, Checklisten und Praxisbeispielen vertiefen Sie Ihr Wissen und setzen die Strategien aus dem Buch direkt um. Ideal für alle, die das Gelernte systematisch anwenden und ihre Fähigkeiten im Optionshandel gezielt weiterentwickeln möchten.</p>
-                <div class="price-tag" itemprop="price" content="19.99">19,99 €</div>
-                <meta itemprop="priceCurrency" content="EUR">
+                <div class="price-tag">19,99 €</div>
                 <p>Veröffentlicht am 12. Januar 2026 | 200 Seiten | Taschenbuch</p>
                 <div class="book-buttons">
                     <a href="{{ site.amazonWorkbookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Kaufen Sie das Workbook Optionen strategisch nutzen auf Amazon">Jetzt kaufen</a>
@@ -188,7 +175,7 @@ permalink: /index.html
     <div class="container">
         <h2>Über den Autor</h2>
         <div class="author-info">
-            <img src="/assets/images/autor.jpg" alt="Markus Lehleiter - Autor und Experte für Optionshandel" class="author-image" width="1080" height="1350" loading="lazy">
+            {% image "assets/images/autor.jpg", "Markus Lehleiter - Autor und Experte für Optionshandel", "150px", "lazy", "author-image" %}
             <h3>Markus Lehleiter</h3>
             <p>Markus Lehleiter ist ein Investmentexperte mit über zwanzig Jahren Erfahrung in der Finanzbranche. Im Laufe seiner Karriere war er maßgeblich an der Entwicklung innovativer Fonds und Finanzprodukte beteiligt und leitete mehrere Projekte in den Bereichen Digitalisierung und Produktstrategie bei großen Fondsgesellschaften.</p>
             <p>Als Wirtschaftsmathematiker, Chartered Financial Analyst und Financial Risk Manager verfügt er über tiefgehende Kenntnisse in der Analyse und Gestaltung komplexer Anlageprodukte. Zudem ist er seit vielen Jahren aktiv im Optionshandel tätig.</p>
@@ -412,6 +399,14 @@ permalink: /index.html
             "worstRating": "1",
             "reviewCount": "17"
         },
+        "review": [
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Casimir73" }, "reviewBody": "Dieses Buch überzeugt durch fundierte Erklärungen und praktische Beispiele, die Anlegern helfen, die Welt der Optionen systematisch zu meistern. Mir hat gut gefallen, dass das Buch sehr strukturiert aufgebaut ist." },
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Jonas M." }, "reviewBody": "Super verständlich für Einsteiger aufbereitet um mit dem Thema Optionen durchzustarten. Kann man als Lektüre empfehlen." },
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "A. PAZ" }, "reviewBody": "Dieses Buch besticht durch Klarheit und Praxisnähe. Es erklärt Optionsstrategien verständlich und bietet praktische Beispiele. Der Fokus auf Risikomanagement ist top!" },
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Conny" }, "reviewBody": "Habe mir das Buch gekauft, da ich mein Portfolio mit Optionen absichern wollte. Das Buch ist sehr systematisch aufgebaut, erklärt die Grundlagen sehr gut und hat mir geholfen, schnell das Wichtige zu erkennen." },
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "Almir A." }, "reviewBody": "Kompakt und gut erklärt. Das Buch ist sehr kompakt und enthält alles Wichtige, was man braucht um selbst loszulegen. Alles wird kompakt und gut verständlich erklärt, ist gut durchdacht." },
+            { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Person", "name": "lebed" }, "reviewBody": "Ein Muss für jede Investorin, die mit klar strukturierten Strategien und verständlicher Theorie den Einstieg in den Optionshandel sucht. Das Buch liest sich verständlich auch für diejenigen, die über kein oder wenig Fachwissen verfügen." }
+        ],
         "offers": {
             "@type": "Offer",
             "price": "24.00",

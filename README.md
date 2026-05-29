@@ -1,231 +1,136 @@
-# Just Options - Buchwebseite
+# Just Options – Buchwebseite
 
-Offizielle Website zum Buch **"Just Options: Optionen strategisch nutzen"** von Markus Lehleiter.
+Offizielle Website zum Buch **„Optionen strategisch nutzen"** von Markus Lehleiter.
+Erreichbar unter **https://www.just-options.de**.
 
 ## Projektübersicht
 
-Diese Website dient als Marketingplattform und Ressourcenzentrum für das Buch über Optionshandel. Sie bietet:
+Marketing- und Ressourcen-Website zum Buch über Optionshandel:
 
-- Buchvorstellung und Kaufmöglichkeiten
-- Umfangreichen Blog mit Fachartikeln
-- Interaktives Quiz zum Optionswissen
-- Exklusives Bonusmaterial für Buchkäufer
-- Newsletter-Anmeldung
+- Buchvorstellung (Hauptbuch + Workbook) mit Amazon-Kaufmöglichkeit
+- Blog mit SEO-optimierten Fachartikeln
+- Interaktive Tools (Optionswissen-Quiz, Börsen-Quiz, Handelsplan-Generator, Glossar)
+- Passwortgeschützter Bonus-Bereich für Buchkäufer
+- Lead-Magnet / Newsletter-Anmeldung (Brevo)
+
+## Technik-Stack
+
+- **[Eleventy (11ty) v3](https://www.11ty.dev/)** – Static Site Generator
+- **Nunjucks** (`.njk`) als Template-Sprache
+- **HTML5 / CSS3** (Custom Properties, Flexbox, Grid) – modulare Stylesheets
+- **Vanilla JavaScript** – keine Frontend-Frameworks
+- **Font Awesome 6.5** – **lokal als Inline-SVG** eingebettet (kein CDN, kein Webfont, kein Drittanbieter)
+- **Kein Analytics/Tracking, keine Cookies, keine Drittdienste** → kein Cookie-/Einwilligungs-Banner nötig
+
+### Build-Pipeline (in `.eleventy.js`)
+
+- **CSS-Bundling**: 7 globale Stylesheets werden zu einem gehashten, minifizierten
+  Bundle (`app.<hash>.css`) zusammengefasst (Cache-Busting). Seitenspezifisches CSS
+  wird einzeln minifiziert.
+- **JS-Minifizierung**: alle Dateien in `assets/js` via Terser.
+- **HTML-Minifizierung**: via `html-minifier-terser` (inkl. Inline-JS/CSS).
+- **Responsive Bilder**: `{% image %}`-Shortcode (`@11ty/eleventy-img`) erzeugt
+  WebP + JPEG-Fallback in mehreren Breiten mit automatischen `width`/`height`.
+- **Icons**: Der Build scannt den Quelltext nach verwendeten Font-Awesome-Klassen
+  (`fas/far/fab fa-*`, auch in JS) und erzeugt aus den lokalen FA-6.5.1-SVGs ein
+  CSS, das jedes Icon per `mask` (eingefärbt über `currentColor`) rendert. Markup
+  (`<i class="fas fa-…">`) bleibt unverändert. Ein unbekannter Icon-Name lässt den
+  Build absichtlich fehlschlagen (Alias-Auflösung über `metadata/icon-families.json`).
 
 ## Projektstruktur
 
 ```
-buchwebseite-main/
-├── index.html                      # Hauptseite mit Buchvorstellung
-├── blog.html                       # Blog-Übersicht
-├── styles.css                      # Zentrales Stylesheet
-├── sitemap.xml                     # XML-Sitemap für SEO
-├── robots.txt                      # Robots-Anweisungen
-│
-├── Blog-Artikel/
-│   ├── optionsstrategien-einsteiger.html
-│   ├── risikomanagement-optionshandel.html
-│   ├── volatilitaet-renditen.html
-│   ├── volatilitaet-verstehen.html
-│   ├── vix-angstindex-erklaert.html
-│   ├── psychologie-optionshandel.html
-│   ├── marginhandel-verstehen.html
-│   ├── anfaengerfehler-optionshandel.html
-│   └── iv-rank-perzentil.html
-│
-├── Blog-Grafiken (SVG)/
-│   ├── optionsstrategien-einsteiger.svg
-│   ├── risikomanagement-optionshandel.svg
-│   ├── volatilitaet-renditen.svg
-│   ├── volatilitaet-verstehen.svg
-│   ├── vix-angstindex-erklaert.svg
-│   ├── psychologie-optionshandel.svg
-│   ├── marginhandel-verstehen.svg
-│   ├── anfaengerfehler-optionshandel.svg
-│   └── iv-rank-perzentil.svg
-│
-├── Interaktive Inhalte/
-│   ├── quiz.html                   # Basis-Quiz (20 Fragen)
-│   ├── boersenquiz.html            # Erweitertes Quiz (100 Fragen)
-│   └── handelsplan.html            # Interaktiver Handelsplan-Generator
-│
-├── Bonus-Bereich/
-│   ├── Bonus.html                  # Passwortgeschützte Bonus-Seite
-│   └── Bonus/                      # Bonus-Materialien
-│       ├── Glossar.html            # Interaktives Options-Glossar
-│       ├── 01_Anleitung Watchliste.docx
-│       ├── 01_Watchliste_liquide.xlsx
-│       ├── 02_Beispiel Handelsplan.docx
-│       ├── 03_ChatGPT Prompt zum Abgleich mit Handelsplan.docx
-│       ├── 05_Strategieüberblick.pdf
-│       ├── 06_Tool-Liste.xlsx
-│       ├── 07_Optionen und Bitcoin.pdf
-│       └── 08_Aktienanalyse mit KI.pdf
-│
-├── Rechtliches/
-│   ├── impressum.html              # Impressum
-│   └── datenschutz.html            # Datenschutzerklärung
-│
-├── Assets/
-│   ├── Logo.jpg                    # Website-Logo
-│   ├── Favicon.jpg                 # Browser-Favicon
-│   ├── Buch.jpg                    # Buchcover (klein)
-│   ├── Buchcover.png               # Buchcover (groß)
-│   └── Autor.jpg                   # Autorenfoto
-│
-├── Scripts/
-│   └── cookie-consent.js           # Cookie-Consent-Funktionalität
-│
-└── Sonstiges/
-    ├── .github/                    # GitHub-Konfiguration
-    └── blogideas/                  # Blog-Ideen und Entwürfe
+src/
+├── index.njk                 # Startseite
+├── _data/                    # Globale Daten (site.json, navigation.json)
+├── _includes/
+│   ├── layouts/              # base, page, blog-post
+│   └── partials/             # head, nav, footer, cookie-consent, …
+├── assets/
+│   ├── css/                  # Modulare Stylesheets (global + seitenspezifisch)
+│   ├── js/                   # main.js, quiz.js, boersenquiz.js, slider.js, …
+│   ├── images/               # Logo, Cover, Autorfoto, Favicon
+│   └── downloads/            # Lead-Magnet-PDFs
+├── blog/                     # Blog-Artikel (.njk) + images/ (SVG)
+├── tools/                    # quiz, boersenquiz, handelsplan
+├── bonus/                    # Bonus-Bereich + downloads/
+├── workbook/                 # Workbook-Bonusseite + downloads/
+├── pages/                    # impressum, datenschutz, danke
+├── landing/                  # Landingpages
+├── sitemap.njk               # XML-Sitemap
+├── robots.txt
+├── _headers                  # Security-/Cache-Header (Netlify/Cloudflare)
+└── CNAME
 ```
 
-## Blog-Artikel
-
-Die Website enthält 9 SEO-optimierte Fachartikel zum Thema Optionshandel:
-
-| Artikel | Thema | Dateiname |
-|---------|-------|-----------|
-| Optionsstrategien für Einsteiger | Grundlegende Strategien (CSP, CC, Spreads) | `optionsstrategien-einsteiger.html` |
-| Risikomanagement | 10 Strategien zum Kapitalschutz | `risikomanagement-optionshandel.html` |
-| Volatilität für Renditen | Strategien für Hoch-/Niedrigvolatilität | `volatilitaet-renditen.html` |
-| Volatilität verstehen | Grundlagen der Volatilität | `volatilitaet-verstehen.html` |
-| VIX erklärt | Der Angstindex und seine Nutzung | `vix-angstindex-erklaert.html` |
-| Psychologie im Trading | Emotionale Fallen vermeiden | `psychologie-optionshandel.html` |
-| Marginhandel | Chancen und Risiken des Hebelhandels | `marginhandel-verstehen.html` |
-| Anfängerfehler | Typische Fehler und wie man sie vermeidet | `anfaengerfehler-optionshandel.html` |
-| IV-Rank & IV-Perzentil | Volatilitätsindikatoren richtig nutzen | `iv-rank-perzentil.html` |
-
-### Interne Verlinkung
-
-Alle Blog-Artikel sind SEO-optimiert miteinander verlinkt. Die Links erscheinen kontextbezogen im Fließtext und sind visuell durch Unterstreichung und Farbe hervorgehoben.
-
-## Technische Details
-
-### Verwendete Technologien
-
-- **HTML5** - Semantisches Markup
-- **CSS3** - Custom Properties, Flexbox, Grid
-- **Vanilla JavaScript** - Keine Framework-Abhängigkeiten
-- **Google Fonts** - Roboto Schriftfamilie
-- **Font Awesome 6.5** - Icons
-
-### CSS-Architektur
-
-Die `styles.css` ist modular aufgebaut:
-
-1. CSS Variables (Custom Properties)
-2. Reset & Base Styles
-3. Typography
-4. Layout Components
-5. Navigation
-6. Hero Section
-7. Content Sections
-8. Blog Styles
-9. Interactive Elements (Quiz, Forms)
-10. Footer
-11. Responsive Breakpoints
-12. Print Styles
-
-### Responsive Design
-
-Die Website ist vollständig responsive mit Breakpoints bei:
-- 1200px (Large Desktop)
-- 992px (Desktop)
-- 768px (Tablet)
-- 576px (Mobile)
-- 480px (Small Mobile)
-
-### SEO-Optimierungen
-
-- Semantische HTML-Struktur
-- Meta-Descriptions für alle Seiten
-- SEO-freundliche URLs (sprechende Dateinamen)
-- XML-Sitemap
-- Interne Verlinkungsstruktur
-- Alt-Texte für Bilder
-- Strukturierte Überschriften-Hierarchie
-
-## Deployment
-
-Die Website ist als statische HTML-Seite konzipiert und kann auf jedem Webserver gehostet werden:
-
-### Empfohlene Hosting-Optionen
-
-1. **GitHub Pages** - Kostenlos, direkt aus dem Repository
-2. **Netlify** - Kostenlos, mit automatischem HTTPS
-3. **Vercel** - Kostenlos, schnelles CDN
-4. **Traditionelles Webhosting** - Apache/Nginx
-
-### Domain
-
-Die Website ist unter `https://www.just-options.de` erreichbar.
+> Hinweis: Auf **GitHub Pages** wird die Datei `_headers` ignoriert (Custom-Header
+> werden dort nicht unterstützt). Die darin definierten Security-Header (CSP, HSTS,
+> X-Frame-Options …) greifen erst bei einem Host wie **Netlify** oder **Cloudflare
+> Pages**. Die `<meta http-equiv>`-Header im `<head>` sind für `X-Frame-Options`
+> wirkungslos und dienen nur als Fallback für `X-Content-Type-Options`.
 
 ## Lokale Entwicklung
 
 ```bash
-# Repository klonen
-git clone [repository-url]
-
-# In das Verzeichnis wechseln
-cd buchwebseite-main
-
-# Lokalen Server starten (Python)
-python -m http.server 8000
-
-# Oder mit Node.js (npx)
-npx serve
+npm install        # Abhängigkeiten installieren
+npm run serve      # Dev-Server mit Live-Reload (http://localhost:8080)
+npm run build      # Produktions-Build nach _site/
+npm run clean      # _site/ löschen
 ```
 
-Die Website ist dann unter `http://localhost:8000` erreichbar.
+## Deployment
 
-## Passwortgeschützter Bereich
+Automatisch via **GitHub Actions** (`.github/workflows/static.yml`) bei Push auf
+`main`: `npm ci` → `npx @11ty/eleventy` → Deploy nach GitHub Pages.
 
-Der Bonus-Bereich (`Bonus.html`) ist passwortgeschützt. Das Passwort wird im Buch auf Seite 68 genannt (erstes Wort).
+## Newsletter / Lead-Magnet
 
-**Hinweis:** Der Passwortschutz erfolgt clientseitig via JavaScript und bietet keinen echten Sicherheitsschutz. Er dient lediglich als Zugangshürde für Nicht-Buchkäufer.
+Anmeldung via **Brevo** (Formular-Action in `src/_data/site.json` → `brevoFormAction`).
+Das Formular wird über ein verstecktes iframe abgeschickt; danach Weiterleitung auf
+`/Danke.html` (siehe `assets/js/main.js`).
 
-## Newsletter-Integration
+## Passwortgeschützter Bonus-Bereich
 
-Die Newsletter-Anmeldung ist mit **Keila** (Self-hosted Newsletter-Tool) integriert:
+Der Bonus-Bereich (`/Bonus.html`) ist clientseitig per JavaScript passwortgeschützt
+(`assets/js/bonus.js`). Das Passwort steht im Buch.
 
-- Formular-Action: `https://app.keila.io/forms/nfrm_N4RJKg35`
-- Felder: E-Mail, Vorname, Nachname
+**Wichtig – kein echter Zugriffsschutz:** Der Schutz ist rein clientseitig. Das
+Passwort steht im Klartext im JS, und die Bonus-Dateien unter `bonus/downloads/`
+sind per direkter URL abrufbar (statisches Hosting). Der Mechanismus ist nur eine
+Zugangshürde, **keine** Sicherheitsmaßnahme. Für echten Schutz wäre serverseitige
+Authentifizierung (signierte URLs / Login) nötig.
 
-## Cookie-Consent
+## Datenschutz: keine Drittdienste, kein Banner
 
-Die Website verwendet ein eigenes Cookie-Consent-System (`cookie-consent.js`):
+Die Seite kommt **ohne Cookie-/Einwilligungs-Banner** aus, weil sie keine
+einwilligungspflichtige Verarbeitung auslöst:
 
-- Notwendige Cookies (immer aktiv)
-- Analyse-Cookies (optional)
-- Marketing-Cookies (optional)
+- **Kein Analytics/Tracking**, keine Cookies, kein localStorage-Tracking.
+- **Font Awesome lokal** als Inline-SVG (kein CDN-Request, keine IP-Übertragung an
+  Cloudflare). Damit entfällt der frühere „Google-Fonts"-Rechtsrisiko-Punkt.
+- Newsletter (Brevo) wird ausschließlich **nutzerinitiiert beim Absenden** kontaktiert
+  (Double-Opt-in), siehe `datenschutz.html` Abschnitt 5.
+- Das Mobilmenü-Icon ist **CSS-gezeichnet** (unabhängig von Font Awesome).
 
-## Wartung und Updates
+`datenschutz.html` (Abschnitte 4 + 6) ist entsprechend formuliert: keine Cookies,
+Icons lokal eingebettet, keine Drittübermittlung.
 
-### Blog-Artikel hinzufügen
+## Wartung
 
-1. HTML-Datei mit SEO-freundlichem Namen erstellen
-2. SVG-Grafik im gleichen Namensschema erstellen
-3. Eintrag in `blog.html` hinzufügen
-4. Eintrag in `sitemap.xml` hinzufügen
-5. Interne Verlinkung zu bestehenden Artikeln prüfen
+**Blog-Artikel hinzufügen:** Neue `.njk`-Datei in `src/blog/` (Layout
+`layouts/blog-post.njk`, mit `date`, `pageTitle`, `description`, `tags`). Die
+Blog-Collection und Sitemap aktualisieren sich automatisch.
 
-### Rezensionen aktualisieren
-
-Neue Amazon-Rezensionen können in `index.html` im Bereich `#reviews` hinzugefügt werden. Das Slider-Karussell passt sich automatisch an.
+**Rezensionen aktualisieren:** Im `#reviews`-Bereich von `index.njk`; bei Änderung
+auch die `review`-/`aggregateRating`-Angaben im JSON-LD anpassen.
 
 ## Lizenz
 
-Alle Rechte vorbehalten. (c) 2025 Lehleiter Investment Training.
+Alle Rechte vorbehalten. © 2025 Lehleiter Investment Training.
 
 ## Kontakt
 
-- **Website:** https://www.just-options.de
-- **LinkedIn:** https://www.linkedin.com/in/lehleiter/
-- **Instagram:** https://www.instagram.com/just_options.de/
-- **Telegram:** https://t.me/just_options_com
-
----
-
-*Diese README wurde zuletzt am 25. Dezember 2025 aktualisiert.*
+- Website: https://www.just-options.de
+- LinkedIn: https://www.linkedin.com/in/lehleiter/
+- Instagram: https://www.instagram.com/just_options.de/
+- Telegram: https://t.me/just_options_com

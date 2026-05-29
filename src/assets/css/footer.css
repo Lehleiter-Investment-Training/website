@@ -45,6 +45,21 @@ footer {
     text-decoration: underline;
 }
 
+/* Als Link gestalteter Button (Datenschutz-Einstellungen) */
+.footer-link-btn {
+    color: var(--light);
+    background: none;
+    border: none;
+    padding: 0.25rem 0;
+    font: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.footer-link-btn:hover {
+    text-decoration: underline;
+}
+
 .social-icons {
     margin: var(--spacing-md) 0;
 }

@@ -5,8 +5,9 @@
 User-agent: *
 Allow: /
 
-# Disallow admin or private directories (none currently)
-# Disallow: /admin/
+# Bonus-Downloads nicht indexieren (Material für Buchkäufer)
+Disallow: /bonus/downloads/
+Disallow: /Bonus/
 
 # Sitemap location
 Sitemap: https://www.just-options.de/sitemap.xml
