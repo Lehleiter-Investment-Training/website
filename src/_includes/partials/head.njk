@@ -10,22 +10,22 @@
 <meta name="robots" content="{{ robots }}">
 {% endif %}
 
-{% if ogTitle %}
-<!-- Open Graph Tags -->
-<meta property="og:title" content="{{ ogTitle | default(pageTitle) }} | {{ site.author }}">
+<!-- Open Graph Tags (immer ausgegeben; Fallbacks: pageTitle -> site.title, description -> site.description) -->
+<meta property="og:title" content="{{ ogTitle | default(pageTitle) | default(site.title) }} | {{ site.author }}">
 <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}">
 <meta property="og:type" content="{{ ogType | default('website') }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:locale" content="de_DE">
 <meta property="og:image" content="{{ ogImage | default(site.url + '/assets/images/og-default.jpg') }}">
 <meta property="og:image:width" content="{{ ogImageWidth | default(1200) }}">
 <meta property="og:image:height" content="{{ ogImageHeight | default(630) }}">
 <meta property="og:image:alt" content="{{ ogImageAlt | default('Optionen strategisch nutzen – Praxishandbuch von Markus Lehleiter') }}">
 <!-- Twitter Card Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ ogTitle | default(pageTitle) }} | {{ site.author }}">
+<meta name="twitter:title" content="{{ ogTitle | default(pageTitle) | default(site.title) }} | {{ site.author }}">
 <meta name="twitter:description" content="{{ ogDescription | default(description) | default(site.description) }}">
 <meta name="twitter:image" content="{{ ogImage | default(site.url + '/assets/images/og-default.jpg') }}">
-{% endif %}
 
 {% if canonical %}
 <link rel="canonical" href="{{ canonical }}" />
