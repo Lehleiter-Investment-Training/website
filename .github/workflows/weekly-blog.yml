@@ -1,0 +1,63 @@
+# Wöchentliche Blog-Automatik
+# Startet einmal pro Woche eine Claude-Code-Session, die dem Playbook in
+# docs/blog-automation.md folgt: nächstes Backlog-Thema schreiben, validieren
+# und als DRAFT-PR öffnen. Der Mensch reviewt und merged (Human-in-the-Loop).
+#
+# VORAUSSETZUNG (einmalig): Repository-Secret CLAUDE_CODE_OAUTH_TOKEN anlegen.
+#   1) Lokal `claude setup-token` ausführen (Claude Pro/Max-Abo, kein API-Key nötig).
+#   2) Settings → Secrets and variables → Actions → New repository secret
+#      Name: CLAUDE_CODE_OAUTH_TOKEN, Wert: der Token aus Schritt 1.
+#   (Alternative: statt OAuth-Token ein anthropic_api_key-Secret verwenden – siehe unten.)
+name: Weekly Blog Automation
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # montags 06:00 UTC
+  workflow_dispatch: {} # manuelles Auslösen (Actions-Tab → Run workflow)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Claude Code (Blog-Playbook)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Alternative ohne Abo-Token:
+          # anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            REPO: ${{ github.repository }}
+
+            Folge exakt der Anweisung in docs/blog-automation.md und erstelle
+            den nächsten Blogartikel aus content/topics.yaml.
+
+            Pflicht:
+            - Erstelle einen neuen Branch blog/<slug> auf Basis von main.
+            - Ist kein Thema mit status: todo vorhanden, brich ab und öffne KEINEN PR.
+            - Schreibe den Artikel als src/blog/<slug>.md gemäß content/blog-style-guide.md
+              (inkl. summary + 3 FAQ, Kategorie für das Titelbild, kein image-Feld).
+            - Setze das Thema in content/topics.yaml auf status: done + published.
+            - Führe `npm run validate-blog` aus und committe NUR bei grünem Ergebnis.
+            - Öffne einen DRAFT-Pull-Request gegen main mit kurzer Zusammenfassung und
+              dem Hinweis, dass Aussagen/FAQ fachlich gegenzulesen sind.
+            - Merge NICHT selbst.
+          claude_args: |
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(git:*),Bash(gh:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
