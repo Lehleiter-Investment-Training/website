@@ -4,7 +4,7 @@
 
 ## Kernseiten
 - [Startseite](https://www.just-options.de/): Überblick über Buch, Workbook, KI-Kurs und Autor.
-- [Optionen-Glossar](https://www.just-options.de/Bonus/Glossar.html): 64 Fachbegriffe des Optionshandels mit Definition, englischer Entsprechung und Beispiel.
+- [Optionen-Glossar](https://www.just-options.de/glossar.html): 64 Fachbegriffe des Optionshandels mit Definition, englischer Entsprechung und Beispiel.
 - [Blog](https://www.just-options.de/blog.html): Artikel zu Optionsstrategien, Risikomanagement, Volatilität, IV Rank/Perzentil, VIX und typischen Anfängerfehlern.
 - [Bonus-Bereich](https://www.just-options.de/Bonus.html): kostenlose Materialien und Tools für Optionshändler.
 

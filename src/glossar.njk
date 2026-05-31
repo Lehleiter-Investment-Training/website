@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 pageTitle: "Optionen-Glossar"
 description: "Umfassendes Glossar mit den wichtigsten Begriffen aus dem Optionshandel. Von A wie Assignment bis Z wie Zeitwert."
-permalink: /Bonus/Glossar.html
+permalink: /glossar.html
 extraCss: ["/assets/css/bonus.css"]
 ---
 
@@ -10,10 +10,10 @@ extraCss: ["/assets/css/bonus.css"]
 {
   "@context": "https://schema.org",
   "@type": "DefinedTermSet",
-  "@id": "{{ site.url }}/Bonus/Glossar.html#glossar",
+  "@id": "{{ site.url }}/glossar.html#glossar",
   "name": "Optionen-Glossar",
   "description": "Die wichtigsten Begriffe aus dem Optionshandel verständlich erklärt.",
-  "url": "{{ site.url }}/Bonus/Glossar.html",
+  "url": "{{ site.url }}/glossar.html",
   "inLanguage": "de",
   "hasDefinedTerm": [
     {% for item in glossar.terms %}{
@@ -21,7 +21,7 @@ extraCss: ["/assets/css/bonus.css"]
       "name": {{ item.term | dump | safe }},
       "alternateName": {{ item.english | dump | safe }},
       "description": {{ item.definition | dump | safe }},
-      "inDefinedTermSet": "{{ site.url }}/Bonus/Glossar.html#glossar"
+      "inDefinedTermSet": "{{ site.url }}/glossar.html#glossar"
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
@@ -29,9 +29,9 @@ extraCss: ["/assets/css/bonus.css"]
 </script>
 
     <header class="header">
-        <a href="/Bonus.html" class="back-link">
+        <a href="/" class="back-link">
             <i class="fas fa-arrow-left"></i>
-            Zurück zum Bonus-Bereich
+            Zurück zur Startseite
         </a>
         <h1><i class="fas fa-book-open"></i> Optionen-Glossar</h1>
         <p>Die wichtigsten Begriffe aus dem Optionshandel verständlich erklärt</p>
