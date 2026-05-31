@@ -22,7 +22,8 @@ topics:
     keyword: "Covered Call"
     category: "Strategie"
     angle: "Wie funktioniert ein Covered Call, für wen eignet er sich, und welche Risiken/Renditen sind realistisch?"
-    status: todo
+    status: done
+    published: 2026-05-31
 
   - slug: cash-secured-put
     title: "Cash Secured Put: Aktien günstiger einkaufen"
