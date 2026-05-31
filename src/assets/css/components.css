@@ -177,6 +177,18 @@ section h2 {
     letter-spacing: 2px;
 }
 
+/* 4,5 von 5: vier volle + ein halber Stern via Farbverlauf (90 % = 4,5/5).
+   Fallback ohne background-clip: alle Sterne gold (wie bisher). */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .rating-stars {
+        background: linear-gradient(90deg, #FF9900 90%, #c9ccd1 90%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+}
+
 .rating-text {
     font-weight: 600;
     color: var(--primary);
