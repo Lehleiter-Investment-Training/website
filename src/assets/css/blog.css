@@ -48,6 +48,49 @@
     flex-direction: column;
 }
 
+/* Artikeltext: großzügige, klar abgegrenzte Absatz- und Abschnittsabstände.
+   Nur auf den Artikel-Body gescopt (nicht auf die Vorschau-Karten im Index). */
+.blog-article-body {
+    display: block;
+    padding: 0;
+}
+
+.blog-article-body > p {
+    margin: 0 0 1.7rem;
+    line-height: 1.8;
+}
+
+.blog-article-body > h2 {
+    margin: 3.2rem 0 1.1rem;
+}
+
+.blog-article-body > h3 {
+    margin: 2.8rem 0 1rem;
+}
+
+.blog-article-body > h4 {
+    margin: 2.2rem 0 0.6rem;
+}
+
+.blog-article-body > ul,
+.blog-article-body > ol {
+    margin: 0 0 1.7rem;
+}
+
+.blog-article-body > ul > li,
+.blog-article-body > ol > li {
+    margin-bottom: 0.6rem;
+    line-height: 1.75;
+}
+
+.blog-article-body > .data-table {
+    margin: 2.4rem 0;
+}
+
+.blog-article-body > :first-child {
+    margin-top: 0;
+}
+
 .blog-date {
     color: var(--text-gray);
     font-size: 0.9rem;
