@@ -102,12 +102,12 @@
 }
 
 /* White/light background variant */
-section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary {
+section:not(.hero):not(.starterkit):not(.cta):not(.newsletter):not(.course) .btn-secondary {
     color: var(--primary);
     border-color: var(--primary);
 }
 
-section:not(.hero):not(.starterkit):not(.cta):not(.newsletter) .btn-secondary:hover {
+section:not(.hero):not(.starterkit):not(.cta):not(.newsletter):not(.course) .btn-secondary:hover {
     background-color: var(--primary);
     color: var(--light);
 }
