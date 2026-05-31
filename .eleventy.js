@@ -149,36 +149,44 @@ module.exports = function(eleventyConfig) {
     "steuern": "#4a6b8a",
   };
   eleventyConfig.addFilter("blogCover", function(title, category) {
-    const accent = BLOG_CATEGORY_COLORS[String(category || "").trim().toLowerCase()] || "#C8973E";
+    const GOLD = "#C8973E";
+    const accent = BLOG_CATEGORY_COLORS[String(category || "").trim().toLowerCase()] || GOLD;
     const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const W = 800, H = 450;
     // Titel in max. 4 Zeilen umbrechen (Wortgrenzen)
     const words = String(title || "").split(/\s+/).filter(Boolean);
     const lines = [];
     let cur = "";
     for (const w of words) {
-      if ((cur + " " + w).trim().length > 24 && cur) { lines.push(cur); cur = w; }
+      if ((cur + " " + w).trim().length > 22 && cur) { lines.push(cur); cur = w; }
       else cur = (cur + " " + w).trim();
     }
     if (cur) lines.push(cur);
     const shown = lines.slice(0, 4);
-    const W = 800, H = 450, lh = 50;
-    const startY = Math.round(H / 2 - ((shown.length - 1) * lh) / 2 + 12);
+    const lh = 54;
+    const startY = Math.round(255 - ((shown.length - 1) * lh) / 2);
     const tspans = shown
-      .map((l, i) => `<tspan x="60" y="${startY + i * lh}">${esc(l)}</tspan>`)
+      .map((l, i) => `<tspan x="58" y="${startY + i * lh}">${esc(l)}</tspan>`)
       .join("");
-    const catLabel = category
-      ? `<text x="60" y="92" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="3" font-weight="700" fill="${accent}">${esc(String(category).toUpperCase())}</text>`
+    // Kategorie-Badge (Pille) oben links – im Stil der bestehenden Karten
+    const catText = esc(String(category || "").toUpperCase());
+    const pillW = category ? Math.round(catText.length * 11 + 36) : 0;
+    const badge = category
+      ? `<rect x="56" y="54" width="${pillW}" height="34" rx="17" fill="${accent}"/>` +
+        `<text x="${56 + pillW / 2}" y="77" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" letter-spacing="2" font-weight="700" fill="#ffffff">${catText}</text>`
       : "";
     const svg =
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">` +
       `<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">` +
       `<stop offset="0" stop-color="#1A1F36"/><stop offset="1" stop-color="#2A2F46"/></linearGradient></defs>` +
       `<rect width="${W}" height="${H}" fill="url(#bg)"/>` +
-      `<rect x="0" y="0" width="10" height="${H}" fill="${accent}"/>` +
-      catLabel +
-      `<text font-family="Georgia, serif" font-size="42" font-weight="700" fill="#ffffff">${tspans}</text>` +
-      `<rect x="60" y="${H - 86}" width="70" height="5" fill="${accent}"/>` +
-      `<text x="60" y="${H - 48}" font-family="Inter, Arial, sans-serif" font-size="22" fill="#C9CCD6">just-options.de</text>` +
+      // dezente Akzent-Kreise (Tiefe, Marken-Look)
+      `<circle cx="715" cy="70" r="135" fill="${accent}" fill-opacity="0.13"/>` +
+      `<circle cx="800" cy="330" r="95" fill="${accent}" fill-opacity="0.08"/>` +
+      badge +
+      `<text font-family="Georgia, serif" font-size="44" font-weight="700" fill="#ffffff">${tspans}</text>` +
+      `<rect x="58" y="${H - 86}" width="44" height="4" fill="${GOLD}"/>` +
+      `<text x="58" y="${H - 50}" font-family="Inter, Arial, sans-serif" font-size="19" letter-spacing="3" font-weight="700" fill="${GOLD}">JUST OPTIONS</text>` +
       `</svg>`;
     return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   });

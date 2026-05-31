@@ -22,9 +22,7 @@
     <div class="related-posts-grid">
         {% for post in relatedPosts %}
         <a href="{{ post.url }}" class="related-post-card">
-            {% if post.data.image %}
-            <img src="{{ post.data.image }}" alt="{{ post.data.pageTitle }}">
-            {% endif %}
+            <img src="{{ post.data.image | default(post.data.pageTitle | blogCover(post.data.category | default(post.data.tags[0]))) }}" alt="{{ post.data.pageTitle }}" loading="lazy">
             <h4>{{ post.data.pageTitle }}</h4>
         </a>
         {% endfor %}
