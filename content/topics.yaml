@@ -30,7 +30,8 @@ topics:
     keyword: "Cash Secured Put"
     category: "Strategie"
     angle: "Wie nutzt man Cash Secured Puts für Einkommen und günstigere Einstiege, und welche Kapitalbindung entsteht?"
-    status: todo
+    status: done
+    published: 2025-11-17
 
   - slug: wheel-strategie
     title: "Die Wheel-Strategie einfach erklärt"
@@ -44,28 +45,32 @@ topics:
     keyword: "Optionsgriechen"
     category: "Grundlagen"
     angle: "Was messen die wichtigsten Griechen und wie nutzt man sie zur Risikosteuerung?"
-    status: todo
+    status: done
+    published: 2025-10-13
 
   - slug: theta-zeitwertverfall
     title: "Theta & Zeitwertverfall: Wie Optionen mit der Zeit an Wert verlieren"
     keyword: "Theta Zeitwertverfall"
     category: "Grundlagen"
     angle: "Warum verlieren Optionen Zeitwert, wie beschleunigt sich Theta zum Verfall, und wer profitiert davon?"
-    status: todo
+    status: done
+    published: 2025-12-15
 
   - slug: iron-condor-strategie
     title: "Iron Condor: Mit Seitwärtsmärkten Geld verdienen"
     keyword: "Iron Condor"
     category: "Strategie"
     angle: "Wie ist ein Iron Condor aufgebaut, wann setzt man ihn ein und wo liegen Gewinn-/Verlustgrenzen?"
-    status: todo
+    status: done
+    published: 2026-03-16
 
   - slug: credit-spread-vs-debit-spread
     title: "Credit Spread vs. Debit Spread: Der Unterschied"
     keyword: "Credit Spread Debit Spread"
     category: "Strategie"
     angle: "Worin unterscheiden sich Credit- und Debit-Spreads bei Risiko, Kapital und Marktmeinung?"
-    status: todo
+    status: done
+    published: 2026-02-16
 
   - slug: optionen-rollen
     title: "Optionen rollen: Positionen anpassen statt schließen"
@@ -79,11 +84,13 @@ topics:
     keyword: "Assignment Option"
     category: "Risiko"
     angle: "Wann droht eine Zuteilung, was passiert dabei, und wie managt man das Dividendenrisiko?"
-    status: todo
+    status: done
+    published: 2026-01-19
 
   - slug: put-call-parity
     title: "Put-Call-Parität: Der Zusammenhang von Puts und Calls"
     keyword: "Put Call Parität"
     category: "Grundlagen"
     angle: "Was besagt die Put-Call-Parität und warum ist sie für die Optionsbewertung wichtig?"
-    status: todo
+    status: done
+    published: 2026-04-13
