@@ -1,0 +1,114 @@
+<!--
+  Double-Opt-in-Bestätigungs-E-Mail für just OPTIONS (Brevo)
+  ============================================================
+  Diese Datei ist eine VERSIONIERTE REFERENZ. Versendet wird die E-Mail durch
+  Brevo, nicht durch die Website. So einspielen:
+
+    Brevo → Kontakte → Formulare → Double-Opt-in-Bestätigungsmail bearbeiten
+    → in den HTML-/Code-Editor wechseln → Inhalt durch diesen Code ersetzen.
+
+  Betreff:     Fast geschafft – bitte bestätigen Sie Ihre Anmeldung
+  Preheader:   Ein Klick und Sie erhalten Optionsstrategien direkt ins Postfach.
+
+  Der Button nutzt Brevos Platzhalter {{ doubleoptin }} für den Bestätigungslink.
+  Zeigt deine Vorlage einen anderen Platzhalter, den vorhandenen Link beibehalten.
+  Ton: "Sie" (konsistent mit Blog & Buch).
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Bestätigen Sie Ihre Anmeldung</title>
+</head>
+<body style="margin:0; padding:0; background-color:#EEF0F4; font-family:Arial, Helvetica, sans-serif;">
+  <!-- Preheader (im Posteingang sichtbar, in der Mail versteckt) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    Ein Klick und Sie erhalten Optionsstrategien direkt ins Postfach.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#EEF0F4;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:100%; background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(26,31,54,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td align="center" style="background-color:#1A1F36; padding:28px 24px;">
+              <div style="font-size:22px; font-weight:bold; letter-spacing:3px; color:#C8973E;">JUST OPTIONS</div>
+              <div style="font-size:13px; color:#C9CCD6; margin-top:4px;">Optionen strategisch nutzen</div>
+            </td>
+          </tr>
+          <!-- Gold-Trennlinie -->
+          <tr><td style="height:4px; background-color:#C8973E; line-height:4px; font-size:0;">&nbsp;</td></tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:40px 40px 24px 40px;">
+              <h1 style="margin:0 0 16px 0; font-size:26px; color:#1A1F36;">Fast geschafft! 🎉</h1>
+              <p style="margin:0 0 16px 0; font-size:16px; line-height:1.6; color:#3a3f52;">
+                Schön, dass Sie dabei sind. Bestätigen Sie bitte mit einem Klick Ihre
+                E-Mail-Adresse – danach erhalten Sie regelmäßig:
+              </p>
+              <ul style="margin:0 0 24px 0; padding-left:20px; font-size:16px; line-height:1.7; color:#3a3f52;">
+                <li>praxisnahe <strong>Optionsstrategien</strong> für Einsteiger und Fortgeschrittene,</li>
+                <li>konkrete <strong>Praxistipps</strong> zu Risikomanagement und Volatilität,</li>
+                <li>fundierte <strong>Markteinschätzungen</strong> – verständlich erklärt.</li>
+              </ul>
+            </td>
+          </tr>
+
+          <!-- Button -->
+          <tr>
+            <td align="center" style="padding:0 40px 8px 40px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" bgcolor="#C8973E" style="border-radius:8px;">
+                    <a href="{{ doubleoptin }}" target="_blank"
+                       style="display:inline-block; padding:16px 36px; font-size:17px; font-weight:bold; color:#1A1F36; text-decoration:none; border-radius:8px;">
+                      Anmeldung bestätigen
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Fallback-Link -->
+          <tr>
+            <td align="center" style="padding:12px 40px 28px 40px;">
+              <p style="margin:0; font-size:13px; line-height:1.6; color:#8a8f9e;">
+                Button funktioniert nicht? Kopieren Sie diesen Link in Ihren Browser:<br>
+                <a href="{{ doubleoptin }}" target="_blank" style="color:#1A1F36; word-break:break-all;">{{ doubleoptin }}</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Vertrauenszeile -->
+          <tr>
+            <td style="padding:0 40px 32px 40px;">
+              <div style="background-color:#F7F8FA; border-radius:8px; padding:14px 18px; font-size:13px; line-height:1.6; color:#6b7080;">
+                🔒 Kein Spam, jederzeit mit einem Klick abmeldbar. Wenn Sie sich
+                <strong>nicht</strong> angemeldet haben, ignorieren Sie diese E-Mail einfach –
+                ohne Ihre Bestätigung werden Sie nicht eingetragen.
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="background-color:#1A1F36; padding:24px; font-size:12px; line-height:1.7; color:#9aa0b4;">
+              Markus Lehleiter · just OPTIONS<br>
+              <a href="https://www.just-options.de" target="_blank" style="color:#C8973E; text-decoration:none;">www.just-options.de</a>
+              &nbsp;·&nbsp;
+              <a href="https://www.just-options.de/datenschutz.html" target="_blank" style="color:#9aa0b4;">Datenschutz</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
