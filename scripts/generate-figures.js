@@ -1,12 +1,13 @@
 /**
- * Erzeugt schlichte schwarz-weiße Konzept-Illustrationen je Blogartikel.
- * Ausgabe: src/blog/figures/<slug>.svg  (eingebunden via <figure class="blog-figure">).
- * Aufruf:  npm run figures
+ * Erzeugt präzise, schwarz-weiße Konzept-Illustrationen je Blogartikel (Buchqualität).
+ * Ausgabe: src/blog/figures/<slug>.svg   ·   Aufruf: npm run figures
  *
- * Designregeln (WICHTIG):
- *  - reine s/w-Linienzeichnung, keine Farbflächen.
- *  - Beschriftungen liegen ausschließlich in definierten freien Zonen
- *    (Ränder/Ecken, unter der x-Achse) → Linien und Schrift überlappen NIE.
+ * Designprinzipien:
+ *  - Echtes Koordinatensystem (Datenwert -> Pixel) für exakte Diagramme.
+ *  - Payoffs aus den realen Beispielzahlen des Artikels berechnet (mathematisch korrekt).
+ *  - Numerische Achsen-Ticks IMMER außerhalb der Zeichenfläche -> Linien & Schrift
+ *    überlappen nie. In-Plot-Text nur in nachweislich freien Zonen.
+ *  - Glatte Kurven (Catmull-Rom-Bézier) für konzeptionelle Grafiken.
  */
 const fs = require("fs");
 const path = require("path");
@@ -14,229 +15,294 @@ const path = require("path");
 const OUT = path.join(__dirname, "../src/blog/figures");
 fs.mkdirSync(OUT, { recursive: true });
 
-const W = 680, H = 400;
-const INK = "#1a1a1a", GRY = "#9aa0a6";
-const F = `font-family="Inter, Arial, sans-serif"`;
-// Plotbereich
-const L = 92, R = 612, T = 54, B = 322;
+const W = 720, H = 440;
+const INK = "#1a1a1a", GRY = "#9aa0a6", LGRY = "#cdd2d8";
+const FF = `font-family="Inter, 'Helvetica Neue', Arial, sans-serif"`;
+const L = 92, R = 668, T = 44, B = 360;          // Plotbereich
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-function open() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" ${F}>` +
-         `<rect width="${W}" height="${H}" fill="#ffffff"/>`;
-}
-// Achsenkreuz mit Pfeilen + Achsentiteln (Titel in den Rändern → kein Overlap)
-function axes(xTitle, yTitle) {
-  return (
-    `<line x1="${L}" y1="${T - 8}" x2="${L}" y2="${B}" stroke="${INK}" stroke-width="1.5"/>` +
-    `<line x1="${L}" y1="${B}" x2="${R + 12}" y2="${B}" stroke="${INK}" stroke-width="1.5"/>` +
-    `<path d="M${L},${T - 12} l-5,10 h10 z" fill="${INK}"/>` +
-    `<path d="M${R + 16},${B} l-10,-5 v10 z" fill="${INK}"/>` +
-    `<text x="${(L + R) / 2}" y="${H - 12}" font-size="13" fill="#555" text-anchor="middle">${esc(xTitle)} &#8594;</text>` +
-    `<text x="24" y="${(T + B) / 2}" font-size="13" fill="#555" text-anchor="middle" transform="rotate(-90 24 ${(T + B) / 2})">${esc(yTitle)}</text>`
-  );
-}
-const dash = (x1, y1, x2, y2, col = INK) =>
-  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="1" stroke-dasharray="5 4"/>`;
-const curve = (pts) =>
-  `<polyline points="${pts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
-const dot = (x, y) => `<circle cx="${x}" cy="${y}" r="4.5" fill="${INK}"/>`;
-const label = (x, y, t, anchor = "start", size = 13) =>
-  `<text x="${x}" y="${y}" font-size="${size}" fill="${INK}" text-anchor="${anchor}">${esc(t)}</text>`;
-const tickLabel = (x, t) => label(x, B + 20, t, "middle", 12.5); // unter x-Achse → frei
+const open = () => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" ${FF}><rect width="${W}" height="${H}" fill="#ffffff"/>`;
 const close = () => `</svg>`;
+const txt = (x, y, t, anchor = "start", size = 13, fill = INK, weight = 400) =>
+  `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" font-weight="${weight}" text-anchor="${anchor}">${esc(t)}</text>`;
+const line = (x1, y1, x2, y2, w = 1.4, col = INK, dash = "") =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="${w}"${dash ? ` stroke-dasharray="${dash}"` : ""}/>`;
+const poly = (pts, w = 2.6, col = INK, dash = "") =>
+  `<polyline points="${pts.map((p) => p.map((n) => (+n).toFixed(1)).join(",")).join(" ")}" fill="none" stroke="${col}" stroke-width="${w}"${dash ? ` stroke-dasharray="${dash}"` : ""} stroke-linejoin="round" stroke-linecap="round"/>`;
+const odot = (x, y, r = 4.2) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#ffffff" stroke="${INK}" stroke-width="2"/>`;
+const rectO = (x, y, w, h, sw = 1.8) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="${INK}" stroke-width="${sw}" rx="9"/>`;
 
-function write(slug, body) {
-  fs.writeFileSync(path.join(OUT, slug + ".svg"), open() + body + close());
+// Catmull-Rom -> glatter Bézier-Pfad
+function smooth(pts) {
+  if (pts.length < 3) return `<path d="M${pts.map((p) => p.join(",")).join(" L")}" fill="none" stroke="${INK}" stroke-width="2.6" stroke-linecap="round"/>`;
+  let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || pts[i + 1];
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ` C${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+  }
+  return `<path d="${d}" fill="none" stroke="${INK}" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>`;
 }
 
-// ---- Payoff-Hilfsfunktion: zeichnet Knicklinie + sichere Beschriftung ----
-// zero = y-Wert der Gewinnschwelle (0-Linie)
-function payoffBase(zeroY) {
-  return dash(L, zeroY, R, zeroY, GRY) + label(L + 4, zeroY - 6, "0", "start", 12);
+// Achsen/Koordinatensystem. Gibt Skalenfunktionen + SVG zurück.
+function plot({ xr, yr, xticks = [], yticks = [], xTitle, yTitle, zero = true }) {
+  const sx = (v) => L + (v - xr[0]) / (xr[1] - xr[0]) * (R - L);
+  const sy = (v) => B - (v - yr[0]) / (yr[1] - yr[0]) * (B - T);
+  let s = "";
+  if (zero && yr[0] < 0 && yr[1] > 0) s += line(L, sy(0), R + 4, sy(0), 1, LGRY); // Nulllinie
+  // Achsen + Pfeile
+  s += line(L, T - 10, L, B, 1.4) + line(L, B, R + 14, B, 1.4);
+  s += `<path d="M${L},${T - 14} l-4.5,9 h9 z" fill="${INK}"/>` + `<path d="M${R + 18},${B} l-9,-4.5 v9 z" fill="${INK}"/>`;
+  for (const t of xticks) { const x = sx(t.v); s += line(x, B, x, B + 6, 1.4) + txt(x, B + 22, t.label, "middle", 12, "#333"); }
+  for (const t of yticks) { const y = sy(t.v); s += line(L - 6, y, L, y, 1.4) + txt(L - 10, y + 4, t.label, "end", 12, "#333"); }
+  if (xTitle) s += txt((L + R) / 2, H - 12, xTitle + " →", "middle", 12.5, "#555");
+  if (yTitle) s += txt(22, (T + B) / 2, yTitle, "middle", 12.5, "#555") .replace("<text ", `<text transform="rotate(-90 22 ${(T + B) / 2})" `);
+  return { sx, sy, s };
 }
-
-/* ============================ FIGUREN ============================ */
+function write(slug, body) { fs.writeFileSync(path.join(OUT, slug + ".svg"), open() + body + close()); }
 const figures = {};
 
-// Covered Call: steigend bis Strike, dann gedeckelt
+/* ===== PAYOFF-DIAGRAMME (aus den Artikel-Beispielzahlen berechnet) ===== */
+
+// Covered Call: Kauf 50, Strike 55, Prämie 1,50  -> P/L = min(S,55) - 50 + 1,5
 figures["covered-call-strategie"] = () => {
-  const zero = 226;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    dash(404, 132, 404, B) + tickLabel(404, "Strike") +
-    curve([[L, 300], [404, 132], [R, 132]]) +
-    dot(229, zero) + label(229, zero + 22, "Break-even", "middle", 12.5) +
-    label(R, 122, "begrenzter Gewinn", "end") +
-    label(150, 316, "Verlustzone", "middle");
+  const { sx, sy, s } = plot({
+    xr: [42, 64], yr: [-8, 9], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 48.5, label: "48,50" }, { v: 55, label: "55" }],
+    yticks: [{ v: -6, label: "−6" }, { v: 0, label: "0" }, { v: 6.5, label: "+6,50" }],
+  });
+  return s +
+    line(sx(55), sy(6.5), sx(55), B, 1, INK, "5 4") +
+    poly([[sx(42), sy(-6.5)], [sx(55), sy(6.5)], [sx(64), sy(6.5)]]) +
+    odot(sx(48.5), sy(0)) +
+    txt(sx(60), sy(8), "begrenzter Gewinn", "middle", 12.5) +
+    txt(sx(55), T - 2, "Strike", "middle", 12, "#555");
 };
 
-// Cash Secured Put: gedeckelter Gewinn (Prämie), dann fallend unter Strike
+// Cash Secured Put: Strike 95, Prämie 2  -> S>=95: +2 ; S<95: S-93
 figures["cash-secured-put"] = () => {
-  const zero = 150;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    dash(300, 122, 300, B) + tickLabel(300, "Strike") +
-    curve([[L, 300], [300, 122], [R, 122]]) +
-    label(R, 112, "max. Gewinn (Prämie)", "end") +
-    label(150, 316, "Verlust bei Zuteilung", "middle");
+  const { sx, sy, s } = plot({
+    xr: [80, 106], yr: [-15, 5], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 93, label: "93" }, { v: 95, label: "95" }],
+    yticks: [{ v: -12, label: "−12" }, { v: 0, label: "0" }, { v: 2, label: "+2" }],
+  });
+  return s +
+    line(sx(95), sy(2), sx(95), B, 1, INK, "5 4") +
+    poly([[sx(80), sy(-13)], [sx(95), sy(2)], [sx(106), sy(2)]]) +
+    odot(sx(93), sy(0)) +
+    txt(sx(101), sy(3.6), "max. Gewinn (Prämie)", "middle", 12.5) +
+    txt(sx(95), T - 2, "Strike", "middle", 12, "#555") +
+    txt(sx(86), sy(-12), "Verlust bei Zuteilung", "middle", 12.5);
 };
 
-// Optionsstrategien (Long Call): Verlust begrenzt (unter 0), dann steigend
+// Long Call: Strike 100, Prämie 5  -> max(0,S-100) - 5
 figures["optionsstrategien-einsteiger"] = () => {
-  const zero = 235, lossY = 272;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    dash(300, lossY, 300, B) + tickLabel(300, "Strike") +
-    curve([[L, lossY], [300, lossY], [R, 92]]) +
-    dot(364, zero) + label(364, zero + 24, "Break-even", "middle", 12.5) +
-    label(R, 86, "unbegrenztes Potenzial", "end") +
-    label(150, 296, "max. Verlust = Prämie", "middle", 12.5);
+  const { sx, sy, s } = plot({
+    xr: [90, 120], yr: [-9, 14], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 100, label: "100" }, { v: 105, label: "105" }],
+    yticks: [{ v: -5, label: "−5" }, { v: 0, label: "0" }, { v: 10, label: "+10" }],
+  });
+  return s +
+    line(sx(100), sy(-5), sx(100), B, 1, INK, "5 4") +
+    poly([[sx(90), sy(-5)], [sx(100), sy(-5)], [sx(119), sy(14)]]) +
+    odot(sx(105), sy(0)) +
+    txt(sx(110), sy(12.5), "unbegrenztes Potenzial", "middle", 12.5) +
+    txt(sx(100), T - 2, "Strike", "middle", 12, "#555") +
+    txt(sx(96.5), sy(-6.8), "max. Verlust = Prämie", "middle", 12.5);
 };
 
-// Credit/Debit Spread (Bull Call Spread): begrenzt unten und oben
+// Bull Call Spread: Kauf 100 @4, Verkauf 110 @1,50 ; Debit 2,50
 figures["credit-spread-vs-debit-spread"] = () => {
-  const zero = 226;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    dash(250, 286, 250, B) + tickLabel(250, "Long-Strike") +
-    dash(440, 132, 440, B) + tickLabel(440, "Short-Strike") +
-    curve([[L, 286], [250, 286], [440, 132], [R, 132]]) +
-    label(R, 122, "max. Gewinn", "end") +
-    label(L + 10, 304, "max. Verlust", "start", 12.5);
+  const { sx, sy, s } = plot({
+    xr: [92, 118], yr: [-5, 9], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 100, label: "100" }, { v: 102.5, label: "102,50" }, { v: 110, label: "110" }],
+    yticks: [{ v: -2.5, label: "−2,50" }, { v: 0, label: "0" }, { v: 7.5, label: "+7,50" }],
+  });
+  return s +
+    line(sx(100), sy(-2.5), sx(100), B, 1, INK, "5 4") +
+    line(sx(110), sy(7.5), sx(110), B, 1, INK, "5 4") +
+    poly([[sx(92), sy(-2.5)], [sx(100), sy(-2.5)], [sx(110), sy(7.5)], [sx(118), sy(7.5)]]) +
+    odot(sx(102.5), sy(0)) +
+    txt(sx(114), sy(8.4), "max. Gewinn", "middle", 12.5) +
+    txt(sx(96), sy(-3.6), "max. Verlust", "middle", 12.5);
 };
 
-// Iron Condor: Zeltform – flacher Gewinn in der Mitte, begrenzte Verluste außen
+// Iron Condor: Put-Spread 90/85, Call-Spread 110/115, Net Credit 1,50
 figures["iron-condor-strategie"] = () => {
-  const zero = 240;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    curve([[L, 300], [200, 300], [290, 150], [430, 150], [520, 300], [R, 300]]) +
-    dash(290, 150, 290, B) + dash(430, 150, 430, B) +
-    tickLabel(290, "Put-Spread") + tickLabel(430, "Call-Spread") +
-    label(360, 138, "Gewinnzone", "middle") +
-    label(L + 8, 290, "Verlust", "start", 12.5) +
-    label(R, 290, "Verlust", "end", 12.5);
-};
-// Hilfen für konzeptionelle Figuren
-const dcurve = (pts) =>
-  `<polyline points="${pts.map((p) => p.join(",")).join(" ")}" fill="none" stroke="${INK}" stroke-width="2.5" stroke-dasharray="7 5" stroke-linejoin="round" stroke-linecap="round"/>`;
-const rectO = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="${INK}" stroke-width="2" rx="8"/>`;
-function bell(cx, peakY, hw, baseY) {
-  const pts = [];
-  for (let i = -30; i <= 30; i++) { const k = i / 10; const x = cx + (k / 3) * hw; const g = Math.exp(-0.5 * k * k); pts.push([Math.round(x), Math.round(baseY - (baseY - peakY) * g)]); }
-  return pts;
-}
-
-// Theta: Zeitwert verfällt nichtlinear (beschleunigt zum Verfall)
-figures["theta-zeitwertverfall"] = () =>
-  axes("Zeit bis Verfall", "Zeitwert") +
-  dash(596, 92, 596, B, GRY) + tickLabel(596, "Verfall") +
-  curve([[L, 92], [200, 110], [300, 138], [390, 184], [470, 244], [540, 300], [596, B]]) +
-  label(360, 120, "beschleunigter Verfall", "middle");
-
-// Optionsgriechen: Delta als S-Kurve (Call, 0 → 1)
-figures["optionsgriechen-delta-gamma-theta-vega"] = () =>
-  axes("Aktienkurs", "Delta des Calls") +
-  label(L + 8, T + 6, "1,0", "start", 12) + label(L + 8, B - 4, "0", "start", 12) +
-  dash(352, T - 8, 352, B, GRY) + tickLabel(352, "Strike (ATM)") +
-  curve([[L, 308], [210, 300], [285, 276], [330, 210], [375, 130], [455, 102], [R, 94]]) +
-  label(R, 86, "tief im Geld: Δ → 1", "end", 12.5) +
-  label(L + 12, 286, "weit aus dem Geld: Δ → 0", "start", 12.5);
-
-// Put-Call-Parität: Äquivalenz zweier Portfolios
-figures["put-call-parity"] = () => {
-  const boxText = (cx, top, l1, l2) =>
-    rectO(cx - 115, top, 230, 150) +
-    `<line x1="${cx - 115}" y1="${top + 75}" x2="${cx + 115}" y2="${top + 75}" stroke="${INK}" stroke-width="1" stroke-dasharray="4 4"/>` +
-    label(cx, top + 46, l1, "middle", 15) + label(cx, top + 121, l2, "middle", 14);
-  return boxText(185, 120, "Call (C)", "Barwert von K") +
-    label(340, 205, "=", "middle", 46) +
-    boxText(495, 120, "Put (P)", "Aktie (S)") +
-    label(185, 300, "Portfolio A", "middle", 13) +
-    label(495, 300, "Portfolio B", "middle", 13);
+  const { sx, sy, s } = plot({
+    xr: [82, 118], yr: [-4.5, 3], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 90, label: "90" }, { v: 110, label: "110" }],
+    yticks: [{ v: -3.5, label: "−3,50" }, { v: 0, label: "0" }, { v: 1.5, label: "+1,50" }],
+  });
+  return s +
+    line(sx(90), sy(1.5), sx(90), B, 1, INK, "5 4") +
+    line(sx(110), sy(1.5), sx(110), B, 1, INK, "5 4") +
+    poly([[sx(82), sy(-3.5)], [sx(85), sy(-3.5)], [sx(90), sy(1.5)], [sx(110), sy(1.5)], [sx(115), sy(-3.5)], [sx(118), sy(-3.5)]]) +
+    odot(sx(88.5), sy(0)) + odot(sx(111.5), sy(0)) +
+    txt(sx(100), sy(2.4), "Gewinnzone", "middle", 12.5);
 };
 
-// Volatilität verstehen: zwei Glockenkurven (niedrige vs. hohe Vol)
-figures["volatilitaet-verstehen"] = () =>
-  axes("möglicher Kurs bei Verfall", "Wahrscheinlichkeit") +
-  curve(bell(352, 96, 95, B)) +
-  dcurve(bell(352, 210, 215, B)) +
-  label(352, 86, "geringe Volatilität", "middle", 12.5) +
-  label(R, 250, "hohe Volatilität", "end", 12.5);
-
-// Volatilität & Renditen: Vol-Zyklus (Ruhe → Spitze → Beruhigung)
-figures["volatilitaet-renditen"] = () =>
-  axes("Zeit", "Volatilität") +
-  curve([[L, 286], [210, 284], [262, 270], [300, 110], [356, 168], [430, 250], [520, 282], [R, 284]]) +
-  label(300, 98, "Volatilitätsspitze", "middle") +
-  label(160, 272, "ruhige Phase", "middle", 12.5) +
-  label(560, 268, "Beruhigung", "middle", 12.5);
-
-// VIX: invers zum Markt (Markt = durchgezogen, VIX = gestrichelt)
-figures["vix-angstindex-erklaert"] = () =>
-  axes("Zeit", "Niveau") +
-  curve([[L, 150], [230, 158], [330, 256], [430, 188], [R, 146]]) +
-  dcurve([[L, 296], [230, 288], [330, 150], [430, 244], [R, 298]]) +
-  label(R, 136, "Markt (S&P 500)", "end", 12.5) +
-  label(330, 138, "VIX", "middle", 13);
-
-// IV Rank/Perzentil: 52-Wochen-Spanne mit aktueller IV
-figures["iv-rank-perzentil"] = () => {
-  const y = 200, x0 = 130, x1 = 560, cur = 430;
-  return `<line x1="${x0}" y1="${y}" x2="${x1}" y2="${y}" stroke="${INK}" stroke-width="2"/>` +
-    `<line x1="${x0}" y1="${y - 16}" x2="${x0}" y2="${y + 16}" stroke="${INK}" stroke-width="2"/>` +
-    `<line x1="${x1}" y1="${y - 16}" x2="${x1}" y2="${y + 16}" stroke="${INK}" stroke-width="2"/>` +
-    `<line x1="${x0}" y1="${y}" x2="${cur}" y2="${y}" stroke="${INK}" stroke-width="8"/>` +
-    `<path d="M${cur},${y - 14} l-9,-16 h18 z" fill="${INK}"/>` +
-    label(x0, y + 38, "52-Wochen-Tief", "middle", 12.5) +
-    label(x1, y + 38, "52-Wochen-Hoch", "middle", 12.5) +
-    label(cur, y - 36, "aktuelle IV", "middle", 13) +
-    label((x0 + cur) / 2, y - 18, "IV Rank", "middle", 12.5);
-};
-
-// Marginhandel: Hebel – Kapital vs. kontrollierte Position
-figures["marginhandel-verstehen"] = () =>
-  `<rect x="150" y="138" width="120" height="44" fill="none" stroke="${INK}" stroke-width="2"/>` +
-  label(286, 165, "eingesetztes Kapital / Margin", "start", 13) +
-  `<rect x="150" y="228" width="404" height="44" fill="none" stroke="${INK}" stroke-width="2"/>` +
-  `<line x1="270" y1="228" x2="270" y2="272" stroke="${GRY}" stroke-width="1" stroke-dasharray="4 4"/>` +
-  label(150, 118, "Hebelwirkung", "start", 14) +
-  label(354, 300, "kontrollierte Position (deutlich größer)", "middle", 13);
-
-// Risikomanagement: Position Sizing (1–2 % je Trade)
-figures["risikomanagement-optionshandel"] = () =>
-  rectO(140, 130, 410, 120) +
-  `<rect x="142" y="132" width="20" height="116" fill="${INK}"/>` +
-  label(345, 196, "Gesamtkapital", "middle", 14) +
-  `<line x1="152" y1="250" x2="152" y2="290" stroke="${INK}" stroke-width="1"/>` +
-  label(160, 308, "1–2 % Risiko je Trade", "start", 13);
-
-// Psychologie: Emotionszyklus (Euphorie → Kapitulation)
-figures["psychologie-optionshandel"] = () =>
-  axes("Zeit / Kursverlauf", "Emotion") +
-  curve([[L, 240], [175, 196], [275, 116], [370, 178], [465, 292], [560, 250]]) +
-  label(275, 104, "Euphorie", "middle") +
-  label(465, 312, "Kapitulation", "middle", 12.5);
-
-// Anfängerfehler: ungedeckter Short Call – unbegrenztes Verlustrisiko
+// Ungedeckter Short Call: Strike 100, Prämie 3  -> 3 - max(0,S-100)
 figures["anfaengerfehler-optionshandel"] = () => {
-  const zero = 160;
-  return axes("Aktienkurs bei Verfall", "Gewinn / Verlust") + payoffBase(zero) +
-    dash(330, zero, 330, B, GRY) + tickLabel(330, "Strike") +
-    curve([[L, zero], [330, zero], [R, 312]]) +
-    label(190, zero - 12, "Prämie", "middle", 12.5) +
-    label(R, 150, "unbegrenztes Verlustrisiko", "end");
+  const { sx, sy, s } = plot({
+    xr: [90, 130], yr: [-22, 7], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 100, label: "100" }, { v: 103, label: "103" }],
+    yticks: [{ v: 3, label: "+3" }, { v: 0, label: "0" }, { v: -18, label: "−18" }],
+  });
+  return s +
+    line(sx(100), sy(3), sx(100), B, 1, INK, "5 4") +
+    poly([[sx(90), sy(3)], [sx(100), sy(3)], [sx(125), sy(-22)]]) +
+    `<path d="M${sx(125)},${sy(-22)} l-2,-11 l11,5 z" fill="${INK}"/>` +
+    odot(sx(103), sy(0)) +
+    txt(sx(95), sy(5), "Prämie", "middle", 12.5) +
+    txt(sx(118), sy(-4), "unbegrenztes Verlustrisiko", "middle", 12.5);
 };
 
-// Assignment & Ausübung: Ablauf Käufer -> Stillhalter
-figures["assignment-und-ausuebung"] = () =>
-  label(340, 96, "Option ist im Geld (ITM)", "middle", 14) +
-  rectO(64, 168, 236, 96) +
-  label(182, 206, "Käufer übt aus", "middle", 15) +
-  label(182, 234, "(Exercise)", "middle", 12.5) +
-  `<line x1="312" y1="216" x2="366" y2="216" stroke="${INK}" stroke-width="2.5"/>` +
-  `<path d="M380,216 l-14,-7 v14 z" fill="${INK}"/>` +
-  label(340, 150, "je 100 Aktien pro Kontrakt", "middle", 12) +
-  rectO(380, 168, 236, 96) +
-  label(498, 206, "Stillhalter erhält", "middle", 15) +
-  label(498, 234, "Zuteilung (Assignment)", "middle", 12.5);
+/* ===== KONZEPTIONELLE DIAGRAMME (glatte Kurven) ===== */
+
+// Theta: Zeitwert ~ sqrt(Restlaufzeit). x: 9 Monate (links) -> Verfall (rechts)
+figures["theta-zeitwertverfall"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [9, 0], yr: [0, 6], xTitle: "Restlaufzeit (Monate)", yTitle: "Zeitwert (€)", zero: false,
+    xticks: [{ v: 9, label: "9" }, { v: 6, label: "6" }, { v: 3, label: "3" }, { v: 0, label: "Verfall" }],
+    yticks: [{ v: 0, label: "0" }, { v: 3, label: "3" }, { v: 6, label: "6" }],
+  });
+  const pts = []; for (let mo = 9; mo >= 0; mo -= 0.2) pts.push([sx(mo), sy(6 * Math.sqrt(mo / 9))]);
+  return s + smooth(pts) +
+    txt(sx(4.5), sy(5.5), "beschleunigter Verfall zum Laufzeitende", "middle", 12.5);
+};
+
+// Delta (Call) als logistische S-Kurve
+figures["optionsgriechen-delta-gamma-theta-vega"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [78, 122], yr: [0, 1], xTitle: "Aktienkurs (€)", yTitle: "Delta des Calls", zero: false,
+    xticks: [{ v: 90, label: "90" }, { v: 100, label: "100" }, { v: 110, label: "110" }],
+    yticks: [{ v: 0, label: "0" }, { v: 0.5, label: "0,5" }, { v: 1, label: "1,0" }],
+  });
+  const pts = []; for (let x = 78; x <= 122; x += 0.5) pts.push([sx(x), sy(1 / (1 + Math.exp(-(x - 100) / 4)))]);
+  return s + line(sx(100), sy(0), sx(100), sy(1), 1, INK, "5 4") + smooth(pts) +
+    odot(sx(100), sy(0.5)) +
+    txt(sx(100), T - 2, "Strike (ATM)", "middle", 12, "#555");
+};
+
+// Put-Call-Parität: Portfolio-Äquivalenz + Formel
+figures["put-call-parity"] = () => {
+  const boxH = 150, top = 96, bw = 232;
+  const half = (cx, l1, l2) =>
+    rectO(cx - bw / 2, top, bw, boxH) +
+    line(cx - bw / 2, top + boxH / 2, cx + bw / 2, top + boxH / 2, 1, LGRY) +
+    txt(cx, top + 46, l1, "middle", 16) + txt(cx, top + 121, l2, "middle", 15);
+  return half(190, "Call (C)", "Barwert von K") +
+    txt(360, top + boxH / 2 + 14, "=", "middle", 44) +
+    half(530, "Put (P)", "Aktie (S)") +
+    txt(190, top + boxH + 30, "Portfolio A", "middle", 13, "#555") +
+    txt(530, top + boxH + 30, "Portfolio B", "middle", 13, "#555") +
+    txt(360, 360, "C + K · e", "middle", 18) +
+    `<text x="${360 + 47}" y="${360 - 9}" font-size="12" fill="${INK}">−rT</text>` +
+    `<text x="${360 + 72}" y="360" font-size="18" fill="${INK}">= P + S</text>`;
+};
+
+// Volatilität: zwei Normalverteilungen (schmal vs. breit), korrekt skaliert
+figures["volatilitaet-verstehen"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [60, 140], yr: [0, 1], xTitle: "möglicher Kurs bei Verfall (€)", yTitle: "Wahrscheinlichkeit", zero: false,
+    xticks: [{ v: 100, label: "100" }], yticks: [],
+  });
+  // einfache, klar skalierte Glocken (Höhe ~ 1/sigma, auf Plot normiert)
+  const gauss = (sig, scale) => { const p = []; for (let x = 60; x <= 140; x += 0.8) p.push([sx(x), sy(scale * Math.exp(-((x - 100) ** 2) / (2 * sig * sig)))]); return p; };
+  return s + smooth(gauss(20, 0.42)) + smooth(gauss(7, 0.92)) +
+    txt(sx(100), sy(0.99), "geringe Volatilität", "middle", 12.5) +
+    txt(sx(128), sy(0.30), "hohe Volatilität", "middle", 12.5);
+};
+
+// Volatilitätszyklus (Ruhe -> Spitze -> Beruhigung), glatt
+figures["volatilitaet-renditen"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [0, 10], yr: [0, 10], xTitle: "Zeit", yTitle: "Volatilität", zero: false, xticks: [], yticks: [],
+  });
+  const f = (x) => 2 + 7 * Math.exp(-((x - 3.4) ** 2) / 0.5) + 1.2 * Math.exp(-((x - 6.5) ** 2) / 2);
+  const p = []; for (let x = 0; x <= 10; x += 0.1) p.push([sx(x), sy(f(x))]);
+  return s + smooth(p) +
+    txt(sx(3.4), sy(9.6), "Volatilitätsspitze", "middle", 12.5) +
+    txt(sx(1), sy(3.1), "ruhige Phase", "middle", 12) +
+    txt(sx(8.7), sy(2.7), "Beruhigung", "middle", 12);
+};
+
+// VIX invers zum Markt (Markt durchgezogen, VIX gestrichelt)
+figures["vix-angstindex-erklaert"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [0, 10], yr: [0, 10], xTitle: "Zeit", yTitle: "Niveau (indexiert)", zero: false, xticks: [], yticks: [],
+  });
+  const mkt = (x) => 7 - 3.2 * Math.exp(-((x - 5) ** 2) / 1.1);
+  const vix = (x) => 3 + 4.8 * Math.exp(-((x - 5) ** 2) / 1.1);
+  const pm = [], pv = []; for (let x = 0; x <= 10; x += 0.1) { pm.push([sx(x), sy(mkt(x))]); pv.push([sx(x), sy(vix(x))]); }
+  return s + smooth(pm) + smooth(pv).replace('stroke-width="2.6"', 'stroke-width="2.4" stroke-dasharray="7 5"') +
+    txt(sx(9.6), sy(mkt(9.6)) - 10, "Markt", "end", 12.5) +
+    txt(sx(5), sy(vix(5)) - 12, "VIX", "middle", 12.5);
+};
+
+// IV Rank: aktuelle IV in der 52-Wochen-Spanne
+figures["iv-rank-perzentil"] = () => {
+  const y = 210, x0 = 150, x1 = 570, cur = x0 + (x1 - x0) * 0.62;
+  return line(x0, y, x1, y, 2.2) +
+    line(x0, y - 16, x0, y + 16, 2.2) + line(x1, y - 16, x1, y + 16, 2.2) +
+    line(x0, y, cur, y, 7) +
+    `<path d="M${cur},${y - 15} l-9,-17 h18 z" fill="${INK}"/>` +
+    txt(x0, y + 40, "52-Wochen-Tief", "middle", 12.5, "#333") +
+    txt(x1, y + 40, "52-Wochen-Hoch", "middle", 12.5, "#333") +
+    txt(cur, y - 40, "aktuelle IV", "middle", 13) +
+    txt((x0 + cur) / 2, y - 16, "IV Rank ≈ 62", "middle", 12.5, "#333");
+};
+
+// Hebel: Kapitaleinsatz vs. kontrollierte Position (mit Werten)
+figures["marginhandel-verstehen"] = () => {
+  const x0 = 150, unit = 22, y1 = 150, y2 = 250, h = 52;
+  return txt(150, 110, "Hebelwirkung (Beispiel)", "start", 15, INK, 600) +
+    `<rect x="${x0}" y="${y1}" width="${2 * unit}" height="${h}" fill="${INK}"/>` +
+    txt(x0 + 2 * unit + 14, y1 + 32, "eingesetztes Kapital: 2.000 €", "start", 13) +
+    `<rect x="${x0}" y="${y2}" width="${20 * unit}" height="${h}" fill="none" stroke="${INK}" stroke-width="1.8"/>` +
+    `<rect x="${x0}" y="${y2}" width="${2 * unit}" height="${h}" fill="${INK}"/>` +
+    txt(x0 + 20 * unit, y2 + h + 24, "kontrollierte Position: 20.000 € (Hebel 10×)", "end", 13);
+};
+
+// Position Sizing: kleiner Risikoanteil je Trade
+figures["risikomanagement-optionshandel"] = () => {
+  const x = 150, y = 150, w = 430, h = 120, risk = w * 0.02;
+  return txt(150, 116, "Position Sizing", "start", 15, INK, 600) +
+    rectO(x, y, w, h) +
+    `<rect x="${x}" y="${y}" width="${risk}" height="${h}" fill="${INK}"/>` +
+    txt(x + risk + w / 2, y + h / 2 + 5, "Gesamtkapital", "middle", 14) +
+    line(x + risk, y + h + 6, x + risk, y + h + 30, 1.2) +
+    txt(x + risk + 8, y + h + 40, "1–2 % Risiko je Trade", "start", 13);
+};
+
+// Psychologie: Emotionszyklus (glatt)
+figures["psychologie-optionshandel"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [0, 10], yr: [0, 10], xTitle: "Zeit / Kursverlauf", yTitle: "Emotion", zero: false, xticks: [], yticks: [],
+  });
+  const f = (x) => 5 + 3.6 * Math.exp(-((x - 3) ** 2) / 1.3) - 3.8 * Math.exp(-((x - 6.8) ** 2) / 1.0);
+  const p = []; for (let x = 0; x <= 10; x += 0.1) p.push([sx(x), sy(f(x))]);
+  return s + smooth(p) +
+    txt(sx(3), sy(f(3)) - 14, "Euphorie", "middle", 12.5) +
+    txt(sx(6.8), sy(f(6.8)) + 22, "Kapitulation", "middle", 12.5);
+};
+
+// Assignment-Ablauf (Käufer -> Stillhalter)
+figures["assignment-und-ausuebung"] = () => {
+  const bw = 244, bh = 100, top = 176, ax = 360;
+  return txt(360, 96, "Option ist im Geld (ITM)", "middle", 14, INK, 600) +
+    rectO(64, top, bw, bh) +
+    txt(64 + bw / 2, top + 42, "Käufer übt aus", "middle", 15) +
+    txt(64 + bw / 2, top + 70, "(Exercise)", "middle", 12.5, "#555") +
+    line(64 + bw + 4, top + bh / 2, 64 + bw + 48, top + bh / 2, 2.4) +
+    `<path d="M${64 + bw + 52},${top + bh / 2} l-13,-7 v14 z" fill="${INK}"/>` +
+    txt(ax, top - 16, "je 100 Aktien / Kontrakt", "middle", 12, "#555") +
+    rectO(W - 64 - bw, top, bw, bh) +
+    txt(W - 64 - bw / 2, top + 42, "Stillhalter erhält", "middle", 15) +
+    txt(W - 64 - bw / 2, top + 70, "Zuteilung (Assignment)", "middle", 12.5, "#555");
+};
 
 for (const [slug, fn] of Object.entries(figures)) write(slug, fn());
 console.log("Figuren erzeugt:", Object.keys(figures).length);
