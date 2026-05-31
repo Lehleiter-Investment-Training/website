@@ -36,6 +36,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/theta-zeitwertverfall.svg" alt="Zeitwertverfall einer Option: nichtlinear, mit Beschleunigung zum Verfallstag." width="680" height="400" loading="lazy">
+    <figcaption>Zeitwertverfall einer Option: nichtlinear, mit Beschleunigung zum Verfallstag.</figcaption>
+</figure>
+
 <h3 id="innerer-wert-zeitwert">Innerer Wert und Zeitwert</h3>
 
 <p>Der Preis einer Option – die sogenannte Prämie – setzt sich aus zwei Bestandteilen zusammen: dem <span class="key-term">Innerer Wert</span> und dem <span class="key-term">Zeitwert</span> (englisch: <span class="key-term">Extrinsic Value</span>).</p>

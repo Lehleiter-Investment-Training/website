@@ -36,6 +36,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/cash-secured-put.svg" alt="Auszahlungsprofil des Cash Secured Put: Prämie als maximaler Gewinn, Verlustrisiko unterhalb des Strikes." width="680" height="400" loading="lazy">
+    <figcaption>Auszahlungsprofil des Cash Secured Put: Prämie als maximaler Gewinn, Verlustrisiko unterhalb des Strikes.</figcaption>
+</figure>
+
 <h3 id="was-ist">Was ist ein Cash Secured Put?</h3>
 
 <p>Beim Cash Secured Put nehmen Sie die Rolle des <span class="key-term">Stillhalter</span>s ein: Sie verkaufen eine Put-Option auf eine Aktie und verpflichten sich damit, diese Aktie zum vereinbarten <span class="key-term">Strike-Preis</span> zu kaufen, falls der Käufer der Option sein Recht ausübt. „Cash Secured" bedeutet, dass Sie die gesamte Kaufsumme – also Strike-Preis multipliziert mit 100 Aktien pro Kontrakt – tatsächlich als Kapital bereithalten. Dieses Kapital gilt als Sicherheitsleistung und darf nicht anderweitig investiert sein.</p>

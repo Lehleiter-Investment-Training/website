@@ -37,6 +37,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/assignment-und-ausuebung.svg" alt="Ablauf: Übt der Käufer eine ITM-Option aus, wird sie dem Stillhalter zugeteilt." width="680" height="400" loading="lazy">
+    <figcaption>Ablauf: Übt der Käufer eine ITM-Option aus, wird sie dem Stillhalter zugeteilt.</figcaption>
+</figure>
+
 <h3 id="exercise-vs-assignment">Ausübung (Exercise) vs. Zuteilung (Assignment)</h3>
 
 <p>Im Optionshandel gibt es zwei Seiten derselben Medaille: die Ausübung (<span class="key-term">Exercise</span>) aus Sicht des Käufers und die Zuteilung (Assignment) aus Sicht des Verkäufers. Beide Begriffe beschreiben denselben Vorgang – aus unterschiedlicher Perspektive.</p>

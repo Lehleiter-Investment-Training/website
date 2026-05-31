@@ -37,6 +37,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/put-call-parity.svg" alt="Put-Call-Parität: Portfolio A (Call + Barwert des Strikes) entspricht Portfolio B (Put + Aktie)." width="680" height="400" loading="lazy">
+    <figcaption>Put-Call-Parität: Portfolio A (Call + Barwert des Strikes) entspricht Portfolio B (Put + Aktie).</figcaption>
+</figure>
+
 <h3 id="grundidee">Die Grundidee</h3>
 
 <p>Stellen Sie sich zwei unterschiedliche Wege vor, um zum selben Ziel zu gelangen: Entweder Sie kaufen eine Aktie direkt und ergänzen sie um eine <span class="key-term">Put-Option</span> als Absicherung – oder Sie kaufen eine <span class="key-term">Call-Option</span> und legen gleichzeitig den Barwert des vereinbarten Kaufpreises risikolos an. Beide Kombinationen sollten am Laufzeitende exakt dasselbe Ergebnis liefern.</p>

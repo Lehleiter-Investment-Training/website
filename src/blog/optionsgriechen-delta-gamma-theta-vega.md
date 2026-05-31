@@ -39,6 +39,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/optionsgriechen-delta-gamma-theta-vega.svg" alt="Das Delta eines Calls als S-Kurve – von nahe 0 (weit aus dem Geld) bis nahe 1 (tief im Geld)." width="680" height="400" loading="lazy">
+    <figcaption>Das Delta eines Calls als S-Kurve – von nahe 0 (weit aus dem Geld) bis nahe 1 (tief im Geld).</figcaption>
+</figure>
+
 <h3 id="was-sind-griechen">Was sind die Optionsgriechen?</h3>
 
 <p>Optionspreise werden wesentlich durch das sogenannte <span class="key-term">Black-Scholes-Modell</span> und verwandte Bewertungsmodelle beschrieben. Diese Modelle zeigen, dass der Preis einer Option von mehreren Faktoren gleichzeitig abhängt: dem aktuellen Kurs des Basiswerts, dem Ausübungspreis (Strike), der Restlaufzeit, der <span class="key-term">impliziten Volatilität</span> sowie dem risikofreien Zinssatz. Die <span class="key-term">Greeks</span> – wie die Optionsgriechen auf Englisch heißen – messen jeweils die Empfindlichkeit des Optionspreises gegenüber einer dieser Variablen, während alle anderen konstant gehalten werden. Sie sind damit mathematische Ableitungen des Optionspreises nach den jeweiligen Einflussfaktoren.</p>

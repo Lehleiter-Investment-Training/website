@@ -37,6 +37,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/iron-condor-strategie.svg" alt="Auszahlungsprofil des Iron Condor: Gewinnzone zwischen den verkauften Strikes, begrenzte Verluste außen." width="680" height="400" loading="lazy">
+    <figcaption>Auszahlungsprofil des Iron Condor: Gewinnzone zwischen den verkauften Strikes, begrenzte Verluste außen.</figcaption>
+</figure>
+
 <h3 id="aufbau">Aufbau des Iron Condor</h3>
 
 <p>Ein Iron Condor setzt sich aus genau vier Optionspositionen zusammen: zwei Calls und zwei Puts auf denselben Basiswert mit identischem Verfallsdatum. Konkret handelt es sich um die Kombination zweier <span class="key-term">Vertical Spread</span>s:</p>

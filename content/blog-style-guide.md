@@ -57,8 +57,16 @@ ein Titelbild aus Titel + Kategorie.
    Glossar verlinkt. Begriffe siehe `src/_data/glossar.js`.
 6. **Interne Links:** 2–4 Verweise auf passende Bestandsartikel (`/slug.html`)
    und ggf. auf `/glossar.html`.
-7. Fazit-Abschnitt (`<h3>Fazit</h3>` … mit internem Link).
-8. **Quellen-Sektion (Pflicht):** `<h3>Quellen &amp; weiterführende Literatur</h3><ul>…</ul>`
+7. **Konzept-Illustration (Pflicht):** eine schlichte **schwarz-weiße** Illustration,
+   die ein Kernkonzept des Artikels veranschaulicht, eingebunden im Text (nach dem
+   Inhaltsverzeichnis):
+   `<figure class="blog-figure"><img src="/blog/figures/<slug>.svg" alt="…"><figcaption>…</figcaption></figure>`
+   Die SVG-Datei liegt unter `src/blog/figures/<slug>.svg` und wird von
+   `scripts/generate-figures.js` erzeugt (`npm run figures`). **Regeln:** reine
+   s/w-Linienzeichnung, Beschriftungen in freien Zonen – **Linien und Schrift dürfen
+   sich nie überlappen**.
+8. Fazit-Abschnitt (`<h3>Fazit</h3>` … mit internem Link).
+9. **Quellen-Sektion (Pflicht):** `<h3>Quellen &amp; weiterführende Literatur</h3><ul>…</ul>`
    mit 2–4 Einträgen. **Nur hochwertige, belegbare Quellen** zitieren – bevorzugt aus
    dieser Whitelist; keine erfundenen Quellen/Deep-Links:
    - The Options Industry Council (OIC) – https://www.optionseducation.org
@@ -69,17 +77,17 @@ ein Titelbild aus Titel + Kategorie.
    - Für Verhaltensthemen: Daniel Kahneman: „Schnelles Denken, langsames Denken".
    - Für die Put-Call-Parität: Stoll (1969), The Journal of Finance.
 
-(`summary` und `faq` stehen in der Frontmatter; das **Titelbild/die Illustration** wird
-automatisch aus `category` erzeugt – **kein** `image`-Feld nötig.)
+(`summary` und `faq` stehen in der Frontmatter. **Kein `image`-Feld** – das farbige
+**Vorschaubild** im Blog-Index wird automatisch aus `category` erzeugt. Die **s/w-Konzept-
+Illustration im Artikel** ist eine eigene Datei unter `src/blog/figures/<slug>.svg`.)
 
 ## Konsistenz (verbindlich)
 Alle Artikel müssen **untereinander konsistent** sein. Pflicht in **jedem** Artikel:
 Anrede „Sie", Risikohinweis-Box, Inhaltsverzeichnis, `<h3 id>`-Abschnitte,
-mind. 3 `key-term`-Markierungen, ≥ 2 interne Links, Fazit-Abschnitt, Quellen-Sektion,
-sowie die Frontmatter-Felder `category`, `summary` und 3× `faq`. **Eine gültige
-`category`** ist Pflicht – sie steuert Akzentfarbe und das automatisch erzeugte
-**Kategorie-Motiv** der Illustration (siehe `.eleventy.js` → `blogCover`/`blogMotif`).
-Diese Regeln werden von `npm run validate-blog` automatisch geprüft.
+**eine s/w-Konzept-Illustration** (`.blog-figure`), mind. 3 `key-term`-Markierungen,
+≥ 2 interne Links, Fazit-Abschnitt, Quellen-Sektion, sowie die Frontmatter-Felder
+`category`, `summary` und 3× `faq`. Eine gültige `category` steuert das farbige
+Vorschaubild im Index. Alle diese Regeln prüft `npm run validate-blog` automatisch.
 
 ## Länge & SEO
 - Ziellänge **1.000–1.500 Wörter**.

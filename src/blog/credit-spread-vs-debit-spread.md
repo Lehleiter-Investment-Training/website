@@ -36,6 +36,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/credit-spread-vs-debit-spread.svg" alt="Auszahlungsprofil eines vertikalen Spreads: maximaler Gewinn und Verlust sind klar begrenzt." width="680" height="400" loading="lazy">
+    <figcaption>Auszahlungsprofil eines vertikalen Spreads: maximaler Gewinn und Verlust sind klar begrenzt.</figcaption>
+</figure>
+
 <h3 id="vertical-spreads">Was ist ein vertikaler Spread?</h3>
 
 <p>Ein vertikaler Spread besteht aus dem gleichzeitigen Kauf und Verkauf zweier Optionen gleichen Typs (beide Calls oder beide Puts) auf denselben Basiswert mit demselben Verfalldatum, aber unterschiedlichen Strike-Preisen. Das Wort „vertikal" bezieht sich auf die Darstellung in einer Optionskette, in der höhere Strikes senkrecht übereinander angeordnet sind.</p>
