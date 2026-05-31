@@ -1,5 +1,5 @@
 // Progressive Enhancement für das Glossar.
-// Das Markup wird serverseitig gerendert (siehe src/bonus/glossar.njk und
+// Das Markup wird serverseitig gerendert (siehe src/glossar.njk und
 // src/_data/glossar.js). Dieses Skript filtert nur das vorhandene DOM und
 // fügt Smooth-Scroll für die Alphabet-Navigation hinzu – es erzeugt keinen
 // Inhalt. So bleibt das Glossar auch ohne JavaScript voll lesbar (und für

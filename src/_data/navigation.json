@@ -6,9 +6,9 @@
     { "label": "Tools", "url": "/quiz.html", "isAnchor": false, "children": [
       { "label": "Optionswissen Quiz", "url": "/quiz.html" },
       { "label": "Börsen-Quiz", "url": "/boersenquiz.html" },
-      { "label": "Handelsplan Generator", "url": "/handelsplan.html" },
-      { "label": "Glossar", "url": "/Bonus/Glossar.html" }
+      { "label": "Handelsplan Generator", "url": "/handelsplan.html" }
     ]},
+    { "label": "Glossar", "url": "/glossar.html", "isAnchor": false },
     { "label": "Autor", "url": "/#author", "isAnchor": true },
     { "label": "Rezensionen", "url": "/#reviews", "isAnchor": true },
     { "label": "FAQ", "url": "/#faq", "isAnchor": true },
@@ -18,6 +18,7 @@
     { "label": "Das Buch", "url": "/#book" },
     { "label": "KI-Kurs", "url": "/#kurs" },
     { "label": "Blog", "url": "/blog.html" },
+    { "label": "Glossar", "url": "/glossar.html" },
     { "label": "Autor", "url": "/#author" },
     { "label": "Rezensionen", "url": "/#reviews" },
     { "label": "FAQ", "url": "/#faq" },
