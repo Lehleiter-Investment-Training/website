@@ -89,6 +89,12 @@ Anrede „Sie", Risikohinweis-Box, Inhaltsverzeichnis, `<h3 id>`-Abschnitte,
 `category`, `summary` und 3× `faq`. Eine gültige `category` steuert das farbige
 Vorschaubild im Index. Alle diese Regeln prüft `npm run validate-blog` automatisch.
 
+## Typografie & Abstände
+Absatz- und Abschnittsabstände werden **global** über die Klasse `.blog-article-body`
+gesteuert (in `src/assets/css/blog.css`). Schreiben Sie einfach normale `<p>`-Absätze
+und `<h3 id>`-Abschnitte – **keine** manuellen Abstände oder Inline-Styles. So sehen
+alle Artikel automatisch gleich aus (großzügige, klar abgegrenzte Absätze).
+
 ## Länge & SEO
 - Ziellänge **1.000–1.500 Wörter**.
 - Genau **eine** `<h1>` kommt aus dem Layout (pageTitle) – im Body mit `<h2>/<h3>` arbeiten.
