@@ -57,8 +57,29 @@ ein Titelbild aus Titel + Kategorie.
    Glossar verlinkt. Begriffe siehe `src/_data/glossar.js`.
 6. **Interne Links:** 2–4 Verweise auf passende Bestandsartikel (`/slug.html`)
    und ggf. auf `/glossar.html`.
-7. Fazit-Absatz.
-(`summary` und `faq` stehen in der Frontmatter, nicht im Body – das Layout rendert sie.)
+7. Fazit-Abschnitt (`<h3>Fazit</h3>` … mit internem Link).
+8. **Quellen-Sektion (Pflicht):** `<h3>Quellen &amp; weiterführende Literatur</h3><ul>…</ul>`
+   mit 2–4 Einträgen. **Nur hochwertige, belegbare Quellen** zitieren – bevorzugt aus
+   dieser Whitelist; keine erfundenen Quellen/Deep-Links:
+   - The Options Industry Council (OIC) – https://www.optionseducation.org
+   - Options Clearing Corporation (OCC) – „Characteristics and Risks of Standardized Options" – https://www.theocc.com
+   - Cboe Global Markets – https://www.cboe.com
+   - Eurex (Deutsche Börse Group) – https://www.eurex.com
+   - John C. Hull: „Options, Futures, and Other Derivatives", Pearson.
+   - Für Verhaltensthemen: Daniel Kahneman: „Schnelles Denken, langsames Denken".
+   - Für die Put-Call-Parität: Stoll (1969), The Journal of Finance.
+
+(`summary` und `faq` stehen in der Frontmatter; das **Titelbild/die Illustration** wird
+automatisch aus `category` erzeugt – **kein** `image`-Feld nötig.)
+
+## Konsistenz (verbindlich)
+Alle Artikel müssen **untereinander konsistent** sein. Pflicht in **jedem** Artikel:
+Anrede „Sie", Risikohinweis-Box, Inhaltsverzeichnis, `<h3 id>`-Abschnitte,
+mind. 3 `key-term`-Markierungen, ≥ 2 interne Links, Fazit-Abschnitt, Quellen-Sektion,
+sowie die Frontmatter-Felder `category`, `summary` und 3× `faq`. **Eine gültige
+`category`** ist Pflicht – sie steuert Akzentfarbe und das automatisch erzeugte
+**Kategorie-Motiv** der Illustration (siehe `.eleventy.js` → `blogCover`/`blogMotif`).
+Diese Regeln werden von `npm run validate-blog` automatisch geprüft.
 
 ## Länge & SEO
 - Ziellänge **1.000–1.500 Wörter**.
@@ -66,8 +87,9 @@ ein Titelbild aus Titel + Kategorie.
 - Ziel-Keyword in Titel, Description, erstem Absatz und mindestens einer Zwischenüberschrift.
 
 ## Qualitäts-Checkliste vor PR
-- [ ] Frontmatter vollständig, zwei `---`-Zäune, valides YAML.
-- [ ] Risikohinweis-Box vorhanden.
-- [ ] `summary` + 3 FAQ faktentreu.
+- [ ] Frontmatter vollständig (inkl. `category`, `summary`, 3× `faq`), zwei `---`-Zäune.
+- [ ] Risikohinweis-Box, Inhaltsverzeichnis, Fazit **und Quellen-Sektion** vorhanden.
+- [ ] Durchgängig „Sie"; keine informelle Anrede.
+- [ ] `summary` + FAQ faktentreu; Quellen nur aus der Whitelist.
 - [ ] ≥ 2 interne Links, ≥ 3 `key-term`-Markierungen.
-- [ ] `npm run validate-blog` ist grün.
+- [ ] `npm run validate-blog` ist grün (prüft Konsistenz automatisch).

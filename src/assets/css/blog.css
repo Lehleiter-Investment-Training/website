@@ -448,6 +448,21 @@ a.key-term:hover {
     line-height: 1.4;
 }
 
+/* Hero-Illustration am Artikelanfang (parametrisch, je Kategorie) */
+.blog-hero-section {
+    margin-bottom: var(--spacing-lg, 2rem);
+}
+
+.blog-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-md, 10px);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(26,31,54,0.08));
+}
+
 /* Antwort-zuerst-Box (GEO: extrahierbare Kernantwort am Artikelanfang) */
 .answer-box {
     background: var(--gray-50, #F9FAFB);

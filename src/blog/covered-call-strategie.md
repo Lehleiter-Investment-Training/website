@@ -116,3 +116,10 @@ faq:
 <h3>Fazit</h3>
 
 <p>Der Covered Call ist eine zugängliche Möglichkeit, aus einem bestehenden Aktienbestand laufende Erträge zu erzielen. Er belohnt Geduld in ruhigen Märkten, deckelt aber den Gewinn bei starken Kursanstiegen und ersetzt kein <a href="risikomanagement-optionshandel.html">durchdachtes Risikomanagement</a>. Wie immer im Optionshandel gilt: Verstehen Sie die Verpflichtung, die Sie eingehen, bevor Sie eine Position eröffnen. Eine Übersicht aller hier verwendeten Fachbegriffe finden Sie im <a href="/glossar.html">Optionen-Glossar</a>.</p>
+
+<h3>Quellen &amp; weiterführende Literatur</h3>
+<ul>
+    <li><a href="https://www.optionseducation.org" target="_blank" rel="noopener">The Options Industry Council (OIC) – Options Education</a></li>
+    <li><a href="https://www.cboe.com" target="_blank" rel="noopener">Cboe Global Markets – Options Education</a></li>
+    <li>John C. Hull: „Options, Futures, and Other Derivatives", Pearson.</li>
+</ul>

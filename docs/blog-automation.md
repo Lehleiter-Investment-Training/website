@@ -57,11 +57,14 @@ Doku zu Umgebungen/Triggern: https://code.claude.com/docs/en/claude-code-on-the-
    - `content/article-template.md` (Gerüst),
    - 1–2 thematisch nahe Bestandsartikel in `src/blog/` als Vorbild,
    - `src/_data/glossar.js` für `key-term`-Begriffe.
-4. **Artikel schreiben:** `src/blog/<slug>.md` gemäß Style-Guide.
-   - Vollständige Frontmatter inkl. `summary` und 3× `faq` (faktentreu!).
-   - **Kein `image`-Feld** – das Titelbild wird aus `category` generiert.
+4. **Artikel schreiben:** `src/blog/<slug>.md` gemäß Style-Guide – **konsistent zu den
+   bestehenden Artikeln** (gleiche Bausteine, gleicher „Sie"-Ton).
+   - Vollständige Frontmatter inkl. **`category`** (Pflicht – steuert Illustration/Farbe),
+     `summary` und 3× `faq` (faktentreu!).
+   - **Kein `image`-Feld** – Titelbild **und** Hero-Illustration werden automatisch aus
+     `category` erzeugt (themenpassendes Motiv).
    - 1.000–1.500 Wörter, Risikohinweis-Box, Inhaltsverzeichnis, ≥ 2 interne Links,
-     ≥ 3 `key-term`-Markierungen.
+     ≥ 3 `key-term`-Markierungen, Fazit **und Quellen-Sektion** (nur Whitelist-Quellen).
 5. **Backlog pflegen:** im gewählten `topics.yaml`-Eintrag `status: done` setzen und
    `published: <heutiges ISO-Datum>` ergänzen.
 6. **Validieren (Pflicht):** `npm run validate-blog` ausführen.
