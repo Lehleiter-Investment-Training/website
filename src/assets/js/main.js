@@ -106,7 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
-    // Brevo-Formular: Absenden via verstecktem iframe, danach Weiterleitung
+    // Brevo-Formular: Absenden via verstecktem iframe. Weiterleitung erst, wenn
+    // die Antwort von Brevo tatsächlich im iframe geladen ist (statt fixer Wartezeit).
+    // Ein Fallback-Timeout greift nur, falls das load-Event ausbleibt.
+    var brevoIframe = document.querySelector('iframe[name="brevo-iframe"]');
     document.querySelectorAll('form[data-type="subscription"]').forEach(function(form) {
         form.setAttribute('target', 'brevo-iframe');
         form.addEventListener('submit', function() {
@@ -115,9 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.disabled = true;
                 btn.textContent = 'Wird gesendet...';
             }
-            setTimeout(function() {
+
+            var redirected = false;
+            function redirect() {
+                if (redirected) return;
+                redirected = true;
                 window.location.href = '/Danke.html';
-            }, 1500);
+            }
+
+            if (brevoIframe) {
+                brevoIframe.addEventListener('load', redirect, { once: true });
+            }
+            // Sicherheitsnetz, falls das iframe-load-Event nicht feuert
+            setTimeout(redirect, 6000);
         });
     });
 });
