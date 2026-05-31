@@ -96,13 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resizeTimer = setTimeout(updateReviewCardSize, 250);
     });
 
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(function(question) {
-        question.addEventListener('click', function() {
-            this.classList.toggle('active');
-            this.nextElementSibling.classList.toggle('show');
-        });
-    });
+    // FAQ-Accordion nutzt natives <details>/<summary> (Tastatur + Screenreader inklusive)
 
     initSlider();
     startAutoSlide();
