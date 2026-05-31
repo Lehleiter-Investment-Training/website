@@ -1,5 +1,8 @@
 // Globale UI-Logik: Mobile-Menu, Dropdown-Tastaturbedienung, Smooth-Scroll, Brevo-Formular
 document.addEventListener('DOMContentLoaded', function() {
+    // Sanftes Scrollen nur, wenn der Nutzer keine reduzierte Bewegung wünscht (WCAG 2.3.3)
+    var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
     var mobileMenuToggle = document.getElementById('mobileMenuToggle');
     var navLinks = document.getElementById('navLinks');
 
@@ -81,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     window.scrollTo({
                         top: targetPosition - headerHeight - 20,
-                        behavior: 'smooth'
+                        behavior: scrollBehavior
                     });
                     history.pushState(null, null, targetId);
                 }
@@ -97,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 window.scrollTo({
                     top: targetPosition - headerHeight - 20,
-                    behavior: 'smooth'
+                    behavior: scrollBehavior
                 });
             }
         }, 300);
