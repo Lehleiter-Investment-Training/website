@@ -47,3 +47,38 @@ registriert (`dateToRfc3339`, `getNewestCollectionItemDate`, `absoluteUrl`,
 
 Offen für Folge-PRs: Phase 2 (FAQ-Schema, Summary-Box, Glossar-Verlinkung, E-E-A-T),
 Phase 3 (Topic-Backlog, Playbook, wöchentlicher Claude-Code-Trigger).
+
+---
+
+# Blog Phase 2 (GEO-Boost)
+
+Ziel: Auf bestehenden + neuen Artikeln direkte Ranking-/GEO-Hebel aktivieren.
+
+## Aufgaben
+- [x] **FAQPage-Schema** + sichtbare FAQ-Sektion (opt-in via Frontmatter `faq`).
+- [x] **„Antwort-zuerst"-Summary-Box** am Artikelanfang (opt-in via `summary`).
+- [x] **Glossar-Verlinkung**: `key-term`-Spans in Blog-Artikeln werden per Transform
+      zu internen Links auf `/glossar.html` (Topical Authority).
+- [x] **E-E-A-T-Autorenbox** (`partials/author-box.njk`) auf allen Artikeln.
+- [x] `summary` + 3× `faq` für die 9 Bestandsartikel (Subagent, faktentreu).
+
+## Verifikation
+- [x] Infra mit Testartikel geprüft: 4 JSON-LD-Blöcke valide (inkl. FAQPage),
+      Summary-/FAQ-/Autoren-Box + Glossar-Link gerendert.
+- [x] Bestandsartikel: Autoren-Box + Glossar-Links vorhanden, JSON-LD valide,
+      keine Summary/FAQ solange nicht gesetzt (opt-in).
+- [x] Nach Befüllung: alle 9 Artikel mit FAQPage (je 3 Fragen), Build fehlerfrei
+      (25 Dateien), 0 JSON-LD-Parse-Fehler über alle Seiten.
+
+## Review
+Umgesetzt und verifiziert:
+- blog-post.njk rendert optionale Summary-Box, optionale FAQ-Sektion (`<details>`)
+  und FAQPage-JSON-LD; neue Autoren-Box auf allen Artikeln.
+- Glossar-Transform verlinkt `key-term`-Spans in Blog-Artikeln auf `/glossar.html`
+  (vor dem Minify, nur Artikelseiten; z. B. 4 Links im Volatilitäts-Artikel).
+- CSS für answer-box, blog-faq/faq-item, author-box ergänzt; `a.key-term`-Stil.
+- Alle 9 Bestandsartikel mit faktentreuem `summary` + 3 FAQ (Subagent).
+
+Lesson: Subagenten, die Frontmatter editieren, können den schließenden `---`-Zaun
+entfernen → Build-Fehler "bad indentation". Nach solchen Edits IMMER Fence-Anzahl
+prüfen (`grep -c '^---$'` == 2) und vollen Build + JSON-LD-Validierung laufen lassen.

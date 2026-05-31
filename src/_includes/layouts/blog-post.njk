@@ -16,9 +16,28 @@ extraCss:
 <section>
     <div class="container">
         <div class="blog-content">
+            {% if summary %}
+            <div class="answer-box">
+                <p class="answer-box-label">Kurz &amp; knapp</p>
+                <p>{{ summary }}</p>
+            </div>
+            {% endif %}
             {{ content | safe }}
         </div>
 
+        {% if faq %}
+        <section class="blog-faq" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Häufige Fragen</h2>
+            {% for item in faq %}
+            <details class="faq-item">
+                <summary>{{ item.q }}</summary>
+                <div class="faq-answer">{{ item.a | safe }}</div>
+            </details>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% include "partials/author-box.njk" %}
         {% include "partials/related-posts.njk" %}
         {% include "partials/blog-cta.njk" %}
     </div>
@@ -82,3 +101,23 @@ extraCss:
     ]
 }
 </script>
+
+{% if faq %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {% for item in faq %}{
+            "@type": "Question",
+            "name": {{ item.q | dump | safe }},
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ item.a | dump | safe }}
+            }
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
+</script>
+{% endif %}

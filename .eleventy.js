@@ -225,6 +225,19 @@ module.exports = function(eleventyConfig) {
   // Watch targets
   eleventyConfig.addWatchTarget("src/assets/css/");
 
+  // Glossar-Verlinkung: markierte Fachbegriffe (<span class="key-term">) in
+  // Blog-Artikeln zu internen Links auf das Glossar machen (Topical Authority + GEO).
+  // Läuft vor dem Minify und nur auf Blog-Artikelseiten (nicht auf dem Index).
+  eleventyConfig.addTransform("glossaryLinks", function(content) {
+    const inputPath = this.page.inputPath || "";
+    const isBlogPost = inputPath.includes("/blog/") && !/\/index\.\w+$/.test(inputPath);
+    if (!isBlogPost || !(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(
+      /<span class="key-term">([\s\S]*?)<\/span>/g,
+      '<a href="/glossar.html" class="key-term" title="Im Glossar nachschlagen">$1</a>'
+    );
+  });
+
   // HTML minifizieren (inkl. inline JS/CSS und JSON-LD-Whitespace)
   eleventyConfig.addTransform("htmlmin", async function(content) {
     if ((this.page.outputPath || "").endsWith(".html")) {
