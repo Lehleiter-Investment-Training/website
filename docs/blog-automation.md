@@ -12,9 +12,25 @@ Mensch reviewt und merged** (Human-in-the-Loop, wichtig für YMYL-Qualität).
 
 ## A) Einmalige Einrichtung des wöchentlichen Triggers
 
-Der ephemere Container eignet sich **nicht** für Dauerläufer (`/loop`). Stattdessen
-einen **wöchentlichen Trigger in Claude Code on the web** anlegen, der jede Woche eine
-**frische Session** startet:
+Es gibt zwei Wege. **Empfohlen: Variante 1 (GitHub Action)** – läuft vollständig in
+GitHub, kein manuelles Starten nötig.
+
+### Variante 1 – GitHub Action (empfohlen)
+Der Workflow `.github/workflows/weekly-blog.yml` triggert montags 06:00 UTC (und
+on demand über den Actions-Tab) eine Claude-Code-Session, die dieses Playbook ausführt.
+**Einmalige Einrichtung:**
+1. Lokal einen Token erzeugen: `claude setup-token` (mit Claude Pro/Max-Abo – **kein
+   API-Key/keine nutzungsbasierten Kosten**). Alternativ einen Anthropic-API-Key nutzen.
+2. In GitHub: **Settings → Secrets and variables → Actions → New repository secret**
+   - Name: `CLAUDE_CODE_OAUTH_TOKEN`, Wert: der Token aus Schritt 1.
+   - (Bei API-Key-Variante stattdessen `ANTHROPIC_API_KEY` setzen und im Workflow die
+     entsprechende auskommentierte Zeile aktivieren.)
+3. Fertig. Test: **Actions-Tab → „Weekly Blog Automation" → Run workflow**.
+
+### Variante 2 – Claude Code on the web (Schedule-Trigger)
+Falls du ohne GitHub-Secret arbeiten willst: einen **wöchentlichen Trigger in Claude
+Code on the web** anlegen, der jede Woche eine **frische Session** startet
+(der ephemere Container eignet sich nicht für Dauerläufer wie `/loop`):
 
 1. Auf https://claude.com/code (Web) das Repo `Lehleiter-Investment-Training/website` öffnen.
 2. Einen **geplanten Trigger** (Schedule) anlegen, z. B. **montags 06:00**.
