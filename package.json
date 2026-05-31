@@ -6,7 +6,8 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "clean": "rm -rf _site",
-    "og-image": "node scripts/generate-og-image.js"
+    "og-image": "node scripts/generate-og-image.js",
+    "validate-blog": "node scripts/validate-blog.js"
   },
   "author": "Markus Lehleiter",
   "license": "ISC",

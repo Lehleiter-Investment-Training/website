@@ -82,3 +82,29 @@ Umgesetzt und verifiziert:
 Lesson: Subagenten, die Frontmatter editieren, können den schließenden `---`-Zaun
 entfernen → Build-Fehler "bad indentation". Nach solchen Edits IMMER Fence-Anzahl
 prüfen (`grep -c '^---$'` == 2) und vollen Build + JSON-LD-Validierung laufen lassen.
+
+---
+
+# Blog Phase 3 (Automatik-Gerüst, ohne API-Key)
+
+Ziel: Wöchentlich automatisiert einen Artikel als Draft-PR – über eine geplante
+Claude-Code-Session, die einem Repo-Playbook folgt (Human-in-the-Loop beim Merge).
+
+## Aufgaben
+- [x] **Themen-Backlog** `content/topics.yaml` (10 neue, dublettenfreie Themen).
+- [x] **Style-Guide** `content/blog-style-guide.md` (Ton, Frontmatter-Schema, YMYL).
+- [x] **Artikel-Vorlage** `content/article-template.md`.
+- [x] **Playbook** `docs/blog-automation.md` (Trigger-Einrichtung + Schritt-für-Schritt-Ablauf).
+- [x] **Verifikations-Gate** `scripts/validate-blog.js` + `npm run validate-blog`
+      (Fence-Check, Build, JSON-LD/FAQPage-Validierung) – kodifiziert die Lesson.
+
+## Verifikation
+- [x] `npm run validate-blog` grün im sauberen Stand (10 FAQPage-Seiten).
+- [x] Voll-`.md`-Testartikel (summary+faq+category+key-term) baut & validiert sauber.
+- [x] Negativ-Test: fehlender schließender Zaun wird vom Gate erkannt (Abbruch).
+
+## Review
+Umgesetzt. Das Gerüst ist API-key-frei: die wöchentliche Generierung läuft über
+einen Schedule-Trigger in Claude Code on the web, der eine frische Session mit dem
+Playbook startet. Diese wählt das nächste Thema, schreibt `src/blog/<slug>.md`,
+validiert mit `npm run validate-blog` und öffnet einen Draft-PR; der Mensch merged.
