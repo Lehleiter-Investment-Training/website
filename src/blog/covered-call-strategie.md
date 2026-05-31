@@ -35,6 +35,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/covered-call-strategie.svg" alt="Gewinn-/Verlust-Profil eines Covered Call bei Verfall: Gewinn ab dem Strike begrenzt." width="680" height="400" loading="lazy">
+    <figcaption>Gewinn-/Verlust-Profil eines Covered Call bei Verfall: Gewinn ab dem Strike begrenzt.</figcaption>
+</figure>
+
 <h3 id="was-ist">Was ist ein Covered Call?</h3>
 
 <p>Bei einem Covered Call verkaufen Sie eine <span class="key-term">Call-Option</span> auf eine Aktie, die sich bereits in Ihrem Depot befindet. „Covered" (gedeckt) bedeutet genau das: Im Gegensatz zum Verkauf eines ungedeckten Calls liegt der Basiswert tatsächlich bei Ihnen – Sie könnten also jederzeit liefern. Als Verkäufer der Option nehmen Sie die Rolle des <span class="key-term">Stillhalter</span>s ein und erhalten dafür sofort eine <span class="key-term">Premium</span> (Optionsprämie) gutgeschrieben.</p>

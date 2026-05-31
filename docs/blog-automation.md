@@ -61,8 +61,11 @@ Doku zu Umgebungen/Triggern: https://code.claude.com/docs/en/claude-code-on-the-
    bestehenden Artikeln** (gleiche Bausteine, gleicher „Sie"-Ton).
    - Vollständige Frontmatter inkl. **`category`** (Pflicht – steuert Illustration/Farbe),
      `summary` und 3× `faq` (faktentreu!).
-   - **Kein `image`-Feld** – Titelbild **und** Hero-Illustration werden automatisch aus
-     `category` erzeugt (themenpassendes Motiv).
+   - **Kein `image`-Feld** – das farbige Vorschaubild im Index wird aus `category` erzeugt.
+   - **Konzept-Illustration (Pflicht):** eine schlichte **schwarz-weiße** SVG-Grafik
+     `src/blog/figures/<slug>.svg`, die ein Kernkonzept veranschaulicht (Stil wie die
+     bestehenden Figuren in `scripts/generate-figures.js`; **Linien und Schrift dürfen
+     sich nie überlappen**), eingebunden via `<figure class="blog-figure">` nach dem TOC.
    - 1.000–1.500 Wörter, Risikohinweis-Box, Inhaltsverzeichnis, ≥ 2 interne Links,
      ≥ 3 `key-term`-Markierungen, Fazit **und Quellen-Sektion** (nur Whitelist-Quellen).
 5. **Backlog pflegen:** im gewählten `topics.yaml`-Eintrag `status: done` setzen und

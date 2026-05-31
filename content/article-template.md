@@ -32,6 +32,11 @@ faq:
     </ol>
 </div>
 
+<figure class="blog-figure">
+    <img src="/blog/figures/slug.svg" alt="Kurzbeschreibung der Illustration" width="680" height="400" loading="lazy">
+    <figcaption>Bildunterschrift: veranschaulichtes Kernkonzept.</figcaption>
+</figure>
+
 <h3 id="abschnitt-1">Erster Abschnitt</h3>
 <p>Fließtext. Markiere Fachbegriffe wie <span class="key-term">Covered Call</span> beim ersten Vorkommen.</p>
 

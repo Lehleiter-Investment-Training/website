@@ -32,6 +32,7 @@ const REQUIRED = [
   { re: /table-of-contents/, name: "Inhaltsverzeichnis (.table-of-contents)" },
   { re: />Fazit</, name: "Fazit-Abschnitt" },
   { re: /Quellen/, name: "Quellen-Sektion" },
+  { re: /blog-figure/, name: "Konzept-Illustration (.blog-figure)" },
 ];
 
 // --- 1. Frontmatter-Zäune + Konsistenz-Bausteine prüfen (Quelle) ---
