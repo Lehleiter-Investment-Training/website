@@ -267,6 +267,17 @@
     cursor: help;
 }
 
+/* key-term als Glossar-Link (durch glossaryLinks-Transform) */
+a.key-term {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.key-term:hover {
+    border-bottom-style: solid;
+    color: var(--secondary);
+}
+
 /* Data Tables */
 .data-table {
     width: 100%;
@@ -435,4 +446,121 @@
     color: var(--navy, #1A1F36);
     font-size: 1rem;
     line-height: 1.4;
+}
+
+/* Antwort-zuerst-Box (GEO: extrahierbare Kernantwort am Artikelanfang) */
+.answer-box {
+    background: var(--gray-50, #F9FAFB);
+    border-left: 4px solid var(--gold, #C8973E);
+    border-radius: 0 var(--radius-sm, 6px) var(--radius-sm, 6px) 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.answer-box-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold, #C8973E);
+    margin-bottom: 0.4rem;
+}
+
+.answer-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* FAQ-Sektion (FAQPage-Schema) */
+.blog-faq {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-200, #E5E7EB);
+}
+
+.blog-faq h2 {
+    margin-bottom: 1.25rem;
+    color: var(--navy, #1A1F36);
+}
+
+.faq-item {
+    border: 1px solid var(--gray-200, #E5E7EB);
+    border-radius: 8px;
+    padding: 0 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.faq-item summary {
+    font-weight: 600;
+    color: var(--navy, #1A1F36);
+    cursor: pointer;
+    padding: 1rem 0;
+    list-style-position: inside;
+}
+
+.faq-item[open] summary {
+    border-bottom: 1px solid var(--gray-200, #E5E7EB);
+}
+
+.faq-answer {
+    padding: 1rem 0;
+    color: var(--text-gray);
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Autoren-Box (E-E-A-T) */
+.author-box {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--gray-50, #F9FAFB);
+    border: 1px solid var(--gray-200, #E5E7EB);
+    border-radius: 10px;
+}
+
+.author-box-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.author-box-name {
+    font-weight: 700;
+    color: var(--navy, #1A1F36);
+    margin-bottom: 0.4rem;
+}
+
+.author-box-credentials {
+    font-weight: 500;
+    color: var(--gold, #C8973E);
+}
+
+.author-box-bio {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+}
+
+.author-box-link {
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.author-box-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .author-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

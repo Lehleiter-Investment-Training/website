@@ -7,6 +7,14 @@ date: 2025-01-13
 tags: ["Volatilität", "Strategie"]
 image: /blog/images/iv-rank-perzentil.svg
 permalink: /iv-rank-perzentil.html
+summary: "Der IV-Rank zeigt, wo die aktuelle implizite Volatilität innerhalb der Spannbreite zwischen 52-Wochen-Hoch und -Tief liegt, während das IV-Perzentil angibt, an wie vielen Tagen des letzten Jahres die Volatilität niedriger war als heute."
+faq:
+  - q: "Was ist der Unterschied zwischen IV-Rank und IV-Perzentil?"
+    a: "Der IV-Rank bezieht sich auf die Extremwerte und zeigt, wo die aktuelle IV zwischen dem 52-Wochen-Hoch und -Tief liegt. Das IV-Perzentil betrachtet alle Datenpunkte und gibt an, an wie vielen Tagen die Volatilität niedriger war als heute, weshalb es robuster gegenüber Ausreißern ist."
+  - q: "Wie wird der IV-Rank berechnet?"
+    a: "Der IV-Rank ergibt sich aus der Formel (Aktuelle IV minus 52W-Tief) geteilt durch (52W-Hoch minus 52W-Tief), multipliziert mit 100. Lag die IV zum Beispiel zwischen 20 Prozent und 60 Prozent und steht aktuell bei 50 Prozent, beträgt der IV-Rank 75."
+  - q: "Welcher Indikator eignet sich für Prämienverkäufer?"
+    a: "Prämienverkäufer suchen nach einem hohen IV-Rank (über 50) und einem hohen IV-Perzentil (über 50 Prozent), da Optionen dann relativ teuer sind. Dies eignet sich für Strategien wie Covered Calls, Cash Secured Puts und Credit Spreads."
 ---
 
                 <h2>IV-Rank vs. IV-Perzentil: Der Schlüssel zur Volatilitätsbewertung</h2>
