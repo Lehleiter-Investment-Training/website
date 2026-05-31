@@ -75,6 +75,12 @@
 <link rel="icon" href="/assets/images/favicon.jpg" type="image/jpeg">
 <link rel="apple-touch-icon" href="/assets/images/favicon.jpg">
 
+<!-- Kritische Schriften vorladen: reduziert FOUT und verbessert den LCP.
+     Fraunces 600 = Überschriften (u. a. Hero-H1), Inter 400 = Fließtext.
+     crossorigin ist für Font-Preloads zwingend (Fonts werden im CORS-Modus geladen). -->
+<link rel="preload" href="/assets/fonts/fraunces-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
 <!-- Stylesheets gebündelt + minifiziert; Font-Awesome-Icons sind als lokales Inline-SVG enthalten (kein Drittanbieter) -->
 
 <link rel="stylesheet" href="{{ cssBundle }}">
