@@ -475,6 +475,44 @@ permalink: /index.html
 ]
 </script>
 
+<!-- Course Structured Data (KI-Kurs) -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "just OPTIONS KI-Kurs – Smartere Finanzentscheidungen mit KI",
+    "description": "Online-Kurs von Markus Lehleiter: KI als strategischen Denkpartner nutzen – für Portfolioanalyse, Szenarioplanung und fundierte Anlageentscheidungen. Kein technisches Vorwissen nötig.",
+    "url": "{{ site.courseLandingUrl }}",
+    "inLanguage": "de",
+    "provider": {
+        "@type": "Organization",
+        "name": "just OPTIONS",
+        "url": "{{ site.url }}"
+    },
+    "author": {
+        "@id": "{{ site.url }}/#person"
+    },
+    "teaches": [
+        "KI gezielt für Research und Optionshandel einsetzen statt oberflächlicher Antworten",
+        "Bewährte Prompt-Methoden: Kontext, Rolle und Format als echte Hebel",
+        "Schritt für Schritt zum eigenen, wiederverwendbaren KI-Workflow"
+    ],
+    "educationalLevel": "Anfänger",
+    "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+    },
+    "offers": {
+        "@type": "Offer",
+        "category": "Startangebot",
+        "price": "{{ site.coursePriceStart }}",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "{{ site.courseLandingUrl }}"
+    }
+}
+</script>
+
 <!-- FAQ Structured Data -->
 <script type="application/ld+json">
 {

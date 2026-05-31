@@ -148,6 +148,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/bonus/downloads");
   eleventyConfig.addPassthroughCopy("src/workbook/downloads");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/llms.txt");
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/_headers");
 

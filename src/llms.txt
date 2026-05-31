@@ -1,0 +1,17 @@
+# just OPTIONS – Optionen strategisch nutzen
+
+> Praxisnahe Bildungsressourcen zum Optionshandel von Markus Lehleiter (CFA, FRM, Wirtschaftsmathematiker): zwei Bücher, ein KI-Kurs, ein Fachglossar und Blogartikel zu Optionsstrategien, Risikomanagement und Volatilität. Sprache: Deutsch.
+
+## Kernseiten
+- [Startseite](https://www.just-options.de/): Überblick über Buch, Workbook, KI-Kurs und Autor.
+- [Optionen-Glossar](https://www.just-options.de/Bonus/Glossar.html): 64 Fachbegriffe des Optionshandels mit Definition, englischer Entsprechung und Beispiel.
+- [Blog](https://www.just-options.de/blog.html): Artikel zu Optionsstrategien, Risikomanagement, Volatilität, IV Rank/Perzentil, VIX und typischen Anfängerfehlern.
+- [Bonus-Bereich](https://www.just-options.de/Bonus.html): kostenlose Materialien und Tools für Optionshändler.
+
+## Produkte
+- [just OPTIONS KI-Kurs](https://kurs.just-options.de/ki-kurs): Online-Kurs „Smartere Finanzentscheidungen mit KI" – KI als strategischer Denkpartner für Portfolioanalyse, Szenarioplanung und Anlageentscheidungen. Kein technisches Vorwissen nötig.
+- [Buch „Optionen strategisch nutzen"](https://www.amazon.de/Optionen-strategisch-nutzen-investieren-Zusatzerträge/dp/3982686903/): Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel (218 Seiten, 2024).
+- [Workbook zum Buch](https://www.amazon.de/dp/3982686911): Übungen, Checklisten und Praxisbeispiele zum Vertiefen der Optionsstrategien.
+
+## Über
+- Autor: Markus Lehleiter – Chartered Financial Analyst (CFA), Financial Risk Manager (FRM) und Wirtschaftsmathematiker. Autor der Bücher „Optionen strategisch nutzen" und des zugehörigen Workbooks.
