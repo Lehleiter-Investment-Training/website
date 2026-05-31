@@ -39,7 +39,7 @@ extraCss:
     },
     {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}
     {% if lastModified %}"dateModified": "{{ lastModified | isoDate }}",{% elif date %}"dateModified": "{{ date | isoDate }}",{% endif %}
-    {% if image %}"image": "https://www.just-options.de{{ image }}",{% endif %}
+    "image": "https://www.just-options.de{% if image %}{{ image }}{% else %}/assets/images/og-default.jpg{% endif %}",
     {% if tags %}"keywords": "{{ tags | join(', ') }}",{% endif %}
     "publisher": {
         "@type": "Organization",

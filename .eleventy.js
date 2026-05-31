@@ -5,6 +5,13 @@ const CleanCSS = require("clean-css");
 const { minify: minifyJs } = require("terser");
 const htmlmin = require("html-minifier-terser");
 const Image = require("@11ty/eleventy-img");
+// RSS-Plugin v3 ist ESM und exportiert die Helfer als einzelne Funktionen.
+const {
+  dateToRfc3339,
+  getNewestCollectionItemDate,
+  absoluteUrl,
+  convertHtmlToAbsoluteUrls,
+} = require("@11ty/eleventy-plugin-rss");
 
 // Globale CSS-Dateien, die auf jeder Seite benötigt werden -> ein gebündeltes File
 const GLOBAL_CSS = [
@@ -92,12 +99,24 @@ function buildCssBundle() {
 const cssBundle = buildCssBundle();
 
 module.exports = function(eleventyConfig) {
+  // RSS/Atom-Feed-Helfer für src/feed.njk registrieren (Plugin v3 = ESM, daher
+  // werden die Filter einzeln eingehängt statt über addPlugin).
+  eleventyConfig.addFilter("dateToRfc3339", dateToRfc3339);
+  eleventyConfig.addFilter("getNewestCollectionItemDate", getNewestCollectionItemDate);
+  eleventyConfig.addFilter("absoluteUrl", absoluteUrl);
+  eleventyConfig.addNunjucksAsyncFilter("htmlToAbsoluteUrls", (htmlContent, base, callback) => {
+    Promise.resolve(convertHtmlToAbsoluteUrls(htmlContent, base))
+      .then((result) => callback(null, result))
+      .catch((err) => callback(err));
+  });
+
   // Pfad zum gehashten CSS-Bundle in Templates verfügbar machen
   eleventyConfig.addGlobalData("cssBundle", `/assets/css/${cssBundle.fileName}`);
 
-  // Blog collection sorted by date (newest first)
+  // Blog collection sorted by date (newest first).
+  // Akzeptiert .njk UND .md, damit Artikel maschinell als Markdown erzeugt werden können.
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/*.njk")
+    return collectionApi.getFilteredByGlob("src/blog/*.{njk,md}")
       .filter(item => item.url !== "/blog.html")
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
   });
@@ -116,6 +135,52 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("isoDate", function(date) {
     if (!date) return "";
     return new Date(date).toISOString().split("T")[0];
+  });
+
+  // Parametrisches Blog-Titelbild: erzeugt aus Titel + Kategorie ein konsistentes
+  // 16:9-SVG (Navy/Gold-Branding, je Kategorie ein Akzent) als Data-URI.
+  // So brauchen neue Artikel kein eigenes Bild mehr – nur ein optionales `category`.
+  const BLOG_CATEGORY_COLORS = {
+    "grundlagen": "#C8973E",
+    "volatilität": "#3a7ca5", "volatilitaet": "#3a7ca5",
+    "risiko": "#c0622d", "risikomanagement": "#c0622d",
+    "psychologie": "#7a5ea8",
+    "strategie": "#2e8b6b", "strategien": "#2e8b6b",
+    "steuern": "#4a6b8a",
+  };
+  eleventyConfig.addFilter("blogCover", function(title, category) {
+    const accent = BLOG_CATEGORY_COLORS[String(category || "").trim().toLowerCase()] || "#C8973E";
+    const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // Titel in max. 4 Zeilen umbrechen (Wortgrenzen)
+    const words = String(title || "").split(/\s+/).filter(Boolean);
+    const lines = [];
+    let cur = "";
+    for (const w of words) {
+      if ((cur + " " + w).trim().length > 24 && cur) { lines.push(cur); cur = w; }
+      else cur = (cur + " " + w).trim();
+    }
+    if (cur) lines.push(cur);
+    const shown = lines.slice(0, 4);
+    const W = 800, H = 450, lh = 50;
+    const startY = Math.round(H / 2 - ((shown.length - 1) * lh) / 2 + 12);
+    const tspans = shown
+      .map((l, i) => `<tspan x="60" y="${startY + i * lh}">${esc(l)}</tspan>`)
+      .join("");
+    const catLabel = category
+      ? `<text x="60" y="92" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="3" font-weight="700" fill="${accent}">${esc(String(category).toUpperCase())}</text>`
+      : "";
+    const svg =
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">` +
+      `<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">` +
+      `<stop offset="0" stop-color="#1A1F36"/><stop offset="1" stop-color="#2A2F46"/></linearGradient></defs>` +
+      `<rect width="${W}" height="${H}" fill="url(#bg)"/>` +
+      `<rect x="0" y="0" width="10" height="${H}" fill="${accent}"/>` +
+      catLabel +
+      `<text font-family="Georgia, serif" font-size="42" font-weight="700" fill="#ffffff">${tspans}</text>` +
+      `<rect x="60" y="${H - 86}" width="70" height="5" fill="${accent}"/>` +
+      `<text x="60" y="${H - 48}" font-family="Inter, Arial, sans-serif" font-size="22" fill="#C9CCD6">just-options.de</text>` +
+      `</svg>`;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   });
 
   // Responsive-Image-Shortcode (WebP + Fallback, automatische width/height)

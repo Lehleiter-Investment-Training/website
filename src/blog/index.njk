@@ -14,11 +14,9 @@ extraCss:
         <div class="blog-grid">
             {% for post in collections.blog %}
             <div class="blog-card">
-                {% if post.data.image %}
                 <div class="blog-image">
-                    <img src="{{ post.data.image }}" alt="{{ post.data.pageTitle }}">
+                    <img src="{{ post.data.image | default(post.data.pageTitle | blogCover(post.data.category | default(post.data.tags[0]))) }}" alt="{{ post.data.pageTitle }}" loading="lazy">
                 </div>
-                {% endif %}
                 <div class="blog-content">
                     {% if post.data.date %}
                     <div class="blog-date">{{ post.data.date | dateFormat }}</div>
