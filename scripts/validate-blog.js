@@ -3,8 +3,11 @@
  * Baut die Seite und prüft anschließend:
  *   1. Jeder Blog-Artikel (src/blog/*.{njk,md}, außer index) hat genau zwei
  *      Frontmatter-Zäune (`---`).  -> verhindert den YAML-Bug aus tasks/lessons.md
- *   2. Jeder erzeugte <script type="application/ld+json">-Block ist valides JSON.
- *   3. Jeder Blog-Artikel mit `faq`-Feld erzeugt eine FAQPage.
+ *   2. KONSISTENZ: jeder Artikel enthält die kanonischen Bausteine
+ *      (category, summary, faq, Risikohinweis-Box, Inhaltsverzeichnis, Fazit,
+ *      Quellen-Sektion) und ist im „Sie"-Ton verfasst.
+ *   3. Jeder erzeugte <script type="application/ld+json">-Block ist valides JSON.
+ *   4. Jeder Blog-Artikel mit `faq`-Feld erzeugt eine FAQPage.
  *
  * Aufruf:  npm run validate-blog
  * Exit-Code != 0 bei Fehlern (für CI / Automatik-Pipeline geeignet).
@@ -20,13 +23,32 @@ const SITE = path.join(ROOT, "_site");
 let errors = 0;
 const fail = (msg) => { console.error("  ✗ " + msg); errors++; };
 
-// --- 1. Frontmatter-Zäune prüfen (Quelle) ---
-console.log("1) Frontmatter-Zäune (genau 2x '---' pro Artikel)…");
+// Kanonische Bausteine, die JEDER Artikel enthalten muss (Konsistenz-Regel).
+const REQUIRED = [
+  { re: /^category:/m, name: "Frontmatter: category" },
+  { re: /^summary:/m, name: "Frontmatter: summary" },
+  { re: /^faq:/m, name: "Frontmatter: faq" },
+  { re: /disclaimer-box/, name: "Risikohinweis-Box (.disclaimer-box)" },
+  { re: /table-of-contents/, name: "Inhaltsverzeichnis (.table-of-contents)" },
+  { re: />Fazit</, name: "Fazit-Abschnitt" },
+  { re: /Quellen/, name: "Quellen-Sektion" },
+];
+
+// --- 1. Frontmatter-Zäune + Konsistenz-Bausteine prüfen (Quelle) ---
+console.log("1) Frontmatter-Zäune & Konsistenz-Bausteine pro Artikel…");
 for (const f of fs.readdirSync(BLOG_SRC)) {
   if (!/\.(njk|md)$/.test(f) || f.startsWith("index.")) continue;
   const txt = fs.readFileSync(path.join(BLOG_SRC, f), "utf8");
   const fences = txt.split(/\r?\n/).filter((l) => l === "---").length;
   if (fences !== 2) fail(`${f}: ${fences} Zäune (erwartet 2) – fehlender schließender '---'?`);
+  for (const r of REQUIRED) {
+    if (!r.re.test(txt)) fail(`${f}: fehlt – ${r.name}`);
+  }
+  // Konsistenter „Sie"-Ton: informelle Anrede im Body vermeiden
+  const body = txt.split(/^---$/m).slice(2).join("---").replace(/individuell/gi, "");
+  if (/\b(du|dich|dein|deine|dir)\b/i.test(body)) {
+    fail(`${f}: informelle Anrede („du") gefunden – Artikel sollen im „Sie"-Ton sein`);
+  }
 }
 
 // --- Build ---

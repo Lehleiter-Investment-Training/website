@@ -13,6 +13,12 @@ extraCss:
     </div>
 </section>
 
+<section class="blog-hero-section">
+    <div class="container">
+        <img class="blog-hero" src="{{ image | default(pageTitle | blogCover(category | default(tags[0]))) }}" alt="Illustration: {{ pageTitle }}" width="800" height="450" loading="eager">
+    </div>
+</section>
+
 <section>
     <div class="container">
         <div class="blog-content">

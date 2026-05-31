@@ -148,6 +148,31 @@ module.exports = function(eleventyConfig) {
     "strategie": "#2e8b6b", "strategien": "#2e8b6b",
     "steuern": "#4a6b8a",
   };
+  // Kategorie-Illustration: dezentes themenpassendes Motiv (Akzentfarbe, niedrige
+  // Deckkraft) auf der rechten Seite – macht aus dem Titelbild eine echte Illustration,
+  // ohne die Lesbarkeit des Titels zu beeinträchtigen.
+  function blogMotif(key, accent) {
+    const o = (op) => `fill="${accent}" fill-opacity="${op}"`;
+    const s = (op, w) => `fill="none" stroke="${accent}" stroke-opacity="${op}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`;
+    switch (key) {
+      case "volatilität": case "volatilitaet": // Schwankungswelle mit wachsender Amplitude
+        return `<polyline points="470,300 510,300 540,255 575,330 605,205 640,320 675,175 710,310 760,250" ${s(0.20, 11)}/>`;
+      case "strategie": case "strategien": // Payoff-Knick (Long-Call-Auszahlung)
+        return `<line x1="470" y1="330" x2="770" y2="330" ${s(0.10, 5)}/><polyline points="470,300 620,300 760,150" ${s(0.20, 11)}/>`;
+      case "risiko": case "risikomanagement": // Schutzschild
+        return `<path d="M620,108 L712,140 L712,250 Q712,322 620,362 Q528,322 528,250 L528,140 Z" ${o(0.14)}/>`;
+      case "grundlagen": // gestapelte Fundament-Blöcke
+        return `<rect x="556" y="300" width="190" height="26" rx="6" ${o(0.16)}/>` +
+               `<rect x="576" y="262" width="150" height="26" rx="6" ${o(0.12)}/>` +
+               `<rect x="596" y="224" width="110" height="26" rx="6" ${o(0.09)}/>`;
+      case "psychologie": // abstrakter „Geist": konzentrische Kreise
+        return `<circle cx="645" cy="215" r="82" ${o(0.10)}/><circle cx="645" cy="215" r="50" ${s(0.18, 9)}/><circle cx="645" cy="215" r="14" ${o(0.20)}/>`;
+      case "steuern": // Prozentzeichen
+        return `<line x1="585" y1="305" x2="705" y2="165" ${s(0.18, 12)}/><circle cx="592" cy="188" r="22" ${s(0.18, 10)}/><circle cx="698" cy="282" r="22" ${s(0.18, 10)}/>`;
+      default: // neutrale Kreise (Marken-Look)
+        return `<circle cx="715" cy="70" r="135" ${o(0.13)}/><circle cx="800" cy="330" r="95" ${o(0.08)}/>`;
+    }
+  }
   eleventyConfig.addFilter("blogCover", function(title, category) {
     const GOLD = "#C8973E";
     const accent = BLOG_CATEGORY_COLORS[String(category || "").trim().toLowerCase()] || GOLD;
@@ -180,9 +205,8 @@ module.exports = function(eleventyConfig) {
       `<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">` +
       `<stop offset="0" stop-color="#1A1F36"/><stop offset="1" stop-color="#2A2F46"/></linearGradient></defs>` +
       `<rect width="${W}" height="${H}" fill="url(#bg)"/>` +
-      // dezente Akzent-Kreise (Tiefe, Marken-Look)
-      `<circle cx="715" cy="70" r="135" fill="${accent}" fill-opacity="0.13"/>` +
-      `<circle cx="800" cy="330" r="95" fill="${accent}" fill-opacity="0.08"/>` +
+      // themenpassendes Kategorie-Motiv (dezenter Hintergrund)
+      blogMotif(String(category || "").trim().toLowerCase(), accent) +
       badge +
       `<text font-family="Georgia, serif" font-size="44" font-weight="700" fill="#ffffff">${tspans}</text>` +
       `<rect x="58" y="${H - 86}" width="44" height="4" fill="${GOLD}"/>` +
