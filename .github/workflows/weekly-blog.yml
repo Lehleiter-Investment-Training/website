@@ -18,6 +18,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write # erforderlich: die Claude-Code-Action holt sich darüber einen OIDC-Token
 
 jobs:
   generate-article:
