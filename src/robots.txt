@@ -5,10 +5,11 @@
 User-agent: *
 Allow: /
 
-# Bonus-Downloads nicht indexieren (Material für Buchkäufer)
+# Interne Bonus-Downloads nicht indexieren (Material für Buch-/Workbook-Käufer)
 # Hinweis: nur die Download-Dateien sperren. Das oeffentliche Glossar liegt unter
 # /glossar.html und soll crawlbar bleiben (steht in Sitemap + Navigation).
 Disallow: /bonus/downloads/
+Disallow: /workbook/downloads/
 
 # Sitemap location
 Sitemap: https://www.just-options.de/sitemap.xml
