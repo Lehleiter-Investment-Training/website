@@ -304,5 +304,29 @@ figures["assignment-und-ausuebung"] = () => {
     txt(W - 64 - bw / 2, top + 70, "Zuteilung (Assignment)", "middle", 12.5, "#555");
 };
 
+// Wheel-Strategie: vierstufiger Kreislauf (CSP -> Zuteilung -> Covered Call -> Abruf)
+figures["wheel-strategie"] = () => {
+  const cx = 410, w = 330, h = 50, x = cx - w / 2;
+  const ys = [56, 146, 236, 326];
+  const labels = [
+    "1 · Cash-Secured Put verkaufen",
+    "2 · Aktien per Zuteilung kaufen",
+    "3 · Covered Call verkaufen",
+    "4 · Aktien werden abgerufen",
+  ];
+  let s = "";
+  ys.forEach((y, i) => { s += rectO(x, y, w, h) + txt(cx, y + 31, labels[i], "middle", 14, INK, 600); });
+  for (let i = 0; i < 3; i++) {
+    const y2 = ys[i + 1];
+    s += line(cx, ys[i] + h, cx, y2 - 10, 2.2) + `<path d="M${cx},${y2} l-6,-11 h12 z" fill="${INK}"/>`;
+  }
+  const yTop = ys[0] + h / 2, yBot = ys[3] + h / 2;
+  s += `<path d="M${x},${yBot} C150,${yBot} 150,${yTop} ${x},${yTop}" fill="none" stroke="${GRY}" stroke-width="2.4"/>`;
+  s += `<path d="M${x},${yTop} l-12,-6 v12 z" fill="${GRY}"/>`;
+  s += txt(126, (yTop + yBot) / 2, "Zyklus wiederholt sich", "middle", 12.5, "#555")
+    .replace("<text ", `<text transform="rotate(-90 126 ${(yTop + yBot) / 2})" `);
+  return s;
+};
+
 for (const [slug, fn] of Object.entries(figures)) write(slug, fn());
 console.log("Figuren erzeugt:", Object.keys(figures).length);
