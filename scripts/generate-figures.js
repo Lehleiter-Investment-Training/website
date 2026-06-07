@@ -328,5 +328,20 @@ figures["wheel-strategie"] = () => {
   return s;
 };
 
+// Optionen rollen: Schließen der bestehenden + Eröffnen einer neuen Option
+figures["optionen-rollen"] = () => {
+  const bw = 252, bh = 104, top = 168;
+  return txt(360, 92, "Rollen = Schließen + neu eröffnen", "middle", 15, INK, 600) +
+    rectO(56, top, bw, bh) +
+    txt(56 + bw / 2, top + 44, "Bestehende Option", "middle", 15) +
+    txt(56 + bw / 2, top + 72, "zurückkaufen (schließen)", "middle", 12.5, "#555") +
+    line(56 + bw + 4, top + bh / 2, 56 + bw + 48, top + bh / 2, 2.4) +
+    `<path d="M${56 + bw + 52},${top + bh / 2} l-13,-7 v14 z" fill="${INK}"/>` +
+    rectO(W - 56 - bw, top, bw, bh) +
+    txt(W - 56 - bw / 2, top + 38, "Neue Option verkaufen", "middle", 15) +
+    txt(W - 56 - bw / 2, top + 64, "späterer Verfall", "middle", 12.5, "#555") +
+    txt(W - 56 - bw / 2, top + 86, "und/oder neuer Strike", "middle", 12.5, "#555");
+};
+
 for (const [slug, fn] of Object.entries(figures)) write(slug, fn());
 console.log("Figuren erzeugt:", Object.keys(figures).length);

@@ -78,7 +78,8 @@ topics:
     keyword: "Optionen rollen"
     category: "Strategie"
     angle: "Was bedeutet Rollen, wann ergibt es Sinn (und wann nicht), und wie läuft es praktisch ab?"
-    status: todo
+    status: done
+    published: 2026-06-14
 
   - slug: assignment-und-ausuebung
     title: "Assignment & Ausübung: Was Stillhalter wissen müssen"
