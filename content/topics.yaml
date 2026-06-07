@@ -38,7 +38,8 @@ topics:
     keyword: "Wheel Strategie"
     category: "Strategie"
     angle: "Wie kombiniert die Wheel-Strategie Cash Secured Puts und Covered Calls zu einem wiederkehrenden Ablauf?"
-    status: todo
+    status: done
+    published: 2026-06-07
 
   - slug: optionsgriechen-delta-gamma-theta-vega
     title: "Die Optionsgriechen: Delta, Gamma, Theta & Vega verstehen"
