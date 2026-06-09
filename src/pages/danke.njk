@@ -80,14 +80,14 @@ extraCss: ["/assets/css/leadgen.css"]
             <h3>Bereit für den nächsten Schritt?</h3>
             <div class="book-rec-grid">
                 <div class="book-rec-card">
-                    <img src="/assets/images/buchcover.png" alt="Optionen strategisch nutzen" class="book-rec-img">
+                    {% image "assets/images/buchcover.png", "Optionen strategisch nutzen", "120px", "lazy", "book-rec-img", [120, 240] %}
                     <h4>Optionen strategisch nutzen</h4>
                     <p>Das Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel.</p>
                     <div class="book-rec-price">24,00 €</div>
                     <a href="{{ site.amazonBookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Jetzt auf Amazon kaufen</a>
                 </div>
                 <div class="book-rec-card">
-                    <img src="/assets/images/workbook.png" alt="Das Workbook" class="book-rec-img">
+                    {% image "assets/images/workbook.png", "Das Workbook", "120px", "lazy", "book-rec-img", [120, 240] %}
                     <h4>Das Workbook zum Buch</h4>
                     <p>Übungen, Checklisten und Praxisbeispiele zum Vertiefen.</p>
                     <div class="book-rec-price">19,99 €</div>

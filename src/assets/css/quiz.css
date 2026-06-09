@@ -393,7 +393,7 @@
   padding: 0.8rem;
   border: 1px solid #6b7280;
   border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   background-color: white;
   color: var(--dark);
@@ -407,7 +407,7 @@
   padding: 0.8rem;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;

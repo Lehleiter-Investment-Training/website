@@ -215,10 +215,11 @@ module.exports = function(eleventyConfig) {
     return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   });
 
-  // Responsive-Image-Shortcode (WebP + Fallback, automatische width/height)
-  eleventyConfig.addAsyncShortcode("image", async function(src, alt, sizes, loading, className) {
+  // Responsive-Image-Shortcode (WebP + Fallback, automatische width/height).
+  // widths optional überschreibbar, z. B. [96, 192] für kleine Avatare.
+  eleventyConfig.addAsyncShortcode("image", async function(src, alt, sizes, loading, className, widths) {
     const metadata = await Image(path.join(__dirname, "src", src), {
-      widths: [600, 1000, 1500],
+      widths: widths || [600, 1000, 1500],
       formats: ["webp", "jpeg"],
       outputDir: path.join(__dirname, "_site/assets/images/optimized"),
       urlPath: "/assets/images/optimized/",
@@ -239,6 +240,7 @@ module.exports = function(eleventyConfig) {
   // Passthrough file copies
   eleventyConfig.addPassthroughCopy("src/assets/images");
   eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy("src/assets/data");
   eleventyConfig.addPassthroughCopy("src/assets/css");
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/blog/figures");
@@ -288,32 +290,40 @@ module.exports = function(eleventyConfig) {
 
   // Nach dem Build: CSS-Bundle schreiben, übrige CSS- und JS-Dateien minifizieren
   eleventyConfig.on("eleventy.after", async ({ dir }) => {
-    const cssOut = path.join(dir.output, "assets/css");
-    const jsOut = path.join(dir.output, "assets/js");
+    try {
+      const cssOut = path.join(dir.output, "assets/css");
+      const jsOut = path.join(dir.output, "assets/js");
 
-    // 1) Gehashtes Global-Bundle schreiben
-    fs.writeFileSync(path.join(cssOut, cssBundle.fileName), cssBundle.content);
+      // 1) Gehashtes Global-Bundle schreiben
+      fs.writeFileSync(path.join(cssOut, cssBundle.fileName), cssBundle.content);
 
-    // 2) Globale Einzeldateien aus dem Output entfernen (stecken jetzt im Bundle)
-    for (const file of GLOBAL_CSS) {
-      const p = path.join(cssOut, file);
-      if (fs.existsSync(p)) fs.unlinkSync(p);
-    }
+      // 2) Globale Einzeldateien aus dem Output entfernen (stecken jetzt im Bundle)
+      for (const file of GLOBAL_CSS) {
+        const p = path.join(cssOut, file);
+        if (fs.existsSync(p)) fs.unlinkSync(p);
+      }
 
-    // 3) Übrige (seitenspezifische) CSS-Dateien in-place minifizieren
-    for (const file of fs.readdirSync(cssOut)) {
-      if (!file.endsWith(".css") || file === cssBundle.fileName) continue;
-      const p = path.join(cssOut, file);
-      const out = new CleanCSS({ level: 2 }).minify(fs.readFileSync(p, "utf8"));
-      if (out.styles) fs.writeFileSync(p, out.styles);
-    }
+      // 3) Übrige (seitenspezifische) CSS-Dateien in-place minifizieren
+      for (const file of fs.readdirSync(cssOut)) {
+        if (!file.endsWith(".css") || file === cssBundle.fileName) continue;
+        const p = path.join(cssOut, file);
+        const out = new CleanCSS({ level: 2 }).minify(fs.readFileSync(p, "utf8"));
+        if (out.errors && out.errors.length) {
+          throw new Error(`CSS-Minify-Fehler in ${file}: ${out.errors.join("; ")}`);
+        }
+        if (out.styles) fs.writeFileSync(p, out.styles);
+      }
 
-    // 3) JS-Dateien in-place minifizieren
-    for (const file of fs.readdirSync(jsOut)) {
-      if (!file.endsWith(".js")) continue;
-      const p = path.join(jsOut, file);
-      const result = await minifyJs(fs.readFileSync(p, "utf8"));
-      if (result.code) fs.writeFileSync(p, result.code);
+      // 4) JS-Dateien in-place minifizieren
+      for (const file of fs.readdirSync(jsOut)) {
+        if (!file.endsWith(".js")) continue;
+        const p = path.join(jsOut, file);
+        const result = await minifyJs(fs.readFileSync(p, "utf8"));
+        if (result.code) fs.writeFileSync(p, result.code);
+      }
+    } catch (error) {
+      console.error("❌ Post-Build-Minifizierung fehlgeschlagen:", error);
+      throw error;
     }
   });
 
