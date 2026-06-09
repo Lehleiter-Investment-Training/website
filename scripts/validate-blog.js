@@ -15,6 +15,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const yaml = require("js-yaml");
 
 const ROOT = path.join(__dirname, "..");
 const BLOG_SRC = path.join(ROOT, "src/blog");
@@ -42,6 +43,15 @@ for (const f of fs.readdirSync(BLOG_SRC)) {
   const txt = fs.readFileSync(path.join(BLOG_SRC, f), "utf8");
   const fences = txt.split(/\r?\n/).filter((l) => l === "---").length;
   if (fences !== 2) fail(`${f}: ${fences} Zäune (erwartet 2) – fehlender schließender '---'?`);
+  // Frontmatter muss valides YAML sein – sonst schlägt erst der Build kryptisch fehl
+  const fmParts = txt.split(/^---$/m);
+  if (fmParts.length >= 3) {
+    try {
+      yaml.load(fmParts[1]);
+    } catch (e) {
+      fail(`${f}: Frontmatter-YAML ungültig – ${e.message.split("\n")[0]}`);
+    }
+  }
   for (const r of REQUIRED) {
     if (!r.re.test(txt)) fail(`${f}: fehlt – ${r.name}`);
   }
