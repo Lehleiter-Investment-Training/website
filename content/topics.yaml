@@ -96,3 +96,74 @@ topics:
     angle: "Was besagt die Put-Call-Parität und warum ist sie für die Optionsbewertung wichtig?"
     status: done
     published: 2026-04-13
+
+  # ---- Neue Themen-Runde (Juni 2026) ----
+  - slug: protective-put
+    title: "Protective Put: Aktien gezielt absichern"
+    keyword: "Protective Put"
+    category: "Risiko"
+    angle: "Wie sichert ein Protective Put ein Aktiendepot nach unten ab, was kostet diese Versicherung und wann lohnt sie sich?"
+    status: todo
+
+  - slug: collar-strategie
+    title: "Collar: Absicherung nahezu zum Nulltarif"
+    keyword: "Collar Strategie"
+    category: "Strategie"
+    angle: "Wie kombiniert ein Collar Protective Put und Covered Call, um Verluste zu begrenzen und die Absicherung zu finanzieren?"
+    status: todo
+
+  - slug: leaps-langlaufende-optionen
+    title: "LEAPS: langlaufende Optionen verstehen"
+    keyword: "LEAPS Optionen"
+    category: "Grundlagen"
+    angle: "Was sind LEAPS, worin unterscheiden sie sich von kurzlaufenden Optionen und wofür werden sie eingesetzt?"
+    status: todo
+
+  - slug: calendar-spread
+    title: "Calendar Spread: mit dem Zeitwert arbeiten"
+    keyword: "Calendar Spread"
+    category: "Strategie"
+    angle: "Wie funktioniert ein Calendar Spread (Zeit-Spread), und wie profitiert er vom unterschiedlichen Zeitwertverfall?"
+    status: todo
+
+  - slug: straddle-strangle
+    title: "Long Straddle & Strangle: auf große Bewegungen setzen"
+    keyword: "Straddle Strangle"
+    category: "Strategie"
+    angle: "Wie setzen Long Straddle und Strangle auf starke Kursbewegungen, unabhängig von der Richtung, und welche Rolle spielt die Volatilität?"
+    status: todo
+
+  - slug: earnings-iv-crush
+    title: "Earnings & IV Crush: Optionen rund um Quartalszahlen"
+    keyword: "IV Crush Earnings"
+    category: "Volatilität"
+    angle: "Warum steigt die implizite Volatilität vor Earnings und bricht danach ein (IV Crush), und was bedeutet das für Optionshändler?"
+    status: todo
+
+  - slug: moneyness-itm-atm-otm
+    title: "Moneyness: ITM, ATM und OTM verstehen"
+    keyword: "Moneyness Optionen"
+    category: "Grundlagen"
+    angle: "Was bedeuten In-the-Money, At-the-Money und Out-of-the-Money, und wie beeinflusst die Moneyness Preis und Risiko?"
+    status: todo
+
+  - slug: optionskette-lesen
+    title: "Die Optionskette richtig lesen"
+    keyword: "Optionskette lesen"
+    category: "Grundlagen"
+    angle: "Wie liest man eine Optionskette: Strikes, Verfall, Bid/Ask, Volumen, Open Interest und Greeks?"
+    status: todo
+
+  - slug: bid-ask-spread-liquiditaet
+    title: "Bid, Ask & Liquidität bei Optionen"
+    keyword: "Bid Ask Spread Optionen"
+    category: "Grundlagen"
+    angle: "Was sagen Geld-/Briefkurs und Spread über die Liquidität aus, und wie vermeidet man teure Ausführungen?"
+    status: todo
+
+  - slug: steuern-optionen-deutschland
+    title: "Optionen und Steuern in Deutschland: ein Überblick"
+    keyword: "Optionen Steuern Deutschland"
+    category: "Steuern"
+    angle: "Wie werden Gewinne und Verluste aus Optionsgeschäften in Deutschland grundsätzlich besteuert (allgemeiner Überblick, keine Steuerberatung)?"
+    status: todo
