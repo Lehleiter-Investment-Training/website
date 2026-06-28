@@ -96,3 +96,27 @@ topics:
     angle: "Was besagt die Put-Call-Parität und warum ist sie für die Optionsbewertung wichtig?"
     status: done
     published: 2026-04-13
+
+  - slug: optionen-steuern-deutschland
+    title: "Optionen versteuern in Deutschland: Der Überblick"
+    keyword: "Optionen Steuern Deutschland"
+    category: "Steuern"
+    angle: "Wie werden Gewinne aus Optionsgeschäften in Deutschland besteuert, und was gilt bei deutschen vs. ausländischen Brokern?"
+    status: done
+    published: 2026-06-28
+
+  - slug: protective-put
+    title: "Protective Put: Aktien gegen Kursverluste absichern"
+    keyword: "Protective Put"
+    category: "Strategie"
+    angle: "Wie sichert ein Protective Put eine Aktienposition nach unten ab, und was kostet diese Versicherung?"
+    status: done
+    published: 2026-06-28
+
+  - slug: straddle-strangle
+    title: "Straddle & Strangle: Auf große Bewegungen setzen"
+    keyword: "Straddle Strangle"
+    category: "Strategie"
+    angle: "Wie profitieren Long Straddle und Strangle von starken Kursbewegungen, und welche Rolle spielt die implizite Volatilität?"
+    status: done
+    published: 2026-06-28

@@ -159,7 +159,52 @@ figures["anfaengerfehler-optionshandel"] = () => {
     txt(sx(118), sy(-4), "unbegrenztes Verlustrisiko", "middle", 12.5);
 };
 
+// Protective Put: Aktie ab 100, Put-Strike 95, Prämie 3 -> max(S,95) - 100 - 3
+figures["protective-put"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [80, 114], yr: [-12, 10], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 95, label: "95" }, { v: 100, label: "100" }, { v: 103, label: "103" }],
+    yticks: [{ v: -8, label: "−8" }, { v: 0, label: "0" }, { v: 8, label: "+8" }],
+  });
+  return s +
+    line(sx(95), sy(-8), sx(95), B, 1, INK, "5 4") +
+    poly([[sx(80), sy(-8)], [sx(95), sy(-8)], [sx(111), sy(8)]]) +
+    odot(sx(103), sy(0)) +
+    txt(sx(106), sy(9.2), "Gewinn nach oben offen", "middle", 12.5) +
+    txt(sx(95), T - 2, "Put-Strike", "middle", 12, "#555") +
+    txt(sx(86), sy(-6.4), "Verlust begrenzt", "middle", 12.5);
+};
+
+// Long Straddle: Call+Put Strike 100, Prämiensumme 8 -> |S-100| - 8
+figures["straddle-strangle"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [82, 118], yr: [-10, 12], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 92, label: "92" }, { v: 100, label: "100" }, { v: 108, label: "108" }],
+    yticks: [{ v: -8, label: "−8" }, { v: 0, label: "0" }, { v: 10, label: "+10" }],
+  });
+  return s +
+    line(sx(100), sy(-8), sx(100), B, 1, INK, "5 4") +
+    poly([[sx(82), sy(10)], [sx(100), sy(-8)], [sx(118), sy(10)]]) +
+    odot(sx(92), sy(0)) + odot(sx(108), sy(0)) +
+    txt(sx(100), T - 2, "Strike", "middle", 12, "#555") +
+    txt(sx(100), sy(-9.2), "max. Verlust = Prämien", "middle", 12.5);
+};
+
 /* ===== KONZEPTIONELLE DIAGRAMME (glatte Kurven) ===== */
+
+// Optionen-Steuern: Aufteilung des Kapitalgewinns in Nettoertrag und Steuer
+figures["optionen-steuern-deutschland"] = () => {
+  const x = 120, y = 170, w = 480, h = 120;
+  const net = w * 0.736, tax = w - net;
+  return txt(120, 120, "Aufteilung eines Kapitalgewinns (vereinfacht)", "start", 15, INK, 600) +
+    `<rect x="${x}" y="${y}" width="${net}" height="${h}" fill="none" stroke="${INK}" stroke-width="1.8"/>` +
+    `<rect x="${x + net}" y="${y}" width="${tax}" height="${h}" fill="${INK}"/>` +
+    txt(x + net / 2, y + h / 2 + 5, "Nettoertrag", "middle", 15) +
+    txt(x + net / 2, y + h + 26, "≈ 73,6 %", "middle", 13, "#333") +
+    line(x + net, y + h + 6, x + net, y + h + 34, 1.2) +
+    txt(x + net + tax / 2, y - 14, "Steuer", "middle", 13) +
+    txt(x + net + tax + 4, y + h + 26, "Abgeltungsteuer + Soli ≈ 26,4 %", "end", 13, "#333");
+};
 
 // Theta: Zeitwert ~ sqrt(Restlaufzeit). x: 9 Monate (links) -> Verfall (rechts)
 figures["theta-zeitwertverfall"] = () => {
