@@ -3,7 +3,7 @@ layout: layouts/blog-post.njk
 pageTitle: "Protective Put: Aktien gegen Kursverluste absichern"
 subtitle: "Wie eine gekaufte Put-Option als Versicherung für Ihr Aktiendepot wirkt – mit klar begrenztem Verlust."
 description: "Protective Put verständlich erklärt: Aufbau, Auszahlungsprofil, Kosten der Absicherung und Einsatz dieser Hedging-Strategie für bestehende Aktienpositionen."
-date: 2026-06-28
+date: 2026-04-26
 category: "Strategie"
 tags: ["Strategie", "Absicherung"]
 permalink: /protective-put.html

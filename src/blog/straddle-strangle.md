@@ -3,7 +3,7 @@ layout: layouts/blog-post.njk
 pageTitle: "Straddle & Strangle: Auf große Bewegungen setzen"
 subtitle: "Wie Sie mit gekauften Optionen von starken Kursbewegungen profitieren – unabhängig von der Richtung."
 description: "Straddle und Strangle verständlich erklärt: Aufbau, Auszahlungsprofil, Break-even-Punkte und die Rolle der impliziten Volatilität bei diesen Volatilitätsstrategien."
-date: 2026-06-28
+date: 2026-05-10
 category: "Strategie"
 tags: ["Strategie", "Volatilität"]
 permalink: /straddle-strangle.html

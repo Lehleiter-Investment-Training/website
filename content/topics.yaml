@@ -103,7 +103,7 @@ topics:
     category: "Steuern"
     angle: "Wie werden Gewinne aus Optionsgeschäften in Deutschland besteuert, und was gilt bei deutschen vs. ausländischen Brokern?"
     status: done
-    published: 2026-06-28
+    published: 2026-06-21
 
   - slug: protective-put
     title: "Protective Put: Aktien gegen Kursverluste absichern"
@@ -111,7 +111,7 @@ topics:
     category: "Strategie"
     angle: "Wie sichert ein Protective Put eine Aktienposition nach unten ab, und was kostet diese Versicherung?"
     status: done
-    published: 2026-06-28
+    published: 2026-04-26
 
   - slug: straddle-strangle
     title: "Straddle & Strangle: Auf große Bewegungen setzen"
@@ -119,4 +119,4 @@ topics:
     category: "Strategie"
     angle: "Wie profitieren Long Straddle und Strangle von starken Kursbewegungen, und welche Rolle spielt die implizite Volatilität?"
     status: done
-    published: 2026-06-28
+    published: 2026-05-10

@@ -3,7 +3,7 @@ layout: layouts/blog-post.njk
 pageTitle: "Optionen versteuern in Deutschland: Der Überblick"
 subtitle: "Wie Gewinne aus Optionsgeschäften steuerlich behandelt werden – und worauf Privatanleger achten sollten."
 description: "Optionen Steuern in Deutschland verständlich erklärt: Abgeltungsteuer, Sparer-Pauschbetrag, Stillhalterprämien, Anlage KAP und ausländische Broker – rein bildend."
-date: 2026-06-28
+date: 2026-06-21
 category: "Steuern"
 tags: ["Steuern", "Grundlagen"]
 permalink: /optionen-steuern-deutschland.html
