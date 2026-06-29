@@ -113,6 +113,21 @@ module.exports = function(eleventyConfig) {
   // Pfad zum gehashten CSS-Bundle in Templates verfügbar machen
   eleventyConfig.addGlobalData("cssBundle", `/assets/css/${cssBundle.fileName}`);
 
+  // Cache-Busting für seitenspezifische Assets (extraCss/extraJs): hängt einen
+  // Inhalts-Hash der Quelldatei als ?v=… an. Diese Dateien werden – anders als das
+  // gehashte Global-Bundle – unter konstantem Dateinamen ausgeliefert; ohne Busting
+  // liefern Browser/CDN nach inhaltlichen Änderungen veraltete Versionen aus.
+  eleventyConfig.addFilter("cacheBust", function(urlPath) {
+    try {
+      const rel = String(urlPath).replace(/^\//, "").split("?")[0];
+      const file = path.join(__dirname, "src", rel);
+      const hash = crypto.createHash("md5").update(fs.readFileSync(file)).digest("hex").slice(0, 8);
+      return `${urlPath}?v=${hash}`;
+    } catch (e) {
+      return urlPath; // externe/fehlende Pfade unverändert lassen
+    }
+  });
+
   // Blog collection sorted by date (newest first).
   // Akzeptiert .njk UND .md, damit Artikel maschinell als Markdown erzeugt werden können.
   eleventyConfig.addCollection("blog", function(collectionApi) {
