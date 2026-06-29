@@ -43,14 +43,33 @@
   "@graph": [
     {
       "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
       "name": "Just Options",
       "alternateName": "Optionen strategisch nutzen",
       "url": "{{ site.url }}",
       "description": "{{ site.description }}",
       "inLanguage": "de",
       "publisher": {
-        "@id": "{{ site.url }}/#person"
+        "@id": "{{ site.url }}/#organization"
       }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "just OPTIONS",
+      "url": "{{ site.url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}/assets/images/logo.png"
+      },
+      "founder": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "sameAs": [
+        "{{ site.social.linkedin }}",
+        "{{ site.social.instagram }}",
+        "{{ site.social.telegram }}"
+      ]
     },
     {
       "@type": "Person",
