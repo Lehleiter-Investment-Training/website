@@ -588,6 +588,12 @@ a.key-term:hover {
     border-radius: 10px;
 }
 
+.author-box picture {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+}
+
 .author-box-img {
     width: 96px;
     height: 96px;
