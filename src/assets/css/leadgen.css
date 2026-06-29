@@ -314,6 +314,12 @@
     justify-content: center;
 }
 
+.lm-author-inner picture {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+}
+
 .lm-author-img {
     width: 90px;
     height: 90px;
