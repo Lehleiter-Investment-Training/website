@@ -388,5 +388,138 @@ figures["optionen-rollen"] = () => {
     txt(W - 56 - bw / 2, top + 86, "und/oder neuer Strike", "middle", 12.5, "#555");
 };
 
+/* ===== NEUER BACKLOG: Konzept-Illustrationen ===== */
+
+// Optionskette lesen: schematische Options-Chain-Tabelle (Beispielwerte), ATM-Zeile hervorgehoben
+figures["optionskette-lesen"] = () => {
+  const x0 = 120, colW = 104, cols = 5, y0 = 104, rowH = 46, rows = 4;
+  const xEdge = (i) => x0 + i * colW, yEdge = (i) => y0 + i * rowH, cx = (i) => x0 + (i + 0.5) * colW;
+  let s = txt(360, 52, "Aufbau einer Optionskette (Beispiel)", "middle", 15, INK, 600);
+  s += txt(xEdge(0) + colW, 84, "CALLS", "middle", 12.5, "#555", 600);
+  s += txt(xEdge(3) + colW, 84, "PUTS", "middle", 12.5, "#555", 600);
+  s += `<rect x="${x0}" y="${yEdge(2)}" width="${colW * cols}" height="${rowH}" fill="#eef1f5"/>`;
+  for (let i = 0; i <= cols; i++) s += line(xEdge(i), y0, xEdge(i), yEdge(rows), 1.2, LGRY);
+  for (let i = 0; i <= rows; i++) s += line(x0, yEdge(i), xEdge(cols), yEdge(i), 1.2, i <= 1 ? INK : LGRY);
+  s += `<rect x="${x0}" y="${y0}" width="${colW * cols}" height="${rowH * rows}" fill="none" stroke="${INK}" stroke-width="1.6"/>`;
+  ["Call Bid", "Call Ask", "Strike", "Put Bid", "Put Ask"].forEach((h, i) => { s += txt(cx(i), yEdge(0) + 29, h, "middle", 12.5, INK, 600); });
+  [["6,10", "6,30", "95", "0,90", "1,00"], ["2,80", "2,95", "100", "2,70", "2,85"], ["1,10", "1,25", "105", "5,90", "6,10"]]
+    .forEach((r, ri) => r.forEach((v, ci) => { s += txt(cx(ci), yEdge(1 + ri) + 29, v, "middle", 13, ci === 2 ? INK : "#333", ci === 2 ? 700 : 400); }));
+  s += txt(360, yEdge(rows) + 26, "Hervorgehobene Zeile: Strike nahe am Kurs (ATM) · Werte nur als Beispiel", "middle", 12, "#555");
+  return s;
+};
+
+// Poor Man's Covered Call: Kapitaleinsatz-Vergleich (Beispiel)
+figures["poor-mans-covered-call"] = () => {
+  const base = 330, barW = 130, ax = 150, bx = 430, aTop = 100, bTop = 250;
+  let s = txt(360, 52, "Kapitaleinsatz im Vergleich (Beispiel)", "middle", 15, INK, 600);
+  s += line(110, base, 660, base, 1.4);
+  s += rectO(ax, aTop, barW, base - aTop, 1.8) + txt(ax + barW / 2, aTop - 12, "≈ 5.000 €", "middle", 13, INK, 600) +
+    txt(ax + barW / 2, base + 24, "100 Aktien kaufen", "middle", 12.5, "#333") +
+    txt(ax + barW / 2, base + 42, "(klassischer Covered Call)", "middle", 11.5, "#555");
+  s += rectO(bx, bTop, barW, base - bTop, 1.8) + txt(bx + barW / 2, bTop - 12, "≈ 1.000 €", "middle", 13, INK, 600) +
+    txt(bx + barW / 2, base + 24, "1 LEAPS-Call kaufen", "middle", 12.5, "#333") +
+    txt(bx + barW / 2, base + 42, "(Poor Man's Covered Call)", "middle", 11.5, "#555");
+  return s;
+};
+
+// Collar: P/L-Profil bei Verfall (Aktie 50, Put 45, Call 55, ~kostenneutral)
+figures["collar-strategie"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [40, 60], yr: [-8, 8], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 45, label: "45" }, { v: 50, label: "50" }, { v: 55, label: "55" }],
+    yticks: [{ v: -5, label: "−5" }, { v: 0, label: "0" }, { v: 5, label: "+5" }],
+  });
+  return s +
+    line(sx(45), sy(-5), sx(45), B, 1, INK, "5 4") + line(sx(55), sy(5), sx(55), B, 1, INK, "5 4") +
+    poly([[sx(40), sy(-5)], [sx(45), sy(-5)], [sx(55), sy(5)], [sx(60), sy(5)]]) +
+    odot(sx(50), sy(0)) +
+    txt(sx(42.5), sy(-6.6), "Verlust begrenzt", "middle", 12) +
+    txt(sx(57.5), sy(6.6), "Gewinn begrenzt", "middle", 12) +
+    txt(sx(45), T - 2, "Put", "middle", 12, "#555") + txt(sx(55), T - 2, "Call", "middle", 12, "#555");
+};
+
+// Calendar Spread: gleicher Strike, zwei Laufzeiten (Timeline)
+figures["calendar-spread"] = () => {
+  const xL = 150, xShort = 400, xLong = 610, yS = 168, yLg = 262;
+  let s = txt(360, 52, "Calendar Spread: gleicher Strike, zwei Laufzeiten", "middle", 15, INK, 600);
+  s += line(xL, 320, 640, 320, 1.4) + `<path d="M644,320 l-9,-4.5 v9 z" fill="${INK}"/>`;
+  s += line(xL, 96, xL, 320, 1, LGRY, "4 4");
+  s += txt(xL, 340, "heute", "middle", 12, "#555") + txt(640, 340, "Zeit →", "end", 12, "#555");
+  s += line(xL, yS, xShort, yS, 3, INK) + odot(xShort, yS) +
+    txt(xL, yS - 14, "Kurze Option (Verkauf)", "start", 13, INK, 600) + txt(xShort, yS - 14, "Verfall 1", "middle", 12, "#555");
+  s += line(xL, yLg, xLong, yLg, 3, INK) + odot(xLong, yLg) +
+    txt(xL, yLg + 20, "Lange Option (Kauf)", "start", 13, INK, 600) + txt(xLong, yLg - 14, "Verfall 2", "middle", 12, "#555");
+  s += txt(360, 304, "Die kurze Option verfällt zuerst – ihr Zeitwert zerfällt schneller.", "middle", 12.5, "#555");
+  return s;
+};
+
+// Butterfly Spread: P/L-Profil (Kauf 95, Verkauf 2x100, Kauf 105; Beispiel)
+figures["butterfly-spread"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [88, 112], yr: [-4, 5], xTitle: "Aktienkurs bei Verfall (€)", yTitle: "Gewinn / Verlust (€)",
+    xticks: [{ v: 95, label: "95" }, { v: 100, label: "100" }, { v: 105, label: "105" }],
+    yticks: [{ v: -2, label: "−2" }, { v: 0, label: "0" }, { v: 3, label: "+3" }],
+  });
+  return s +
+    line(sx(100), sy(3), sx(100), B, 1, INK, "5 4") +
+    poly([[sx(88), sy(-2)], [sx(95), sy(-2)], [sx(100), sy(3)], [sx(105), sy(-2)], [sx(112), sy(-2)]]) +
+    odot(sx(97), sy(0)) + odot(sx(103), sy(0)) +
+    txt(sx(100), sy(3) - 10, "max. Gewinn", "middle", 12) +
+    txt(sx(109), sy(-2) + 18, "max. Verlust", "middle", 12) +
+    txt(sx(95), T - 2, "Kauf 95", "middle", 11, "#555") +
+    txt(sx(100), T + 12, "Verkauf 2×100", "middle", 11, "#555") +
+    txt(sx(105), T - 2, "Kauf 105", "middle", 11, "#555");
+};
+
+// Amerikanisch vs. europäisch: Ausübungszeitpunkte (zwei Timelines)
+figures["amerikanische-vs-europaeische-optionen"] = () => {
+  const xL = 170, xR = 560, yA = 150, yE = 270;
+  const timeline = (y) => line(xL, y, xR, y, 2.2) + `<path d="M${xR + 4},${y} l-9,-4.5 v9 z" fill="${INK}"/>`;
+  let s = txt(360, 52, "Wann ist eine Ausübung möglich?", "middle", 15, INK, 600);
+  s += txt(xL + 8, yA - 22, "Amerikanische Option", "start", 13, INK, 600) + timeline(yA);
+  [0, 1, 2, 3, 4].forEach((i) => { s += odot(xL + (i + 1) * (xR - xL) / 6, yA); });
+  s += txt((xL + xR) / 2, yA + 26, "jederzeit bis zum Verfall ausübbar", "middle", 12, "#555");
+  s += txt(xL + 8, yE - 22, "Europäische Option", "start", 13, INK, 600) + timeline(yE) + odot(xR, yE);
+  s += txt((xL + xR) / 2, yE + 26, "nur am Verfallstag ausübbar", "middle", 12, "#555");
+  s += line(xL, 118, xL, 300, 1, LGRY, "4 4") + line(xR, 118, xR, 300, 1, LGRY, "4 4");
+  s += txt(xL, 330, "heute", "middle", 12, "#555") + txt(xR, 330, "Verfall", "middle", 12, "#555");
+  return s;
+};
+
+// Optionsscheine vs. Optionen: Vertragspartner-Struktur
+figures["optionsscheine-vs-optionen"] = () => {
+  let s = txt(360, 46, "Wer ist Ihr Vertragspartner?", "middle", 15, INK, 600);
+  s += line(360, 70, 360, 340, 1, LGRY, "4 4");
+  s += txt(185, 98, "Optionsschein", "middle", 13.5, INK, 700);
+  s += rectO(80, 122, 210, 50) + txt(185, 152, "Emittent (Bank)", "middle", 13);
+  s += line(185, 172, 185, 214, 2.2) + `<path d="M185,218 l-6,-11 h12 z" fill="${INK}"/>`;
+  s += rectO(80, 220, 210, 50) + txt(185, 250, "Anleger", "middle", 13);
+  s += txt(185, 300, "Emittentenrisiko besteht", "middle", 12.5, "#555");
+  s += txt(525, 98, "Börsengehandelte Option", "middle", 13.5, INK, 700);
+  s += rectO(400, 122, 110, 50) + txt(455, 152, "Käufer", "middle", 13);
+  s += rectO(560, 122, 100, 50) + txt(610, 152, "Verkäufer", "middle", 13);
+  s += rectO(452, 236, 156, 52) + txt(530, 260, "Clearingstelle", "middle", 12.5) + txt(530, 278, "(z. B. Eurex)", "middle", 11, "#555");
+  s += line(455, 172, 512, 234, 1.8) + line(610, 172, 548, 234, 1.8);
+  s += txt(530, 314, "zentraler Kontrahent – kein Emittentenrisiko", "middle", 12, "#555");
+  return s;
+};
+
+// Dividenden & Optionen: Kursabschlag am Ex-Tag
+figures["dividenden-und-optionen"] = () => {
+  const { sx, sy, s } = plot({
+    xr: [0, 10], yr: [46, 54], xTitle: "Zeit", yTitle: "Aktienkurs (€)", zero: false,
+    xticks: [{ v: 5, label: "Ex-Tag" }],
+    yticks: [{ v: 48, label: "48" }, { v: 50, label: "50" }, { v: 52, label: "52" }],
+  });
+  return s +
+    poly([[sx(0), sy(50)], [sx(2.5), sy(50.5)], [sx(5), sy(51)]]) +
+    line(sx(5), sy(51), sx(5), sy(49.4), 1.4, INK, "5 4") +
+    poly([[sx(5), sy(49.4)], [sx(7.5), sy(49.7)], [sx(10), sy(50.2)]]) +
+    odot(sx(5), sy(51)) + odot(sx(5), sy(49.4)) +
+    txt(sx(6.3), sy(50.2), "≈ Dividende", "start", 12, INK) +
+    txt(sx(2.4), sy(52.6), "Kurs fällt am Ex-Tag", "middle", 12, "#555") +
+    txt(sx(5), T - 2, "Vortag: erhöhtes Zuteilungsrisiko bei ITM-Calls", "middle", 11, "#555");
+};
+
 for (const [slug, fn] of Object.entries(figures)) write(slug, fn());
 console.log("Figuren erzeugt:", Object.keys(figures).length);
