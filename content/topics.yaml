@@ -120,3 +120,63 @@ topics:
     angle: "Wie profitieren Long Straddle und Strangle von starken Kursbewegungen, und welche Rolle spielt die implizite Volatilität?"
     status: done
     published: 2026-05-10
+
+  # --- Neuer Backlog (geprüft gegen alle bestehenden .md-/.njk-Artikel: keine Dopplung) ---
+  # Themen wie Volatilität, IV-Rank, VIX, Psychologie, Risikomanagement und Margin sind
+  # bereits als .njk-Artikel vorhanden und wurden daher bewusst NICHT aufgenommen.
+
+  - slug: optionskette-lesen
+    title: "Die Optionskette lesen: Aufbau der Options-Chain verstehen"
+    keyword: "Optionskette"
+    category: "Grundlagen"
+    angle: "Wie ist eine Optionskette aufgebaut, was bedeuten Strike, Bid, Ask, Open Interest und Volumen, und wie findet man die passende Option?"
+    status: todo
+
+  - slug: poor-mans-covered-call
+    title: "Poor Man's Covered Call: Der kapitaleffiziente Covered Call"
+    keyword: "Poor Man's Covered Call"
+    category: "Strategie"
+    angle: "Wie ersetzt ein Poor Man's Covered Call die Aktienposition durch eine LEAPS-Option, und welche Chancen und Risiken bringt das mit sich?"
+    status: todo
+
+  - slug: collar-strategie
+    title: "Die Collar-Strategie: Aktien kostengünstig absichern"
+    keyword: "Collar Strategie"
+    category: "Strategie"
+    angle: "Wie kombiniert ein Collar Protective Put und Covered Call zur günstigen Absicherung, und welchen Preis zahlt man dafür bei der Rendite?"
+    status: todo
+
+  - slug: calendar-spread
+    title: "Calendar Spread: Mit unterschiedlichen Laufzeiten handeln"
+    keyword: "Calendar Spread"
+    category: "Strategie"
+    angle: "Wie funktioniert ein Calendar Spread aus kurz- und langlaufender Option, und in welchem Marktumfeld spielt er seine Stärken aus?"
+    status: todo
+
+  - slug: butterfly-spread
+    title: "Butterfly Spread: Definiertes Risiko im Seitwärtsmarkt"
+    keyword: "Butterfly Spread"
+    category: "Strategie"
+    angle: "Wie baut man einen Butterfly Spread auf, wo liegen maximaler Gewinn und Verlust, und für welche Markterwartung eignet er sich?"
+    status: todo
+
+  - slug: amerikanische-vs-europaeische-optionen
+    title: "Amerikanische vs. europäische Optionen: Der Unterschied beim Ausübungsstil"
+    keyword: "Amerikanische europäische Optionen"
+    category: "Grundlagen"
+    angle: "Worin unterscheiden sich amerikanische und europäische Optionen bei der Ausübung, und welche praktischen Folgen hat das für Stillhalter?"
+    status: todo
+
+  - slug: optionsscheine-vs-optionen
+    title: "Optionsscheine vs. Optionen: Wo liegt der Unterschied?"
+    keyword: "Optionsscheine Optionen Unterschied"
+    category: "Grundlagen"
+    angle: "Wie unterscheiden sich Optionsscheine von börsengehandelten Optionen bei Emittent, Preisbildung und Risiko, und was bedeutet das für Privatanleger?"
+    status: todo
+
+  - slug: dividenden-und-optionen
+    title: "Dividenden und Optionen: Das Risiko der vorzeitigen Ausübung"
+    keyword: "Dividenden Optionen"
+    category: "Risiko"
+    angle: "Wie wirken sich Dividenden auf Optionspreise aus, und warum steigt rund um den Ex-Tag das Risiko einer vorzeitigen Ausübung bei Short Calls?"
+    status: todo
