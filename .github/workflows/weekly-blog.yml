@@ -3,11 +3,17 @@
 # docs/blog-automation.md folgt: nächstes Backlog-Thema schreiben, validieren
 # und als DRAFT-PR öffnen. Der Mensch reviewt und merged (Human-in-the-Loop).
 #
-# VORAUSSETZUNG (einmalig): Repository-Secret CLAUDE_CODE_OAUTH_TOKEN anlegen.
-#   1) Lokal `claude setup-token` ausführen (Claude Pro/Max-Abo, kein API-Key nötig).
-#   2) Settings → Secrets and variables → Actions → New repository secret
-#      Name: CLAUDE_CODE_OAUTH_TOKEN, Wert: der Token aus Schritt 1.
-#   (Alternative: statt OAuth-Token ein anthropic_api_key-Secret verwenden – siehe unten.)
+# ZWEI VORAUSSETZUNGEN, damit ein Lauf tatsächlich einen Artikel erzeugt:
+#   1) Repository-Secret CLAUDE_CODE_OAUTH_TOKEN anlegen (EINMALIG):
+#      a) Lokal `claude setup-token` ausführen (Claude Pro/Max-Abo, kein API-Key nötig).
+#      b) Settings → Secrets and variables → Actions → New repository secret
+#         Name: CLAUDE_CODE_OAUTH_TOKEN, Wert: der Token aus Schritt a.
+#      (Alternative: statt OAuth-Token ein anthropic_api_key-Secret verwenden – siehe unten.)
+#   2) Mindestens ein Thema mit `status: todo` in content/topics.yaml.
+#      Ist der Backlog leer, wird der Lauf SAUBER ÜBERSPRUNGEN (grün, kein Fehler).
+#
+# Der Preflight-Schritt unten prüft beides, damit Fehlläufe eine klare Ursache haben
+# statt einer kryptischen Meldung aus der Action.
 name: Weekly Blog Automation
 
 on:
@@ -25,20 +31,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
+      - name: Preflight – Backlog und Secret prüfen
+        id: preflight
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Für die API-Key-Variante zusätzlich freischalten:
+          # ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -euo pipefail
+
+          # 1) Gibt es überhaupt ein offenes Thema? (nur echte, eingerückte Einträge,
+          #    Kommentarzeilen wie "# status: todo" beginnen mit '#' und zählen nicht)
+          if ! grep -Eq '^[[:space:]]+status:[[:space:]]*todo([[:space:]]|$)' content/topics.yaml; then
+            echo "::notice title=Backlog leer::Kein Thema mit 'status: todo' in content/topics.yaml – nichts zu tun. Der Lauf wird sauber übersprungen. Neues Thema ergänzen, um wieder einen Artikel erzeugen zu lassen."
+            echo "run_generation=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # 2) Ist ein Anthropic-Credential hinterlegt? Ohne Secret bricht die
+          #    Claude-Code-Action sonst mit einer kryptischen Meldung ab.
+          if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "::error title=Secret fehlt::Das Repository-Secret CLAUDE_CODE_OAUTH_TOKEN ist nicht gesetzt. Einmalig einrichten: lokal 'claude setup-token' ausführen und den Token unter Settings → Secrets and variables → Actions als CLAUDE_CODE_OAUTH_TOKEN hinterlegen (Details: docs/blog-automation.md, Abschnitt A)."
+            exit 1
+          fi
+
+          echo "run_generation=true" >> "$GITHUB_OUTPUT"
+
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        if: steps.preflight.outputs.run_generation == 'true'
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
           cache: "npm"
 
       - name: Install dependencies
+        if: steps.preflight.outputs.run_generation == 'true'
         run: npm ci
 
       - name: Run Claude Code (Blog-Playbook)
+        if: steps.preflight.outputs.run_generation == 'true'
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
