@@ -101,13 +101,13 @@
     transform: translateY(-2px);
 }
 
-/* White/light background variant */
-section:not(.hero):not(.starterkit):not(.cta):not(.newsletter):not(.course) .btn-secondary {
+/* White/light background variant (.cta ist hell und braucht sie ebenfalls) */
+section:not(.hero):not(.starterkit):not(.newsletter):not(.course) .btn-secondary {
     color: var(--primary);
     border-color: var(--primary);
 }
 
-section:not(.hero):not(.starterkit):not(.cta):not(.newsletter):not(.course) .btn-secondary:hover {
+section:not(.hero):not(.starterkit):not(.newsletter):not(.course) .btn-secondary:hover {
     background-color: var(--primary);
     color: var(--light);
 }
@@ -313,10 +313,28 @@ section h2 {
     background:
         radial-gradient(110% 120% at 90% -20%, var(--navy-light) 0%, var(--navy) 50%, var(--navy-deep) 100%);
     color: var(--light);
+    padding: calc(var(--spacing-xxl) * 1.4) 0;
+    /* Abgrenzung zum ebenfalls dunklen Hero direkt darüber */
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .course-section-title {
     color: var(--light);
+    margin-bottom: var(--spacing-md);
+}
+
+.course-eyebrow.course-eyebrow-center {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.course-subtitle {
+    text-align: center;
+    color: var(--slate-300);
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto var(--spacing-xl);
 }
 
 /* Strukturgleich zum Buch-Preview (Visual + Details) */
@@ -334,7 +352,7 @@ section h2 {
 }
 
 .course-visual img {
-    max-width: 360px;
+    max-width: 440px;
     width: 100%;
     height: auto;
     border-radius: var(--radius-lg);
@@ -426,7 +444,74 @@ section h2 {
     margin: 0;
 }
 
+.btn-lg {
+    padding: 1rem 2.4rem;
+    font-size: 1.1rem;
+}
+
+/* Themen-Karten (Muster analog .features-grid, dunkle Variante) */
+.course-topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.course-topic-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.course-topic-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 168, 76, 0.5);
+}
+
+.course-topic-card i {
+    color: var(--gold);
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.course-topic-card h4 {
+    color: var(--light);
+    font-size: 1.15rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.course-topic-card p {
+    color: var(--slate-300);
+    margin: 0;
+}
+
+/* Fakten-Leiste */
+.course-facts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm) var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    color: var(--slate-300);
+    font-size: 0.95rem;
+}
+
+.course-facts li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-facts i {
+    color: var(--teal-light);
+}
+
 @media screen and (max-width: 768px) {
+    #kurs {
+        padding: var(--spacing-xxl) 0;
+    }
     .course-details {
         text-align: center;
     }
@@ -436,6 +521,10 @@ section h2 {
     .course-pricing,
     .course-actions {
         justify-content: center;
+    }
+    .course-facts {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
