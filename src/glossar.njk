@@ -34,22 +34,22 @@ extraCss: ["/assets/css/bonus.css"]
             Zurück zur Startseite
         </a>
         <h1><i class="fas fa-book-open"></i> Optionen-Glossar</h1>
-        <p>Die wichtigsten Begriffe aus dem Optionshandel verständlich erklärt</p>
+        <p>Verstehen Sie Fachbegriffe, bevor Sie eine Position beurteilen.</p>
     </header>
 
     <div class="search-container">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" class="search-box" id="searchInput" placeholder="Begriff suchen...">
+        <input type="text" class="search-box" id="searchInput" placeholder="Begriff suchen..." aria-label="Begriff im Glossar suchen">
         <div class="search-count" id="searchCount">{{ glossar.count }} Begriffe verfügbar</div>
     </div>
 
     <nav class="alphabet-nav" id="alphabetNav">
         {% for l in glossar.alphabet %}
-        <a href="#{{ l.letter }}"{% if not l.used %} class="disabled"{% endif %}>{{ l.letter }}</a>
+        {% if l.used %}<a href="#{{ l.letter }}">{{ l.letter }}</a>{% else %}<span class="disabled" aria-disabled="true">{{ l.letter }}</span>{% endif %}
         {% endfor %}
     </nav>
 
-    <main class="container" id="glossaryContent">
+    <div class="container" id="glossaryContent">
         {% for group in glossar.byLetter %}
         <div class="letter-section" id="{{ group.letter }}">
             <div class="letter-header">
@@ -74,10 +74,10 @@ extraCss: ["/assets/css/bonus.css"]
             <i class="fas fa-search"></i>
             <p>Keine Begriffe gefunden für "<span id="noResultsTerm"></span>"</p>
         </div>
-    </main>
+    </div>
 
     <footer class="footer">
-        <p>&copy; 2025 <a href="/">Just Options</a> - Markus Lehleiter</p>
+        <p>&copy; 2025 <a href="/">just OPTIONS</a> - Markus Lehleiter</p>
     </footer>
 
 <script src="/assets/js/glossar.js"></script>

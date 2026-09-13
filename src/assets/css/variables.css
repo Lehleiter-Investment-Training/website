@@ -4,27 +4,27 @@
 
 :root {
     /* Brand Colors (abgestimmt auf kurs.just-options.de) */
-    --navy: #1a2744;
-    --navy-deep: #131c33;
-    --navy-light: #243456;
-    --gold: #c9a84c;
-    --gold-light: #d8bd6e;
-    --gold-dark: #b8962e;
-    --teal: #2a9d8f;
-    --teal-light: #34b3a3;
-    --teal-dark: #1f7a6f;
+    --navy: #1A1F36;
+    --navy-deep: #14182B;
+    --navy-light: #292F48;
+    --gold: #C8973E;
+    --gold-light: #D9B878;
+    --gold-dark: #B98731;
+    --teal: #1B6B6B;
+    --teal-light: #338080;
+    --teal-dark: #155555;
 
     /* Slate-Neutralskala */
-    --slate-50: #f8fafc;
-    --slate-100: #f1f5f9;
-    --slate-200: #e2e8f0;
-    --slate-300: #cbd5e1;
-    --slate-400: #94a3b8;
-    --slate-500: #64748b;
-    --slate-600: #475569;
-    --slate-700: #334155;
-    --slate-800: #1e293b;
-    --slate-900: #0f172a;
+    --slate-50: #F8F9FA;
+    --slate-100: #F1F2F3;
+    --slate-200: #E1E3E5;
+    --slate-300: #CBCED2;
+    --slate-400: #94999F;
+    --slate-500: #61666E;
+    --slate-600: #484D55;
+    --slate-700: #353A44;
+    --slate-800: #252A34;
+    --slate-900: #191D26;
 
     /* Legacy-Aliasse (bestehende var(--gray-*) bleiben funktionsfähig) */
     --gray-50: var(--slate-50);
@@ -41,19 +41,19 @@
     --accent: var(--gold);
     --light: #ffffff;
     --dark: var(--slate-900);
-    --black: #0f172a;
+    --black: #191D26;
     --text: var(--slate-800);
     --text-gray: var(--slate-500);
     --bg-gray: var(--slate-100);
 
     /* Semantic Colors */
-    --success: #10b981;
-    --danger: #ef4444;
-    --warning: #f59e0b;
+    --success: #1B6B6B;
+    --danger: #1A1F36;
+    --warning: #C8973E;
 
     /* Typografie */
-    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-    --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: Calibri, sans-serif;
+    --font-heading: Georgia, serif;
 
     /* Spacing */
     --spacing-xs: 0.25rem;

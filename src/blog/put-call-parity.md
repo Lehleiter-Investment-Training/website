@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie verstehen den Zusammenhang zwischen Call, Put und Basiswert. Theoretische Preisbeziehungen sind keine Zusage risikoloser Gewinne in der Praxis."
 pageTitle: "Put-Call-Parität: Der Zusammenhang von Puts und Calls"
-subtitle: "Warum Call- und Put-Preise kein Zufall sind – und was Arbitrage damit zu tun hat."
 description: "Put-Call-Parität verständlich erklärt: Formel, Variablen, Arbitrage-Logik und ein Rechenbeispiel für europäische Optionen ohne Dividenden."
 date: 2026-04-13
 category: "Grundlagen"
 tags: ["Grundlagen", "Bewertung"]
 permalink: /put-call-parity.html
-summary: "Die Put-Call-Parität beschreibt eine mathematisch notwendige Gleichgewichtsbeziehung zwischen den Preisen europäischer Call- und Put-Optionen auf denselben Basiswert mit gleichem Strike und gleicher Laufzeit. Weicht der Markt davon ab, entstehen risikolose Arbitragegewinne – was die Beziehung in der Praxis stabil hält."
+summary: "Sie verstehen den Zusammenhang zwischen Call, Put und Basiswert. Theoretische Preisbeziehungen sind keine Zusage risikoloser Gewinne in der Praxis."
 faq:
   - q: "Was besagt die Put-Call-Parität?"
     a: "Die Put-Call-Parität besagt, dass der Preis einer europäischen Call-Option plus dem Barwert des Strike-Preises stets gleich dem Preis einer europäischen Put-Option plus dem aktuellen Kurs des Basiswerts sein muss. Gilt diese Gleichung nicht, ermöglichen Arbitrageure risikolose Gewinne, bis der Markt wieder ins Gleichgewicht zurückkehrt."
@@ -17,7 +18,7 @@ faq:
     a: "Aus der Put-Call-Parität folgt, dass man jede der vier Positionen – Long Call, Long Put, Long Basiswert, Long Bond – durch eine Kombination der drei anderen nachbilden kann. So entsteht zum Beispiel ein synthetischer Call aus einem Long Put, einer Long-Position im Basiswert und einem Short Bond (Kredit)."
 ---
 
-<p>Die <span class="key-term">Put-Call-Parität</span> ist eine der grundlegenden Gleichgewichtsbeziehungen in der Optionspreistheorie und erklärt, warum die Preise von <span class="key-term">Call-Option</span>en und <span class="key-term">Put-Option</span>en auf denselben Basiswert niemals unabhängig voneinander sein können. Wer versteht, wie diese Beziehung funktioniert, gewinnt einen wichtigen Einblick in die innere Logik der Optionsbewertung – und in die Mechanik, die Marktpreise konsistent hält.</p>
+<p>Sie verstehen den Zusammenhang zwischen Call, Put und Basiswert. Theoretische Preisbeziehungen sind keine Zusage risikoloser Gewinne in der Praxis.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

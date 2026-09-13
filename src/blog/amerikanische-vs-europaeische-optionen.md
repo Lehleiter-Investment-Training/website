@@ -1,7 +1,8 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "absicherung"
+subtitle: "Erkennen Sie, wann eine Ausübung möglich ist und welche Verpflichtung dadurch entsteht."
 pageTitle: "Amerikanische vs. europäische Optionen: Der Ausübungsstil"
-subtitle: "Warum es für Stillhalter einen entscheidenden Unterschied macht, ob eine Option jederzeit oder nur am Verfallstag ausgeübt werden kann."
 description: "Amerikanische und europäische Optionen: Was der Ausübungsstil bedeutet, welche Produkte welchen Stil nutzen und welche Folgen das für Stillhalter hat."
 date: 2026-07-12
 category: "Grundlagen"

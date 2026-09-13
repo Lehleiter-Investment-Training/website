@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie ordnen Strategien für starke Kursbewegungen ein. Bleibt die Bewegung aus, kann die gezahlte Prämie vollständig verloren gehen."
 pageTitle: "Straddle & Strangle: Auf große Bewegungen setzen"
-subtitle: "Wie Sie mit gekauften Optionen von starken Kursbewegungen profitieren – unabhängig von der Richtung."
 description: "Straddle und Strangle verständlich erklärt: Aufbau, Auszahlungsprofil, Break-even-Punkte und die Rolle der impliziten Volatilität bei diesen Volatilitätsstrategien."
 date: 2026-05-10
 category: "Strategie"
 tags: ["Strategie", "Volatilität"]
 permalink: /straddle-strangle.html
-summary: "Ein Long Straddle kombiniert den Kauf eines Calls und eines Puts mit identischem Strike, ein Long Strangle nutzt unterschiedliche Strikes. Beide Strategien profitieren von starken Kursbewegungen in beliebiger Richtung, verlieren aber an Wert, wenn der Kurs ruhig bleibt oder die implizite Volatilität fällt."
+summary: "Sie ordnen Strategien für starke Kursbewegungen ein. Bleibt die Bewegung aus, kann die gezahlte Prämie vollständig verloren gehen."
 faq:
   - q: "Was ist der Unterschied zwischen Straddle und Strangle?"
     a: "Bei einem Straddle haben der gekaufte Call und Put denselben Strike-Preis, meist am Geld. Bei einem Strangle liegen die Strikes auseinander, typischerweise beide aus dem Geld. Der Strangle ist günstiger, benötigt aber eine größere Kursbewegung, um profitabel zu werden."
@@ -17,7 +18,7 @@ faq:
     a: "Der maximale Verlust eines Long Straddle ist auf die Summe der beiden gezahlten Prämien begrenzt. Er tritt ein, wenn der Kurs bei Verfall genau am Strike liegt und beide Optionen wertlos verfallen. Ein Rückgang der impliziten Volatilität erhöht das Verlustrisiko."
 ---
 
-<p>Manchmal ist klar, dass sich ein Kurs stark bewegen wird – nur nicht, in welche Richtung. Genau für diese Situation gibt es zwei verwandte Volatilitätsstrategien: den <span class="key-term">Straddle</span> und den <span class="key-term">Strangle</span>. Beide setzen auf Bewegung statt auf Richtung. In diesem Artikel erfahren Sie, wie sie aufgebaut sind, wie ihr Auszahlungsprofil aussieht und welche Rolle die implizite Volatilität dabei spielt.</p>
+<p>Sie ordnen Strategien für starke Kursbewegungen ein. Bleibt die Bewegung aus, kann die gezahlte Prämie vollständig verloren gehen.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

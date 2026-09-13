@@ -59,7 +59,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: var(--teal);
 }
 
 /* Dropdown Menu */
@@ -110,7 +110,7 @@ nav {
 
 .dropdown-menu a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent);
+    color: var(--teal);
 }
 
 /* Navigation CTA Button */
@@ -125,7 +125,7 @@ nav {
 }
 
 .nav-cta:hover {
-    background: #ffe44d !important;
+    background: #C8973E !important;
     color: var(--primary) !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);

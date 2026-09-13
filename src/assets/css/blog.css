@@ -153,7 +153,7 @@
 }
 
 .blog-article a {
-    color: var(--accent);
+    color: var(--teal);
     font-weight: bold;
 }
 
@@ -170,7 +170,7 @@
 }
 
 .blog-content a:not(.btn):hover {
-    color: var(--accent);
+    color: var(--teal);
 }
 
 /* Strategy Box (for blog articles) */
@@ -282,7 +282,7 @@
 }
 
 .warning-box h4 {
-    color: #d97706;
+    color: #C8973E;
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
 }

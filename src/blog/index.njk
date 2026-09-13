@@ -1,32 +1,11 @@
 ---
 layout: layouts/page.njk
-pageTitle: "Blog"
-subtitle: "Wertvolle Tipps und Strategien für den erfolgreichen Optionshandel"
-description: "Blog zum Buch 'Optionen strategisch nutzen' - Wertvolle Tipps und Strategien für den Optionshandel"
+pageTitle: "Wissen für Ihre Entscheidungen"
+subtitle: "Strategien nach ihrem Nutzen einordnen. Risiken im selben Schritt verstehen."
+description: "Der just OPTIONS Blog: Zusatzerträge, Absicherung, bessere Einstiege und ein eigenes System. Verständliche Optionslogik mit Risiken und Praxisbeispielen."
 permalink: /blog.html
-extraCss:
-  - /assets/css/blog.css
+extraCss: ["/assets/css/blog.css"]
 ---
-
-<section>
-    <div class="container">
-        <h2>Aktuelle Beiträge</h2>
-        <div class="blog-grid">
-            {% for post in collections.blog %}
-            <div class="blog-card">
-                <div class="blog-image">
-                    <img src="{{ post.data.image | default(post.data.pageTitle | blogCover(post.data.category | default(post.data.tags[0]))) }}" alt="{{ post.data.pageTitle }}" loading="lazy">
-                </div>
-                <div class="blog-content">
-                    {% if post.data.date %}
-                    <div class="blog-date">{{ post.data.date | dateFormat }}</div>
-                    {% endif %}
-                    <h3 class="blog-title">{{ post.data.pageTitle }}</h3>
-                    <p class="blog-excerpt">{{ post.data.description }}</p>
-                    <a href="{{ post.url }}" class="btn btn-primary">Weiterlesen</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+<section class="brand-section"><div class="container"><nav class="blog-filter" aria-label="Themen im Blog">{% for pillar in pillars %}<a href="#{{ pillar.id }}">{{ pillar.title }}</a>{% endfor %}</nav>
+{% for pillar in pillars %}<section id="{{ pillar.id }}" class="blog-pillar"><h2>{{ pillar.title }}</h2><div class="blog-grid">{% for post in collections.blog %}{% if post.data.pillar == pillar.id %}<article class="blog-card"><div class="blog-image"><img src="{{ post.data.pageTitle | blogCover(post.data.category) }}" alt="" width="800" height="450" loading="lazy"></div><div class="blog-content"><div class="blog-date">{{ post.data.date | dateFormat }}</div><h3 class="blog-title"><a href="{{ post.url }}">{{ post.data.pageTitle }}</a></h3><p class="blog-excerpt">{{ post.data.subtitle }}</p><a href="{{ post.url }}" class="btn" aria-label="Lesen: {{ post.data.pageTitle }}">Beitrag lesen →</a></div></article>{% endif %}{% endfor %}</div></section>{% endfor %}
+</div></section>

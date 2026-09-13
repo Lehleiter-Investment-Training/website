@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "einstiege"
+subtitle: "Sie legen einen möglichen Kaufpreis fest. Bei Zuteilung müssen Sie auch nach starken Kursverlusten zum Strike kaufen."
 pageTitle: "Cash Secured Put: Aktien günstiger einkaufen"
-subtitle: "Wie Sie als Stillhalter eine Prämie kassieren und gleichzeitig die Chance nutzen, eine Aktie unter dem aktuellen Marktpreis zu erwerben."
 description: "Cash Secured Put einfach erklärt: Funktionsweise, Rechenbeispiel mit Szenarien, Chancen und Risiken sowie Hinweise zur Strike-Wahl – für Einsteiger verständlich."
 date: 2025-11-17
 category: "Strategie"
 tags: ["Strategie", "Einnahmen"]
 permalink: /cash-secured-put.html
-summary: "Beim Cash Secured Put verkaufen Sie eine Put-Option und hinterlegen gleichzeitig das nötige Kapital, um die Aktie bei Ausübung kaufen zu können. Die Strategie erzeugt Prämieneinnahmen und ermöglicht es, eine gewünschte Aktie zu einem selbst gewählten, günstigeren Kurs ins Depot zu holen."
+summary: "Sie legen einen möglichen Kaufpreis fest. Bei Zuteilung müssen Sie auch nach starken Kursverlusten zum Strike kaufen."
 faq:
   - q: "Was ist ein Cash Secured Put?"
     a: "Ein Cash Secured Put ist der Verkauf einer Put-Option, bei dem der Verkäufer gleichzeitig die volle Kaufsumme als Sicherheit hinterlegt. Er erhält eine Prämie und verpflichtet sich, die Aktie zum vereinbarten Strike-Preis zu kaufen, falls der Käufer sein Recht ausübt."
@@ -17,7 +18,7 @@ faq:
     a: "Der Cash Secured Put bildet die erste Phase der Wheel-Strategie. Nach einem Assignment – also dem Kauf der Aktie – können Anleger auf die erworbene Position Covered Calls schreiben und so weiter Prämien einnehmen, bis die Aktie wieder abgerufen wird."
 ---
 
-<p>Der <span class="key-term">Cash-Secured Put</span> gehört zu den beliebtesten Einstiegsstrategien im Optionshandel: Sie verkaufen eine <span class="key-term">Put-Option</span> auf eine Aktie, die Sie ohnehin kaufen möchten – und erhalten dafür eine Prämie, während Sie gleichzeitig die Chance erhalten, die Aktie zu einem selbst gewählten, günstigeren Kurs ins Depot zu holen. In diesem Artikel erfahren Sie, wie die Strategie funktioniert, wo ihre Chancen und Grenzen liegen und wie Sie den richtigen Strike wählen.</p>
+<p>Sie legen einen möglichen Kaufpreis fest. Bei Zuteilung müssen Sie auch nach starken Kursverlusten zum Strike kaufen.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

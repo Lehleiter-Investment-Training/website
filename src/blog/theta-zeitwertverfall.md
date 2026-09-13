@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "einstiege"
+subtitle: "Sie können Zeitwertverfall einordnen. Ein positiver Theta-Beitrag schützt Stillhalter nicht vor größeren Kurs- oder Volatilitätsverlusten."
 pageTitle: "Theta & Zeitwertverfall: Wie Optionen mit der Zeit an Wert verlieren"
-subtitle: "Warum die Uhr bei Optionen immer tickt – und wer davon profitiert."
 description: "Zeitwertverfall bei Optionen verständlich erklärt: Was Theta misst, warum der Verfall nichtlinear ist und was das für Käufer und Stillhalter bedeutet."
 date: 2025-12-15
 category: "Grundlagen"
 tags: ["Grundlagen", "Griechen"]
 permalink: /theta-zeitwertverfall.html
-summary: "Der Zeitwertverfall (Theta) beschreibt, wie eine Option mit jeder verstreichenden Zeiteinheit an Wert verliert. ATM-Optionen verlieren ihren Zeitwert besonders schnell kurz vor dem Verfallstag – ein entscheidender Faktor für Käufer und Stillhalter gleichermaßen."
+summary: "Sie können Zeitwertverfall einordnen. Ein positiver Theta-Beitrag schützt Stillhalter nicht vor größeren Kurs- oder Volatilitätsverlusten."
 faq:
   - q: "Was ist der Zeitwertverfall bei Optionen?"
     a: "Der Zeitwertverfall beschreibt den Anteil des Optionspreises, der allein durch die verbleibende Restlaufzeit begründet ist. Je kürzer die Laufzeit, desto geringer dieser Anteil – bis er am Verfallstag auf null gesunken ist."
@@ -17,7 +18,7 @@ faq:
     a: "Der Zeitwertverfall ist nicht linear, sondern nichtlinear: Bei At-the-Money-Optionen nimmt der Wertverlust pro Tag in den letzten Wochen vor dem Verfallstag stark zu, weil die verbleibende Unsicherheit über den Endkurs mit jedem Tag rapide schwindet."
 ---
 
-<p>Der <span class="key-term">Zeitwertverfall</span> gehört zu den wichtigsten Konzepten im Optionshandel – und zu den am häufigsten unterschätzten. Wer eine Option kauft, erwirbt nicht nur das Recht auf eine Kursbewegung, sondern bezahlt auch für Zeit: Zeit, in der sich der Basiswert noch in die gewünschte Richtung bewegen kann. Diese Zeit wird täglich weniger, und mit ihr schmilzt ein Teil des Optionspreises – ganz unabhängig davon, was der Markt tut.</p>
+<p>Sie können Zeitwertverfall einordnen. Ein positiver Theta-Beitrag schützt Stillhalter nicht vor größeren Kurs- oder Volatilitätsverlusten.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

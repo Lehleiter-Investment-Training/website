@@ -1,8 +1,8 @@
 {
-  "title": "Optionen strategisch nutzen",
+  "title": "just OPTIONS",
   "author": "Markus Lehleiter",
   "url": "https://www.just-options.de",
-  "description": "Lernen Sie Optionen strategisch einzusetzen - für zusätzliche Erträge, optimierte Einstiege und effektive Absicherung.",
+  "description": "Optionslogik für Privatanleger: Risiken verstehen, Prämien einordnen und ein eigenes System aufbauen. Mit Büchern, Workbook, Tools und KI-Kurs von Markus Lehleiter.",
   "amazonBookUrl": "https://www.amazon.de/Optionen-strategisch-nutzen-investieren-Zusatzerträge/dp/3982686903/",
   "amazonWorkbookUrl": "https://www.amazon.de/dp/3982686911",
   "courseUrl": "https://kurs.just-options.de/ki-kurs.html?coupon=STARTANGEBOT",
@@ -15,5 +15,6 @@
     "linkedin": "https://www.linkedin.com/in/lehleiter/",
     "instagram": "https://www.instagram.com/just_options.de/",
     "telegram": "https://t.me/just_options_com"
-  }
+  },
+  "tagline": "Clever investieren, Zusatzerträge generieren, Risiken absichern"
 }

@@ -107,3 +107,10 @@ alle Artikel automatisch gleich aus (großzügige, klar abgegrenzte Absätze).
 - [ ] `summary` + FAQ faktentreu; Quellen nur aus der Whitelist.
 - [ ] ≥ 2 interne Links, ≥ 3 `key-term`-Markierungen.
 - [ ] `npm run validate-blog` ist grün (prüft Konsistenz automatisch).
+
+
+## Markenstrategie 1.1
+
+Schreibweise immer just OPTIONS. Georgia Bold für Überschriften, Calibri für Text; Navy #1A1F36, Gold #C8973E, Teal #1B6B6B, Graustufen. Gold nicht als Text auf Weiß. Keine Emojis.
+
+Jeder Artikel benötigt `pillar` mit einem der Werte `zusatzertraege`, `absicherung`, `einstiege`, `system`. Im `subtitle` steht der konkrete Anlegernutzen, bei Strategien mit der dazugehörigen Verpflichtung oder Verlustmöglichkeit. Durchgehend Sie. Keine unbelegten Rendite-, Sicherheits- oder Erfolgsversprechen. Theoretische Lehrbeispiele als solche markieren, nicht als aktuelle Marktdaten darstellen. Bestehende Quellen und fachliche Modellannahmen erhalten. Der gemeinsame Artikelabschluss verweist auf den passenden Lernschritt.

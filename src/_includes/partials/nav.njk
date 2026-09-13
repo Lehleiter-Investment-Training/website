@@ -1,9 +1,9 @@
-<header>
-    <nav>
+<header class="site-header">
+    <nav aria-label="Hauptnavigation">
         <div class="nav-container">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/images/logo.png" alt="Just Options Logo" width="500" height="250" decoding="async">
+                    <img src="/assets/images/logo.png" alt="just OPTIONS Logo" width="500" height="250" decoding="async">
                 </a>
             </div>
             <ul class="nav-links" id="navLinks">
@@ -20,11 +20,11 @@
                 {% elif item.isCta %}
                 <li><a href="{{ item.url }}" class="nav-cta">{{ item.label }}</a></li>
                 {% else %}
-                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+                <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
                 {% endif %}
                 {% endfor %}
             </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü öffnen" aria-expanded="false">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
                 <span class="menu-icon" aria-hidden="true"></span>
             </button>
         </div>

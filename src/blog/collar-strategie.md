@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "absicherung"
+subtitle: "Sie können ein begrenztes Auszahlungsprofil aufbauen. Die Finanzierung des Puts durch einen Call begrenzt zugleich Ihre Kursgewinne."
 pageTitle: "Die Collar-Strategie: Aktien kostengünstig absichern"
-subtitle: "Wie Sie mit einem gekauften Put und einem verkauften Call eine Aktienposition günstig – teils kostenneutral – nach unten absichern."
 description: "Collar Strategie einfach erklärt: eine Aktienposition mit gekauftem Put und verkauftem Call günstig, teils kostenneutral nach unten absichern."
 date: 2026-06-30
 category: "Strategie"
 tags: ["Strategie", "Absicherung"]
 permalink: /collar-strategie.html
-summary: "Ein Collar kombiniert den Kauf eines Puts mit dem Verkauf eines Calls auf eine bestehende Aktienposition. Die Call-Prämie finanziert den schützenden Put ganz oder teilweise, sodass die Absicherung nach unten günstig oder sogar kostenneutral wird – im Gegenzug ist das Gewinnpotenzial nach oben gedeckelt."
+summary: "Sie können ein begrenztes Auszahlungsprofil aufbauen. Die Finanzierung des Puts durch einen Call begrenzt zugleich Ihre Kursgewinne."
 faq:
   - q: "Was ist die Collar-Strategie?"
     a: "Die Collar-Strategie kombiniert eine bestehende Aktienposition mit dem Kauf einer Put-Option zur Absicherung nach unten und dem Verkauf einer Call-Option, deren Prämie den Put finanziert. Sowohl Verlust als auch Gewinn sind dadurch begrenzt."
@@ -17,7 +18,7 @@ faq:
     a: "Der verkaufte Call deckelt das Gewinnpotenzial nach oben. Steigt die Aktie über den Call-Strike, werden die Aktien abgerufen und Anleger verpassen weitere Kursgewinne. Der günstige Schutz wird also mit begrenzten Chancen erkauft."
 ---
 
-<p>Die <span class="key-term">Collar</span> Strategie verbindet zwei bekannte Optionsbausteine zu einer kostengünstigen Absicherung: Sie kaufen einen schützenden Put und verkaufen zugleich einen Call, dessen Prämie den Put ganz oder teilweise finanziert. So begrenzen Sie den möglichen Verlust einer bestehenden Aktienposition nach unten – und zahlen dafür mit gedeckelten Gewinnchancen nach oben. Dieser Artikel zeigt, wie die Collar Strategie aufgebaut ist, wie ihr Auszahlungsprofil aussieht und wann sie sich eignen kann.</p>
+<p>Sie können ein begrenztes Auszahlungsprofil aufbauen. Die Finanzierung des Puts durch einen Call begrenzt zugleich Ihre Kursgewinne.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie erhalten eine Prämie und begrenzen Kursgewinne. Das Verlustrisiko der Aktie bleibt bestehen."
 pageTitle: "Covered Call: Zusatzerträge mit bestehenden Aktien"
-subtitle: "Wie Sie mit Aktien, die Sie ohnehin besitzen, regelmäßige Prämieneinnahmen erzielen können."
 description: "Covered Call einfach erklärt: Funktionsweise, ein Rechenbeispiel, Chancen und Risiken sowie die Wahl des richtigen Strikes – verständlich für Einsteiger."
 date: 2026-05-31
 category: "Strategie"
 tags: ["Strategie", "Einnahmen"]
 permalink: /covered-call-strategie.html
-summary: "Bei einem Covered Call verkaufen Sie einen Call auf eine bereits im Depot gehaltene Aktie und erhalten dafür eine Prämie. Die Strategie erzeugt Zusatzerträge, begrenzt im Gegenzug aber das Gewinnpotenzial nach oben."
+summary: "Sie erhalten eine Prämie und begrenzen Kursgewinne. Das Verlustrisiko der Aktie bleibt bestehen."
 faq:
   - q: "Was ist ein Covered Call?"
     a: "Ein Covered Call ist der Verkauf einer Call-Option auf eine Aktie, die man bereits besitzt. Der Verkäufer erhält dafür eine Prämie und verpflichtet sich, die Aktie zum Strike-Preis zu liefern, falls die Option ausgeübt wird."
@@ -17,7 +18,7 @@ faq:
     a: "Sie passt zu Anlegern mit einer neutralen bis leicht steigenden Erwartung für eine Aktie, die sie ohnehin halten möchten. Wer mit stark steigenden Kursen rechnet, schränkt seine Gewinne durch den Covered Call ein."
 ---
 
-<p>Der <span class="key-term">Covered Call</span> gehört zu den bekanntesten Einkommensstrategien im Optionshandel – und zu den wenigen, die sich auch für Einsteiger eignen. Die Grundidee: Sie verkaufen eine Kaufoption auf Aktien, die Sie ohnehin im Depot halten, und kassieren dafür eine Prämie. In diesem Artikel erfahren Sie, wie ein Covered Call funktioniert, wo seine Chancen und Grenzen liegen und worauf Sie bei der Auswahl achten sollten.</p>
+<p>Sie erhalten eine Prämie und begrenzen Kursgewinne. Das Verlustrisiko der Aktie bleibt bestehen.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

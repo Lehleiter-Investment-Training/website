@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie verstehen das Profil mit drei Strikes. Der Gewinnbereich ist eng; bei ungünstigem Verlauf kann die Nettoprämie verloren gehen."
 pageTitle: "Butterfly Spread: Definiertes Risiko im Seitwärtsmarkt"
-subtitle: "Wie Sie mit drei Strikes eine schmale Gewinnzone rund um einen erwarteten Kurs aufbauen – bei von Anfang an begrenztem Risiko."
 description: "Butterfly Spread erklärt: Aufbau aus drei Strikes, wo maximaler Gewinn und Verlust liegen und für welche Markterwartung sich die neutrale Strategie eignet."
 date: 2026-07-08
 category: "Strategie"
 tags: ["Strategie", "Neutral"]
 permalink: /butterfly-spread.html
-summary: "Ein Butterfly Spread kombiniert drei Strikes (1 Kauf unten, 2 Verkauf Mitte, 1 Kauf oben mit gleichem Abstand) zu einer neutralen Position: Der maximale Gewinn entsteht, wenn der Kurs bei Verfall am mittleren Strike liegt, der maximale Verlust ist auf die gezahlte Prämie begrenzt."
+summary: "Sie verstehen das Profil mit drei Strikes. Der Gewinnbereich ist eng; bei ungünstigem Verlauf kann die Nettoprämie verloren gehen."
 faq:
   - q: "Was ist ein Butterfly Spread?"
     a: "Ein Butterfly Spread ist eine neutrale Optionsstrategie aus drei Strikes mit gleichem Abstand: Man kauft eine Option am unteren Strike, verkauft zwei am mittleren und kauft eine am oberen Strike. Die Position wird meist gegen Zahlung einer Nettoprämie eröffnet."
@@ -17,7 +18,7 @@ faq:
     a: "Der Butterfly Spread passt zu einer neutralen Erwartung mit geringer erwarteter Bewegung, wenn der Kurs bis zum Verfall nahe am mittleren Strike vermutet wird. Bei starken Kursbewegungen in eine Richtung ist er in der Regel weniger geeignet."
 ---
 
-<p>Der <span class="key-term">Butterfly Spread</span> ist eine neutrale Optionsstrategie für Marktphasen, in denen Sie nur eine geringe Kursbewegung erwarten und der Basiswert bis zum Verfall in der Nähe eines bestimmten Kursniveaus bleiben soll. Er wird aus drei Strikes mit gleichem Abstand aufgebaut und bietet ein von Anfang an klar definiertes Risiko. In diesem Artikel erfahren Sie, wie ein Butterfly Spread konstruiert wird, wo maximaler Gewinn und maximaler Verlust liegen und für welche Markterwartung er sich eignen könnte.</p>
+<p>Sie verstehen das Profil mit drei Strikes. Der Gewinnbereich ist eng; bei ungünstigem Verlauf kann die Nettoprämie verloren gehen.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

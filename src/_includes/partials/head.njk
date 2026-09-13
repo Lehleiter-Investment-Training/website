@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>{{ pageTitle | default(site.title) }} | {{ site.author }}</title>
+<title>{{ pageTitle | default("Optionslogik für Privatanleger") }} | {{ site.title }}</title>
 <meta name="description" content="{{ description | default(site.description) }}">
 {% if keywords %}
 <meta name="keywords" content="{{ keywords }}">
@@ -11,7 +11,7 @@
 {% endif %}
 
 <!-- Open Graph Tags (immer ausgegeben; Fallbacks: pageTitle -> site.title, description -> site.description) -->
-<meta property="og:title" content="{{ ogTitle | default(pageTitle) | default(site.title) }} | {{ site.author }}">
+<meta property="og:title" content="{{ ogTitle | default(pageTitle) | default("Optionslogik für Privatanleger") }} | {{ site.title }}">
 <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}">
 <meta property="og:type" content="{{ ogType | default('website') }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
@@ -23,7 +23,7 @@
 <meta property="og:image:alt" content="{{ ogImageAlt | default('Optionen strategisch nutzen – Praxishandbuch von Markus Lehleiter') }}">
 <!-- Twitter Card Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ ogTitle | default(pageTitle) | default(site.title) }} | {{ site.author }}">
+<meta name="twitter:title" content="{{ ogTitle | default(pageTitle) | default("Optionslogik für Privatanleger") }} | {{ site.title }}">
 <meta name="twitter:description" content="{{ ogDescription | default(description) | default(site.description) }}">
 <meta name="twitter:image" content="{{ ogImage | default(site.url + '/assets/images/og-default.jpg') }}">
 
@@ -44,8 +44,8 @@
     {
       "@type": "WebSite",
       "@id": "{{ site.url }}/#website",
-      "name": "Just Options",
-      "alternateName": "Optionen strategisch nutzen",
+      "name": "just OPTIONS",
+      "alternateName": "just OPTIONS – Optionslogik für Privatanleger",
       "url": "{{ site.url }}",
       "description": "{{ site.description }}",
       "inLanguage": "de",
@@ -97,13 +97,6 @@
 <link rel="icon" href="/assets/images/favicon.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
-<!-- Kritische Schriften vorladen: reduziert FOUT und verbessert den LCP.
-     Fraunces 600 = Überschriften (u. a. Hero-H1), Inter 400 = Fließtext.
-     crossorigin ist für Font-Preloads zwingend (Fonts werden im CORS-Modus geladen). -->
-<link rel="preload" href="/assets/fonts/fraunces-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-
 <!-- Stylesheets gebündelt + minifiziert; Font-Awesome-Icons sind als lokales Inline-SVG enthalten (kein Drittanbieter) -->
 
 <link rel="stylesheet" href="{{ cssBundle }}">
@@ -112,3 +105,4 @@
 <link rel="stylesheet" href="{{ css | cacheBust }}">
 {% endfor %}
 {% endif %}
+<link rel="stylesheet" href="{{ "/assets/css/brand.css" | cacheBust }}">

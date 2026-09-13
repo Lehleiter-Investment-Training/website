@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie verstehen den geringeren Kapitaleinsatz gegenüber Aktien. Hebel, Laufzeit und vorzeitige Zuteilung erfordern zusätzliche Aufmerksamkeit."
 pageTitle: "Poor Man's Covered Call: Der kapitaleffiziente Covered Call"
-subtitle: "Wie eine langlaufende LEAPS-Option die Aktienposition ersetzt – und was das gegenüber dem klassischen Covered Call verändert."
 description: "Poor Man's Covered Call einfach erklärt: Wie eine LEAPS-Option die Aktie ersetzt, welche Chancen und Risiken der kapitaleffiziente Covered Call bietet."
 date: 2026-06-26
 category: "Strategie"
 tags: ["Strategie", "Einnahmen"]
 permalink: /poor-mans-covered-call.html
-summary: "Beim Poor Man's Covered Call ersetzen Sie die 100 Aktien durch einen langlaufenden, tief im Geld liegenden LEAPS-Call und verkaufen wiederholt kurzlaufende Calls dagegen. Das senkt den Kapitaleinsatz deutlich, bringt aber Zeitwertverfall, entgangene Dividenden und Hebelrisiken mit sich."
+summary: "Sie verstehen den geringeren Kapitaleinsatz gegenüber Aktien. Hebel, Laufzeit und vorzeitige Zuteilung erfordern zusätzliche Aufmerksamkeit."
 faq:
   - q: "Was ist ein Poor Man's Covered Call?"
     a: "Ein Poor Man's Covered Call ist ein Diagonal Call Spread: Sie kaufen einen langlaufenden, tief im Geld liegenden LEAPS-Call als Aktienersatz und verkaufen wiederholt kurzlaufende Calls mit höherem Strike dagegen, um Prämien zu vereinnahmen."
@@ -17,7 +18,7 @@ faq:
     a: "Der LEAPS verliert über die Zeit an Zeitwert, ein starker Kursrückgang kann den Hebel gegen die Position wirken lassen, und ein tief ins Geld gelaufener kurzer Call kann eine Zuteilung auslösen, die aktiv gemanagt werden muss."
 ---
 
-<p>Der <strong>Poor Man's Covered Call</strong> verspricht das Erfolgsprinzip des klassischen Covered Call – laufende Prämieneinnahmen –, aber mit einem deutlich geringeren Kapitaleinsatz. Der Trick: Statt 100 echter Aktien dient eine langlaufende Option als Basis. In diesem Artikel erfahren Sie, wie der Poor Man's Covered Call funktioniert, warum eine LEAPS-Option die Aktienposition ersetzt und welche Chancen und Risiken das gegenüber dem klassischen Ansatz mit sich bringt.</p>
+<p>Sie verstehen den geringeren Kapitaleinsatz gegenüber Aktien. Hebel, Laufzeit und vorzeitige Zuteilung erfordern zusätzliche Aufmerksamkeit.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

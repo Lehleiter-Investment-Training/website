@@ -5,7 +5,7 @@
 
 /* Tool Card (wrapper for interactive content like calculators, tables) */
 .wb-tool-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #F8F9FA 100%);
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 51, 102, 0.08);
@@ -35,7 +35,7 @@
 }
 
 .wb-tool-title i {
-    color: var(--accent);
+    color: var(--teal);
 }
 
 /* Table Wrapper (responsive) */
@@ -76,9 +76,9 @@
 }
 
 .greek-symbol {
-    font-family: 'Times New Roman', serif;
+    font-family: Georgia, serif;
     font-size: 1.1rem;
-    color: var(--accent);
+    color: var(--gold-light);
     background: var(--primary);
     width: 28px;
     height: 28px;
@@ -98,7 +98,7 @@
 
 .calc-field label {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     color: var(--text-gray, #555);
     margin-bottom: 0.25rem;
     font-weight: 500;
@@ -111,7 +111,7 @@
     border: 1px solid rgba(0, 51, 102, 0.15);
     border-radius: 8px;
     font-size: 0.9rem;
-    font-family: 'Roboto Mono', monospace;
+    font-family: Calibri, sans-serif;
     background: white;
     transition: border-color 0.2s;
 }
@@ -126,7 +126,7 @@
 .calc-btn {
     width: 100%;
     padding: 0.75rem;
-    background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #1A1F36 100%);
     color: white;
     border: none;
     border-radius: 999px;
@@ -148,7 +148,7 @@
     border-radius: 12px;
     padding: 1rem;
     margin-top: 1rem;
-    font-family: 'Roboto Mono', monospace;
+    font-family: Calibri, sans-serif;
     font-size: 0.9rem;
 }
 
@@ -163,8 +163,8 @@
     font-weight: 600;
 }
 
-.calc-result .value.profit { color: #16a34a; }
-.calc-result .value.loss { color: #dc2626; }
+.calc-result .value.profit { color: #1B6B6B; }
+.calc-result .value.loss { color: #1A1F36; }
 
 .result-row {
     display: flex;
@@ -186,13 +186,13 @@
     padding: 1rem;
     border-radius: 12px;
     margin: 0.75rem 0;
-    font-family: 'Roboto Mono', monospace;
+    font-family: Calibri, sans-serif;
     font-size: 0.9rem;
     text-align: center;
 }
 
 .formula-box .formula {
-    color: var(--accent);
+    color: var(--gold-light);
     font-size: 1rem;
     font-weight: 600;
 }

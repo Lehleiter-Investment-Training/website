@@ -108,3 +108,18 @@ Umgesetzt. Das Gerüst ist API-key-frei: die wöchentliche Generierung läuft ü
 einen Schedule-Trigger in Claude Code on the web, der eine frische Session mit dem
 Playbook startet. Diese wählt das nächste Thema, schreibt `src/blog/<slug>.md`,
 validiert mit `npm run validate-blog` und öffnet einen Draft-PR; der Mensch merged.
+
+---
+
+# Markenstrategie v1.1 – Website als Lernweg (13.09.2026)
+
+- [x] Guideline als Markenreferenz auswerten und Bestandsrouten erfassen.
+- [x] Gemeinsame Farben, Typografie, Navigation und Footer angleichen.
+- [x] Startseite als Lernweg und sechs neue Produkt-/Orientierungsseiten umsetzen.
+- [x] Alle 30 Blogartikel einordnen und Nutzen-/Risiko-Einstiege ergänzen.
+- [x] Quiz, Glossar, Rechner und Newsletterformulare angleichen und prüfen.
+- [x] Build, Blog-Schema, lokale Links und responsive Kernansichten prüfen.
+- [x] Markenregeln und Prüfumfang in docs/brand-system.md dokumentieren.
+- [ ] Redaktionelle Freigabe und Veröffentlichung der überarbeiteten Fassung.
+
+Review: 50 HTML-Seiten gebaut, 2.632 lokale Verweise und 142 JSON-LD-Blöcke geprüft; alle bisherigen 46 HTML-/XML-Routen erhalten. Browserprüfungen und Grenzen siehe docs/brand-system.md. Der Pull Request führt eine Linux-/Node-20-Buildprüfung ein. Veröffentlichung auf main erfolgt getrennt von der Vorschau.

@@ -1,18 +1,18 @@
-# just OPTIONS – Optionen strategisch nutzen
+# just OPTIONS – Optionslogik für Privatanleger
 
-> Praxisnahe Bildungsressourcen zum Optionshandel von Markus Lehleiter (CFA, FRM, Wirtschaftsmathematiker): zwei Bücher, ein KI-Kurs, ein Fachglossar und Blogartikel zu Optionsstrategien, Risikomanagement und Volatilität. Sprache: Deutsch.
+> Bildungsangebot von Markus Lehleiter (CFA, FRM, Wirtschaftsmathematiker). Grundlagen verstehen, ein System bauen und den eigenen Prozess verfeinern. Jede Strategie wird zusammen mit ihren Risiken eingeordnet. Keine individuellen Trade-Empfehlungen.
 
-## Kernseiten
-- [Startseite](https://www.just-options.de/): Überblick über Buch, Workbook, KI-Kurs und Autor.
-- [Optionen-Glossar](https://www.just-options.de/glossar.html): 64 Fachbegriffe des Optionshandels mit Definition, englischer Entsprechung und Beispiel.
-- [Blog](https://www.just-options.de/blog.html): Artikel zu Optionsstrategien, Risikomanagement, Volatilität, IV Rank/Perzentil, VIX und typischen Anfängerfehlern.
-- [Blog-Feed (Atom)](https://www.just-options.de/feed.xml): Volltext-Feed aller Blogartikel zur einfachen Weiterverarbeitung.
-- [Bonus-Bereich](https://www.just-options.de/Bonus.html): kostenlose Materialien und Tools für Optionshändler.
+## Einstieg und Lernweg
+- [Marken-Hub](https://www.just-options.de/): Lernweg in drei Schritten.
+- [Starterkit](https://www.just-options.de/Anfaengerfehler.html): PDF zu fünf Anfängerfehlern und Newsletter.
+- [Praxishandbuch](https://www.just-options.de/buch/): Grundlagen, Strategien und Risikomanagement.
+- [Workbook](https://www.just-options.de/praxis-workbook/): Übungen und Arbeitsmaterialien.
+- [KI-Kurs](https://www.just-options.de/ki-kurs/): Research strukturieren, Quellen und Ergebnisse prüfen.
+- [Aktienanleihen](https://www.just-options.de/aktienanleihen/): Optionslogik verpackter Produkte; ein Buch ist in Planung, Details sind offen.
 
-## Produkte
-- [just OPTIONS KI-Kurs](https://kurs.just-options.de/ki-kurs): Online-Kurs „Smartere Finanzentscheidungen mit KI" – KI als strategischer Denkpartner für Portfolioanalyse, Szenarioplanung und Anlageentscheidungen. Kein technisches Vorwissen nötig.
-- [Buch „Optionen strategisch nutzen"](https://www.amazon.de/Optionen-strategisch-nutzen-investieren-Zusatzerträge/dp/3982686903/): Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel (218 Seiten, 2024).
-- [Workbook zum Buch](https://www.amazon.de/dp/3982686911): Übungen, Checklisten und Praxisbeispiele zum Vertiefen der Optionsstrategien.
-
-## Über
-- Autor: Markus Lehleiter – Chartered Financial Analyst (CFA), Financial Risk Manager (FRM) und Wirtschaftsmathematiker. Autor der Bücher „Optionen strategisch nutzen" und des zugehörigen Workbooks.
+## Wissen und Tools
+- [Blog](https://www.just-options.de/blog.html): Zusatzerträge, Absicherung, bessere Einstiege, System und Disziplin.
+- [Atom-Feed](https://www.just-options.de/feed.xml): Volltexte der Artikel.
+- [Glossar](https://www.just-options.de/glossar.html): Fachbegriffe verstehen.
+- [Tools](https://www.just-options.de/tools/): Zwei Quizangebote und Handelsplan-Generator.
+- [Über Markus Lehleiter](https://www.just-options.de/ueber/): Hintergrund und Grundsätze.

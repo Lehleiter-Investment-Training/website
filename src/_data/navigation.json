@@ -1,28 +1,91 @@
 {
   "main": [
-    { "label": "Das Buch", "url": "/#book", "isAnchor": true },
-    { "label": "KI-Kurs", "url": "/#kurs", "isAnchor": true },
-    { "label": "Blog", "url": "/blog.html", "isAnchor": false },
-    { "label": "Tools", "url": "/quiz.html", "isAnchor": false, "children": [
-      { "label": "Optionswissen Quiz", "url": "/quiz.html" },
-      { "label": "Börsen-Quiz", "url": "/boersenquiz.html" },
-      { "label": "Handelsplan Generator", "url": "/handelsplan.html" }
-    ]},
-    { "label": "Glossar", "url": "/glossar.html", "isAnchor": false },
-    { "label": "Autor", "url": "/#author", "isAnchor": true },
-    { "label": "Rezensionen", "url": "/#reviews", "isAnchor": true },
-    { "label": "FAQ", "url": "/#faq", "isAnchor": true },
-    { "label": "Starterkit sichern", "url": "/#starterkit", "isAnchor": true, "isCta": true }
+    {
+      "label": "Lernweg",
+      "url": "/#lernweg"
+    },
+    {
+      "label": "Bücher",
+      "url": "/buch/"
+    },
+    {
+      "label": "KI-Kurs",
+      "url": "/ki-kurs/"
+    },
+    {
+      "label": "Wissen",
+      "url": "/blog.html"
+    },
+    {
+      "label": "Tools",
+      "url": "/tools/"
+    },
+    {
+      "label": "Über",
+      "url": "/ueber/"
+    },
+    {
+      "label": "Starterkit sichern",
+      "url": "/Anfaengerfehler.html",
+      "isCta": true
+    }
   ],
   "footer": [
-    { "label": "Das Buch", "url": "/#book" },
-    { "label": "KI-Kurs", "url": "/#kurs" },
-    { "label": "Blog", "url": "/blog.html" },
-    { "label": "Glossar", "url": "/glossar.html" },
-    { "label": "Autor", "url": "/#author" },
-    { "label": "Rezensionen", "url": "/#reviews" },
-    { "label": "FAQ", "url": "/#faq" },
-    { "label": "Impressum", "url": "/impressum.html" },
-    { "label": "Datenschutz", "url": "/datenschutz.html" }
+    {
+      "label": "Lernweg",
+      "url": "/#lernweg"
+    },
+    {
+      "label": "Bücher",
+      "url": "/buch/"
+    },
+    {
+      "label": "KI-Kurs",
+      "url": "/ki-kurs/"
+    },
+    {
+      "label": "Wissen",
+      "url": "/blog.html"
+    },
+    {
+      "label": "Tools",
+      "url": "/tools/"
+    },
+    {
+      "label": "Über",
+      "url": "/ueber/"
+    },
+    {
+      "label": "Workbook",
+      "url": "/praxis-workbook/"
+    },
+    {
+      "label": "Aktienanleihen",
+      "url": "/aktienanleihen/"
+    },
+    {
+      "label": "Glossar",
+      "url": "/glossar.html"
+    },
+    {
+      "label": "Buch-Bonus",
+      "url": "/Bonus.html"
+    },
+    {
+      "label": "Workbook-Bonus",
+      "url": "/workbook.html"
+    },
+    {
+      "label": "FAQ",
+      "url": "/#faq"
+    },
+    {
+      "label": "Impressum",
+      "url": "/impressum.html"
+    },
+    {
+      "label": "Datenschutz",
+      "url": "/datenschutz.html"
+    }
   ]
 }

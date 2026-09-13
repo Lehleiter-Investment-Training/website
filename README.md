@@ -1,6 +1,6 @@
-# Just Options – Buchwebseite
+# just OPTIONS – Optionslogik für Privatanleger
 
-Offizielle Website zum Buch **„Optionen strategisch nutzen"** von Markus Lehleiter.
+Marken-Hub mit Lernweg, Praxishandbuch, Workbook, KI-Kurs, Blog und Tools von Markus Lehleiter.
 Erreichbar unter **https://www.just-options.de**.
 
 ## Projektübersicht
@@ -86,8 +86,7 @@ Automatisch via **GitHub Actions** (`.github/workflows/static.yml`) bei Push auf
 ## Newsletter / Lead-Magnet
 
 Anmeldung via **Brevo** (Formular-Action in `src/_data/site.json` → `brevoFormAction`).
-Das Formular wird über ein verstecktes iframe abgeschickt; danach Weiterleitung auf
-`/Danke.html` (siehe `assets/js/main.js`).
+Das Formular wird als normaler POST an Brevo gesendet. Die tatsächliche Provider-Antwort bleibt sichtbar. Eine zeitgesteuerte Erfolgsmeldung wird nicht verwendet. Echte Anmeldungen erfolgen weiterhin über Brevo mit Double-Opt-in.
 
 ## Passwortgeschützter Bonus-Bereich
 
@@ -121,12 +120,13 @@ Icons lokal eingebettet, keine Drittübermittlung.
 `layouts/blog-post.njk`, mit `date`, `pageTitle`, `description`, `tags`). Die
 Blog-Collection und Sitemap aktualisieren sich automatisch.
 
-**Rezensionen aktualisieren:** Im `#reviews`-Bereich von `index.njk`; bei Änderung
-auch die `review`-/`aggregateRating`-Angaben im JSON-LD anpassen.
+**Bewertungen:** Zur aktuellen Amazon-Bewertung wird verlinkt; keine statischen Sterne oder Bewertungszahlen.
+
+**Markenregeln:** Siehe `docs/brand-system.md`. Neue Artikel benötigen zusätzlich `pillar` und einen nutzenorientierten `subtitle`.
 
 ## Lizenz
 
-Alle Rechte vorbehalten. © 2025 Lehleiter Investment Training.
+Alle Rechte vorbehalten. © 2026 Lehleiter Investment Training.
 
 ## Kontakt
 

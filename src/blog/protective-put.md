@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "absicherung"
+subtitle: "Sie können den Schutz einer Aktienposition einordnen. Die Absicherung kostet Prämie und gilt nur innerhalb ihrer Laufzeit."
 pageTitle: "Protective Put: Aktien gegen Kursverluste absichern"
-subtitle: "Wie eine gekaufte Put-Option als Versicherung für Ihr Aktiendepot wirkt – mit klar begrenztem Verlust."
 description: "Protective Put verständlich erklärt: Aufbau, Auszahlungsprofil, Kosten der Absicherung und Einsatz dieser Hedging-Strategie für bestehende Aktienpositionen."
 date: 2026-04-26
 category: "Strategie"
 tags: ["Strategie", "Absicherung"]
 permalink: /protective-put.html
-summary: "Ein Protective Put kombiniert eine bestehende Aktienposition mit dem Kauf einer Put-Option. Der Put wirkt wie eine Versicherung: Er begrenzt den möglichen Verlust nach unten, während das Gewinnpotenzial der Aktie nach oben – abzüglich der gezahlten Prämie – erhalten bleibt."
+summary: "Sie können den Schutz einer Aktienposition einordnen. Die Absicherung kostet Prämie und gilt nur innerhalb ihrer Laufzeit."
 faq:
   - q: "Was ist ein Protective Put?"
     a: "Ein Protective Put ist eine Absicherungsstrategie, bei der ein Anleger zu einer bestehenden Aktienposition eine Put-Option kauft. Der Put gibt das Recht, die Aktien zum Strike-Preis zu verkaufen, und begrenzt so den möglichen Verlust nach unten."
@@ -17,7 +18,7 @@ faq:
     a: "Ein Protective Put kann sinnvoll sein, wenn ein Anleger eine Aktie weiter halten möchte, sich aber kurzfristig vor einem möglichen Kursrückgang schützen will – etwa vor unsicheren Ereignissen. Die Absicherung kostet jedoch Prämie und schmälert die Rendite."
 ---
 
-<p>Wer Aktien besitzt, kennt das Dilemma: Man möchte an steigenden Kursen teilhaben, fürchtet aber einen plötzlichen Einbruch. Genau hier setzt der <span class="key-term">Protective Put</span> an – eine Absicherungsstrategie, die wie eine Versicherung für Ihr Depot funktioniert. In diesem Artikel erfahren Sie, wie ein Protective Put aufgebaut ist, wie sein Auszahlungsprofil aussieht und wann sich die Kosten der Absicherung lohnen können.</p>
+<p>Sie können den Schutz einer Aktienposition einordnen. Die Absicherung kostet Prämie und gilt nur innerhalb ihrer Laufzeit.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

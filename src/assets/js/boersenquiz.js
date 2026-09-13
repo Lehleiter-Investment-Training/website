@@ -77,13 +77,13 @@
             const percentage = currentQuestionIndex > 0 ? (score / currentQuestionIndex) * 100 : 0;
             const levelBadge = document.getElementById('level-badge');
             if (percentage >= 90) {
-                levelBadge.textContent = 'Level: Finanz-Experte 🏆';
+                levelBadge.textContent = 'Level: Finanz-Experte ';
             } else if (percentage >= 70) {
-                levelBadge.textContent = 'Level: Fortgeschrittener 🎯';
+                levelBadge.textContent = 'Level: Fortgeschrittener ';
             } else if (percentage >= 50) {
-                levelBadge.textContent = 'Level: Aufsteiger 📈';
+                levelBadge.textContent = 'Level: Aufsteiger ';
             } else {
-                levelBadge.textContent = 'Level: Börsen-Rookie 🌱';
+                levelBadge.textContent = 'Level: Börsen-Rookie ';
             }
             
             // Show difficulty stars
@@ -135,7 +135,7 @@
                 // Show feedback
                 const feedback = document.getElementById('feedback-text');
                 feedback.className = 'correct';
-                feedback.innerHTML = `<span class="feedback-emoji">🎯</span>${selectedAnswer.explain}`;
+                feedback.innerHTML = `<strong>Richtig. </strong>${selectedAnswer.explain}`;
                 feedback.style.display = 'block';
                 
                 // Check achievements
@@ -156,7 +156,7 @@
                 // Show feedback
                 const feedback = document.getElementById('feedback-text');
                 feedback.className = 'incorrect';
-                feedback.innerHTML = `<span class="feedback-emoji">💡</span>${correctAnswer.explain}`;
+                feedback.innerHTML = `<strong>Nicht richtig. </strong>${correctAnswer.explain}`;
                 feedback.style.display = 'block';
             }
             
@@ -171,12 +171,12 @@
         function checkAchievements() {
             let achievement = null;
             
-            if (streak === 5) achievement = { emoji: '🔥', text: '5er Streak!' };
-            else if (streak === 10) achievement = { emoji: '💪', text: '10er Streak! Stark!' };
-            else if (streak === 20) achievement = { emoji: '🚀', text: '20er Streak! Legendär!' };
-            else if (score === 25) achievement = { emoji: '📈', text: '25 Richtige!' };
-            else if (score === 50) achievement = { emoji: '💎', text: '50 Richtige! Halbzeit!' };
-            else if (score === 75) achievement = { emoji: '🏆', text: '75 Richtige! Fast geschafft!' };
+            if (streak === 5) achievement = { emoji: '', text: '5er Streak!' };
+            else if (streak === 10) achievement = { emoji: '', text: '10er Streak! Stark!' };
+            else if (streak === 20) achievement = { emoji: '', text: '20er Streak! Legendär!' };
+            else if (score === 25) achievement = { emoji: '', text: '25 Richtige!' };
+            else if (score === 50) achievement = { emoji: '', text: '50 Richtige! Halbzeit!' };
+            else if (score === 75) achievement = { emoji: '', text: '75 Richtige! Fast geschafft!' };
             
             if (achievement) {
                 const popup = document.getElementById('achievement-popup');
@@ -230,19 +230,19 @@
             let emoji, title, text;
             
             if (percentage >= 90) {
-                emoji = '🏆';
-                title = 'Finanz-Champion!';
-                text = `Herausragend! Mit ${percentage}% sind Sie ein echter Experte! Sie verstehen die Märkte und sind bereit für anspruchsvolle Anlagestrategien.`;
+                emoji = '';
+                title = 'Quiz-Ergebnis: Sehr gute Kenntnisse';
+                text = `Sie haben ${percentage}% der Fragen richtig beantwortet. Prüfen Sie auch die Erläuterungen zu Ihren Fehlern. Ein Quiz-Ergebnis ist keine Eignungsprüfung für Anlagestrategien.`;
             } else if (percentage >= 70) {
-                emoji = '🎯';
-                title = 'Fortgeschrittener Anleger!';
-                text = `Sehr gut! ${percentage}% zeigen solide Kenntnisse. Mit etwas mehr Übung werden Sie zum Experten!`;
+                emoji = '';
+                title = 'Quiz-Ergebnis: Gute Kenntnisse';
+                text = `${percentage}% richtige Antworten zeigen, welche Grundlagen Sie bereits kennen. Vertiefen Sie die Themen mit offenen Fragen.`;
             } else if (percentage >= 50) {
-                emoji = '📚';
-                title = 'Auf dem richtigen Weg!';
-                text = `Gut! Mit ${percentage}% haben Sie die Grundlagen verstanden. Weiter lernen und bald sind Sie bereit für mehr!`;
+                emoji = '';
+                title = 'Quiz-Ergebnis: Grundlagen vertiefen';
+                text = `Sie haben ${percentage}% der Fragen richtig beantwortet. Nutzen Sie die Erläuterungen, um Ihre Wissenslücken zu bearbeiten.`;
             } else {
-                emoji = '🌱';
+                emoji = '';
                 title = 'Börsen-Einsteiger';
                 text = `Mit ${percentage}% ist noch Luft nach oben, aber jeder fängt mal an! Nutzen Sie das Quiz zum Lernen und versuchen Sie es nochmal!`;
             }
@@ -277,7 +277,7 @@
         // Share results
         function shareResults() {
             const percentage = Math.round((score / answeredQuestions.length) * 100);
-            const text = `Ich habe ${percentage}% im Börsen-Quiz erreicht! 📈🚀 Teste dein Finanzwissen auch!`;
+            const text = `Ich habe ${percentage}% im Börsen-Quiz erreicht!  Testen Sie ebenfalls Ihr Finanzwissen.`;
             
             if (navigator.share) {
                 navigator.share({
@@ -290,7 +290,7 @@
             } else {
                 // Fallback: copy to clipboard
                 navigator.clipboard.writeText(text).then(() => {
-                    alert('Ergebnis wurde in die Zwischenablage kopiert! 📋');
+                    alert('Ergebnis wurde in die Zwischenablage kopiert! ');
                 }).catch(() => {
                     alert('Teilen ist auf diesem Gerät nicht verfügbar.');
                 });

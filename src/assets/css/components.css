@@ -172,7 +172,7 @@ section h2 {
 }
 
 .rating-stars {
-    color: #FF9900;
+    color: #C8973E;
     font-size: 1.2rem;
     letter-spacing: 2px;
 }
@@ -181,7 +181,7 @@ section h2 {
    Fallback ohne background-clip: alle Sterne gold (wie bisher). */
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .rating-stars {
-        background: linear-gradient(90deg, #FF9900 90%, #c9ccd1 90%);
+        background: linear-gradient(90deg, #C8973E 90%, #c9ccd1 90%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -352,7 +352,7 @@ section h2 {
     font-size: 0.8rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--teal);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -399,7 +399,7 @@ section h2 {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 2.4rem;
-    color: var(--gold);
+    color: var(--teal);
     line-height: 1;
 }
 
@@ -508,7 +508,7 @@ section h2 {
 }
 
 .review-stars {
-    color: var(--accent);
+    color: var(--teal);
     margin-bottom: var(--spacing-md);
     font-size: 1.2rem;
 }
@@ -723,7 +723,7 @@ section h2 {
     padding: 0.8rem;
     border: none;
     border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-family: Calibri, sans-serif;
     font-size: 1rem;
 }
 
@@ -734,7 +734,7 @@ section h2 {
     padding: 0 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     cursor: pointer;
-    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-family: Calibri, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -777,7 +777,7 @@ section h2 {
 
 .cta .btn-primary:hover {
     background-color: var(--black);
-    color: var(--accent);
+    color: var(--teal);
     border-color: var(--accent);
 }
 
@@ -902,7 +902,7 @@ section h2 {
    ========================================================================== */
 
 .starterkit {
-    background: linear-gradient(135deg, var(--primary) 0%, #004a7c 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #1A1F36 100%);
     color: var(--light);
     padding: var(--spacing-xxl) 0;
     border-top: none;
@@ -958,7 +958,7 @@ section h2 {
 }
 
 .starterkit-benefits i {
-    color: var(--accent);
+    color: var(--teal);
     font-size: 1.1rem;
     margin-top: 3px;
     flex-shrink: 0;
@@ -1070,7 +1070,7 @@ section h2 {
    ========================================================================== */
 
 .telegram-banner {
-    background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+    background: linear-gradient(135deg, #1B6B6B 0%, #1B6B6B 100%);
     padding: var(--spacing-lg) 0;
     text-align: center;
 }
@@ -1108,7 +1108,7 @@ section h2 {
 
 .telegram-banner .btn {
     background: var(--light);
-    color: #0088cc;
+    color: #1B6B6B;
     border: none;
     font-weight: 700;
     white-space: nowrap;

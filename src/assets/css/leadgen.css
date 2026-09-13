@@ -4,10 +4,10 @@
 
 /* Kein externer Roboto-Font von assets.brevo.com (DSGVO: keine Drittanbieter-Requests).
    Das Brevo-Formular nutzt stattdessen das lokal gehostete Inter. */
-#sib-container input:-ms-input-placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
-#sib-container input::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
-#sib-container textarea::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #c0ccda; }
-#sib-container a { text-decoration: underline; color: #2BB2FC; }
+#sib-container input:-ms-input-placeholder { text-align: left; font-family: Calibri, sans-serif; color: #c0ccda; }
+#sib-container input::placeholder { text-align: left; font-family: Calibri, sans-serif; color: #c0ccda; }
+#sib-container textarea::placeholder { text-align: left; font-family: Calibri, sans-serif; color: #c0ccda; }
+#sib-container a { text-decoration: underline; color: #1B6B6B; }
 
 /* ==========================================================================
    Lead Magnet Landing Page – Specific Styles
@@ -149,7 +149,7 @@
 }
 
 #sib-container .entry__label {
-    font-family: 'Inter', sans-serif !important;
+    font-family: Calibri, sans-serif;
     color: var(--dark) !important;
     font-size: 0.95rem !important;
     font-weight: 600 !important;
@@ -161,7 +161,7 @@
     padding: 0.85rem 1rem !important;
     border: 2px solid #C0CCD9 !important;
     border-radius: var(--radius-sm) !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: Calibri, sans-serif;
     font-size: 1rem !important;
     transition: border-color var(--transition-fast) !important;
 }
@@ -176,7 +176,7 @@
     width: 100% !important;
     background-color: var(--accent) !important;
     color: var(--black) !important;
-    font-family: 'Inter', sans-serif !important;
+    font-family: Calibri, sans-serif;
     font-size: 1.05rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -191,7 +191,7 @@
 
 #sib-container .sib-form-block__button:hover {
     background-color: var(--black) !important;
-    color: var(--accent) !important;
+    color: var(--teal) !important;
     border-color: var(--accent) !important;
     transform: translateY(-3px) !important;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25) !important;
@@ -279,7 +279,7 @@
 }
 
 .lm-social-proof .stars {
-    color: var(--accent);
+    color: var(--teal);
     font-size: 1.3rem;
     margin-bottom: var(--spacing-sm);
 }
@@ -545,7 +545,7 @@
     border: 2px solid var(--accent);
     padding: 0.9rem 2rem;
     border-radius: var(--radius-sm);
-    font-family: 'Inter', sans-serif;
+    font-family: Calibri, sans-serif;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -558,7 +558,7 @@
 
 .btn-download:hover {
     background-color: var(--black);
-    color: var(--accent);
+    color: var(--teal);
     border-color: var(--accent);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
@@ -706,7 +706,7 @@
 .book-rec-price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--accent);
+    color: var(--teal);
     margin-bottom: var(--spacing-md);
 }
 

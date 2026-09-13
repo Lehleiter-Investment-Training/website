@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie verstehen eine Strategie für eine Handelsspanne. Ein Ausbruch kann Verluste bis zur Spread-Breite abzüglich Nettoprämie verursachen."
 pageTitle: "Iron Condor: Mit Seitwärtsmärkten Geld verdienen"
-subtitle: "Wie Sie in ruhigen Märkten von stagnierendem Kursen profitieren können – mit klar begrenztem Risiko."
 description: "Iron Condor verständlich erklärt: Aufbau aus vier Optionen, Gewinn- und Verlustprofil, Rechenbeispiel sowie Einsatz und Risiken der neutralen Strategie."
 date: 2026-03-16
 category: "Strategie"
 tags: ["Strategie", "Neutral"]
 permalink: /iron-condor-strategie.html
-summary: "Ein Iron Condor kombiniert einen Bull Put Spread und einen Bear Call Spread, sodass der Händler eine Nettoprämie vereinnahmt, die er behält, wenn der Kurs bis zum Verfall in einer definierten Spanne bleibt. Das maximale Risiko ist von Anfang an begrenzt."
+summary: "Sie verstehen eine Strategie für eine Handelsspanne. Ein Ausbruch kann Verluste bis zur Spread-Breite abzüglich Nettoprämie verursachen."
 faq:
   - q: "Was ist ein Iron Condor?"
     a: "Ein Iron Condor ist eine Optionsstrategie aus vier Positionen: ein Bull Put Spread unterhalb des aktuellen Kurses und ein Bear Call Spread oberhalb. Der Händler vereinnahmt eine Nettoprämie und profitiert, wenn der Basiswert bis zum Verfall innerhalb der definierten Kursspanne bleibt."
@@ -17,7 +18,7 @@ faq:
     a: "Der Iron Condor eignet sich, wenn ein Händler eine neutrale Marktmeinung hat und mit einem Seitwärtsverlauf des Basiswerts rechnet. Hohe implizite Volatilität kann attraktivere Prämien ermöglichen, erhöht aber zugleich die Wahrscheinlichkeit größerer Kursbewegungen."
 ---
 
-<p>Der <span class="key-term">Iron Condor</span> gehört zu den beliebtesten neutralen Optionsstrategien überhaupt – denn er erlaubt es Händlern, in Seitwärtsmärkten eine <span class="key-term">Premium</span> zu vereinnahmen, ohne auf steigende oder fallende Kurse setzen zu müssen. In diesem Artikel erfahren Sie, wie der Iron Condor aufgebaut ist, wie Gewinn und Verlust entstehen und worauf Sie bei Einsatz und Verwaltung dieser Strategie achten sollten.</p>
+<p>Sie verstehen eine Strategie für eine Handelsspanne. Ein Ausbruch kann Verluste bis zur Spread-Breite abzüglich Nettoprämie verursachen.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>
