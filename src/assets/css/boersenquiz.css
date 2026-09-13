@@ -15,7 +15,7 @@
     --text-primary: var(--dark);
     --text-secondary: var(--text-gray);
     --border: var(--gray-200);
-    --gold: var(--accent);
+
 }
 
 body {
@@ -148,7 +148,7 @@ body {
 
 .streak-fire {
     font-size: 1.3rem;
-    color: var(--accent);
+    color: var(--teal);
 }
 
 /* Fortschrittsbalken wie im Options-Quiz */
@@ -199,7 +199,7 @@ body {
 }
 
 .difficulty-star {
-    color: var(--accent);
+    color: var(--teal);
     font-size: 1rem;
 }
 
@@ -273,15 +273,15 @@ body {
 }
 
 .option-btn.incorrect {
-    background-color: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
+    background-color: #F1F2F3;
+    color: #1A1F36;
+    border-color: #F1F2F3;
     animation: shake 0.5s ease;
 }
 
 .option-btn.incorrect::before {
-    background-color: #721c24;
-    color: #f8d7da;
+    background-color: #1A1F36;
+    color: #F1F2F3;
 }
 
 @keyframes correctPulse {
@@ -305,7 +305,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     text-align: left;
-    background-color: #f0f7ff;
+    background-color: #F1F2F3;
     border-left: 4px solid var(--primary);
     color: var(--dark);
     animation: slideIn 0.3s ease;

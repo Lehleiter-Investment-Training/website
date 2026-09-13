@@ -1,7 +1,8 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "einstiege"
+subtitle: "Prüfen Sie Preise, Spreads und Liquidität, bevor Sie einen Kontrakt auswählen."
 pageTitle: "Die Optionskette lesen: Aufbau der Options-Chain verstehen"
-subtitle: "Wie Sie sich in der Tabelle aus Strikes, Kursen und Kennzahlen zurechtfinden – und die für Ihre Zwecke passende Option erkennen."
 description: "Optionskette lesen leicht gemacht: Aufbau der Options-Chain und was Strike, Bid, Ask, Open Interest und Volumen bedeuten – so finden Sie die passende Option."
 date: 2026-06-22
 category: "Grundlagen"

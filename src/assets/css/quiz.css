@@ -104,9 +104,9 @@
 }
 
 .answer-btn.wrong {
-    background-color: #f8d7da;
-    color: #721c24;
-    border-color: #f5c6cb;
+    background-color: #F1F2F3;
+    color: #1A1F36;
+    border-color: #F1F2F3;
 }
 
 .option-letter {
@@ -206,11 +206,11 @@
 
 .answer-btn.wrong .answer-icon {
   opacity: 1;
-  color: #721c24;
+  color: #1A1F36;
 }
 
 .explanation-box {
-  background-color: #f0f7ff;
+  background-color: #F1F2F3;
   border-left: 4px solid var(--primary);
   padding: 1rem;
   margin: 1rem 0;
@@ -283,23 +283,23 @@
 }
 
 .level-beginner {
-  background-color: #ffe5e5;
-  color: #d63031;
+  background-color: #F1F2F3;
+  color: #1A1F36;
 }
 
 .level-intermediate {
-  background-color: #fff7e6;
-  color: #f39c12;
+  background-color: #F1F2F3;
+  color: #C8973E;
 }
 
 .level-advanced {
-  background-color: #e6ffe6;
-  color: #27ae60;
+  background-color: #F1F2F3;
+  color: #1B6B6B;
 }
 
 .level-expert {
-  background-color: #e6f7ff;
-  color: #2980b9;
+  background-color: #F1F2F3;
+  color: #1B6B6B;
 }
 
 .recommendation-list {
@@ -314,14 +314,14 @@
 }
 
 .recommendation-item i {
-  color: var(--accent);
+  color: var(--teal);
   margin-right: 0.8rem;
   margin-top: 0.3rem;
   flex-shrink: 0;
 }
 
 .book-recommendation {
-  background-color: #f0f7ff;
+  background-color: #F1F2F3;
   border-radius: 8px;
   padding: 1.5rem;
   margin-top: 2rem;
@@ -393,7 +393,7 @@
   padding: 0.8rem;
   border: 1px solid #6b7280;
   border-radius: 5px;
-  font-family: 'Inter', sans-serif;
+  font-family: Calibri, sans-serif;
   font-size: 1rem;
   background-color: white;
   color: var(--dark);
@@ -407,7 +407,7 @@
   padding: 0.8rem;
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: Calibri, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -479,7 +479,7 @@
 
 /* Workbook Cross-Sell */
 .workbook-crosssell {
-    background: linear-gradient(135deg, var(--secondary, #1B6B6B) 0%, #238888 100%);
+    background: linear-gradient(135deg, var(--secondary, #1B6B6B) 0%, #1B6B6B 100%);
     padding: 2rem;
     border-radius: 10px;
     text-align: center;

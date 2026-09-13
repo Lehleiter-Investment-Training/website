@@ -99,6 +99,7 @@ function buildCssBundle() {
 const cssBundle = buildCssBundle();
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addGlobalData("currentYear", new Date().getFullYear());
   // RSS/Atom-Feed-Helfer für src/feed.njk registrieren (Plugin v3 = ESM, daher
   // werden die Filter einzeln eingehängt statt über addPlugin).
   eleventyConfig.addFilter("dateToRfc3339", dateToRfc3339);
@@ -156,12 +157,12 @@ module.exports = function(eleventyConfig) {
   // 16:9-SVG (Navy/Gold-Branding, je Kategorie ein Akzent) als Data-URI.
   // So brauchen neue Artikel kein eigenes Bild mehr – nur ein optionales `category`.
   const BLOG_CATEGORY_COLORS = {
-    "grundlagen": "#C8973E",
-    "volatilität": "#3a7ca5", "volatilitaet": "#3a7ca5",
-    "risiko": "#c0622d", "risikomanagement": "#c0622d",
-    "psychologie": "#7a5ea8",
-    "strategie": "#2e8b6b", "strategien": "#2e8b6b",
-    "steuern": "#4a6b8a",
+    "grundlagen": "#58503D",
+    "volatilität": "#245858", "volatilitaet": "#245858",
+    "risiko": "#1B6B6B", "risikomanagement": "#1B6B6B",
+    "psychologie": "#454A5B",
+    "strategie": "#1B6B6B", "strategien": "#1B6B6B",
+    "steuern": "#525764",
   };
   // Kategorie-Illustration: dezentes themenpassendes Motiv (Akzentfarbe, niedrige
   // Deckkraft) auf der rechten Seite – macht aus dem Titelbild eine echte Illustration,
@@ -209,11 +210,11 @@ module.exports = function(eleventyConfig) {
       .map((l, i) => `<tspan x="58" y="${startY + i * lh}">${esc(l)}</tspan>`)
       .join("");
     // Kategorie-Badge (Pille) oben links – im Stil der bestehenden Karten
-    const catText = esc(String(category || "").toUpperCase());
+    const catText = esc(String(category || ""));
     const pillW = category ? Math.round(catText.length * 11 + 36) : 0;
     const badge = category
       ? `<rect x="56" y="54" width="${pillW}" height="34" rx="17" fill="${accent}"/>` +
-        `<text x="${56 + pillW / 2}" y="77" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" letter-spacing="2" font-weight="700" fill="#ffffff">${catText}</text>`
+        `<text x="${56 + pillW / 2}" y="77" text-anchor="middle" font-family="Calibri, sans-serif" font-size="16" letter-spacing="2" font-weight="700" fill="#ffffff">${catText}</text>`
       : "";
     const svg =
       `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">` +
@@ -225,7 +226,7 @@ module.exports = function(eleventyConfig) {
       badge +
       `<text font-family="Georgia, serif" font-size="44" font-weight="700" fill="#ffffff">${tspans}</text>` +
       `<rect x="58" y="${H - 86}" width="44" height="4" fill="${GOLD}"/>` +
-      `<text x="58" y="${H - 50}" font-family="Inter, Arial, sans-serif" font-size="19" letter-spacing="3" font-weight="700" fill="${GOLD}">JUST OPTIONS</text>` +
+      `<text x="58" y="${H - 50}" font-family="Calibri, sans-serif" font-size="19" letter-spacing="1" font-weight="700" fill="${GOLD}">just OPTIONS</text>` +
       `</svg>`;
     return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
   });

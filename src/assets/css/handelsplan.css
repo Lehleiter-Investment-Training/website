@@ -8,7 +8,7 @@
 }
 
 .required-asterisk {
-    color: #dc3545;
+    color: #1A1F36;
 }
 
 .required-note {
@@ -44,7 +44,7 @@
 }
 
 .disclaimer-title {
-    color: #d32f2f;
+    color: #1A1F36;
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
@@ -88,21 +88,21 @@
 }
 
 .accept-btn {
-    background-color: #4caf50;
+    background-color: #1B6B6B;
     color: white;
 }
 
 .accept-btn:hover {
-    background-color: #45a049;
+    background-color: #1B6B6B;
 }
 
 .decline-btn {
-    background-color: #f44336;
+    background-color: #1A1F36;
     color: white;
 }
 
 .decline-btn:hover {
-    background-color: #d32f2f;
+    background-color: #1A1F36;
 }
 
 .disclaimer-footer {
@@ -139,7 +139,7 @@
 
 .section-icon {
     font-size: 1em;
-    color: var(--accent);
+    color: var(--teal);
 }
 
 .form-grid {
@@ -167,7 +167,7 @@ input, select, textarea {
     font-size: 1em;
     transition: all 0.3s ease;
     background: white;
-    font-family: 'Inter', sans-serif;
+    font-family: Calibri, sans-serif;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -212,17 +212,17 @@ input[type="checkbox"] {
 }
 
 .risk-low {
-    background-color: #4caf50;
+    background-color: #1B6B6B;
     color: white;
 }
 
 .risk-medium {
-    background-color: #ff9800;
+    background-color: #C8973E;
     color: white;
 }
 
 .risk-high {
-    background-color: #f44336;
+    background-color: #1A1F36;
     color: white;
 }
 
@@ -243,7 +243,7 @@ input[type="checkbox"] {
 .output-section {
     margin-top: 3rem;
     padding: 3rem;
-    background-color: #f0f7ff;
+    background-color: #F1F2F3;
     border-radius: 10px;
     border: 2px solid var(--primary);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -283,12 +283,12 @@ input[type="checkbox"] {
 }
 
 .plan-section h3 i {
-    color: var(--accent);
+    color: var(--teal);
     margin-right: 0.4em;
 }
 
 .plan-warning {
-    background: #fff3cd;
+    background: #FEF3C7;
     border: 2px solid var(--accent);
     padding: 20px;
     border-radius: 10px;
@@ -296,7 +296,7 @@ input[type="checkbox"] {
 
 .plan-warning h3,
 .plan-warning p {
-    color: #856404;
+    color: #1A1F36;
 }
 
 .plan-section p {
@@ -341,14 +341,14 @@ input[type="checkbox"] {
 
 /* Danger Button (for reset form) */
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #1A1F36;
     color: white;
-    border: 2px solid #dc3545;
+    border: 2px solid #1A1F36;
 }
 
 .btn-danger:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
+    background-color: #1A1F36;
+    border-color: #1A1F36;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
@@ -445,9 +445,9 @@ input[type="checkbox"] {
     }
 
     .plan-section[data-print-warning] {
-        border: 2pt solid #ffc107 !important;
+        border: 2pt solid #C8973E !important;
         padding: 10pt !important;
-        background: #fff3cd !important;
+        background: #FEF3C7 !important;
         page-break-inside: avoid;
     }
 

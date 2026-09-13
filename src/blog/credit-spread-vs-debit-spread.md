@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie vergleichen Nettoprämie und Verlustgrenze. Die theoretische Begrenzung setzt den korrekten Umgang mit beiden Optionsbeinen voraus."
 pageTitle: "Credit Spread vs. Debit Spread: Der Unterschied"
-subtitle: "Prämie kassieren oder zahlen – welche Spread-Variante passt zu Ihrer Markterwartung?"
 description: "Credit Spread vs. Debit Spread kompakt erklärt: Funktionsweise, Beispiele, Chancen und Risiken – damit Sie die richtige Spread-Strategie wählen."
 date: 2026-02-16
 category: "Strategie"
 tags: ["Strategie", "Spreads"]
 permalink: /credit-spread-vs-debit-spread.html
-summary: "Bei einem Debit Spread zahlen Sie eine Nettoprämie und erwerben ein Recht mit begrenztem Gewinnpotenzial; beim Credit Spread vereinnahmen Sie eine Nettoprämie und gehen eine begrenzte Verpflichtung ein. Beide Strukturen bieten definiertes Risiko und definierten maximalen Gewinn."
+summary: "Sie vergleichen Nettoprämie und Verlustgrenze. Die theoretische Begrenzung setzt den korrekten Umgang mit beiden Optionsbeinen voraus."
 faq:
   - q: "Was ist der Hauptunterschied zwischen Credit Spread und Debit Spread?"
     a: "Beim Debit Spread zahlen Sie netto eine Prämie, um von einer Kursbewegung in eine bestimmte Richtung zu profitieren. Beim Credit Spread vereinnahmen Sie netto eine Prämie und profitieren davon, dass sich der Markt innerhalb eines bestimmten Bereichs bewegt oder sich gegen die Richtung der verkauften Option entwickelt."
@@ -17,7 +18,7 @@ faq:
     a: "Nein. Der maximale Verlust eines Credit Spreads ist auf die Differenz der Strike-Preise abzüglich der vereinnahmten Prämie begrenzt und wird beim Eröffnen der Position berechnet. Es handelt sich um ein klar definiertes Risikoprofil – ein wesentlicher Vorteil gegenüber dem ungedeckten Optionsverkauf."
 ---
 
-<p>Der Begriff <span class="key-term">Credit Spread</span> taucht in vielen Einführungen zum Optionshandel auf – doch der Unterschied zum <span class="key-term">Debit Spread</span> ist nicht immer auf den ersten Blick klar. Beide Strukturen gehören zur Familie der <span class="key-term">Vertical Spread</span>s: Sie kombinieren zwei Optionen desselben Typs (Call oder Put) auf denselben Basiswert mit denselben Verfallsdaten, aber unterschiedlichen <span class="key-term">Strike-Preis</span>en. Was sie trennt, ist die Richtung des Geldstroms – und damit das gesamte Risiko-Rendite-Profil.</p>
+<p>Sie vergleichen Nettoprämie und Verlustgrenze. Die theoretische Begrenzung setzt den korrekten Umgang mit beiden Optionsbeinen voraus.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

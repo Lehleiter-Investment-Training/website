@@ -1,7 +1,8 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Ordnen Sie Dividenden in Optionspreise und das Risiko vorzeitiger Ausübung ein."
 pageTitle: "Dividenden und Optionen: Risiko vorzeitiger Ausübung"
-subtitle: "Warum die erwartete Dividende längst im Optionspreis steckt – und wann Ihre Short Calls plötzlich früher zugeteilt werden."
 description: "Dividenden Optionen: Warum die erwartete Dividende eingepreist ist, wie sie Call- und Put-Preise verschiebt und wann Short Calls früh ausgeübt werden."
 date: 2026-07-20
 category: "Risiko"

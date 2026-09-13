@@ -12,7 +12,7 @@
 
 html {
     font-size: 16px;
-    font-size: calc(14px + 0.25vw);
+
     scroll-behavior: smooth;
 }
 
@@ -100,29 +100,29 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: clamp(2.2rem, 4vw + 1rem, 3.75rem);
     line-height: 1.08;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h2 {
     font-size: clamp(1.9rem, 3vw + 0.5rem, 2.75rem);
     line-height: 1.12;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h3 {
     font-size: clamp(1.2rem, 2vw + 0.3rem, 1.6rem);
     line-height: 1.25;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 h4 {
     font-size: clamp(1rem, 1.5vw + 0.3rem, 1.4rem);
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 p {
-    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+    font-size: 1.0625rem;
 }
 
 /* ==========================================================================

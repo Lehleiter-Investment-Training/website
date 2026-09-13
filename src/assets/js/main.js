@@ -1,5 +1,6 @@
 // Globale UI-Logik: Mobile-Menu, Dropdown-Tastaturbedienung, Smooth-Scroll, Brevo-Formular
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-current-year]').forEach(function(el) { el.textContent = new Date().getFullYear(); });
     // Sanftes Scrollen nur, wenn der Nutzer keine reduzierte Bewegung wünscht (WCAG 2.3.3)
     var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.classList.remove('show');
         mobileMenuToggle.classList.remove('open');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.setAttribute('aria-label', 'Menü öffnen');
         document.body.style.overflow = 'auto';
     }
 
@@ -18,12 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
             var isOpen = navLinks.classList.toggle('show');
             mobileMenuToggle.classList.toggle('open', isOpen);
             mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
             document.body.style.overflow = isOpen ? 'hidden' : 'auto';
         });
 
         navLinks.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 1024) {
                     closeMobileMenu();
                 }
             });
@@ -33,12 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                if (window.innerWidth > 768 && navLinks.classList.contains('show')) {
+                if (window.innerWidth > 1024 && navLinks.classList.contains('show')) {
                     closeMobileMenu();
                 }
             }, 250);
         });
     }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks && navLinks.classList.contains('show')) { closeMobileMenu(); mobileMenuToggle.focus(); }
+    });
 
     // Dropdown keyboard accessibility
     document.querySelectorAll('.has-dropdown > a').forEach(function(trigger) {
@@ -106,31 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     }
 
-    // Brevo-Formular: Absenden via verstecktem iframe. Weiterleitung erst, wenn
-    // die Antwort von Brevo tatsächlich im iframe geladen ist (statt fixer Wartezeit).
-    // Ein Fallback-Timeout greift nur, falls das load-Event ausbleibt.
-    var brevoIframe = document.querySelector('iframe[name="brevo-iframe"]');
-    document.querySelectorAll('form[data-type="subscription"]').forEach(function(form) {
-        form.setAttribute('target', 'brevo-iframe');
-        form.addEventListener('submit', function() {
-            var btn = form.querySelector('button[type="submit"]');
-            if (btn) {
-                btn.disabled = true;
-                btn.textContent = 'Wird gesendet...';
-            }
-
-            var redirected = false;
-            function redirect() {
-                if (redirected) return;
-                redirected = true;
-                window.location.href = '/Danke.html';
-            }
-
-            if (brevoIframe) {
-                brevoIframe.addEventListener('load', redirect, { once: true });
-            }
-            // Sicherheitsnetz, falls das iframe-load-Event nicht feuert
-            setTimeout(redirect, 6000);
-        });
-    });
+    // Forms use normal browser POST to Brevo so server validation is visible.
+    // No timer or cross-origin iframe is treated as a successful subscription.
 });

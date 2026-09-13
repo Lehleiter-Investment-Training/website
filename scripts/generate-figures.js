@@ -17,7 +17,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const W = 720, H = 440;
 const INK = "#1a1a1a", GRY = "#9aa0a6", LGRY = "#cdd2d8";
-const FF = `font-family="Inter, 'Helvetica Neue', Arial, sans-serif"`;
+const FF = `font-family="Calibri, sans-serif"`;
 const L = 92, R = 668, T = 44, B = 360;          // Plotbereich
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

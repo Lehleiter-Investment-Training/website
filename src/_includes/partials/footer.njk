@@ -1,22 +1,9 @@
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="logo-container">
-                <img src="/assets/images/logo.png" alt="Just Options Logo" class="footer-logo" width="500" height="250" loading="lazy">
-            </div>
-            <ul class="footer-links">
-                {% for item in navigation.footer %}
-                <li><a href="{{ item.url }}">{{ item.label }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="social-icons">
-            <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="{{ site.social.telegram }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-        </div>
-        <div class="copyright">
-            &copy; 2025 Lehleiter Investment Training. Alle Rechte vorbehalten.
-        </div>
-    </div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top"><a href="/" aria-label="just OPTIONS Startseite"><img src="/assets/images/logo.png" alt="just OPTIONS" width="500" height="250" class="footer-logo" loading="lazy"></a><p>Optionslogik für Privatanleger,<br>die ihr Depot selbst in der Hand haben.</p></div>
+    <div class="footer-columns"><div><h2>Ihr Lernweg</h2><ul class="footer-nav">{% for item in navigation.footer %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}</ul></div>
+    <div class="channel-list"><h2>Einordnung für Ihr Depot</h2><a href="{{ site.social.telegram }}" target="_blank" rel="noopener noreferrer"><strong>Telegram</strong><span>Marktnachrichten und Einordnung</span></a><a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>Backtests und Optionsstrategien</span></a><a href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer"><strong>LinkedIn · Markus Lehleiter</strong><span>Perspektiven aus der Finanzpraxis</span></a><a href="/Anfaengerfehler.html"><strong>Wochenausblick</strong><span>Marktkontext per E-Mail</span></a></div></div>
+    <p class="footer-risk">Wissen für eigene Entscheidungen. Keine individuellen Trade-Empfehlungen. Optionsgeschäfte können erhebliche Verluste verursachen; bei ungedeckten Positionen können diese über den Kapitaleinsatz hinausgehen.</p>
+    <div class="copyright">© <span data-current-year>{{ currentYear }}</span> Lehleiter Investment Training. Alle Rechte vorbehalten.</div>
+  </div>
 </footer>

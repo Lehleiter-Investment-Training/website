@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "system"
+subtitle: "Sie lernen, Positionen anzupassen. Rollen beseitigt keinen Verlust und geht neue Verpflichtungen ein."
 pageTitle: "Optionen rollen: Positionen anpassen statt schließen"
-subtitle: "Wie Sie eine bestehende Optionsposition in die Zukunft oder auf einen neuen Strike verschieben – und wann das sinnvoll ist."
 description: "Optionen rollen einfach erklärt: was Rollen bedeutet, wann es sinnvoll ist, Roll für Credit oder Debit, ein Beispiel sowie Chancen und Risiken."
 date: 2026-06-14
 category: "Strategie"
 tags: ["Strategie", "Positionsmanagement"]
 permalink: /optionen-rollen.html
-summary: "Beim Rollen schließen Sie eine bestehende Option und eröffnen gleichzeitig eine neue – meist mit späterem Verfall und/oder anderem Strike. So passen Sie eine Position an, statt sie einfach glattzustellen, etwa um mehr Zeit zu gewinnen oder eine drohende Zuteilung zu vermeiden."
+summary: "Sie lernen, Positionen anzupassen. Rollen beseitigt keinen Verlust und geht neue Verpflichtungen ein."
 faq:
   - q: "Was bedeutet es, eine Option zu rollen?"
     a: "Rollen heißt, eine bestehende Optionsposition zu schließen und gleichzeitig eine neue zu eröffnen – in der Regel mit einem späteren Verfallstag und/oder einem anderen Strike. Beide Schritte werden meist als eine kombinierte Order ausgeführt."
@@ -17,7 +18,7 @@ faq:
     a: "Bringt die neu verkaufte Option mehr Prämie ein, als der Rückkauf der alten kostet, entsteht ein Netto-Guthaben (Credit). Kostet der Rückkauf mehr als die neue Prämie einbringt, ist es ein Roll für Debit, bei dem Sie unterm Strich draufzahlen."
 ---
 
-<p>„Eine Option rollen" klingt nach Fortgeschrittenen-Vokabular, beschreibt aber einen einfachen Vorgang: Sie <strong>schließen eine bestehende Position und eröffnen gleichzeitig eine neue</strong>. Damit passen Sie eine Optionsposition an die veränderte Lage an, statt sie einfach glattzustellen. In diesem Artikel erfahren Sie, was Rollen genau bedeutet, wann es sinnvoll ist und worauf Sie achten sollten.</p>
+<p>Sie lernen, Positionen anzupassen. Rollen beseitigt keinen Verlust und geht neue Verpflichtungen ein.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

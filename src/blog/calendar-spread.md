@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie untersuchen unterschiedliche Laufzeiten. Volatilitätsänderungen, Kursbewegungen und vorzeitige Zuteilung können die Position belasten."
 pageTitle: "Calendar Spread: Mit unterschiedlichen Laufzeiten handeln"
-subtitle: "Wie Sie mit gleichem Strike und zwei Laufzeiten den schnelleren Zeitwertverfall der kurzen Option nutzen."
 description: "Calendar Spread erklärt: Verkauf einer kurzen und Kauf einer langen Option mit gleichem Strike, warum er vom Zeitwertverfall profitiert und wann er passt."
 date: 2026-07-04
 category: "Strategie"
 tags: ["Strategie", "Volatilität"]
 permalink: /calendar-spread.html
-summary: "Bei einem Calendar Spread verkaufen Sie eine kurzlaufende und kaufen eine langlaufende Option mit gleichem Strike. Weil die kurze Option ihren Zeitwert schneller verliert, ist dieser Unterschied die zentrale Ertragsquelle – vor allem in ruhigen Märkten nahe dem Strike."
+summary: "Sie untersuchen unterschiedliche Laufzeiten. Volatilitätsänderungen, Kursbewegungen und vorzeitige Zuteilung können die Position belasten."
 faq:
   - q: "Was ist ein Calendar Spread?"
     a: "Ein Calendar Spread kombiniert den Verkauf einer kurzlaufenden und den Kauf einer langlaufenden Option gleichen Typs mit identischem Strike-Preis. Er profitiert davon, dass die verkaufte kurze Option ihren Zeitwert schneller verliert als die gekaufte lange Option."
@@ -17,7 +18,7 @@ faq:
     a: "Die langlaufende Option reagiert stärker auf Volatilitätsänderungen. Steigende implizite Volatilität ist für einen Calendar Spread tendenziell vorteilhaft, fallende Volatilität wirkt eher nachteilig."
 ---
 
-<p>Ein <strong>Calendar Spread</strong> – auch Zeit-Spread oder horizontaler Spread genannt – gehört zu den Optionsstrategien, die nicht auf eine große Kursbewegung setzen, sondern auf den Faktor Zeit. Sie verkaufen dabei eine kurzlaufende und kaufen gleichzeitig eine langlaufende Option gleichen Typs mit demselben <span class="key-term">Strike-Preis</span>. In diesem Artikel erfahren Sie, wie ein Calendar Spread funktioniert, warum er vom schnelleren Zeitwertverfall der kurzen Option profitiert und in welchem Marktumfeld – ruhig und nahe am Strike – er seine Stärken ausspielt.</p>
+<p>Sie untersuchen unterschiedliche Laufzeiten. Volatilitätsänderungen, Kursbewegungen und vorzeitige Zuteilung können die Position belasten.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

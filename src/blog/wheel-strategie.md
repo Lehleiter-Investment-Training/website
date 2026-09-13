@@ -1,13 +1,14 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "zusatzertraege"
+subtitle: "Sie verstehen den Wechsel zwischen Puts und Calls. Prämien gleichen starke Kursverluste der übernommenen Aktien nicht zwangsläufig aus."
 pageTitle: "Die Wheel-Strategie: Prämien im Kreislauf vereinnahmen"
-subtitle: "Wie Sie Cash-Secured Puts und Covered Calls zu einem wiederkehrenden Einkommens-Kreislauf verbinden."
 description: "Die Wheel-Strategie einfach erklärt: der Kreislauf aus Cash-Secured Put, Zuteilung und Covered Call – mit Rechenbeispiel, Chancen, Risiken und Eignung."
 date: 2026-06-07
 category: "Strategie"
 tags: ["Strategie", "Einnahmen"]
 permalink: /wheel-strategie.html
-summary: "Die Wheel-Strategie kombiniert Cash-Secured Puts und Covered Calls zu einem wiederkehrenden Kreislauf: Sie verkaufen Puts, bis Ihnen Aktien zugeteilt werden, schreiben darauf anschließend Calls, bis die Aktien wieder abgerufen werden – und beginnen von vorn."
+summary: "Sie verstehen den Wechsel zwischen Puts und Calls. Prämien gleichen starke Kursverluste der übernommenen Aktien nicht zwangsläufig aus."
 faq:
   - q: "Was ist die Wheel-Strategie?"
     a: "Die Wheel-Strategie ist ein wiederkehrender Ablauf aus zwei Bausteinen: Zuerst verkaufen Sie Cash-Secured Puts, bis Ihnen Aktien zugeteilt werden. Auf diese Aktien schreiben Sie anschließend Covered Calls, bis sie wieder abgerufen werden. Danach beginnt der Kreislauf von vorn."
@@ -17,7 +18,7 @@ faq:
     a: "Sinnvoll ist die Strategie vor allem bei stabilen, liquiden Aktien, die Sie ohnehin längerfristig im Depot halten würden. Für hochspekulative oder sehr schwankungsanfällige Werte, die Sie nicht übernehmen möchten, ist sie weniger geeignet."
 ---
 
-<p>Die <span class="key-term">Wheel-Strategie</span> (auf Deutsch „das Rad") verbindet zwei beliebte Einkommensstrategien zu einem fortlaufenden Kreislauf: den <span class="key-term">Cash-Secured Put</span> und den <span class="key-term">Covered Call</span>. Das Ziel ist, kontinuierlich Optionsprämien zu vereinnahmen – mal auf Aktien, die Sie kaufen möchten, mal auf Aktien, die Sie bereits besitzen. In diesem Artikel erfahren Sie, wie der Kreislauf funktioniert, wo seine Chancen und Grenzen liegen und für wen er sich eignet.</p>
+<p>Sie verstehen den Wechsel zwischen Puts und Calls. Prämien gleichen starke Kursverluste der übernommenen Aktien nicht zwangsläufig aus.</p>
 
 <div class="disclaimer-box">
     <h4>Risikohinweis</h4>

@@ -34,9 +34,9 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
         </div>
     </section>
 
-    <main>
+    <div>
         <div class="container intro">
-            <h2>Werkzeuge für Ihren Handelserfolg</h2>
+            <h2>Werkzeuge für Ihre Entscheidungen</h2>
             <p>Nutzen Sie die interaktiven Rechner direkt im Browser oder laden Sie Vorlagen und Referenzkarten herunter. Alles ist nach Themen geordnet.</p>
 
             <div class="usage-guide">
@@ -73,6 +73,7 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
             </div>
 
             <!-- Interaktive Rechner -->
+            <p>Rechenbeispiele mit frei wählbaren Eingaben. Die Ergebnisse gelten zum Verfall, ohne Gebühren und Steuern; die voreingestellten Zahlen sind keine Marktdaten.</p>
             <div class="category-header">
                 <i class="fas fa-calculator"></i>
                 <h3>Interaktive Rechner</h3>
@@ -89,11 +90,11 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                 <div class="tab-content active" id="tab-call">
                     <div class="calc-grid">
                         <div class="calc-field">
-                            <label>Strike-Preis (€)</label>
+                            <label for="callStrike">Strike-Preis (€)</label>
                             <input type="number" id="callStrike" value="100" step="0.5">
                         </div>
                         <div class="calc-field">
-                            <label>Prämie bezahlt (€)</label>
+                            <label for="callPremium">Prämie bezahlt (€)</label>
                             <input type="number" id="callPremium" value="3.50" step="0.1">
                         </div>
                     </div>
@@ -102,7 +103,7 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                         <div class="formula" id="callFormula">100 + 3.50 = 103.50 €</div>
                     </div>
                     <div class="calc-field">
-                        <label>Aktueller Kurs zur Berechnung (€)</label>
+                        <label for="callCurrent">Aktueller Kurs zur Berechnung (€)</label>
                         <input type="number" id="callCurrent" value="105" step="0.5">
                     </div>
                     <div class="calc-result">
@@ -120,11 +121,11 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                 <div class="tab-content" id="tab-put">
                     <div class="calc-grid">
                         <div class="calc-field">
-                            <label>Strike-Preis (€)</label>
+                            <label for="putStrike">Strike-Preis (€)</label>
                             <input type="number" id="putStrike" value="100" step="0.5">
                         </div>
                         <div class="calc-field">
-                            <label>Prämie bezahlt (€)</label>
+                            <label for="putPremium">Prämie bezahlt (€)</label>
                             <input type="number" id="putPremium" value="2.80" step="0.1">
                         </div>
                     </div>
@@ -133,7 +134,7 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                         <div class="formula" id="putFormula">100 − 2.80 = 97.20 €</div>
                     </div>
                     <div class="calc-field">
-                        <label>Aktueller Kurs zur Berechnung (€)</label>
+                        <label for="putCurrent">Aktueller Kurs zur Berechnung (€)</label>
                         <input type="number" id="putCurrent" value="95" step="0.5">
                     </div>
                     <div class="calc-result">
@@ -151,19 +152,19 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                 <div class="tab-content" id="tab-spread">
                     <div class="calc-grid">
                         <div class="calc-field">
-                            <label>Long Strike (€)</label>
+                            <label for="spreadLongStrike">Long Strike (€)</label>
                             <input type="number" id="spreadLongStrike" value="100" step="0.5">
                         </div>
                         <div class="calc-field">
-                            <label>Short Strike (€)</label>
+                            <label for="spreadShortStrike">Short Strike (€)</label>
                             <input type="number" id="spreadShortStrike" value="105" step="0.5">
                         </div>
                         <div class="calc-field">
-                            <label>Netto-Prämie (€)</label>
+                            <label for="spreadPremium">Netto-Prämie (€)</label>
                             <input type="number" id="spreadPremium" value="2.00" step="0.1">
                         </div>
                         <div class="calc-field">
-                            <label>Typ</label>
+                            <label for="spreadType">Typ</label>
                             <select id="spreadType">
                                 <option value="bullcall">Bull Call Spread</option>
                                 <option value="bearput">Bear Put Spread</option>
@@ -191,19 +192,19 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                 <h3 class="wb-tool-title"><i class="fas fa-balance-scale"></i> Positionsgrößen-Rechner</h3>
                 <div class="calc-grid">
                     <div class="calc-field">
-                        <label>Depotgröße (€)</label>
+                        <label for="portfolioSize">Depotgröße (€)</label>
                         <input type="number" id="portfolioSize" value="50000" step="1000">
                     </div>
                     <div class="calc-field">
-                        <label>Max. Risiko pro Trade (%)</label>
+                        <label for="riskPercent">Max. Risiko pro Trade (%)</label>
                         <input type="number" id="riskPercent" value="2" step="0.5" min="0.5" max="10">
                     </div>
                     <div class="calc-field">
-                        <label>Optionspreis (€)</label>
+                        <label for="optionPrice">Optionspreis (€)</label>
                         <input type="number" id="optionPrice" value="3.50" step="0.1">
                     </div>
                     <div class="calc-field">
-                        <label>Kontraktgröße</label>
+                        <label for="contractSize">Kontraktgröße</label>
                         <input type="number" id="contractSize" value="100" step="1">
                     </div>
                 </div>
@@ -218,12 +219,12 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                         <span class="value" id="costPerContract">350 €</span>
                     </div>
                     <div class="result-row">
-                        <span class="label">Empfohlene Kontraktanzahl:</span>
+                        <span class="label">Rechnerische Kontraktanzahl:</span>
                         <span class="value" id="recommendedContracts">2 Kontrakte</span>
                     </div>
                 </div>
                 <div class="info-box">
-                    <strong>Faustregel:</strong> Riskieren Sie nie mehr als 1–2 % Ihres Depots pro einzelnem Trade. Bei Long-Optionen ist das eingesetzte Kapital Ihr maximales Risiko. Mehr dazu im Artikel <a href="/risikomanagement-optionshandel.html">Risikomanagement im Optionshandel</a>.
+                    <strong>Modell für gekaufte Optionen:</strong> Der Rechner teilt das von Ihnen gewählte Risikobudget durch die Prämie je Kontrakt. Diese Prämie kann vollständig verloren gehen; Gebühren kommen hinzu. Die Voreinstellung ist keine persönliche Empfehlung. Mehr dazu im Artikel <a href="/risikomanagement-optionshandel.html">Risikomanagement im Optionshandel</a>.
                 </div>
             </div>
 
@@ -368,7 +369,8 @@ extraCss: ["/assets/css/bonus.css", "/assets/css/workbook.css"]
                 </ul>
             </div>
         </section>
-    </main>
+        <div class="container next-step"><p class="eyebrow">Ihr nächster Lernschritt</p><h2>Mit dem KI-Kurs den Prozess verfeinern</h2><a href="/ki-kurs/" class="text-link">Mehr erfahren →</a></div>
+    </div>
 </div>
 
 <script src="/assets/js/workbook.js"></script>

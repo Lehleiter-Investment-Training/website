@@ -1,7 +1,8 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "absicherung"
+subtitle: "Planen Sie Kapital und Aktienbestand für eine mögliche Zuteilung ein."
 pageTitle: "Assignment & Ausübung: Was Stillhalter wissen müssen"
-subtitle: "Warum ein Anruf Ihrer Broker-App mitten in der Nacht Sie nicht überraschen sollte – wenn Sie wissen, was Assignment bedeutet."
 description: "Assignment und Ausübung bei Optionen erklärt: Wann droht Zuteilung, was passiert bei früher Ausübung und wie managen Stillhalter das Risiko?"
 date: 2026-01-19
 category: "Risiko"

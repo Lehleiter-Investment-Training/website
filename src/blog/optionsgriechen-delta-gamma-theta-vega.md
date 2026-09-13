@@ -1,7 +1,8 @@
 ---
 layout: layouts/blog-post.njk
+pillar: "absicherung"
+subtitle: "Lesen Sie die Empfindlichkeiten Ihrer Position und erkennen Sie die Grenzen der Modellwerte."
 pageTitle: "Die Optionsgriechen: Delta, Gamma, Theta & Vega verstehen"
-subtitle: "Warum der Preis einer Option mehr ist als nur der Abstand zum Strike – und wie Sie die vier wichtigsten Sensitivitätskennzahlen für bessere Handelsentscheidungen nutzen."
 description: "Optionsgriechen verständlich erklärt: Delta, Gamma, Theta und Vega – Bedeutung, Zusammenspiel und praktischer Nutzen für Einsteiger im Optionshandel."
 date: 2025-10-13
 category: "Grundlagen"
