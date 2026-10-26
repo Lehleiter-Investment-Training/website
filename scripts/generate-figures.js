@@ -192,20 +192,6 @@ figures["straddle-strangle"] = () => {
 
 /* ===== KONZEPTIONELLE DIAGRAMME (glatte Kurven) ===== */
 
-// Optionen-Steuern: Aufteilung des Kapitalgewinns in Nettoertrag und Steuer
-figures["optionen-steuern-deutschland"] = () => {
-  const x = 120, y = 170, w = 480, h = 120;
-  const net = w * 0.736, tax = w - net;
-  return txt(120, 120, "Aufteilung eines Kapitalgewinns (vereinfacht)", "start", 15, INK, 600) +
-    `<rect x="${x}" y="${y}" width="${net}" height="${h}" fill="none" stroke="${INK}" stroke-width="1.8"/>` +
-    `<rect x="${x + net}" y="${y}" width="${tax}" height="${h}" fill="${INK}"/>` +
-    txt(x + net / 2, y + h / 2 + 5, "Nettoertrag", "middle", 15) +
-    txt(x + net / 2, y + h + 26, "≈ 73,6 %", "middle", 13, "#333") +
-    line(x + net, y + h + 6, x + net, y + h + 34, 1.2) +
-    txt(x + net + tax / 2, y - 14, "Steuer", "middle", 13) +
-    txt(x + net + tax + 4, y + h + 26, "Abgeltungsteuer + Soli ≈ 26,4 %", "end", 13, "#333");
-};
-
 // Theta: Zeitwert ~ sqrt(Restlaufzeit). x: 9 Monate (links) -> Verfall (rechts)
 figures["theta-zeitwertverfall"] = () => {
   const { sx, sy, s } = plot({

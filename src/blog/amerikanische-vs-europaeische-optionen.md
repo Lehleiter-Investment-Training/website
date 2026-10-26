@@ -122,7 +122,7 @@ faq:
     <p>Wer Pin Risk vermeiden möchte, kann Positionen kurz vor dem Verfall glattstellen, statt sie auslaufen zu lassen. Bei bar abgerechneten europäischen Index-Optionen ist das Problem geringer, weil kein Basiswert geliefert werden muss und die Abrechnung anhand eines festgelegten Referenzkurses erfolgt.</p>
 </div>
 
-<p>Der europäische Ausübungsstil spielt zudem in der Theorie der Optionsbewertung eine Rolle: Die saubere Beziehung zwischen Call- und Put-Preisen, die im Beitrag <a href="/put-call-parity.html">Put-Call-Parität</a> beschrieben wird, gilt in ihrer Grundform für europäische Optionen. Steuerliche Aspekte einer Ausübung oder Zuteilung – etwa bei Lieferung von Aktien – sind wiederum unabhängig vom Stil zu beachten; einen Überblick gibt der Artikel <a href="/optionen-steuern-deutschland.html">Optionen und Steuern in Deutschland</a>.</p>
+<p>Der europäische Ausübungsstil spielt zudem in der Theorie der Optionsbewertung eine Rolle: Die saubere Beziehung zwischen Call- und Put-Preisen, die im Beitrag <a href="/put-call-parity.html">Put-Call-Parität</a> beschrieben wird, gilt in ihrer Grundform für europäische Optionen.</p>
 
 <h3 id="fazit">Fazit</h3>
 
