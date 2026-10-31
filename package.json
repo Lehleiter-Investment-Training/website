@@ -8,7 +8,8 @@
     "clean": "rm -rf _site",
     "og-image": "node scripts/generate-og-image.js",
     "figures": "node scripts/generate-figures.js",
-    "validate-blog": "node scripts/validate-blog.js"
+    "validate-blog": "node scripts/validate-blog.js",
+    "diff-site": "node scripts/diff-site-text.js"
   },
   "author": "Markus Lehleiter",
   "license": "ISC",

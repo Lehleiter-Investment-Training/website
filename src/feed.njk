@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: true
     <updated>{{ collections.blog | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
     <id>{{ site.url }}/blog.html</id>
     <author>
-        <name>{{ site.author }}</name>
+        <name>{{ author.name }}</name>
         <uri>{{ site.url }}</uri>
     </author>
     {%- for post in collections.blog %}

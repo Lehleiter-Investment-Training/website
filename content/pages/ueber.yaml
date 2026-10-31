@@ -1,0 +1,30 @@
+# Über-Seite /ueber/ – Stammdaten (Name, Credentials) zusätzlich in content/author.yaml
+meta:
+  title: "Über Markus Lehleiter und just OPTIONS"
+  description: "Markus Lehleiter, CFA, FRM und Wirtschaftsmathematiker: über 20 Jahre Finanzbranche, eigene Optionspraxis und ein klares Prinzip – Risiko zuerst."
+hero:
+  imageAlt: "Markus Lehleiter"
+  eyebrow: "Autor und Gründer von just OPTIONS"
+  title: "Verständnis schafft<br>Handlungsspielraum."
+  paragraphs:
+    - "Wer sein Depot selbst steuert, braucht nachvollziehbare Antworten: Was passiert bei fallenden Kursen? Welche Verpflichtung entsteht? Wann muss ich handeln?"
+    - "just OPTIONS macht diese Fragen zum Ausgangspunkt. Markus Lehleiter begleitet Sie vom ersten Verständnis bis zu einem eigenen, überprüfbaren Vorgehen."
+experience:
+  title: "Erfahrung, die Zusammenhänge erklärt"
+  paragraphs:
+    - "Markus Lehleiter ist Wirtschaftsmathematiker, Chartered Financial Analyst (CFA) und Financial Risk Manager (FRM). Er verfügt über mehr als 20 Jahre Erfahrung in der Finanzbranche und war an der Entwicklung von Fonds und Finanzprodukten sowie an Digitalisierungs- und Produktstrategieprojekten bei großen Fondsgesellschaften beteiligt."
+    - "Hinzu kommt seine eigene Praxis im Optionshandel. Im Praxishandbuch „Optionen strategisch nutzen“ und dem Workbook übersetzt er diese Erfahrung in Grundlagen, Beispiele und Arbeitsmaterialien für Privatanleger."
+  linkedinLabel: "Markus Lehleiter auf LinkedIn"   # URL: src/_data/site.json → social.linkedin
+principles:
+  title: "Was Sie von just OPTIONS erwarten können"
+  items:
+    - title: "Risiko zuerst"
+      text: "Jede Strategie wird mit ihren Verpflichtungen und Verlustmöglichkeiten erklärt. Eine Prämie ist eine Gegenleistung für ein Risiko."
+    - title: "Ein System für Ihre Entscheidungen"
+      text: "Handelsplan, Journal und Checklisten helfen Ihnen, diszipliniert zu arbeiten. Sie erhalten keine persönlichen Trade-Empfehlungen."
+    - title: "Eine ruhige, klare Sprache"
+      text: "Nachvollziehbare Argumente statt Renditeversprechen. Sie entscheiden selbst, welche Werkzeuge Sie nutzen und welche Sie bewusst weglassen."
+next:
+  title: "Beginnen Sie dort, wo Sie stehen."
+  text: "Grundlagen lernen, ein System bauen oder Ihren Prozess verfeinern: Der Lernweg ordnet die passenden Materialien ein."
+  cta: { label: "Meinen Lernweg finden", url: "/#lernweg" }

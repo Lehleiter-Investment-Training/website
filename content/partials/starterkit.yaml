@@ -1,0 +1,16 @@
+# Newsletter-/Starterkit-Block (Startseite, Landingpage /Anfaengerfehler.html).
+# Das Formular sendet an Brevo (Endpunkt: src/_data/site.json → brevoFormAction).
+eyebrow: "Kostenlos beginnen"
+title: "Fünf Fehler, die Sie<br>vor dem ersten Trade<br>kennen sollten."
+text: "Mit dem Starterkit lernen Sie typische Fallstricke kennen. Dazu erhalten Sie den Wochenausblick und Einordnungen per E-Mail."
+note: "Auf der Website sprechen wir Sie an. Im Newsletter duzen wir uns."
+panel:
+  title: "Ihr Starterkit"
+  text: "PDF-Leitfaden und Newsletter"
+form:
+  emailLabel: "E-Mail-Adresse"
+  emailPlaceholder: "ihre@email.de"
+  firstnameLabel: "Vorname"
+  firstnameOptional: "(optional)"
+  submit: "Starterkit sichern"
+  consent: 'Mit der Anmeldung erhalten Sie unseren Newsletter. Bitte bestätigen Sie Ihre E-Mail-Adresse anschließend. Jederzeit abmeldbar. <a href="/datenschutz.html">Datenschutz</a>'

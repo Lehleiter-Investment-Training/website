@@ -1,0 +1,34 @@
+# Produktseite /praxis-workbook/ – Produktdaten: content/products.yaml (workbook)
+meta:
+  title: "Das Workbook – Ihr System für den Optionshandel"
+  description: "Vertiefen Sie das Praxishandbuch mit Übungen und Checklisten. Erarbeiten Sie Ihren Handelsplan und prüfen Sie Ihr Wissen im Workbook von Markus Lehleiter."
+hero:
+  eyebrow: "Lernweg 02 · System bauen"
+  title: "Ihr Wissen gehört in einen Plan."
+  paragraphs:
+    - "Mit dem Workbook zu „Optionen strategisch nutzen“ wenden Sie die Grundlagen an: Übungen bearbeiten, Entscheidungen begründen und eigene Regeln festhalten."
+    - "Ein schriftliches System macht Ihr Vorgehen überprüfbar. Verluste bleiben möglich; entscheidend ist, deren Größenordnung vor dem Handel zu verstehen."
+  showMeta: true
+  cta: { label: "Workbook bestellen" }
+  secondary: { label: "Workbook-Bonus öffnen →", url: "/workbook.html" }
+  imageAlt: "Workbook zu Optionen strategisch nutzen von Markus Lehleiter"
+outcomes:
+  eyebrow: "Vom Lesen zum Anwenden"
+  title: "Schritt für Schritt<br>zum eigenen Vorgehen."
+  items:
+    - title: "Üben und kontrollieren"
+      text: "Bearbeiten Sie Aufgaben und gleichen Sie Ihre Antworten mit dem Lösungsheft ab."
+    - title: "Regeln aufschreiben"
+      text: "Halten Sie Strategieauswahl, Kapitalbedarf und Grenzen in Ihrer Handelsplan-Vorlage fest."
+    - title: "Vor jedem Trade prüfen"
+      text: "Nutzen Sie die Trade-Checkliste und Greeks-Referenz, um Verpflichtungen und Risiken im Blick zu behalten."
+details:
+  - title: "Ihre Materialien zum Workbook"
+    paragraphs:
+      - 'Im <a href="/workbook.html">Workbook-Bonusbereich</a> finden Sie Lösungsheft, Handelsplan-Vorlage, Trade-Checkliste, Greeks-Referenz und interaktive Rechner. Der Zugangshinweis steht im Workbook.'
+      - 'Der <a href="/handelsplan.html">Handelsplan-Generator</a> ist kostenlos zugänglich. Er unterstützt Sie beim Formulieren Ihrer Regeln.'
+next:
+  eyebrow: "Danach · Lernweg 03"
+  title: "Verfeinern Sie Ihren Research-Prozess."
+  text: "Im KI-Kurs verbinden Sie strukturierte Fragen mit Quellenprüfung und Szenarioanalyse."
+  cta: { label: "KI-Kurs kennenlernen", url: "/ki-kurs/" }

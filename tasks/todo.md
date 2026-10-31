@@ -123,3 +123,40 @@ validiert mit `npm run validate-blog` und öffnet einen Draft-PR; der Mensch mer
 - [ ] Redaktionelle Freigabe und Veröffentlichung der überarbeiteten Fassung.
 
 Review: 50 HTML-Seiten gebaut, 2.632 lokale Verweise und 142 JSON-LD-Blöcke geprüft; alle bisherigen 46 HTML-/XML-Routen erhalten. Browserprüfungen und Grenzen siehe docs/brand-system.md. Der Pull Request führt eine Linux-/Node-20-Buildprüfung ein. Veröffentlichung auf main erfolgt getrennt von der Vorschau.
+
+---
+
+# Inhalt, Code und Backend trennen (01.11.2026)
+
+Ziel: Seitentexte und Produktdaten ohne HTML-Kenntnisse pflegbar machen; Build-Code und
+Betrieb klar abgrenzen. Vorgaben: YAML je Seite, Marketing-Seiten + Produktdaten
+(interaktive Tools unverändert), Ausgabe inhaltlich identisch.
+
+- [x] Baseline-Build gesichert, `scripts/diff-site-text.js` (`npm run diff-site`) geschrieben und selbst geprüft
+- [x] `lib/content.js` + Loader `src/_data/{pages,products,author,partials,eleventyComputed}.js`
+- [x] `content/products.yaml` und `content/author.yaml` als einzige Quelle; Head, Feed, Blog-JSON-LD, Autorenbox, Quiz umgestellt
+- [x] 11 Seiten nach `content/pages/*.yaml` (Startseite, Buch, Workbook, KI-Kurs, Über, Tools, Aktienanleihen, Danke, Landingpage, Impressum, Datenschutz)
+- [x] Starterkit- und Blog-CTA-Texte nach `content/partials/`
+- [x] Bausteine: `macros/ui.njk`, `partials/product-hero.njk`, `product-details.njk`, `schema-book.njk`
+- [x] `site.json` auf technische Konfiguration reduziert (9 Schlüssel entfernt, davon 4 ungenutzt)
+- [x] `.eleventy.js` → `lib/css-bundle.js`, `lib/blog-cover.js`, `lib/filters.js`
+- [x] Brevo-Mailvorlage `content/email/` → `ops/brevo/`
+- [x] README (Schichten, Struktur, Scripts), `docs/brand-system.md`, Lessons
+
+## Review
+- `npm run diff-site` gegen Baseline: 51 Dateien, 0 inhaltliche Abweichungen
+  (sichtbarer Text, JSON-LD, Links/Bilder/Meta, Routen). Die Sitemap-Reihenfolge
+  hängt vom Dateidatum ab und wird reihenfolgeunabhängig verglichen.
+- `.eleventy.js`-Auslagerung: Ausgabe byte-identisch, CSS-Bundle-Hash unverändert.
+- `npm run validate-blog` grün (29 FAQPage-Seiten wie zuvor).
+- `.eleventy.js` 357 → 147 Zeilen. Buchpreis vorher an 4 Stellen, Workbook-Preis an 3,
+  Autor-Credentials an 5 – jetzt je 1 Stelle in `content/`.
+
+## Offene Folgepunkte (bewusst nicht umgesetzt, Ausgabe sollte identisch bleiben)
+- [ ] Tote Dateien entfernen: `assets/js/slider.js`, `fonts.css` (nur Kommentar), 7 ungenutzte woff2, `assets/downloads/Starterkit.pdf`, `leadgen.css` Z. 1–413, Nav-Dropdown-Code in `main.js`
+- [ ] `brand.css` ins globale Bundle aufnehmen und Selektor-Dubletten mit `components.css`/`nav.css`/`base.css` bereinigen
+- [ ] Brevo-Formular im Quiz (`tools/quiz.njk`) auf `partials/starterkit.njk` umstellen (fehlender Datenschutzhinweis)
+- [ ] Quizfragen aus `assets/js/quiz.js` in eine Datendatei auslagern
+- [ ] `scripts/generate-og-image.js`: statische Sterne/„17 Rezensionen" widersprechen der Markenregel
+- [ ] Themen-Backlog `content/topics.yaml` hat keinen offenen Eintrag – die Weekly-Automatik läuft leer
+- [ ] `_headers` (CSP) wirkt auf GitHub Pages nicht

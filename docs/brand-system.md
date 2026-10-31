@@ -18,7 +18,7 @@ Grundlage: just OPTIONS Brand Strategy v1.1 vom 13. September 2026. Das Dokument
 
 ## Pflege
 
-Die gemeinsamen Tokens stehen in variables.css, die übergreifende Gestaltung in brand.css. Artikel verwenden pillar und subtitle. Änderungen an Produktpreisen müssen mit dem tatsächlichen Angebot übereinstimmen; der KI-Kurs verweist deshalb für den aktuellen Preis auf die Kursplattform. Das Footer-Jahr wird beim Build und im Browser aktualisiert.
+Die gemeinsamen Tokens stehen in variables.css, die übergreifende Gestaltung in brand.css. Artikel verwenden pillar und subtitle. Preise, Seitenzahlen, ISBN, Erscheinungstermine und Kauflinks stehen ausschließlich in `content/products.yaml`, Seitentexte in `content/pages/*.yaml`. Änderungen an Produktpreisen müssen mit dem tatsächlichen Angebot übereinstimmen; der KI-Kurs verweist deshalb für den aktuellen Preis auf die Kursplattform. Das Footer-Jahr wird beim Build und im Browser aktualisiert.
 
 ## Prüfung am 13. September 2026
 

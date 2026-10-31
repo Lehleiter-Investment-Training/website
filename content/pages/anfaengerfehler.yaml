@@ -1,0 +1,16 @@
+# Landingpage /Anfaengerfehler.html – der Anmeldeblock kommt aus content/partials/starterkit.yaml
+meta:
+  title: "Starterkit – 5 Anfängerfehler im Optionshandel"
+  description: "Lernen Sie typische Anfängerfehler kennen, bevor Sie Optionen handeln. Kostenloser PDF-Leitfaden und Wochenausblick von just OPTIONS."
+hero:
+  title: "Erst die Fehler kennen.<br>Dann den ersten Schritt gehen."
+  text: "Ihr kostenloser Einstieg in die Optionslogik."
+details:
+  title: "Was Sie mitnehmen"
+  paragraphs:
+    - "Der Leitfaden benennt fünf häufige Anfängerfehler. Sie können damit Ihr Vorgehen hinterfragen und gezielt an Grundlagen, Risikoregeln und Routine arbeiten."
+    - "Der Newsletter ergänzt den Einstieg um einen Wochenausblick und Einordnung für Ihr Depot. Die Anmeldung erfolgt mit E-Mail-Bestätigung; eine Abmeldung ist jederzeit möglich."
+next:
+  title: "Die Grundlagen systematisch vertiefen"
+  text: "Das Praxishandbuch erklärt Strategien zusammen mit ihren Verpflichtungen und Risiken."
+  cta: { label: "Das Praxishandbuch kennenlernen →", url: "/buch/", style: "link" }

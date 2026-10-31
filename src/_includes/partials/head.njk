@@ -5,7 +5,7 @@
 {% if keywords %}
 <meta name="keywords" content="{{ keywords }}">
 {% endif %}
-<meta name="author" content="{{ site.author }}">
+<meta name="author" content="{{ author.name }}">
 {% if robots %}
 <meta name="robots" content="{{ robots }}">
 {% endif %}
@@ -74,10 +74,10 @@
     {
       "@type": "Person",
       "@id": "{{ site.url }}/#person",
-      "name": "{{ site.author }}",
+      "name": {{ author.name | dump | safe }},
       "url": "{{ site.url }}",
       "image": "{{ site.url }}/assets/images/autor.jpg",
-      "jobTitle": "Autor & Optionshändler",
+      "jobTitle": {{ author.jobTitle | dump | safe }},
       "sameAs": [
         "{{ site.social.linkedin }}",
         "{{ site.social.instagram }}",

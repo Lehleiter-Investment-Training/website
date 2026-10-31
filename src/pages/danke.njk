@@ -1,14 +1,12 @@
 ---
 layout: layouts/page.njk
-pageTitle: "Ihr Starterkit und der nächste Schritt"
-subtitle: "Bitte prüfen Sie Ihr E-Mail-Postfach"
-description: "Vielen Dank für Ihre Anmeldung bei just OPTIONS."
+pageKey: danke
 permalink: /Danke.html
 robots: "noindex, nofollow"
 extraCss: ["/assets/css/leadgen.css"]
 ---
-
-
+{#- Texte: content/pages/danke.yaml · Preise/Links: content/products.yaml -#}
+{%- set d = copy -%}
 <div class="danke-main">
     <div class="danke-container">
 
@@ -18,19 +16,19 @@ extraCss: ["/assets/css/leadgen.css"]
             </svg>
         </div>
 
-        <h2 class="danke-heading">Fast geschafft!</h2>
-        <p class="danke-subheading">Vielen Dank für Ihre Anmeldung! Bitte bestätigen Sie jetzt Ihre E-Mail-Adresse über den Link in der Bestätigungsmail. Erst danach erhalten Sie wertvolle strategische Updates und Einordnungen jede Woche direkt in Ihr Postfach.</p>
+        <h2 class="danke-heading">{{ d.heading | safe }}</h2>
+        <p class="danke-subheading">{{ d.subheading | safe }}</p>
 
         <div class="download-card">
-            <div class="card-badge">Ihr PDF-Leitfaden</div>
-            <h3 class="download-title">Die 5 häufigsten Anfängerfehler im Optionshandel</h3>
-            <p class="download-desc">Erfahren Sie, welche Fehler die meisten Einsteiger machen – und wie Sie diese von Anfang an vermeiden. Ihr kostenloser Leitfaden steht jetzt zum Download bereit.</p>
+            <div class="card-badge">{{ d.download.badge | safe }}</div>
+            <h3 class="download-title">{{ d.download.title | safe }}</h3>
+            <p class="download-desc">{{ d.download.text | safe }}</p>
 
-            <a href="/5Anfaengerfehler_Optionshandel.pdf" class="btn-download" download>
+            <a href="{{ d.download.url }}" class="btn-download" download>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
-                PDF jetzt herunterladen
+                {{ d.download.label | safe }}
             </a>
 
             <div class="file-info">
@@ -38,60 +36,52 @@ extraCss: ["/assets/css/leadgen.css"]
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                     </svg>
-                    PDF-Dokument
+                    {{ d.download.facts[0] | safe }}
                 </span>
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                     </svg>
-                    Für Ihren Einstieg
+                    {{ d.download.facts[1] | safe }}
                 </span>
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
-                    Kostenlos
+                    {{ d.download.facts[2] | safe }}
                 </span>
             </div>
         </div>
 
         <div class="next-steps">
-            <h3>So geht es weiter</h3>
+            <h3>{{ d.nextSteps.title | safe }}</h3>
             <div class="steps-grid">
+                {% for step in d.nextSteps.items %}
                 <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h4>PDF lesen</h4>
-                    <p>Laden Sie den Leitfaden herunter und entdecken Sie die häufigsten Fehler, die es zu vermeiden gilt.</p>
+                    <div class="step-number">{{ loop.index }}</div>
+                    <h4>{{ step.title | safe }}</h4>
+                    <p>{{ step.text | safe }}</p>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h4>Newsletter lesen</h4>
-                    <p>Sie erhalten regelmäßig Markteinordnungen und Hintergrundwissen direkt in Ihr Postfach.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h4>Wissen vertiefen</h4>
-                    <p>Entdecken Sie das Buch für einen systematischen Einstieg in den erfolgreichen Optionshandel.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
         <div class="book-recommendation">
-            <h3>Bereit für den nächsten Schritt?</h3>
+            <h3>{{ d.books.title | safe }}</h3>
             <div class="book-rec-grid">
                 <div class="book-rec-card">
-                    {% image "assets/images/buchcover.png", "Optionen strategisch nutzen", "120px", "lazy", "book-rec-img", [120, 240] %}
-                    <h4>Optionen strategisch nutzen</h4>
-                    <p>Das Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel.</p>
-                    <div class="book-rec-price">24,00 €</div>
-                    <a href="{{ site.amazonBookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Jetzt auf Amazon kaufen</a>
+                    {% image products.book.image.slice(1), d.books.book.imageAlt, "120px", "lazy", "book-rec-img", [120, 240] %}
+                    <h4>{{ d.books.book.title | safe }}</h4>
+                    <p>{{ d.books.book.text | safe }}</p>
+                    <div class="book-rec-price">{{ products.book.priceDisplay }}</div>
+                    <a href="{{ products.book.amazonUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">{{ d.books.buyLabel | safe }}</a>
                 </div>
                 <div class="book-rec-card">
-                    {% image "assets/images/workbook.png", "Das Workbook", "120px", "lazy", "book-rec-img", [120, 240] %}
-                    <h4>Das Workbook zum Buch</h4>
-                    <p>Übungen, Checklisten und Praxisbeispiele zum Vertiefen.</p>
-                    <div class="book-rec-price">19,99 €</div>
-                    <a href="{{ site.amazonWorkbookUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Jetzt auf Amazon kaufen</a>
+                    {% image products.workbook.image.slice(1), d.books.workbook.imageAlt, "120px", "lazy", "book-rec-img", [120, 240] %}
+                    <h4>{{ d.books.workbook.title | safe }}</h4>
+                    <p>{{ d.books.workbook.text | safe }}</p>
+                    <div class="book-rec-price">{{ products.workbook.priceDisplay }}</div>
+                    <a href="{{ products.workbook.amazonUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">{{ d.books.buyLabel | safe }}</a>
                 </div>
             </div>
         </div>
@@ -102,11 +92,11 @@ extraCss: ["/assets/css/leadgen.css"]
                     <div class="telegram-banner-text">
                         <i class="fab fa-telegram"></i>
                         <div>
-                            <h3>Tägliche News & Marktanalysen</h3>
-                            <p>Kostenlose Updates direkt auf Ihr Smartphone</p>
+                            <h3>{{ d.telegram.title | safe }}</h3>
+                            <p>{{ d.telegram.text | safe }}</p>
                         </div>
                     </div>
-                    <a href="{{ site.social.telegram }}" class="btn" target="_blank" rel="noopener noreferrer">Telegram-Kanal beitreten</a>
+                    <a href="{{ site.social.telegram }}" class="btn" target="_blank" rel="noopener noreferrer">{{ d.telegram.label | safe }}</a>
                 </div>
             </div>
         </div>

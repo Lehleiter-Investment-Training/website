@@ -1,0 +1,14 @@
+# „Nächster Schritt" am Ende jedes Blogartikels. Variante je nach Frontmatter-Feld `pillar`.
+eyebrow: "Ihr nächster Schritt"
+variants:
+  system:          # Artikel mit pillar: system
+    title: "Übertragen Sie Ihr Wissen in Regeln."
+    text: "Nutzen Sie den Handelsplan-Generator, um Ihren Ablauf schriftlich festzuhalten. Ein Plan hilft bei der Disziplin; Verluste bleiben möglich."
+    cta: { label: "Meinen Handelsplan erstellen", url: "/handelsplan.html" }
+  default:         # alle übrigen Artikel
+    title: "Die Zusammenhänge systematisch verstehen."
+    text: "Das Praxishandbuch verbindet Grundlagen, Strategien und Risikomanagement. Das Workbook führt Sie anschließend zum eigenen System."
+    cta: { label: "Das Praxishandbuch kennenlernen", url: "/buch/" }
+starterkit:
+  label: "Neu im Thema? Mit dem kostenlosen Starterkit beginnen."
+  url: "/Anfaengerfehler.html"

@@ -1,8 +1,8 @@
 <aside class="author-box">
-    {% image "assets/images/autor-square.jpg", "Markus Lehleiter", "96px", "lazy", "author-box-img", [96, 192] %}
+    {% image "assets/images/autor-square.jpg", author.name, "96px", "lazy", "author-box-img", [96, 192] %}
     <div class="author-box-body">
-        <p class="author-box-name">Markus Lehleiter <span class="author-box-credentials">· CFA, FRM</span></p>
-        <p class="author-box-bio">Über 20 Jahre Erfahrung im Finanzbereich – u.&nbsp;a. bei zwei namhaften Asset Managern. Chartered Financial Analyst (CFA), Financial Risk Manager (FRM) und Wirtschaftsmathematiker. Autor von „Optionen strategisch nutzen" und dem zugehörigen Workbook. Er vermittelt den Optionshandel praxisnah und fundiert.</p>
-        <a href="/ueber/" class="author-box-link">Über Markus Lehleiter &rarr;</a>
+        <p class="author-box-name">{{ author.name }} <span class="author-box-credentials">· {{ author.credentialsShort }}</span></p>
+        <p class="author-box-bio">{{ author.bioShort | safe }}</p>
+        <a href="{{ author.profileUrl }}" class="author-box-link">{{ author.profileLinkLabel | safe }}</a>
     </div>
 </aside>
