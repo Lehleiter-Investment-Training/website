@@ -95,8 +95,7 @@ permalink: /index.html
       <p class="eyebrow">{{ c.author.eyebrow | safe }}</p>
       <h2>{{ author.name }}</h2>
       {{ ui.paragraphs(c.author.paragraphs) }}
-      {{ ui.link(c.author.link) }}
-      <span id="reviews"></span>
+      {{ ui.link(c.author.link) }}<span id="reviews"></span>
       <p class="small-copy"><a href="{{ products.book.amazonUrl }}" target="_blank" rel="noopener noreferrer">{{ c.author.reviewsLabel | safe }}</a></p>
     </div>
   </div>
