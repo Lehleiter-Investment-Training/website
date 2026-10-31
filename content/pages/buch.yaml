@@ -1,0 +1,41 @@
+# Produktseite /buch/ – Preis, Seiten, ISBN, Erscheinungsdatum und Amazon-Link: content/products.yaml (book)
+meta:
+  title: "Optionen strategisch nutzen – Das Praxishandbuch"
+  description: "Lernen Sie, Optionsstrategien, Verpflichtungen und Risiken zu verstehen. Das Praxishandbuch von Markus Lehleiter mit Grundlagen, Risikomanagement und Handelsplan."
+hero:
+  eyebrow: "Lernweg 01 · Fundament legen"
+  title: "Verstehen, was Sie handeln."
+  paragraphs:
+    - "Mit „Optionen strategisch nutzen“ lernen Sie, Prämien, Verpflichtungen und Verlustszenarien zusammen zu betrachten. So können Sie eine Strategie einordnen, bevor Sie Kapital einsetzen."
+    - "Optionen können Zusatzerträge ermöglichen und Positionen absichern. Je nach Strategie drohen erhebliche Verluste; eine Prämie allein ist kein Schutz."
+  showMeta: true
+  cta: { label: "Buch bestellen" }
+  secondary: { label: "Bonusmaterial öffnen →", url: "/Bonus.html" }
+  imageAlt: "Optionen strategisch nutzen von Markus Lehleiter"
+outcomes:
+  eyebrow: "Was Sie danach können"
+  title: "Von der Produktlogik<br>zur eigenen Entscheidung."
+  items:
+    - title: "Strategien unterscheiden"
+      text: "Sie verstehen, was eine Option kostet, welche Verpflichtung ein Verkauf auslöst und welche Rolle Laufzeit und Volatilität spielen."
+    - title: "Risiken prüfen"
+      text: "Sie ordnen Margin, Optionsgriechen und Positionsgrößen ein und erkennen, warum hohe Trefferquoten allein wenig aussagen."
+    - title: "Regeln formulieren"
+      text: "Sie entwickeln einen Handelsplan und nutzen ein Journal, um Ihre Entscheidungen nachvollziehbar auszuwerten."
+details:
+  - title: "So ist das Praxishandbuch aufgebaut"
+    faq:
+      - { q: "1 · Grundlagen des Optionshandels", a: "Begriffe, Preisbildung, Volatilität und Zeitwert." }
+      - { q: "2 · Optionsstrategien verstehen", a: "Kernstrategien für Einsteiger, weiterführende Ansätze und langfristige Optionen." }
+      - { q: "3 · Strategien systematisch prüfen", a: "Marktindikatoren, Auswahl von Basiswerten und Backtesting." }
+      - { q: "4 · Risiken professionell managen", a: "Margin, Delta und Gamma, Money-Management und Orderarten." }
+      - { q: "5 · Ein eigenes System aufbauen", a: "Typische Fehler, Gewohnheiten, Handelsplan und Trading-Journal." }
+  - title: "Passt das Buch zu Ihnen?"
+    paragraphs:
+      - "Sie kennen Aktien und Börsenhandel und möchten sich strukturiert in Optionen einarbeiten. Optionswissen wird Schritt für Schritt aufgebaut. Eine Anleitung zu kurzfristigen Spekulationen oder konkrete Handelssignale sind nicht das Ziel."
+    amazonLink: "Aktuelle Ausgabe, Verfügbarkeit und Leserbewertungen bei Amazon ansehen"
+next:
+  eyebrow: "Danach · Lernweg 02"
+  title: "Aus Wissen werden schriftliche Regeln."
+  text: "Das Workbook ergänzt die Grundlagen um Übungen, Checklisten und Praxisbeispiele."
+  cta: { label: "Workbook kennenlernen", url: "/praxis-workbook/" }

@@ -1,0 +1,22 @@
+# Übersichtsseite /tools/ – die Tools selbst liegen unter src/tools/
+meta:
+  title: "Tools für Ihren Lernweg"
+  subtitle: "Wissen prüfen. Begriffe klären. Regeln festhalten."
+  description: "Optionswissen prüfen, Begriffe nachschlagen und einen Handelsplan erstellen: die kostenlosen Lernwerkzeuge von just OPTIONS."
+cards:
+  - pill: "Fundament"
+    title: "Optionswissen-Quiz"
+    text: "20 Fragen mit Erläuterungen zeigen Ihnen, welche Grundlagen Sie bereits verstehen und wo sich Vertiefung lohnt."
+    link: { label: "Optionswissen prüfen →", url: "/quiz.html" }
+  - pill: "Fundament"
+    title: "Börsen-Quiz"
+    text: "Prüfen Sie Ihr Wissen zu Aktien, ETFs und weiteren Börsenthemen. Mit Rückmeldung zu jeder Antwort."
+    link: { label: "Börsenwissen prüfen →", url: "/boersenquiz.html" }
+  - pill: "System"
+    title: "Handelsplan-Generator"
+    text: "Halten Sie Ziele, Strategieauswahl und Risikoregeln schriftlich fest. Drucken Sie Ihren Plan zur weiteren Arbeit aus."
+    link: { label: "Handelsplan erstellen →", url: "/handelsplan.html" }
+materials:
+  title: "Begriffe und Arbeitsmaterialien"
+  text: 'Das <a href="/glossar.html">Glossar</a> erklärt Fachbegriffe. Im <a href="/Bonus.html">Buch-Bonusbereich</a> und im <a href="/workbook.html">Workbook-Bonusbereich</a> finden Sie ergänzende Vorlagen und Rechner.'
+  tip: "Die Tools unterstützen Ihr Lernen. Ein Quiz-Ergebnis oder ein ausgefüllter Handelsplan bestätigt keine persönliche Eignung für den Optionshandel."

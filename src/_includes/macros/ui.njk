@@ -1,0 +1,35 @@
+{#-
+  Wiederverwendbare Bausteine für Marketing-Seiten. Texte kommen aus content/pages/*.yaml.
+  Copy-Felder sind HTML-Fragmente (| safe); URLs und Attribute werden escaped.
+  Hinweis: Kein {% image %} in Makros verwenden (asynchroner Shortcode).
+-#}
+
+{#- Eyebrow + Überschrift (+ optionaler Einleitungstext) -#}
+{% macro sectionIntro(s, tag="h2", wrap=true) -%}
+{% if wrap %}<div class="section-intro">{% endif %}{% if s.eyebrow %}<p class="eyebrow">{{ s.eyebrow | safe }}</p>{% endif %}<{{ tag }}>{{ s.title | safe }}</{{ tag }}>{% if s.text %}<p>{{ s.text | safe }}</p>{% endif %}{% if wrap %}</div>{% endif %}
+{%- endmacro %}
+
+{#- Absätze aus einer Liste -#}
+{% macro paragraphs(list) -%}
+{% for p in list %}<p>{{ p | safe }}</p>{% endfor %}
+{%- endmacro %}
+
+{#- Aufklappbare Liste (FAQ, Kapitelübersicht): items = [{q, a}] -#}
+{% macro faqList(items) -%}
+{% for it in items %}<details class="brand-faq"><summary>{{ it.q | safe }}</summary><p>{{ it.a | safe }}</p></details>{% endfor %}
+{%- endmacro %}
+
+{#- Karten-Raster: items = [{pill?, title, text, link?}] -#}
+{% macro resourceCards(items, tag="h3", gridClass="resource-grid") -%}
+<div class="{{ gridClass }}">{% for c in items %}<article class="resource-card">{% if c.pill %}<p class="pill">{{ c.pill | safe }}</p>{% endif %}<{{ tag }}>{{ c.title | safe }}</{{ tag }}><p>{{ c.text | safe }}</p>{% if c.link %}<a href="{{ c.link.url }}" class="text-link">{{ c.link.label | safe }}</a>{% endif %}</article>{% endfor %}</div>
+{%- endmacro %}
+
+{#- Abschluss-Block „Nächster Schritt": n = {eyebrow?, title, text?, cta: {label, url, style?}} -#}
+{% macro nextStep(n) -%}
+<div class="next-step">{% if n.eyebrow %}<p class="eyebrow">{{ n.eyebrow | safe }}</p>{% endif %}<h2>{{ n.title | safe }}</h2>{% if n.text %}<p>{{ n.text | safe }}</p>{% endif %}<a href="{{ n.cta.url }}" class="{{ 'text-link' if n.cta.style == 'link' else 'btn btn-primary' }}">{{ n.cta.label | safe }}</a></div>
+{%- endmacro %}
+
+{#- Link: l = {label, url, external?}; cls = CSS-Klasse -#}
+{% macro link(l, cls="text-link") -%}
+<a href="{{ l.url }}" class="{{ cls }}"{% if l.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ l.label | safe }}</a>
+{%- endmacro %}

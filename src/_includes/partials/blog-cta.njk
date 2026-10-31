@@ -1,1 +1,12 @@
-<div class="blog-cta-section"><div class="next-step"><p class="eyebrow">Ihr nächster Schritt</p>{% if pillar == "system" %}<h2>Übertragen Sie Ihr Wissen in Regeln.</h2><p>Nutzen Sie den Handelsplan-Generator, um Ihren Ablauf schriftlich festzuhalten. Ein Plan hilft bei der Disziplin; Verluste bleiben möglich.</p><a href="/handelsplan.html" class="btn btn-primary">Meinen Handelsplan erstellen</a>{% else %}<h2>Die Zusammenhänge systematisch verstehen.</h2><p>Das Praxishandbuch verbindet Grundlagen, Strategien und Risikomanagement. Das Workbook führt Sie anschließend zum eigenen System.</p><a href="/buch/" class="btn btn-primary">Das Praxishandbuch kennenlernen</a>{% endif %}<p class="small-copy" style="margin-top:20px"><a href="/Anfaengerfehler.html">Neu im Thema? Mit dem kostenlosen Starterkit beginnen.</a></p></div></div>
+{#- Texte: content/partials/blog-cta.yaml -#}
+{%- set cta = partials["blog-cta"] -%}
+{%- set v = cta.variants[pillar] or cta.variants.default -%}
+<div class="blog-cta-section">
+  <div class="next-step">
+    <p class="eyebrow">{{ cta.eyebrow | safe }}</p>
+    <h2>{{ v.title | safe }}</h2>
+    <p>{{ v.text | safe }}</p>
+    <a href="{{ v.cta.url }}" class="btn btn-primary">{{ v.cta.label | safe }}</a>
+    <p class="small-copy" style="margin-top:20px"><a href="{{ cta.starterkit.url }}">{{ cta.starterkit.label | safe }}</a></p>
+  </div>
+</div>

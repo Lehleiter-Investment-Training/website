@@ -1,0 +1,22 @@
+{#-
+  Inhaltsabschnitte der Produktseiten: Karten-Raster, Fließtext-Abschnitte, nächster Schritt.
+  Erwartet: copy (Seiteninhalt) und product.
+-#}
+{% import "macros/ui.njk" as ui %}
+<section class="brand-section muted-section">
+  <div class="container">
+    {{ ui.sectionIntro(copy.outcomes, wrap=(copy.outcomes.intro != false)) }}
+    {{ ui.resourceCards(copy.outcomes.items) }}
+  </div>
+</section>
+<section class="brand-section">
+  <div class="container prose">
+    {% for block in copy.details %}
+    <h2>{{ block.title | safe }}</h2>
+    {% if block.faq %}{{ ui.faqList(block.faq) }}{% endif %}
+    {% if block.paragraphs %}{{ ui.paragraphs(block.paragraphs) }}{% endif %}
+    {% if block.amazonLink %}<p><a href="{{ product.amazonUrl }}" target="_blank" rel="noopener noreferrer">{{ block.amazonLink | safe }}</a></p>{% endif %}
+    {% endfor %}
+    {{ ui.nextStep(copy.next) }}
+  </div>
+</section>

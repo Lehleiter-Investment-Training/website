@@ -43,6 +43,11 @@ function sortKeys(v) {
 }
 
 function extract(html) {
+  // Sitemap: Reihenfolge der <url>-Einträge hängt vom Dateidatum ab und ist nicht inhaltlich.
+  if (/<urlset[\s>]/.test(html)) {
+    const urls = [...html.matchAll(/<url>[\s\S]*?<\/url>/g)].map((m) => m[0].replace(/\s+/g, " ")).sort();
+    return { jsonld: [], attrs: [], text: urls.join(" ") };
+  }
   const jsonld = [];
   for (const m of html.matchAll(/<script[^>]*type="?application\/ld\+json"?[^>]*>([\s\S]*?)<\/script>/g)) {
     try {

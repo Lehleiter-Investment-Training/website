@@ -1,0 +1,39 @@
+# Danke-Seite nach der Newsletter-Anmeldung (/Danke.html, Brevo-Weiterleitung).
+# Preise und Amazon-Links der Buchempfehlungen: content/products.yaml
+meta:
+  title: "Ihr Starterkit und der nächste Schritt"
+  subtitle: "Bitte prüfen Sie Ihr E-Mail-Postfach"
+  description: "Vielen Dank für Ihre Anmeldung bei just OPTIONS."
+heading: "Fast geschafft!"
+subheading: "Vielen Dank für Ihre Anmeldung! Bitte bestätigen Sie jetzt Ihre E-Mail-Adresse über den Link in der Bestätigungsmail. Erst danach erhalten Sie wertvolle strategische Updates und Einordnungen jede Woche direkt in Ihr Postfach."
+download:
+  badge: "Ihr PDF-Leitfaden"
+  title: "Die 5 häufigsten Anfängerfehler im Optionshandel"
+  text: "Erfahren Sie, welche Fehler die meisten Einsteiger machen – und wie Sie diese von Anfang an vermeiden. Ihr kostenloser Leitfaden steht jetzt zum Download bereit."
+  label: "PDF jetzt herunterladen"
+  url: "/5Anfaengerfehler_Optionshandel.pdf"   # Datei: src/assets/downloads/
+  facts: ["PDF-Dokument", "Für Ihren Einstieg", "Kostenlos"]
+nextSteps:
+  title: "So geht es weiter"
+  items:
+    - title: "PDF lesen"
+      text: "Laden Sie den Leitfaden herunter und entdecken Sie die häufigsten Fehler, die es zu vermeiden gilt."
+    - title: "Newsletter lesen"
+      text: "Sie erhalten regelmäßig Markteinordnungen und Hintergrundwissen direkt in Ihr Postfach."
+    - title: "Wissen vertiefen"
+      text: "Entdecken Sie das Buch für einen systematischen Einstieg in den erfolgreichen Optionshandel."
+books:
+  title: "Bereit für den nächsten Schritt?"
+  buyLabel: "Jetzt auf Amazon kaufen"
+  book:
+    imageAlt: "Optionen strategisch nutzen"
+    title: "Optionen strategisch nutzen"
+    text: "Das Praxishandbuch für den erfolgreichen Einstieg in den Optionshandel."
+  workbook:
+    imageAlt: "Das Workbook"
+    title: "Das Workbook zum Buch"
+    text: "Übungen, Checklisten und Praxisbeispiele zum Vertiefen."
+telegram:
+  title: "Tägliche News & Marktanalysen"
+  text: "Kostenlose Updates direkt auf Ihr Smartphone"
+  label: "Telegram-Kanal beitreten"   # URL: src/_data/site.json → social.telegram

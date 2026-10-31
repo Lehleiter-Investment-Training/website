@@ -1,0 +1,113 @@
+# Datenschutzerklärung (/datenschutz.html). Rechtstext: HTML-Blöcke je Abschnitt; Änderungen nur nach rechtlicher Prüfung.
+meta:
+  title: "Datenschutzerklärung"
+  description: "Datenschutzerklärung für die Website 'Optionen strategisch nutzen' von Markus Lehleiter."
+sections:
+  - html: |
+      <div class="contact-info">
+          <p><strong>Verantwortlicher im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO):</strong></p>
+          <p>Markus Lehleiter<br>
+          c/o Block Services<br>
+          Stuttgarter Str. 106<br>
+          70736 Fellbach<br>
+          E-Mail: info@just-options.de</p>
+      </div>
+  - html: |
+      <h2>1. Datenschutz auf einen Blick</h2>
+      <h3>Allgemeine Hinweise</h3>
+      <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+
+      <h3>Datenerfassung auf dieser Website</h3>
+      <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+      Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Verantwortlicher" in dieser Datenschutzerklärung entnehmen.</p>
+
+      <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+      Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in das Newsletter-Formular eingeben.</p>
+
+      <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+      Ihre Daten werden ausschließlich für den Versand des Newsletters verwendet, sofern Sie sich dafür angemeldet haben.</p>
+
+      <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+      Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+  - html: |
+      <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+      <h3>Datenschutz</h3>
+      <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+      <h3>Hinweis zur verantwortlichen Stelle</h3>
+      <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+      <p>Markus Lehleiter<br>
+      c/o Block Services<br>
+      Stuttgarter Str. 106<br>
+      70736 Fellbach<br>
+      E-Mail: info@just-options.de</p>
+
+      <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+
+      <h3>Speicherdauer</h3>
+      <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z.B. steuer- oder handelsrechtliche Aufbewahrungsfristen).</p>
+
+      <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+      <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+
+      <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
+      <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+  - html: |
+      <h2>3. Hosting</h2>
+      <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Zugriffsdaten und sonstige Daten handeln, die über den Webbrowser übermittelt werden.</p>
+      <p>Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+      <h3>Server-Log-Dateien</h3>
+      <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+      <ul>
+          <li>Browsertyp und Browserversion</li>
+          <li>verwendetes Betriebssystem</li>
+          <li>Referrer URL</li>
+          <li>Hostname des zugreifenden Rechners</li>
+          <li>Uhrzeit der Serveranfrage</li>
+          <li>IP-Adresse</li>
+      </ul>
+      <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+  - html: |
+      <h2>4. Cookies und lokale Speicherung</h2>
+      <p>Diese Website setzt <strong>keine Cookies</strong>, verwendet <strong>kein Analyse- oder Marketing-Tool</strong> und bindet <strong>keine einwilligungspflichtigen Drittdienste</strong> ein. Es findet keine Reichweitenmessung und keine nutzerbezogene Auswertung statt. Aus diesem Grund ist kein Cookie- bzw. Einwilligungs-Banner erforderlich.</p>
+      <p>Alle für die Darstellung benötigten Ressourcen (einschließlich Schriftsymbole/Icons) werden direkt von unserem Server ausgeliefert. Es werden hierfür keine Daten an Dritte übertragen.</p>
+  - html: |
+      <h2>5. Datenerfassung auf dieser Website</h2>
+
+      <h3>Newsletter und Starterkit</h3>
+      <p>Wenn Sie sich für unser kostenloses Optionshändler-Starterkit oder unseren Newsletter anmelden, werden folgende Daten erhoben:</p>
+      <ul>
+          <li>E-Mail-Adresse (Pflichtfeld)</li>
+          <li>Vorname (optional)</li>
+      </ul>
+      <p>Diese Daten werden ausschließlich für die Zustellung des Starterkits (PDF-Leitfaden) sowie den anschließenden Versand des Newsletters verwendet.</p>
+      <p>Wir nutzen hierfür den Dienstanbieter <strong>Brevo (ehemals Sendinblue)</strong>, Brevo SAS, 106 boulevard Haussmann, 75008 Paris, Frankreich. Brevo verarbeitet Ihre Daten DSGVO-konform auf Grundlage eines Auftragsverarbeitungsvertrags. Weitere Informationen finden Sie in der <a href="https://www.brevo.com/de/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Brevo</a>.</p>
+      <p>Ein Double-Opt-in-Verfahren wird verwendet, um Ihre Anmeldung zu bestätigen. Die Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
+      <p>Sie können sich jederzeit vom Newsletter abmelden. Nutzen Sie hierfür den Abmeldelink im Newsletter oder kontaktieren Sie uns direkt.</p>
+
+      <h3>Externe Links</h3>
+      <p>Auf dieser Website gibt es Links zur Verkaufsseite unserer Bücher auf Amazon. Sobald Sie diese Links anklicken, gelten die Datenschutzrichtlinien von Amazon.</p>
+  - html: |
+      <h2>6. Externe Dienste und Inhalte</h2>
+
+      <h3>Schriftsymbole / Icons</h3>
+      <p>Zur Darstellung von Symbolen wird das Set Font Awesome verwendet. Die benötigten Symbole sind <strong>lokal in unsere Website eingebettet</strong> (als SVG-Grafiken) und werden direkt von unserem Server ausgeliefert. Es erfolgt <strong>keine Verbindung zu einem externen Content-Delivery-Network und keine Übermittlung Ihrer IP-Adresse an Dritte</strong>.</p>
+      <p>Darüber hinaus werden auf dieser Website keine weiteren externen Inhalte (z. B. Schriftarten, Karten oder Videos von Drittanbietern) nachgeladen.</p>
+  - html: |
+      <h2>7. Ihre Rechte</h2>
+      <h3>Auskunft, Berichtigung und Löschung</h3>
+      <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
+
+      <h3>Recht auf Einschränkung der Verarbeitung</h3>
+      <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
+
+      <h3>Recht auf Datenübertragbarkeit</h3>
+      <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen (Art. 20 DSGVO). Hierzu können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
+  - html: |
+      <h2>8. Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+      <p><strong>Stand: Mai 2026</strong></p>
+backLink:
+  label: "Zurück zur Startseite"
+  url: "/"

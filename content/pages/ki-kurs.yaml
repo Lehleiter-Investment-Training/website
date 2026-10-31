@@ -1,0 +1,36 @@
+# Produktseite /ki-kurs/ – Kurslink: content/products.yaml (kurs.platformUrl). Kein Preis auf der Website.
+meta:
+  title: "KI-Kurs – Research strukturieren und Ergebnisse prüfen"
+  description: "Nutzen Sie KI als Denkpartner für Research, Portfolioanalyse und Szenarien. Lernen Sie einen wiederverwendbaren Ablauf mit kritischer Prüfung der Ergebnisse."
+hero:
+  eyebrow: "Lernweg 03 · Prozess verfeinern"
+  title: "Mit KI arbeiten.<br>Selbst urteilen."
+  paragraphs:
+    - "Der just OPTIONS KI-Kurs „Smartere Finanzentscheidungen mit KI“ unterstützt Sie dabei, Research und Portfoliofragen strukturiert zu bearbeiten."
+    - "KI kann plausibel klingende Fehler produzieren. Sie lernen, Kontext zu geben, Annahmen sichtbar zu machen und Antworten anhand von Quellen und Zahlen zu prüfen."
+  showMeta: false
+  cta: { label: "Zum KI-Kurs" }
+  note: "Aktueller Preis, Umfang und Zugang auf der Kursplattform."
+  imageAlt: "Smartere Finanzentscheidungen mit KI – just OPTIONS KI-Kurs"
+outcomes:
+  intro: false   # Überschrift ohne section-intro-Rahmen
+  eyebrow: "Ihr Ablauf"
+  title: "Ein Prozess, den Sie wiederverwenden."
+  items:
+    - title: "1 · Portfolio einlesen"
+      text: "Fragestellung, Ziele und Rahmenbedingungen aufbereiten. Persönliche Daten nur soweit nötig verwenden."
+    - title: "2 · Szenarien prüfen"
+      text: "Mit klaren Prompts verschiedene Entwicklungen und Gegenargumente untersuchen."
+    - title: "3 · Ergebnis kontrollieren"
+      text: "Quellen, Rechenwege und Aktualität prüfen. Die Entscheidung bleibt bei Ihnen."
+details:
+  - title: "Für wen der Kurs gedacht ist"
+    paragraphs:
+      - "Für Anleger, die KI bei Research und Finanzentscheidungen gezielter einsetzen möchten. Technisches Vorwissen ist laut Kursbeschreibung nicht nötig. Fachliche Grundlagen bleiben wichtig, um Ergebnisse beurteilen zu können."
+  - title: "Ihr Fundament bleibt der Handelsplan"
+    paragraphs:
+      - 'Eine KI-Antwort ersetzt weder eine Risikoregel noch Ihre Verantwortung für einen Trade. Falls Sie noch kein schriftliches System haben, beginnen Sie mit dem <a href="/praxis-workbook/">Workbook</a> und dem <a href="/handelsplan.html">Handelsplan-Generator</a>.'
+next:
+  title: "Kontinuierlich weiterlernen"
+  text: "Im Blog finden Sie Strategien, Risikothemen und Grundlagen zur Einordnung Ihrer Fragen."
+  cta: { label: "Wissen vertiefen", url: "/blog.html" }

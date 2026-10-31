@@ -1,0 +1,122 @@
+# Startseite (/). Copy-Felder sind HTML-Fragmente (<br>, <a>, &amp; erlaubt).
+# Vertrauensleiste und Autorenname: content/author.yaml · Buchpreis/-seiten: content/products.yaml
+# Anmeldeblock am Seitenende: content/partials/starterkit.yaml
+meta:
+  title: "Optionslogik für Privatanleger"
+  description: "Verstehen Sie Optionen und steuern Sie Ihr Depot mit einem eigenen System. Ihr Lernweg mit Starterkit, Büchern, Tools und KI-Kurs von just OPTIONS."
+
+hero:
+  eyebrow: "Wissen. Abwägen. Selbst entscheiden."
+  title: "Ihr Depot.<br>Ihre Entscheidungen.<br>Ein klares System."
+  lead: "Optionslogik für Privatanleger, die ihr Depot selbst in der Hand haben."
+  tagline: "Clever investieren, Zusatzerträge generieren, Risiken absichern."
+  cta: { label: "Starterkit sichern", url: "/Anfaengerfehler.html" }
+  secondary: { label: "Wo stehen Sie? →", url: "#lernweg" }
+  note: "Mit Risiken beginnen. Zusammenhänge verstehen. Bewusst handeln."
+
+decisionSheet:
+  label: "Der erste Schritt"
+  counter: "01 / 03"
+  title: "Vor jeder Position<br>steht ein Plan."
+  intro: "Drei Fragen für Ihre nächste Entscheidung:"
+  items:
+    - { index: "01", title: "Was kann ich verlieren?", text: "Verlustszenario und Kapitalbedarf verstehen." }
+    - { index: "02", title: "Warum passt die Strategie?", text: "Ziel, Basiswert und Verpflichtungen prüfen." }
+    - { index: "03", title: "Wann handle ich?", text: "Einstieg, Anpassung und Ausstieg festlegen." }
+  link: { label: "Meinen Handelsplan erstellen →", url: "/handelsplan.html" }
+
+lernweg:
+  eyebrow: "Ihr Lernweg"
+  title: "Vom ersten Verständnis<br>zum eigenen Vorgehen."
+  text: "Wählen Sie den Schritt, der zu Ihrem Wissen passt. Jeder baut auf dem vorherigen auf."
+  steps:
+    - index: "01"
+      pill: "Fundament legen"
+      title: "Ich möchte Optionen verstehen."
+      text: "Erkennen Sie typische Anfängerfehler und lernen Sie, wie Prämien, Verpflichtungen und Risiken zusammenhängen."
+      tools: "Starterkit · Praxishandbuch · Glossar"
+      link: { label: "Zum Fundament →", url: "/buch/" }
+    - index: "02"
+      pill: "System bauen"
+      title: "Ich möchte mit einem Plan handeln."
+      text: "Formulieren Sie Risikoregeln, prüfen Sie Strategien und halten Sie Ihre Entscheidungen schriftlich fest."
+      tools: "Workbook · Handelsplan · Checklisten"
+      link: { label: "Zum eigenen System →", url: "/praxis-workbook/" }
+    - index: "03"
+      pill: "Prozess verfeinern"
+      title: "Ich möchte fundierter entscheiden."
+      text: "Nutzen Sie KI für Research und Szenarien. Prüfen Sie Quellen und Ergebnisse, bevor Sie daraus Schlüsse ziehen."
+      tools: "KI-Kurs · Blog · Wochenausblick"
+      link: { label: "Zum Research-Prozess →", url: "/ki-kurs/" }
+
+pillars:
+  eyebrow: "Was sich für Ihr Depot ändert"
+  title: "Chancen verstehen.<br>Ihre Grenzen ebenso."
+  items:
+    - number: "01 / Zusatzerträge"
+      title: "Prämien bewusst einordnen"
+      text: "Ein Covered Call bringt eine Prämie, begrenzt aber Kursgewinne. Das Verlustrisiko der Aktie bleibt bestehen."
+      link: { label: "Covered Calls verstehen →", url: "/covered-call-strategie.html" }
+    - number: "02 / Absicherung"
+      title: "Schutz mit Kosten abwägen"
+      text: "Ein Protective Put kann Verluste der abgesicherten Position begrenzen. Die Prämie kostet Rendite und der Schutz endet mit der Laufzeit."
+      link: { label: "Absicherung verstehen →", url: "/protective-put.html" }
+    - number: "03 / Bessere Einstiege"
+      title: "Einen Kaufpreis festlegen"
+      text: "Ein Cash-Secured Put kann den effektiven Einstiegspreis senken. Sie müssen die Aktie aber auch nach einem starken Kursrückgang zum Strike kaufen."
+      link: { label: "Einstiege verstehen →", url: "/cash-secured-put.html" }
+    - number: "04 / System &amp; Disziplin"
+      title: "Entscheidungen vorbereiten"
+      text: "Ein Handelsplan macht Regeln überprüfbar. Er nimmt Ihnen keine Entscheidung ab und verhindert nicht jeden Verlust."
+      link: { label: "Regeln festhalten →", url: "/handelsplan.html" }
+
+book:
+  eyebrow: "Ihr Fundament · Das Praxishandbuch"
+  title: "Optionen strategisch nutzen."
+  imageAlt: "Optionen strategisch nutzen – Praxishandbuch von Markus Lehleiter"
+  paragraphs:
+    - "Verstehen Sie die Strategie, bevor Sie eine Position eröffnen: von Preisbildung und Volatilität bis zu Risikomanagement und Ihrem eigenen Handelsplan."
+    - "Das Buch erklärt Möglichkeiten und Verpflichtungen gemeinsam. Für Anleger mit Grundkenntnissen zu Aktien und Börse."
+  cta: { label: "Das Buch kennenlernen", url: "/buch/" }
+  secondary: { label: "Zum Bonusmaterial →", url: "/Bonus.html" }
+  followup: { label: "Danach: mit dem Workbook Ihr System erarbeiten →", url: "/praxis-workbook/" }
+
+kurs:
+  eyebrow: "Ihr nächster Schritt · KI-Kurs"
+  title: "Research strukturieren.<br>Ergebnisse selbst prüfen."
+  paragraphs:
+    - "Portfolio einlesen. Szenarien durchdenken. Antworten überprüfen. Bauen Sie einen wiederverwendbaren Ablauf für Ihre Finanzfragen auf."
+    - "KI kann falsche Zahlen und Quellen liefern. Der Kurs macht die Prüfung zum festen Bestandteil des Prozesses."
+  cta: { label: "KI-Kurs kennenlernen", url: "/ki-kurs/" }
+  workflow:
+    - { index: "01", title: "Kontext geben", text: "Portfolio und Fragestellung strukturieren." }
+    - { index: "02", title: "Szenarien untersuchen", text: "Annahmen und Gegenargumente sichtbar machen." }
+    - { index: "03", title: "Ergebnisse prüfen", text: "Quellen, Daten und Grenzen kontrollieren." }
+
+aktienanleihen:
+  eyebrow: "Optionslogik im Depot"
+  title: "Auch verpackte Produkte<br>verdienen einen genauen Blick."
+  text: "Aktienanleihen versprechen einen Kupon. Dafür tragen Sie Kursrisiko und zusätzlich das Ausfallrisiko des Emittenten. Die Optionslogik hilft, diese Verbindung zu verstehen."
+  link: { label: "Aktienanleihen einordnen →", url: "/aktienanleihen/" }
+
+author:
+  eyebrow: "Ihr Guide"
+  imageAlt: "Markus Lehleiter, Autor und Gründer von just OPTIONS"
+  paragraphs:
+    - "Eine neue Strategie wirft Fragen auf: Welche Verpflichtung gehe ich ein? Welchen Verlust kann ich tragen? Und was tue ich, wenn der Markt anders läuft als erwartet?"
+    - "Mit Erfahrung aus über 20 Jahren Finanzbranche, Fonds- und Produktentwicklung sowie eigener Optionspraxis übersetzt Markus Lehleiter komplexe Zusammenhänge in ein nachvollziehbares Vorgehen."
+  link: { label: "Über Markus und just OPTIONS →", url: "/ueber/" }
+  reviewsLabel: "Leserstimmen und aktuelle Bewertungen bei Amazon"
+
+faq:
+  eyebrow: "Vor dem ersten Schritt"
+  title: "Ihre Fragen zum Einstieg"
+  items:
+    - q: "Für wen ist just OPTIONS gedacht?"
+      a: "Für Privatanleger, die Aktien und ETFs kennen und Optionen bewusst einordnen möchten. Sie lernen ein systematisches Vorgehen und entscheiden selbst, ob eine Strategie zu Ihrem Depot passt."
+    - q: "Wo beginne ich ohne Optionswissen?"
+      a: "Mit dem kostenlosen Starterkit und dem Praxishandbuch. Das Glossar erklärt Fachbegriffe. Ein Optionskonto ist zum Lernen nicht nötig."
+    - q: "Erhalte ich konkrete Trade-Empfehlungen?"
+      a: "Die Inhalte vermitteln Wissen, Methoden und Risikoregeln. Es gibt keine individuellen Kauf- oder Verkaufsempfehlungen und keine Renditeversprechen."
+    - q: "Was gehört zum Starterkit?"
+      a: "Der PDF-Leitfaden zu fünf häufigen Anfängerfehlern und der Newsletter mit Wochenausblick und Einordnung. Sie können sich jederzeit abmelden."

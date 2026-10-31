@@ -1,9 +1,20 @@
 ---
 layout: layouts/base.njk
-pageTitle: "Starterkit – 5 Anfängerfehler im Optionshandel"
-description: "Lernen Sie typische Anfängerfehler kennen, bevor Sie Optionen handeln. Kostenloser PDF-Leitfaden und Wochenausblick von just OPTIONS."
+pageKey: anfaengerfehler
 permalink: /Anfaengerfehler.html
 ---
-<section class="page-title"><div class="container"><h1>Erst die Fehler kennen.<br>Dann den ersten Schritt gehen.</h1><p>Ihr kostenloser Einstieg in die Optionslogik.</p></div></section>
+{% import "macros/ui.njk" as ui %}
+<section class="page-title">
+  <div class="container">
+    <h1>{{ copy.hero.title | safe }}</h1>
+    <p>{{ copy.hero.text | safe }}</p>
+  </div>
+</section>
 {% include "partials/starterkit.njk" %}
-<section class="brand-section"><div class="container prose"><h2>Was Sie mitnehmen</h2><p>Der Leitfaden benennt fünf häufige Anfängerfehler. Sie können damit Ihr Vorgehen hinterfragen und gezielt an Grundlagen, Risikoregeln und Routine arbeiten.</p><p>Der Newsletter ergänzt den Einstieg um einen Wochenausblick und Einordnung für Ihr Depot. Die Anmeldung erfolgt mit E-Mail-Bestätigung; eine Abmeldung ist jederzeit möglich.</p><div class="next-step"><h2>Die Grundlagen systematisch vertiefen</h2><p>Das Praxishandbuch erklärt Strategien zusammen mit ihren Verpflichtungen und Risiken.</p><a href="/buch/" class="text-link">Das Praxishandbuch kennenlernen →</a></div></div></section>
+<section class="brand-section">
+  <div class="container prose">
+    <h2>{{ copy.details.title | safe }}</h2>
+    {{ ui.paragraphs(copy.details.paragraphs) }}
+    {{ ui.nextStep(copy.next) }}
+  </div>
+</section>

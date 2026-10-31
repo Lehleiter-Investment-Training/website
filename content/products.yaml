@@ -31,5 +31,6 @@ workbook:
 kurs:
   title: "Smartere Finanzentscheidungen mit KI"
   url: "/ki-kurs/"
+  image: "/assets/images/kurs-cover.png"
   # Preis bewusst nicht hier: aktueller Preis steht auf der Kursplattform.
   platformUrl: "https://kurs.just-options.de/ki-kurs.html?coupon=STARTANGEBOT"
