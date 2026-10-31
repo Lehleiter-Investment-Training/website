@@ -1,0 +1,35 @@
+# Produktdaten – einzige Quelle für Preise, ISBN, Seitenzahlen, Termine und Kauflinks.
+# Wird auf Startseite, Produktseiten, Danke-Seite, Quiz und im Book-JSON-LD verwendet.
+# ISBN und Datumswerte immer in Anführungszeichen (sonst Zahl/Datum statt Text).
+
+book:
+  title: "Optionen strategisch nutzen"
+  price: "24.00"                 # Maschinenformat (JSON-LD)
+  priceDisplay: "24,00 €"        # Anzeigeformat
+  pages: 218
+  format: "Taschenbuch"
+  isbn: "9783982686900"
+  datePublished: "2024-11-20"
+  datePublishedDisplay: "20. November 2024"
+  url: "/buch/"
+  image: "/assets/images/buchcover.png"
+  amazonUrl: "https://www.amazon.de/Optionen-strategisch-nutzen-investieren-Zusatzerträge/dp/3982686903/"
+
+workbook:
+  title: "Optionen strategisch nutzen – Workbook"
+  price: "19.99"
+  priceDisplay: "19,99 €"
+  pages: 200
+  format: "Taschenbuch"
+  isbn: "9783982686917"
+  datePublished: "2026-01-12"
+  datePublishedDisplay: "12. Januar 2026"
+  url: "/praxis-workbook/"
+  image: "/assets/images/workbook.png"
+  amazonUrl: "https://www.amazon.de/dp/3982686911"
+
+kurs:
+  title: "Smartere Finanzentscheidungen mit KI"
+  url: "/ki-kurs/"
+  # Preis bewusst nicht hier: aktueller Preis steht auf der Kursplattform.
+  platformUrl: "https://kurs.just-options.de/ki-kurs.html?coupon=STARTANGEBOT"

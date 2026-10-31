@@ -52,8 +52,8 @@ extraCss:
     "inLanguage": "de",
     "author": {
         "@type": "Person",
-        "name": "{{ site.author }}",
-        "jobTitle": "CFA, FRM",
+        "name": {{ author.name | dump | safe }},
+        "jobTitle": {{ author.credentialsShort | dump | safe }},
         "url": "{{ site.url }}"
     },
     {% if date %}"datePublished": "{{ date | isoDate }}",{% endif %}

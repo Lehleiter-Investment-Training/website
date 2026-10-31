@@ -1,0 +1,11 @@
+# Autorendaten – Startseite (Vertrauensleiste), Autorenbox im Blog, JSON-LD (Person, BlogPosting).
+name: "Markus Lehleiter"
+role: "Autor und Guide"
+experience: "Über 20 Jahre Finanzbranche"
+credentials: "CFA · FRM · Wirtschaftsmathematiker"
+credentialsShort: "CFA, FRM"
+jobTitle: "Autor & Optionshändler"
+# Kurzbiografie der Autorenbox unter jedem Blogartikel (HTML erlaubt)
+bioShort: "Über 20 Jahre Erfahrung im Finanzbereich – u.&nbsp;a. bei zwei namhaften Asset Managern. Chartered Financial Analyst (CFA), Financial Risk Manager (FRM) und Wirtschaftsmathematiker. Autor von „Optionen strategisch nutzen\" und dem zugehörigen Workbook. Er vermittelt den Optionshandel praxisnah und fundiert."
+profileUrl: "/ueber/"
+profileLinkLabel: "Über Markus Lehleiter &rarr;"

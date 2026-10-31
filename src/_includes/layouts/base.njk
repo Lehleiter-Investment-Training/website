@@ -1,3 +1,9 @@
+{#- Seiten mit pageKey: Titel/Beschreibung/Untertitel aus content/pages/<pageKey>.yaml (copy.meta) -#}
+{%- if copy and copy.meta -%}
+{%- if copy.meta.title %}{% set pageTitle = copy.meta.title %}{% endif -%}
+{%- if copy.meta.description %}{% set description = copy.meta.description %}{% endif -%}
+{%- if copy.meta.subtitle %}{% set subtitle = copy.meta.subtitle %}{% endif -%}
+{%- endif %}
 <!DOCTYPE html>
 <html lang="de"{% if schemaType %} itemscope itemtype="http://schema.org/{{ schemaType }}"{% endif %}>
 <head>

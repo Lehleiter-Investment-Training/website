@@ -274,6 +274,7 @@ module.exports = function(eleventyConfig) {
 
   // Watch targets
   eleventyConfig.addWatchTarget("src/assets/css/");
+  eleventyConfig.addWatchTarget("content/"); // redaktionelle YAML-Inhalte
 
   // Glossar-Verlinkung: markierte Fachbegriffe (<span class="key-term">) in
   // Blog-Artikeln zu internen Links auf das Glossar machen (Topical Authority + GEO).
