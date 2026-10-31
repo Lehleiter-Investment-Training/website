@@ -1,5 +1,5 @@
 // Glossar-Daten für den Optionshandel.
-// Werden serverseitig von src/bonus/glossar.njk gerendert (crawl- und zitierbar
+// Werden serverseitig von src/glossar.njk gerendert (crawl- und zitierbar
 // für Such- und KI-Engines) sowie als DefinedTermSet-Schema ausgegeben.
 // Die clientseitige Suche (assets/js/glossar.js) filtert nur das bereits
 // gerenderte HTML – die Daten leben ausschließlich hier.
