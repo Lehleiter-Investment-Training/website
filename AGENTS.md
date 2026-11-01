@@ -4,6 +4,7 @@
 
 ## Zuerst lesen
 - `docs/REQUIREMENTS.md` (Zweck, Anforderungen, Verbote, Definition of Done)
+- `docs/specs/` – ein Vorhaben pro Datei, Reihenfolge = Priorität. Status im Kopf der Spec pflegen.
 - `CLAUDE.md` – bestehende Projektregeln, gelten unverändert
 - `README.md`
 
