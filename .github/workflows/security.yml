@@ -1,0 +1,51 @@
+name: Security
+
+# Gate aus dem Portfolio-Audit (Abschnitt 6.6): Secret-Scan und Dependency-Audit.
+# Gitleaks prüft nur die neuen Commits eines PRs bzw. Pushs, damit bekannte,
+# separat behandelte Altlasten in der History nicht jeden PR blockieren.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Commit-Bereich bestimmen
+        id: range
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [ "$EVENT" = "pull_request" ]; then
+            echo "opts=$PR_BASE..$PR_HEAD" >> "$GITHUB_OUTPUT"
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            echo "opts=$BEFORE..$AFTER" >> "$GITHUB_OUTPUT"
+          else
+            echo "opts=-1" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Gitleaks
+        run: |
+          docker run --rm -v "$PWD:/repo" -w /repo ghcr.io/gitleaks/gitleaks:v8.24.0 \
+            detect --source /repo --redact --verbose --log-opts="${{ steps.range.outputs.opts }}"
+
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # Nur Laufzeit-Abhängigkeiten blockieren; Dev-Tooling wird nicht ausgeliefert.
+      - run: npm audit --omit=dev --audit-level=high
